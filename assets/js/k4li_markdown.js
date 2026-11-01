@@ -51,6 +51,12 @@
       ]
     },
     {
+      group: "🎮 Videojuego ANUSET 189 OMEGA (Kilonova Game)",
+      items: [
+        { id: "manual_kilonova", title: "Manual del Operador & Compendio Maestro", path: "docs/MANUAL_KILONOVA_GAME_OMEGA.md", icon: "🎮" }
+      ]
+    },
+    {
       group: "🏛️ Manifiesto & Perfil",
       items: [
         { id: "readme", title: "README Principal K4L1 Studio", path: "README.md", icon: "🏛️" },
