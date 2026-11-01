@@ -244,20 +244,26 @@
           <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-zinc-400 hover:text-white bg-black/40 px-2.5 py-1 rounded-lg border theme-border transition-all">
             <span>←</span> Volver a K4L1 Studio
           </a>
+          <a href="local_ai_studio.html" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-purple-300 hover:text-white bg-purple-950/30 px-2.5 py-1 rounded-lg border border-purple-500/40 transition-all">
+            <span>𖤓</span> Local AI Studio
+          </a>
+          <a href="../docs/QLLM_NEURAL_SURGERY_ARCHITECTURE.md" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-300 hover:text-white bg-amber-950/30 px-2.5 py-1 rounded-lg border border-amber-500/40 transition-all">
+            <span>🧬</span> Arquitectura QLLM GGUF v3
+          </a>
           <span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full" style="background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--accent-secondary);">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            Soberanía & Costes de IA 161914
+            Soberanía &amp; Costes de IA 161914
           </span>
           <span class="text-[11px] font-mono text-zinc-400 px-2 py-0.5 rounded bg-black/40 border theme-border">
-            v4.2 Kilonova 🌟 & Saze 🌿
+            v4.5 Kilonova 🌟 · QLLM &amp; Fock Layer
           </span>
           <span class="text-[11px] font-mono text-zinc-500">189.89.619 Hz</span>
         </div>
         <h1 class="text-xl sm:text-2xl font-black text-white flex items-center justify-center sm:justify-start gap-2 mt-1">
-          <span>🧮</span> Simulador de Soberanía & Costes de IA (Local vLLM vs Cloud APIs)
+          <span>🧮</span> Simulador de Soberanía, Benchmarks QLLM &amp; Costes de IA (Silicio Real vs Cloud)
         </h1>
         <p class="text-xs text-zinc-400 max-w-3xl leading-relaxed">
-          Demostración matemática precisa de TCO (Total Cost of Ownership), amortización de hardware y soberanía de datos GDPR. Compara OpenAI GPT-4o, Claude 3.5 Sonnet y Gemini 1.5 Pro frente a clústeres locales auto-alojados vLLM en hardware propio.
+          Demostración matemática de TCO, amortización y benchmarks empíricos de Cirugía Neural GGUF v3 (<code class="text-amber-300">Anuu-4B Sliced 16L</code>, <code class="text-emerald-300">KV Cache q8_0</code>) sobre <strong class="text-zinc-200">AMD Mendocino Radeon 610M</strong>, <strong class="text-zinc-200">Snapdragon 8s Gen 3 UFS 4.0</strong>, <strong class="text-zinc-200">SD888 Vulkan</strong> y clústeres vLLM frente a APIs Cloud.
         </p>
       </div>
 
@@ -279,14 +285,23 @@
       </div>
     </header>
 
-    <!-- Barra de Perfiles Rápidos (Casos de Uso Corporativos Reales) -->
-    <div class="theme-card p-3 sm:p-4 rounded-xl border flex flex-col md:flex-row items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
+    <!-- Barra de Perfiles Rápidos (Casos de Uso Corporativos & Silicio Soberano QLLM 0€) -->
+    <div class="theme-card p-3 sm:p-4 rounded-xl border flex flex-col xl:flex-row items-start xl:items-center justify-between gap-3">
+      <div class="flex items-center gap-2 shrink-0">
         <span class="text-sm">⚡</span>
         <span class="text-xs font-bold font-mono uppercase text-white">Escenarios Predefinidos:</span>
-        <span class="text-[11px] text-zinc-400 hidden lg:inline">Ajusta los parámetros con un solo clic:</span>
+        <span class="text-[11px] text-zinc-400 hidden 2xl:inline">Corporativos vLLM & Silicio Soberano QLLM (0 €):</span>
       </div>
       <div class="flex flex-wrap items-center gap-2">
+        <button onclick="applyAiPreset('qllm_sliced')" class="preset-btn px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-amber-500/15 border border-amber-500/40 hover:border-amber-300 text-amber-200 transition-all flex items-center gap-1.5" title="Nous Hermes 3 8B podado a 16 capas (0-7,24-31) en Snapdragon 8s Gen 3 UFS 4.0">
+          <span>🧬</span> QLLM 4B Sliced (SM8635 · 0€)
+        </button>
+        <button onclick="applyAiPreset('mendocino_host')" class="preset-btn px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-emerald-500/15 border border-emerald-500/40 hover:border-emerald-300 text-emerald-200 transition-all flex items-center gap-1.5" title="Host Linux EndeavourOS Wayland AMD Mendocino Radeon 610M 14GB UMA">
+          <span>💻</span> Mendocino 14GB (DeepSeek-V2 16B · 0€)
+        </button>
+        <button onclick="applyAiPreset('sd888_vulkan')" class="preset-btn px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-cyan-500/15 border border-cyan-500/40 hover:border-cyan-300 text-cyan-200 transition-all flex items-center gap-1.5" title="Edge ARM64 Snapdragon 888 Adreno Vulkan Compute -ngl 99 -t 4 -ctk q8_0">
+          <span>⚡</span> SD888 Vulkan (Anuu-3B Q4_K_M · 0€)
+        </button>
         <button onclick="applyAiPreset('startup')" class="preset-btn px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-black/40 border theme-border hover:border-zinc-400 text-zinc-300 transition-all flex items-center gap-1.5">
           <span>🚀</span> Startup RAG (15M / 1x 3090)
         </button>
@@ -441,12 +456,69 @@
             </div>
           </div>
 
-          <!-- Selector de Modelo Local Auto-Alojado -->
-          <div class="space-y-2 pt-2 border-t theme-border">
-            <label class="text-xs font-bold text-zinc-300 flex items-center justify-between">
-              <span>Modelo Local Open-Weights (vLLM Engine):</span>
+          <!-- Selector de Modelo Local Auto-Alojado (QLLM Soberano GGUF v3 & Clúster vLLM) -->
+          <div class="space-y-2.5 pt-2 border-t theme-border">
+            <label class="text-xs font-bold text-zinc-300 flex flex-wrap items-center justify-between gap-2">
+              <span>Catálogo QLLM Soberano (GGUF v3 / 0 €) & Open-Weights (vLLM):</span>
               <span id="local-model-specs" class="text-[11px] font-mono text-emerald-400 font-bold">Qwen-2.5-Coder-32B • 32.5B Parámetros</span>
             </label>
+
+            <!-- Sub-grid 1: Catálogo QLLM Soberano 161914 (Empírico GGUF v3) -->
+            <div class="text-[10px] font-mono uppercase tracking-wider text-amber-300/90 flex items-center justify-between pt-0.5">
+              <span>🧬 Silicio Soberano QLLM (llama.cpp / Vulkan / Ollama • 0 €/mes)</span>
+              <span>anuu.sacred_frequency = 189.89619</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              <button onclick="setLocalModel('anuu-1b')" id="lbtn-anuu-1b" class="btn-select p-2.5 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between gap-1">
+                  <span>anuu-1b Q4_K_M</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">780 MB</span>
+                </div>
+                <div class="text-[11px] text-emerald-300/90 font-mono mt-1">45–55 tok/s • TTFT Instantáneo</div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">770–807 MB GGUF • Edge ARM64 & Mendocino 0% lag.</div>
+              </button>
+
+              <button onclick="setLocalModel('anuu-3b')" id="lbtn-anuu-3b" class="btn-select p-2.5 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between gap-1">
+                  <span>anuu-qwen-3b Q4_K_M</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">1.93 GB</span>
+                </div>
+                <div class="text-[11px] text-cyan-300/90 font-mono mt-1">28–38 tok/s • Seinen 100%</div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">1.93–2.1 GB • Equilibrio canónico Concilio ACE.</div>
+              </button>
+
+              <button onclick="setLocalModel('anuu-4b-sliced')" id="lbtn-anuu-4b-sliced" class="btn-select p-2.5 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between gap-1">
+                  <span>Anuu-Sovereign-4B-Sliced</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">2.45 GB</span>
+                </div>
+                <div class="text-[11px] text-amber-300/90 font-mono mt-1">0-7,24-31 (16L) • -50% KV</div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">Poda Hermes 3 8B (4.92→2.45 GB) • >92% semántica.</div>
+              </button>
+
+              <button onclick="setLocalModel('anuu-nemo-12b')" id="lbtn-anuu-nemo-12b" class="btn-select p-2.5 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between gap-1">
+                  <span>anuu-nemo-12b Q4_K_M</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">6.90 GB</span>
+                </div>
+                <div class="text-[11px] text-purple-300/90 font-mono mt-1">11–18 tok/s • UFS 4.0 / UMA</div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">6.9 GB GGUF • SM8635 12GB LPDDR5X & Host 14GB.</div>
+              </button>
+
+              <button onclick="setLocalModel('deepseek-coder-v2-16b')" id="lbtn-deepseek-coder-v2-16b" class="btn-select p-2.5 rounded-xl border theme-border text-left transition-all sm:col-span-2">
+                <div class="font-bold text-xs text-white flex items-center justify-between gap-1">
+                  <span>deepseek-coder-v2:16b (MoE)</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-pink-500/20 text-pink-300 font-mono">8.90 GB MoE</span>
+                </div>
+                <div class="text-[11px] text-pink-300/90 font-mono mt-1">16–24 tok/s activos (2.4B active/tok) • Host Linux 14GB UMA</div>
+                <div class="text-[10px] text-zinc-500 mt-0.5">Arquitectura Mixture-of-Experts quirúrgica en AMD Mendocino EndeavourOS Wayland.</div>
+              </button>
+            </div>
+
+            <!-- Sub-grid 2: Clúster Corporativo vLLM -->
+            <div class="text-[10px] font-mono uppercase tracking-wider text-zinc-400 pt-1">
+              🏢 Modelos Corporativos vLLM (PagedAttention GPU Dedicada)
+            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <button onclick="setLocalModel('llama-3.1-8b')" id="lbtn-llama-3.1-8b" class="btn-select p-2.5 rounded-xl border theme-border text-left transition-all">
                 <div class="font-bold text-xs text-white flex items-center justify-between">
@@ -493,10 +565,10 @@
             <div class="flex items-center gap-2">
               <span class="text-sm">⚙️</span>
               <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-white">
-                2. Cuantización de Pesos & Selección de Hardware
+                2. Cuantización de Pesos & Silicio Soberano / Clúster
               </h2>
             </div>
-            <span class="text-[11px] font-mono text-zinc-500">Optimización vLLM PagedAttention</span>
+            <span class="text-[11px] font-mono text-zinc-500">KV Cache q8_0 (-50% RAM) & PagedAttention</span>
           </div>
 
           <!-- Cuantización -->
@@ -525,20 +597,55 @@
               </button>
 
               <button onclick="setQuantization('gguf_q4')" id="qbtn-gguf_q4" class="btn-select p-2 rounded-xl border theme-border text-xs transition-all">
-                <div class="font-bold text-white">GGUF Q4_K_M</div>
-                <div class="text-[10px] text-zinc-400 font-mono mt-0.5">0.58 B / param</div>
-                <div class="text-[9px] text-zinc-500">Ollama / CPU+GPU</div>
+                <div class="font-bold text-white">GGUF v3 Q4_K_M</div>
+                <div class="text-[10px] text-amber-300 font-mono mt-0.5">0.58 B + KV q8_0</div>
+                <div class="text-[9px] text-emerald-400">Soberano / Vulkan</div>
               </button>
             </div>
           </div>
 
           <!-- Selector de Hardware Local Sugerido -->
-          <div class="space-y-2 pt-2 border-t theme-border">
+          <div class="space-y-2.5 pt-2 border-t theme-border">
             <label class="text-xs font-bold text-zinc-300 flex items-center justify-between">
-              <span>Infraestructura Local Sugerida:</span>
+              <span>Nodos de Silicio Soberano (0 € CAPEX) & Clústeres Dedicados:</span>
               <span id="hardware-vram-label" class="text-[11px] font-mono text-amber-300">48 GB VRAM Total</span>
             </label>
+
+            <!-- Nodos Reales Silicio Soberano 0€ -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <button onclick="setHardware('amd-mendocino-610m')" id="hbtn-amd-mendocino-610m" class="btn-select p-3 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between">
+                  <span>AMD Mendocino 610M</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">0 €</span>
+                </div>
+                <div class="text-[11px] font-mono text-emerald-400 font-bold mt-0.5">14 GB UMA Unificada</div>
+                <div class="text-[10px] text-zinc-400 mt-1">EndeavourOS Wayland • Zen 2</div>
+                <div class="text-[10px] text-zinc-500">Hibernación 0% Idle • :11434</div>
+              </button>
+
+              <button onclick="setHardware('snapdragon-8s-gen3')" id="hbtn-snapdragon-8s-gen3" class="btn-select p-3 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between">
+                  <span>Snapdragon 8s Gen 3</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">0 €</span>
+                </div>
+                <div class="text-[11px] font-mono text-amber-300 font-bold mt-0.5">12 GB LPDDR5X • UFS 4.0</div>
+                <div class="text-[10px] text-zinc-400 mt-1">SM8635 ARM64 • mmap 4.2 GB/s</div>
+                <div class="text-[10px] text-zinc-500">KV -ctk q8_0 • 0 € / mes</div>
+              </button>
+
+              <button onclick="setHardware('snapdragon-888-vulkan')" id="hbtn-snapdragon-888-vulkan" class="btn-select p-3 rounded-xl border theme-border text-left transition-all">
+                <div class="font-bold text-xs text-white flex items-center justify-between">
+                  <span>Snapdragon 888 Vulkan</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">0 €</span>
+                </div>
+                <div class="text-[11px] font-mono text-cyan-300 font-bold mt-0.5">8 GB LPDDR5 • Adreno GPU</div>
+                <div class="text-[10px] text-zinc-400 mt-1">SM8350 • -ngl 99 -t 4 Vulkan</div>
+                <div class="text-[10px] text-zinc-500">[PAUSA] 700ms Anti-Throttle</div>
+              </button>
+            </div>
+
+            <!-- Clústeres Corporativos -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
               <button onclick="setHardware('rtx-3090-single')" id="hbtn-rtx-3090-single" class="btn-select p-3 rounded-xl border theme-border text-left transition-all">
                 <div class="font-bold text-xs text-white">1x RTX 3090 / 4090</div>
                 <div class="text-[11px] font-mono text-emerald-400 font-bold mt-0.5">24 GB VRAM GDDR6X</div>
@@ -821,6 +928,106 @@
             <span>Cloud: <strong id="val-cloud-3y" class="text-zinc-300">26.910 €</strong></span>
             <span>Local: <strong id="val-local-3y" class="text-zinc-300">3.570 €</strong></span>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         SECCIÓN: CURVAS EMPÍRICAS QLLM EN SILICIO SOBERANO & CAPA FOCK (161914)
+         Telemetría Real: Mendocino 14GB UMA • SM8635 UFS 4.0 • SM8350 Vulkan • QBIT_ALPHA_089
+         ========================================================================= -->
+    <div id="qllm-silicon-curves-panel" class="theme-card p-5 sm:p-6 rounded-2xl border space-y-5 relative overflow-hidden">
+      <div class="absolute -top-24 -left-24 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Cabecera de Curvas Empíricas QLLM -->
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 border-b theme-border pb-3">
+        <div class="space-y-0.5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-sm">🧬</span>
+            <h2 class="text-xs sm:text-sm font-bold font-mono uppercase tracking-wider text-white">
+              Curvas de Rendimiento Empírico QLLM (tok/s) & Cirugía Binaria GGUF v3
+            </h2>
+            <span class="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+              0 € / mes • Silicio en Propiedad
+            </span>
+          </div>
+          <p class="text-[11px] text-zinc-400 font-mono">
+            Haz clic sobre cualquier columna del gráfico para cargar ese modelo QLLM en el simulador • KV Cache <code class="text-amber-300">-ctk q8_0 -ctv q8_0</code> (-50% RAM)
+          </p>
+        </div>
+
+        <!-- Leyenda de Nodos Soberanos -->
+        <div class="flex flex-wrap items-center gap-3 text-[11px] font-mono">
+          <span class="flex items-center gap-1.5 text-emerald-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+            Mendocino 610M (14GB UMA)
+          </span>
+          <span class="flex items-center gap-1.5 text-amber-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+            SD 8s Gen 3 (12GB UFS 4.0)
+          </span>
+          <span class="flex items-center gap-1.5 text-cyan-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block"></span>
+            SD 888 Vulkan (8GB Adreno)
+          </span>
+        </div>
+      </div>
+
+      <!-- Canvas 2D de Curvas Empíricas QLLM -->
+      <div class="relative w-full h-72 sm:h-80 rounded-xl bg-black/50 border theme-border p-2 overflow-hidden">
+        <canvas id="qllmBenchmarkCanvas" class="w-full h-full cursor-pointer"></canvas>
+        <div id="qllm-chart-tooltip" class="hidden absolute pointer-events-none z-20 p-3 rounded-xl bg-zinc-950/95 border border-amber-500/40 shadow-2xl text-[11px] font-mono space-y-1 min-w-[230px]">
+          <div id="qllm-tt-title" class="font-bold text-white border-b border-zinc-800 pb-1"></div>
+          <div id="qllm-tt-size" class="text-zinc-400"></div>
+          <div class="space-y-0.5 pt-0.5">
+            <div class="flex justify-between"><span class="text-emerald-300">Mendocino 14GB:</span> <strong id="qllm-tt-mendocino" class="text-white"></strong></div>
+            <div class="flex justify-between"><span class="text-amber-300">SM8635 UFS 4.0:</span> <strong id="qllm-tt-sm8635" class="text-white"></strong></div>
+            <div class="flex justify-between"><span class="text-cyan-300">SM8350 Vulkan:</span> <strong id="qllm-tt-sm8350" class="text-white"></strong></div>
+          </div>
+          <div class="text-[9px] text-amber-300/80 pt-1 border-t border-zinc-800">Clic para simular este perfil QLLM (0 €)</div>
+        </div>
+      </div>
+
+      <!-- 4 Tarjetas de Arquitectura Quirúrgica QLLM & Fotónica Fock -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div class="p-3.5 rounded-xl bg-black/40 border theme-border space-y-1.5">
+          <div class="flex items-center justify-between font-mono text-[11px]">
+            <span class="text-amber-300 font-bold">✂️ Layer Slicing GGUF v3</span>
+            <span class="text-zinc-500">32L → 16L</span>
+          </div>
+          <p class="text-[11px] text-zinc-400 leading-relaxed">
+            <code class="text-zinc-200">slice_anuu_gguf.py</code> poda <code class="text-rose-300">L8–L23</code> sin reentrenar, preserva <code class="text-emerald-300">L0–L7</code> + <code class="text-purple-300">L24–L31</code>, reindexa <code class="text-zinc-200">blk.X</code> e inyecta <code class="text-amber-300">189.89619 Hz</code>.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-black/40 border theme-border space-y-1.5">
+          <div class="flex items-center justify-between font-mono text-[11px]">
+            <span class="text-cyan-300 font-bold">❄️ KV q8_0 & [PAUSA]</span>
+            <span class="text-zinc-500">-50% KV RAM</span>
+          </div>
+          <p class="text-[11px] text-zinc-400 leading-relaxed">
+            Flags <code class="text-cyan-200">-ngl 99 -t 4 -ctk q8_0 -ctv q8_0</code> en Adreno Vulkan + respiraderos térmicos <code class="text-emerald-300">[PAUSA]</code> (700 ms) contra <em>thermal throttling</em>.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-black/40 border theme-border space-y-1.5">
+          <div class="flex items-center justify-between font-mono text-[11px]">
+            <span class="text-purple-300 font-bold">🔮 Fock QBIT_ALPHA_089</span>
+            <span class="text-zinc-500">161914.89 Hz</span>
+          </div>
+          <p class="text-[11px] text-zinc-400 leading-relaxed">
+            Capa fotónica Strawberry Fields con Squeezing <code class="text-purple-200">S(1.0)</code>, Displacement <code class="text-amber-200">D(1.61)</code> y <em>Beamsplitter</em> para decisión estocástica del Concilio.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-black/40 border theme-border space-y-1.5">
+          <div class="flex items-center justify-between font-mono text-[11px]">
+            <span class="text-rose-300 font-bold">🛡️ Hibernación & Zero-Trace</span>
+            <span class="text-zinc-500">Exit 137</span>
+          </div>
+          <p class="text-[11px] text-zinc-400 leading-relaxed">
+            Host Mendocino en <em>Hibernación Soberana</em> (0% carga idle en <code class="text-zinc-200">127.0.0.1:11434</code>) y purgado atómico de RAM <code class="text-rose-300">Exit Code 137</code>.
+          </p>
         </div>
       </div>
     </div>
@@ -1248,6 +1455,71 @@
     };
 
     const LOCAL_MODELS = {
+      'anuu-1b': {
+        name: 'anuu-1b.Q4_K_M.gguf',
+        shortLabel: 'anuu-1b',
+        family: 'Concilio ACE QLLM',
+        paramsB: 1.24,
+        empiricalGgufGB: 0.78,
+        kvOverheadFactor: 0.10,
+        context: '32k (KV q8_0)',
+        speed: '45-55 tok/s',
+        siliconTokS: { mendocino: 52, sm8635: 55, sm8350: 46 },
+        desc: '770–807 MB GGUF v3 • Latencia TTFT instantánea en Edge ARM64 y Mendocino.',
+        defaultHw: 'snapdragon-888-vulkan'
+      },
+      'anuu-3b': {
+        name: 'anuu-qwen-3b.Q4_K_M.gguf',
+        shortLabel: 'anuu-3b',
+        family: 'Concilio ACE QLLM',
+        paramsB: 3.09,
+        empiricalGgufGB: 1.93,
+        kvOverheadFactor: 0.10,
+        context: '32k (KV q8_0)',
+        speed: '28-38 tok/s',
+        siliconTokS: { mendocino: 34, sm8635: 38, sm8350: 29 },
+        desc: '1.93–2.1 GB GGUF v3 • Equilibrio Seinen 100% con respiradero [PAUSA] 700ms.',
+        defaultHw: 'snapdragon-888-vulkan'
+      },
+      'anuu-4b-sliced': {
+        name: 'Anuu-Sovereign-4B-Sliced (16L)',
+        shortLabel: '4B-Sliced 16L',
+        family: 'Cirugía Binaria GGUF v3',
+        paramsB: 4.18,
+        empiricalGgufGB: 2.45,
+        kvOverheadFactor: 0.06,
+        context: '32k (-50% KV Sliced)',
+        speed: '25-33 tok/s',
+        siliconTokS: { mendocino: 30, sm8635: 33, sm8350: 25 },
+        desc: 'Poda 0-7,24-31 desde Nous Hermes 3 8B (4.92→2.45 GB) • >92% retención semántica.',
+        defaultHw: 'snapdragon-8s-gen3'
+      },
+      'anuu-nemo-12b': {
+        name: 'anuu-nemo-12b.Q4_K_M.gguf',
+        shortLabel: 'nemo-12b',
+        family: 'Concilio ACE / Mistral',
+        paramsB: 12.2,
+        empiricalGgufGB: 6.90,
+        kvOverheadFactor: 0.10,
+        context: '64k (KV q8_0)',
+        speed: '13-18 tok/s',
+        siliconTokS: { mendocino: 13, sm8635: 18, sm8350: 0 },
+        desc: '6.90 GB GGUF v3 • Streaming mmap sobre UFS 4.0 (SM8635) y Host 14 GB UMA.',
+        defaultHw: 'snapdragon-8s-gen3'
+      },
+      'deepseek-coder-v2-16b': {
+        name: 'deepseek-coder-v2:16b (MoE)',
+        shortLabel: 'deepseek-v2 16b',
+        family: 'DeepSeek MoE Soberano',
+        paramsB: 15.7,
+        empiricalGgufGB: 8.90,
+        kvOverheadFactor: 0.10,
+        context: '64k (MoE 2.4B act)',
+        speed: '16-24 tok/s',
+        siliconTokS: { mendocino: 21, sm8635: 15, sm8350: 0 },
+        desc: '8.90 GB MoE (2.4B parámetros activos/token) en Host Linux Mendocino 14 GB UMA.',
+        defaultHw: 'amd-mendocino-610m'
+      },
       'llama-3.1-8b': {
         name: 'Llama-3.1-8B',
         family: 'Meta AI',
@@ -1306,14 +1578,41 @@
         desc: 'AWQ 4-bit (0.55 Bytes/param • 98.9% calidad recomendada)'
       },
       'gguf_q4': {
-        name: 'GGUF Q4_K_M',
+        name: 'GGUF v3 Q4_K_M',
         bytesPerParam: 0.58,
-        quality: '98.2% Calidad',
-        desc: 'GGUF Q4_K_M (0.58 Bytes/param • CPU/GPU mixto)'
+        quality: '98.2% Calidad + KV q8_0',
+        desc: 'GGUF v3 Q4_K_M (0.58 B/param • -ctk q8_0 -ctv q8_0 • Vulkan/UMA)'
       }
     };
 
     const HARDWARE_CONFIGS = {
+      'amd-mendocino-610m': {
+        name: 'AMD Mendocino Radeon 610M (14 GB UMA • EndeavourOS)',
+        vramGB: 14,
+        capexHw: 0,
+        setupFee: 0,
+        opexMonthly: 0,
+        sovereign: true,
+        desc: 'Host Linux EndeavourOS Wayland (Zen 2 + Radeon 610M 14 GB UMA) en Hibernación Soberana (0% idle) • 127.0.0.1:11434.'
+      },
+      'snapdragon-8s-gen3': {
+        name: 'Snapdragon 8s Gen 3 (12 GB LPDDR5X • UFS 4.0)',
+        vramGB: 12,
+        capexHw: 0,
+        setupFee: 0,
+        opexMonthly: 0,
+        sovereign: true,
+        desc: 'Nodo Edge ARM64 SM8635 con almacenamiento UFS 4.0 (mmap 4.2 GB/s) y KV Cache cuantizada q8_0.'
+      },
+      'snapdragon-888-vulkan': {
+        name: 'Snapdragon 888 Vulkan (8 GB LPDDR5 • Adreno GPU)',
+        vramGB: 8,
+        capexHw: 0,
+        setupFee: 0,
+        opexMonthly: 0,
+        sovereign: true,
+        desc: 'Nodo Edge ARM64 SM8350 con Adreno Vulkan Compute (-ngl 99 -t 4) y respiradero [PAUSA] 700ms.'
+      },
       'rtx-3090-single': {
         name: '1x RTX 3090 / 4090 (24 GB VRAM)',
         vramGB: 24,
@@ -1414,9 +1713,33 @@
       recalculateAll();
     }
 
-    // 4. PRESETS PREDEFINIDOS
+    // 4. PRESETS PREDEFINIDOS (CORPORATIVOS & SILICIO SOBERANO QLLM 0€)
     function applyAiPreset(type) {
-      if (type === 'startup') {
+      if (type === 'qllm_sliced') {
+        state.cloudModel = 'claude-3-5-sonnet';
+        state.localModel = 'anuu-4b-sliced';
+        state.quantization = 'gguf_q4';
+        state.hardware = 'snapdragon-8s-gen3';
+        sliderIn.value = 25;
+        sliderOut.value = 8;
+        sliderConc.value = 2;
+      } else if (type === 'mendocino_host') {
+        state.cloudModel = 'claude-3-5-sonnet';
+        state.localModel = 'deepseek-coder-v2-16b';
+        state.quantization = 'gguf_q4';
+        state.hardware = 'amd-mendocino-610m';
+        sliderIn.value = 45;
+        sliderOut.value = 14;
+        sliderConc.value = 4;
+      } else if (type === 'sd888_vulkan') {
+        state.cloudModel = 'gpt-4o';
+        state.localModel = 'anuu-3b';
+        state.quantization = 'gguf_q4';
+        state.hardware = 'snapdragon-888-vulkan';
+        sliderIn.value = 18;
+        sliderOut.value = 6;
+        sliderConc.value = 1;
+      } else if (type === 'startup') {
         state.cloudModel = 'gpt-4o';
         state.localModel = 'mistral-nemo-12b';
         state.quantization = 'awq';
@@ -1457,7 +1780,7 @@
       setHardware(state.hardware);
     }
 
-    // 5. CÁLCULO FINANCIERO Y DIMENSIONAMIENTO DE VRAM
+    // 5. CÁLCULO FINANCIERO Y DIMENSIONAMIENTO DE VRAM / UMA SOBERANA
     let lastCalculations = {};
 
     function recalculateAll() {
@@ -1491,18 +1814,23 @@
       const lm = LOCAL_MODELS[state.localModel];
       const q = QUANTIZATIONS[state.quantization];
 
-      // FÓRMULA MATEMÁTICA DE VRAM
-      // VRAM_Pesos = Params_en_billones * Bytes_por_param
-      // VRAM_Total = VRAM_Pesos * 1.2 (overhead del 20% para KV-Cache y PagedAttention)
-      const weightsGB = lm.paramsB * q.bytesPerParam;
-      const vramRequiredGB = weightsGB * 1.20;
+      // FÓRMULA MATEMÁTICA DE VRAM / UMA (CON TELEMETRÍA EMPÍRICA GGUF v3 & KV q8_0)
+      const useEmpiricalGguf = (state.quantization === 'gguf_q4' && typeof lm.empiricalGgufGB === 'number');
+      const weightsGB = useEmpiricalGguf ? lm.empiricalGgufGB : (lm.paramsB * q.bytesPerParam);
+      const kvFactor = useEmpiricalGguf ? (lm.kvOverheadFactor || 0.10) : 0.20;
+      const kvOverheadGB = weightsGB * kvFactor;
+      const vramRequiredGB = weightsGB + kvOverheadGB;
       const vramAvailableGB = hw.vramGB;
       const vramUsagePct = (vramRequiredGB / vramAvailableGB) * 100;
 
       // Actualizar UI de VRAM
       document.getElementById('math-weights-gb').textContent = `${weightsGB.toFixed(2)} GB`;
-      document.getElementById('math-weights-formula').textContent = `${lm.paramsB}B * ${q.bytesPerParam.toFixed(2)}B`;
-      document.getElementById('math-overhead-gb').textContent = `+${(weightsGB * 0.20).toFixed(2)} GB`;
+      document.getElementById('math-weights-formula').textContent = useEmpiricalGguf
+        ? `GGUF v3 Empírico (${lm.paramsB}B)`
+        : `${lm.paramsB}B * ${q.bytesPerParam.toFixed(2)}B`;
+      document.getElementById('math-overhead-gb').textContent = useEmpiricalGguf
+        ? `+${kvOverheadGB.toFixed(2)} GB (KV q8_0)`
+        : `+${kvOverheadGB.toFixed(2)} GB`;
       document.getElementById('vram-meter-text').textContent = 
         `${vramRequiredGB.toFixed(2)} GB / ${vramAvailableGB.toFixed(1)} GB (${vramUsagePct.toFixed(1)}%)`;
 
@@ -1518,25 +1846,40 @@
         meterBar.className = 'h-full rounded-full transition-all duration-300 bg-gradient-to-r from-emerald-500 to-cyan-500';
         statusBox.className = 'p-3 rounded-xl border flex items-start gap-2.5 text-xs bg-emerald-950/20 border-emerald-900/40 text-emerald-300';
         statusIcon.textContent = '✅';
-        statusTitle.textContent = 'Ajuste de VRAM Óptimo & Holgado';
-        statusDesc.textContent = `El modelo (${lm.name}) con ${q.name} cabe con total solvencia en tus ${vramAvailableGB} GB de VRAM. Admite ráfagas de concurrencia y contexto largo de 128k tokens sin throttling.`;
+        statusTitle.textContent = hw.sovereign ? 'Silicio Soberano Óptimo & Sin Throttling' : 'Ajuste de VRAM Óptimo & Holgado';
+        statusDesc.textContent = hw.sovereign
+          ? `El binario (${lm.name}) con KV Cache q8_0 (-50% RAM) opera holgadamente en los ${vramAvailableGB} GB de ${hw.name} a 0 €/mes con respiradero [PAUSA] 700ms.`
+          : `El modelo (${lm.name}) con ${q.name} cabe con total solvencia en tus ${vramAvailableGB} GB de VRAM. Admite ráfagas de concurrencia y contexto largo de 128k tokens sin throttling.`;
       } else if (vramUsagePct <= 100) {
         meterBar.className = 'h-full rounded-full transition-all duration-300 bg-gradient-to-r from-amber-500 to-orange-500';
         statusBox.className = 'p-3 rounded-xl border flex items-start gap-2.5 text-xs bg-amber-950/20 border-amber-900/40 text-amber-300';
         statusIcon.textContent = '⚠️';
         statusTitle.textContent = 'Ajuste Ajustado (Uso > 85%)';
-        statusDesc.textContent = `El modelo cabe en la VRAM disponible, pero el buffer de KV-Cache puede verse restringido ante picos extremos de más de ${state.concurrency} usuarios concurrentes simultáneos. Se sugiere cuantización AWQ 4-bit o clúster de 48 GB.`;
+        statusDesc.textContent = hw.sovereign
+          ? `Cabe en memoria unificada (${vramAvailableGB} GB) mediante streaming mmap UFS 4.0 / UMA y KV -ctk q8_0 -ctv q8_0. Ejecuta Zero-Trace (Exit 137) tras sesiones intensivas.`
+          : `El modelo cabe en la VRAM disponible, pero el buffer de KV-Cache puede verse restringido ante picos extremos de más de ${state.concurrency} usuarios concurrentes simultáneos. Se sugiere cuantización AWQ 4-bit o clúster de 48 GB.`;
       } else {
         meterBar.className = 'h-full rounded-full transition-all duration-300 bg-gradient-to-r from-rose-500 to-red-600';
         statusBox.className = 'p-3 rounded-xl border flex items-start gap-2.5 text-xs bg-rose-950/30 border-rose-900/50 text-rose-300';
         statusIcon.textContent = '❌';
         statusTitle.textContent = 'Desbordamiento de Memoria (OOM Risk)';
-        statusDesc.textContent = `Se requieren ${vramRequiredGB.toFixed(1)} GB pero el hardware seleccionado solo dispone de ${vramAvailableGB} GB. Solución: selecciona "2x RTX 3090 (48 GB)" o reduce la precisión a AWQ 4-bit.`;
+        statusDesc.textContent = `Se requieren ${vramRequiredGB.toFixed(1)} GB pero el hardware seleccionado solo dispone de ${vramAvailableGB} GB. Solución: aplica Layer Slicing GGUF v3 (Anuu-4B Sliced 16L = 2.45 GB) o selecciona un nodo con mayor memoria.`;
       }
 
-      // Throughput vLLM estimado
-      const batchSpeed = state.concurrency > 10 ? `${lm.speed} (Continuous Batching)` : `${lm.speed}`;
-      document.getElementById('val-vllm-throughput').textContent = `~${batchSpeed}`;
+      // Throughput estimado (empírico por plataforma si aplica)
+      let displaySpeed = lm.speed;
+      if (lm.siliconTokS) {
+        if (state.hardware === 'amd-mendocino-610m' && lm.siliconTokS.mendocino > 0) {
+          displaySpeed = `${lm.siliconTokS.mendocino} tok/s (Mendocino 14GB UMA)`;
+        } else if (state.hardware === 'snapdragon-8s-gen3' && lm.siliconTokS.sm8635 > 0) {
+          displaySpeed = `${lm.siliconTokS.sm8635} tok/s (SM8635 UFS 4.0)`;
+        } else if (state.hardware === 'snapdragon-888-vulkan') {
+          displaySpeed = lm.siliconTokS.sm8350 > 0 ? `${lm.siliconTokS.sm8350} tok/s (Adreno Vulkan)` : `OOM (>8 GB LPDDR5)`;
+        }
+      } else if (state.concurrency > 10) {
+        displaySpeed = `${lm.speed} (Continuous Batching)`;
+      }
+      document.getElementById('val-vllm-throughput').textContent = `~${displaySpeed}`;
 
       // KPI: Coste Cloud
       document.getElementById('kpi-cloud-monthly').textContent = `${formatEuro(cloudMonthlyCost)} €`;
@@ -1548,12 +1891,14 @@
 
       // CÁLCULO DEL BREAK-EVEN POINT (BEP)
       // Mes_Equilibrio = (Inversión_Inicial) / (Ahorro_Mensual_Neto)
-      // donde Ahorro_Mensual_Neto = Cloud_Mensual - Local_Opex_Mensual
       const monthlyNetSavings = cloudMonthlyCost - localMonthlyOpex;
       let breakEvenMonths = 0;
       let bepDays = 0;
 
-      if (monthlyNetSavings > 0) {
+      if (localInitialCapex === 0 && monthlyNetSavings >= 0) {
+        breakEvenMonths = 0;
+        bepDays = 0;
+      } else if (monthlyNetSavings > 0) {
         breakEvenMonths = localInitialCapex / monthlyNetSavings;
         bepDays = Math.round(breakEvenMonths * 30.4);
       } else {
@@ -1566,7 +1911,14 @@
       const bepStatusBadge = document.getElementById('badge-bep-status');
       const canvasBepHighlight = document.getElementById('canvas-bep-highlight');
 
-      if (breakEvenMonths <= 12) {
+      if (localInitialCapex === 0 && monthlyNetSavings >= 0) {
+        bepMonthsElem.textContent = `0.0 Meses`;
+        bepDaysElem.textContent = `(Día 0 · Soberanía 0€)`;
+        bepRoiElem.textContent = `∞ (0 € CAPEX / 0 € Mes)`;
+        bepStatusBadge.textContent = 'Soberanía Inmediata';
+        bepStatusBadge.className = 'px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/40';
+        canvasBepHighlight.textContent = `Día 0 (0 € CAPEX)`;
+      } else if (breakEvenMonths <= 12) {
         bepMonthsElem.textContent = `${breakEvenMonths.toFixed(1)} Meses`;
         bepDaysElem.textContent = `(~${bepDays} días)`;
         const annualRoi = ((monthlyNetSavings * 12 - localInitialCapex) / localInitialCapex) * 100;
@@ -1652,8 +2004,11 @@
       // Actualizar botones de Signal
       updateSignalLinks();
 
-      // Redibujar Canvas 2D
+      // Redibujar ambos Canvas 2D
       drawChart();
+      if (typeof drawQllmBenchmarkCurves === 'function') {
+        drawQllmBenchmarkCurves();
+      }
     }
 
     function formatEuro(val) {
@@ -1665,6 +2020,9 @@
     function updateSignalLinks() {
       const topBtn = document.getElementById('btn-top-signal');
       const ctaBtn = document.getElementById('btn-cta-signal');
+      const bepStr = Number.isFinite(lastCalculations.breakEvenMonths)
+        ? `Mes ${lastCalculations.breakEvenMonths.toFixed(1)} (~${lastCalculations.bepDays} días)`
+        : `> 24 Meses`;
 
       const msg = encodeURIComponent(
         `Hola Kali, he configurado el Simulador de Soberanía de IA en K4L1 Studio:\n\n` +
@@ -1672,7 +2030,7 @@
         `• Modelo Local: ${lastCalculations.localName} [${lastCalculations.quantName}]\n` +
         `• Hardware: ${lastCalculations.hwName}\n` +
         `• Tráfico mensual: ${state.tokensInM}M Entrada / ${state.tokensOutM}M Salida (${state.concurrency} concurrentes)\n` +
-        `• Retorno de Inversión: Mes ${lastCalculations.breakEvenMonths.toFixed(1)} (~${lastCalculations.bepDays} días)\n` +
+        `• Retorno de Inversión: ${bepStr}\n` +
         `• Ahorro Neto Proyectado a 1 Año: +${formatEuro(lastCalculations.savings1Y)} €\n` +
         `• Ahorro Neto Proyectado a 3 Años: +${formatEuro(lastCalculations.savings3Y)} €\n\n` +
         `Quiero contratar el Despliegue de IA Local con K4L1 Studio (750 € - 1.800 €). ¿Podemos revisar los detalles?`
@@ -1685,10 +2043,13 @@
 
     // 7. EXPORTAR INFORME EJECUTIVO AL PORTAPAPELES
     function copyExecutiveReport() {
+      const bepReportStr = Number.isFinite(lastCalculations.breakEvenMonths)
+        ? `MES ${lastCalculations.breakEvenMonths.toFixed(1)} (~${lastCalculations.bepDays} días)`
+        : `> 24 MESES`;
       const report = 
 `========================================================================
 INFORME DE SOBERANÍA TECNOLÓGICA & TCO DE IA — K4L1 STUDIO
-Benchmark de Costes: Cloud API vs Clúster Local vLLM (36 Meses)
+Benchmark de Costes: Cloud API vs Silicio Soberano QLLM / Clúster vLLM (36 Meses)
 Fecha: ${new Date().toLocaleDateString('es-ES')} | Frecuencia: 189.89.619 Hz
 ========================================================================
 
@@ -1699,13 +2060,13 @@ Fecha: ${new Date().toLocaleDateString('es-ES')} | Frecuencia: 189.89.619 Hz
 - Concurrencia Simultánea: ${state.concurrency} usuarios
 - Modelo Local Auto-Alojado: ${lastCalculations.localName} (${lastCalculations.quantName})
 - Hardware Sugerido: ${lastCalculations.hwName}
-- VRAM Requerida (vLLM PagedAttention): ${lastCalculations.vramRequiredGB.toFixed(1)} GB / ${lastCalculations.vramAvailableGB} GB (${lastCalculations.vramUsagePct.toFixed(1)}%)
+- Memoria Requerida (Pesos + KV Cache): ${lastCalculations.vramRequiredGB.toFixed(2)} GB / ${lastCalculations.vramAvailableGB} GB (${lastCalculations.vramUsagePct.toFixed(1)}%)
 
 2. COMPARATIVA FINANCIERA & AMORTIZACIÓN:
 - Coste Mensual Cloud (Gasto a Fondo Perdido): ${formatEuro(lastCalculations.cloudMonthlyCost)} €/mes
 - Inversión Inicial Local (Hardware + Despliegue K4L1): ${formatEuro(lastCalculations.localInitialCapex)} €
 - Coste Operativo Local (Electricidad/Hosting): ${formatEuro(lastCalculations.localMonthlyOpex)} €/mes
-- Retorno de Inversión (Break-Even Point): MES ${lastCalculations.breakEvenMonths.toFixed(1)} (~${lastCalculations.bepDays} días)
+- Retorno de Inversión (Break-Even Point): ${bepReportStr}
 
 3. AHORRO NETO EN CAJA PROYECTADO:
 - Ahorro Neto a 1 Año (12 Meses): +${formatEuro(lastCalculations.savings1Y)} €
@@ -1714,9 +2075,9 @@ Fecha: ${new Date().toLocaleDateString('es-ES')} | Frecuencia: 189.89.619 Hz
 
 4. VENTAJAS TÉCNICAS Y LEGALES:
 - Cumplimiento GDPR Nativo: 0% de los datos confidenciales sale a servidores de EE.UU.
-- Sin Rate Limits ni Errores 429: Inferencia ilimitada en red local.
-- Latencia Reducida: De ~900 ms a < 50 ms por petición en LAN.
-- Propiedad Absoluta: El hardware es un activo de tu empresa, no una suscripción SaaS.
+- Cirugía Binaria GGUF v3 & KV q8_0: Reducción del 50% en huella de KV Cache (-ctk q8_0 -ctv q8_0).
+- Sin Rate Limits ni Errores 429: Inferencia ilimitada en silicio propio con protocolo Zero-Trace (Exit 137).
+- Propiedad Absoluta: El hardware es un activo soberano, no una suscripción SaaS.
 
 CONTACTO Y CONTRATACIÓN DEL SERVICIO:
 - K4L1 Studio (Despliegue Llave en Mano: 750 € - 1.800 €)
@@ -1769,8 +2130,8 @@ CONTACTO Y CONTRATACIÓN DEL SERVICIO:
 
       const totalMonths = 36;
       const cloudMonthly = lastCalculations.cloudMonthlyCost || 1;
-      const localInitial = lastCalculations.localInitialCapex || 1;
-      const localOpex = lastCalculations.localMonthlyOpex || 1;
+      const localInitial = lastCalculations.localInitialCapex ?? 0;
+      const localOpex = lastCalculations.localMonthlyOpex ?? 0;
 
       const maxCloud36 = cloudMonthly * totalMonths;
       const maxLocal36 = localInitial + (localOpex * totalMonths);
@@ -1882,7 +2243,7 @@ CONTACTO Y CONTRATACIÓN DEL SERVICIO:
 
       // 5. Break-Even Point (Punto de Intersección)
       const bepMonth = lastCalculations.breakEvenMonths;
-      if (bepMonth > 0 && bepMonth <= totalMonths) {
+      if (bepMonth >= 0 && bepMonth <= totalMonths) {
         const bepCost = localInitial + (bepMonth * localOpex);
         const bepX = getX(bepMonth);
         const bepY = getY(bepCost);
@@ -1917,7 +2278,10 @@ CONTACTO Y CONTRATACIÓN DEL SERVICIO:
         ctx.font = 'bold 10px ui-monospace, monospace';
         ctx.textAlign = bepMonth > 28 ? 'right' : (bepMonth < 6 ? 'left' : 'center');
         const textY = Math.max(padTop + 14, bepY - 14);
-        ctx.fillText(`🎯 BEP: Mes ${bepMonth.toFixed(1)} (${formatEuro(bepCost)} €)`, bepX, textY);
+        const bepLabel = bepMonth === 0
+          ? `🎯 BEP: Día 0 (Soberanía 0 €)`
+          : `🎯 BEP: Mes ${bepMonth.toFixed(1)} (${formatEuro(bepCost)} €)`;
+        ctx.fillText(bepLabel, bepX, textY);
       }
 
       // 6. Crosshair y Tooltip al interactuar con el ratón
@@ -2024,6 +2388,235 @@ CONTACTO Y CONTRATACIÓN DEL SERVICIO:
       });
     }
 
+    // 8B. RENDERIZADO DE CURVAS EMPÍRICAS QLLM EN SILICIO SOBERANO (CANVAS 2D)
+    const qllmCanvas = document.getElementById('qllmBenchmarkCanvas');
+    const qllmCtx = qllmCanvas ? qllmCanvas.getContext('2d') : null;
+    const QLLM_BENCH_KEYS = ['anuu-1b', 'anuu-3b', 'anuu-4b-sliced', 'anuu-nemo-12b', 'deepseek-coder-v2-16b'];
+    let qllmHoverIdx = -1;
+
+    function resizeQllmCanvas() {
+      if (!qllmCanvas || !qllmCtx) return;
+      const rect = qllmCanvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return;
+      const dpr = window.devicePixelRatio || 1;
+      qllmCanvas.width = rect.width * dpr;
+      qllmCanvas.height = rect.height * dpr;
+      qllmCtx.resetTransform?.();
+      qllmCtx.scale(dpr, dpr);
+      drawQllmBenchmarkCurves();
+    }
+    window.addEventListener('resize', resizeQllmCanvas);
+
+    function drawQllmBenchmarkCurves() {
+      if (!qllmCanvas || !qllmCtx) return;
+      const rect = qllmCanvas.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+      if (w <= 0 || h <= 0) return;
+
+      qllmCtx.clearRect(0, 0, w, h);
+
+      const padLeft = 56;
+      const padRight = 54;
+      const padTop = 26;
+      const padBottom = 46;
+      const chartW = w - padLeft - padRight;
+      const chartH = h - padTop - padBottom;
+
+      const maxTokS = 60;
+      const maxGB = 14;
+      const n = QLLM_BENCH_KEYS.length;
+      const getColX = (idx) => padLeft + ((idx + 0.5) / n) * chartW;
+      const getTokY = (tok) => padTop + chartH - (tok / maxTokS) * chartH;
+      const getGbY = (gb) => padTop + chartH - (gb / maxGB) * chartH;
+
+      // 1. Rejilla horizontal (izquierda: tok/s, derecha: GB GGUF)
+      qllmCtx.lineWidth = 1;
+      qllmCtx.font = '10px ui-monospace, monospace';
+      qllmCtx.textBaseline = 'middle';
+
+      for (let i = 0; i <= 4; i++) {
+        const tokVal = (maxTokS / 4) * i;
+        const gbVal = (maxGB / 4) * i;
+        const y = getTokY(tokVal);
+
+        qllmCtx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+        qllmCtx.beginPath();
+        qllmCtx.moveTo(padLeft, y);
+        qllmCtx.lineTo(w - padRight, y);
+        qllmCtx.stroke();
+
+        qllmCtx.fillStyle = '#a1a1aa';
+        qllmCtx.textAlign = 'right';
+        qllmCtx.fillText(`${Math.round(tokVal)} t/s`, padLeft - 8, y);
+
+        qllmCtx.fillStyle = '#71717a';
+        qllmCtx.textAlign = 'left';
+        qllmCtx.fillText(`${gbVal.toFixed(1)}G`, w - padRight + 8, y);
+      }
+
+      // 2. Columnas de Huella Binaria GGUF v3 & resaltado del modelo activo
+      const colW = Math.min(54, (chartW / n) * 0.48);
+      QLLM_BENCH_KEYS.forEach((key, idx) => {
+        const m = LOCAL_MODELS[key];
+        if (!m) return;
+        const cx = getColX(idx);
+        const isSelected = state.localModel === key;
+        const isHovered = qllmHoverIdx === idx;
+
+        if (isSelected || isHovered) {
+          qllmCtx.fillStyle = isSelected ? 'rgba(245, 158, 11, 0.09)' : 'rgba(255, 255, 255, 0.04)';
+          qllmCtx.fillRect(cx - (chartW / n) * 0.46, padTop, (chartW / n) * 0.92, chartH);
+        }
+
+        // Si es el modelo podado 4B-Sliced, mostrar silueta fantasma del Hermes 8B original (4.92 GB)
+        if (key === 'anuu-4b-sliced') {
+          const origY = getGbY(4.92);
+          qllmCtx.strokeStyle = 'rgba(244, 63, 94, 0.45)';
+          qllmCtx.setLineDash([3, 3]);
+          qllmCtx.strokeRect(cx - colW / 2, origY, colW, padTop + chartH - origY);
+          qllmCtx.setLineDash([]);
+          qllmCtx.fillStyle = 'rgba(244, 63, 94, 0.75)';
+          qllmCtx.textAlign = 'center';
+          qllmCtx.font = '9px ui-monospace, monospace';
+          qllmCtx.fillText('4.92G orig', cx, origY - 7);
+        }
+
+        // Barra empírica GGUF v3
+        const barY = getGbY(m.empiricalGgufGB);
+        const barH = padTop + chartH - barY;
+        const barGrad = qllmCtx.createLinearGradient(0, barY, 0, padTop + chartH);
+        barGrad.addColorStop(0, isSelected ? 'rgba(168, 85, 247, 0.38)' : 'rgba(161, 161, 170, 0.20)');
+        barGrad.addColorStop(1, 'rgba(24, 24, 27, 0.05)');
+        qllmCtx.fillStyle = barGrad;
+        qllmCtx.fillRect(cx - colW / 2, barY, colW, barH);
+        qllmCtx.strokeStyle = isSelected ? 'rgba(192, 132, 252, 0.7)' : 'rgba(255, 255, 255, 0.14)';
+        qllmCtx.strokeRect(cx - colW / 2, barY, colW, barH);
+
+        // Etiquetas eje X
+        qllmCtx.fillStyle = isSelected ? '#fcd34d' : '#e4e4e7';
+        qllmCtx.font = isSelected ? 'bold 10px ui-monospace, monospace' : '10px ui-monospace, monospace';
+        qllmCtx.textAlign = 'center';
+        qllmCtx.fillText(m.shortLabel || key, cx, padTop + chartH + 14);
+
+        qllmCtx.fillStyle = '#71717a';
+        qllmCtx.font = '9px ui-monospace, monospace';
+        qllmCtx.fillText(`${m.empiricalGgufGB.toFixed(2)} GB`, cx, padTop + chartH + 28);
+      });
+
+      // 3. Tres Curvas de Throughput (Mendocino 14GB, SM8635 UFS 4.0, SM8350 Vulkan)
+      const platforms = [
+        { field: 'mendocino', color: '#10b981', glow: 'rgba(16, 185, 129, 0.25)' },
+        { field: 'sm8635',    color: '#f59e0b', glow: 'rgba(245, 158, 11, 0.25)' },
+        { field: 'sm8350',    color: '#06b6d4', glow: 'rgba(6, 182, 212, 0.25)' }
+      ];
+
+      platforms.forEach(p => {
+        qllmCtx.beginPath();
+        let started = false;
+        QLLM_BENCH_KEYS.forEach((key, idx) => {
+          const val = LOCAL_MODELS[key]?.siliconTokS?.[p.field] ?? 0;
+          if (val <= 0) return;
+          const x = getColX(idx);
+          const y = getTokY(val);
+          if (!started) {
+            qllmCtx.moveTo(x, y);
+            started = true;
+          } else {
+            qllmCtx.lineTo(x, y);
+          }
+        });
+        qllmCtx.strokeStyle = p.color;
+        qllmCtx.lineWidth = 2.4;
+        qllmCtx.stroke();
+
+        // Nodos sobre cada modelo
+        QLLM_BENCH_KEYS.forEach((key, idx) => {
+          const val = LOCAL_MODELS[key]?.siliconTokS?.[p.field] ?? 0;
+          const x = getColX(idx);
+          if (val > 0) {
+            const y = getTokY(val);
+            qllmCtx.beginPath();
+            qllmCtx.arc(x, y, qllmHoverIdx === idx ? 6 : 4, 0, Math.PI * 2);
+            qllmCtx.fillStyle = p.color;
+            qllmCtx.fill();
+            qllmCtx.strokeStyle = '#09090b';
+            qllmCtx.lineWidth = 1.5;
+            qllmCtx.stroke();
+          } else if (p.field === 'sm8350') {
+            // Marcador OOM >8GB en SD888
+            const yOom = padTop + chartH - 8;
+            qllmCtx.fillStyle = 'rgba(244, 63, 94, 0.85)';
+            qllmCtx.font = 'bold 8px ui-monospace, monospace';
+            qllmCtx.textAlign = 'center';
+            qllmCtx.fillText('OOM >8G', x, yOom);
+          }
+        });
+      });
+    }
+
+    if (qllmCanvas) {
+      qllmCanvas.addEventListener('mousemove', (e) => {
+        const rect = qllmCanvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const padLeft = 56;
+        const padRight = 54;
+        const chartW = rect.width - padLeft - padRight;
+        const tt = document.getElementById('qllm-chart-tooltip');
+
+        if (mx >= padLeft && mx <= rect.width - padRight) {
+          const idx = Math.min(QLLM_BENCH_KEYS.length - 1, Math.max(0, Math.floor(((mx - padLeft) / chartW) * QLLM_BENCH_KEYS.length)));
+          qllmHoverIdx = idx;
+          const key = QLLM_BENCH_KEYS[idx];
+          const m = LOCAL_MODELS[key];
+          if (m && tt) {
+            tt.classList.remove('hidden');
+            document.getElementById('qllm-tt-title').textContent = m.name;
+            document.getElementById('qllm-tt-size').textContent = key === 'anuu-4b-sliced'
+              ? `2.45 GB GGUF v3 (Poda 16L desde 4.92 GB • -50% KV)`
+              : `${m.empiricalGgufGB.toFixed(2)} GB GGUF v3 • ${m.context}`;
+            document.getElementById('qllm-tt-mendocino').textContent = `${m.siliconTokS.mendocino} tok/s`;
+            document.getElementById('qllm-tt-sm8635').textContent = `${m.siliconTokS.sm8635} tok/s`;
+            document.getElementById('qllm-tt-sm8350').textContent = m.siliconTokS.sm8350 > 0 ? `${m.siliconTokS.sm8350} tok/s` : 'OOM (>8 GB RAM)';
+
+            let ttX = mx + 14;
+            let ttY = my - 45;
+            if (ttX + 245 > rect.width) ttX = mx - 250;
+            if (ttY < 8) ttY = 10;
+            if (ttY + 135 > rect.height) ttY = rect.height - 140;
+            tt.style.left = `${ttX}px`;
+            tt.style.top = `${ttY}px`;
+          }
+          drawQllmBenchmarkCurves();
+        } else {
+          qllmHoverIdx = -1;
+          if (tt) tt.classList.add('hidden');
+          drawQllmBenchmarkCurves();
+        }
+      });
+
+      qllmCanvas.addEventListener('mouseleave', () => {
+        qllmHoverIdx = -1;
+        const tt = document.getElementById('qllm-chart-tooltip');
+        if (tt) tt.classList.add('hidden');
+        drawQllmBenchmarkCurves();
+      });
+
+      qllmCanvas.addEventListener('click', () => {
+        if (qllmHoverIdx >= 0 && qllmHoverIdx < QLLM_BENCH_KEYS.length) {
+          const key = QLLM_BENCH_KEYS[qllmHoverIdx];
+          const m = LOCAL_MODELS[key];
+          state.localModel = key;
+          state.quantization = 'gguf_q4';
+          if (m && m.defaultHw) state.hardware = m.defaultHw;
+          setLocalModel(state.localModel);
+          setQuantization(state.quantization);
+          setHardware(state.hardware);
+        }
+      });
+    }
+
     // 9. GESTIÓN DE TEMAS DEL CONCILIO ACE
     function switchAiTheme(themeName) {
       document.documentElement.setAttribute('data-theme', themeName);
@@ -2050,6 +2643,7 @@ CONTACTO Y CONTRATACIÓN DEL SERVICIO:
       // Redibujar Canvas tras el cambio de tema
       setTimeout(() => {
         drawChart();
+        drawQllmBenchmarkCurves();
       }, 50);
 
       // Notificar a la ventana superior si está en iframe
@@ -2410,6 +3004,7 @@ CONTACTO Y CONTRATACIÓN DEL SERVICIO:
     syncThemeFromParent();
     applyAiPreset('pyme');
     resizeCanvas();
+    resizeQllmCanvas();
     updateArbiterDOM();
     refreshQuotaArbiter();
   </script>

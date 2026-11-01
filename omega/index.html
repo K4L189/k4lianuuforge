@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="omega">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANUSET 189 OMEGA // Argon Engine Stage | K4L1 Studio</title>
+  <meta name="theme-color" content="#050508">
+  <link rel="icon" type="image/x-icon" href="../assets/brand/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon-180.png">
+
+  <script src="../vendor/tailwind.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
+  <link rel="stylesheet" href="omega_stage.css">
+  <script src="../assets/js/anuu_gate.js"></script>
+  <script src="omega_bridge.js" defer></script>
+</head>
+<body class="omega-body selection:bg-purple-600 selection:text-white flex flex-col justify-between">
+
+  <!-- SENTINEL PRE-INDEX GATE (161914) — Origen compartido k4li_gate_pass_auth -->
+  <div id="anuu-sentinel-gate">
+    <div class="gate-card">
+      <div class="gate-emblem">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+          <circle cx="24" cy="24" r="22" stroke="#00f5d4" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6"/>
+          <circle cx="24" cy="14" r="7" stroke="#00f5d4" stroke-width="2.2"/>
+          <line x1="24" y1="21" x2="24" y2="38" stroke="#00f5d4" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="14" y1="26" x2="34" y2="26" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="26" r="2" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="gate-title">K4L1 STUDIO</div>
+      <div class="gate-subtitle">ESPACIO 89 · CONCILIO ACE 161914</div>
+
+      <form onsubmit="verifySentinelGate(event)">
+        <div class="gate-input-wrap">
+          <input type="password" id="anuu-gate-input" class="gate-input" placeholder="••••••••••••" autocomplete="off" spellcheck="false" required>
+        </div>
+        <button type="submit" class="gate-btn">ACCEDER AL NEXO</button>
+      </form>
+
+      <div id="anuu-gate-error" class="gate-error"></div>
+      <div class="gate-footer">PROTEGIDO BAJO SHA-256 ZERO-KNOWLEDGE · FRECUENCIA 189.89.619 Hz</div>
+    </div>
+  </div>
+
+  <!-- BARRA SUPERIOR SOBERANA -->
+  <header class="omega-topbar">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="omega-brand-emblem font-mono-tactical" aria-hidden="true">☥</div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-xs sm:text-sm md:text-base font-extrabold tracking-widest uppercase omega-title-gradient">
+              ☥ ANUSET 189 OMEGA // ARGON ENGINE STAGE
+            </h1>
+          </div>
+          <p class="text-[10px] text-zinc-400 font-mono-tactical tracking-wider">
+            SEINEN TACTICAL CRPG · FRECUENCIA 189.89.619 Hz · ALA DESACOPLADA
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5">
+        <div class="omega-status-chip font-mono-tactical">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span id="omega-top-stage-chip">[EN FORJA ACTIVA · SLOT JUGABLE v0.9]</span>
+        </div>
+        <a href="../index.html" class="omega-back-btn font-mono-tactical">
+          <span>←</span>
+          <span>Volver a K4L1 Studio</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL DE LA CÁMARA OMEGA -->
+  <main class="relative z-10 max-w-7xl w-full mx-auto px-3 sm:px-5 py-5 space-y-6">
+
+    <!-- SECCIÓN 1: CÁMARA DE MONTAJE JUGABLE 16:9 -->
+    <section aria-label="Cámara de Montaje Jugable Argon Engine">
+      <div id="omega-viewport-mount" class="omega-stage-shell" data-psychosis="nominal">
+        <!-- Esquinas tácticas -->
+        <div class="omega-corner omega-corner-tl"></div>
+        <div class="omega-corner omega-corner-tr"></div>
+        <div class="omega-corner omega-corner-bl"></div>
+        <div class="omega-corner omega-corner-br"></div>
+
+        <!-- Lienzo Atmosférico 60 FPS: TheVoid (Vanilla Canvas) -->
+        <canvas id="the-void-canvas"></canvas>
+        <div class="omega-scanlines"></div>
+
+        <!-- Capa reservada para montaje directo del build Go/WASM/WebGL -->
+        <div id="omega-external-runtime-layer"></div>
+
+        <!-- HUD TÁCTICO INTERACTIVO DE PRE-LANZAMIENTO (Port dice.go + character.go) -->
+        <div id="omega-staging-hud" class="omega-hud-layer">
+
+          <!-- Cinta Superior de Telemetría del Viewport -->
+          <div class="hud-glass-panel px-3 py-2 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-mono-tactical text-[11px] font-bold tracking-wider text-purple-300 psychosis-chromatic">
+                ⌬ OMEGA_SATURATION_HUD · AÑO 10 // VACÍO
+              </span>
+              <span id="hud-psychosis-badge" class="px-2 py-0.5 rounded text-[10px] font-mono-tactical bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+                ESTABILIDAD COGNITIVA NOMINAL
+              </span>
+              <span id="hud-kilonova-badge" class="px-2 py-0.5 rounded text-[10px] font-mono-tactical font-bold bg-amber-500/15 text-amber-300 border border-amber-400/40">
+                𓆣 KILONOVA: LISTA (1 RESCATE)
+              </span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button type="button" id="btn-toggle-void-view" class="btn-omega-ghost px-2.5 py-1 text-[11px] font-mono-tactical">
+                👁️ Vacío Puro
+              </button>
+              <button type="button" id="btn-stage-fullscreen" class="btn-omega-ghost px-2.5 py-1 text-[11px] font-mono-tactical" title="Alternar Pantalla Completa 16:9">
+                ⛶ 16:9
+              </button>
+            </div>
+          </div>
+
+          <!-- Rejilla Táctica Central (5 - 2 [Mirilla TheVoid] - 5) -->
+          <div class="omega-hud-main-grid grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch my-auto">
+
+            <!-- COLUMNA IZQUIERDA: BIOMETRÍA AGENTE, CORDURA SAN% & BLOODEATER -->
+            <div class="lg:col-span-5 hud-glass-panel p-3.5 flex flex-col justify-between gap-3">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between gap-2 border-b border-purple-500/20 pb-2">
+                  <div>
+                    <div class="text-xs font-extrabold tracking-wider text-white psychosis-chromatic">
+                      𓋹 K4L1 // AGENTE LÍDER
+                    </div>
+                    <div id="hud-ac-val" class="text-[10px] font-mono-tactical text-zinc-400">
+                      AC 10 · Crit 19+
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <label for="hud-role-select" class="text-[10px] font-mono-tactical text-zinc-400">TRÍADA:</label>
+                    <select id="hud-role-select" class="bg-black/70 border border-purple-500/40 rounded-lg px-2 py-1 text-[11px] font-mono-tactical text-cyan-300 outline-none focus:border-cyan-400">
+                      <option value="FISICO">FÍSICO (+2 ATK · Crit 19)</option>
+                      <option value="MAGIA">MAGIA (+2 Slots · Vacío)</option>
+                      <option value="DEFENSA">DEFENSA (+2 AC · RD 2)</option>
+                      <option value="HIBRIDO">HÍBRIDO (+1 ATK / +1 AC)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Integridad Física (HP) -->
+                <div class="space-y-1">
+                  <div class="flex justify-between text-[11px] font-mono-tactical">
+                    <span class="text-zinc-300">HP · INTEGRIDAD FÍSICA</span>
+                    <span id="hud-hp-text" class="font-bold text-emerald-300">85 / 85</span>
+                  </div>
+                  <div class="bio-track">
+                    <div id="hud-hp-bar" class="bio-fill" style="width: 100%; background: linear-gradient(90deg, #10b981, #34d399);"></div>
+                  </div>
+                </div>
+
+                <!-- Cordura (SAN %) + Simulador de Umbral < 15% Psicosis -->
+                <div class="space-y-1.5 pt-0.5">
+                  <div class="flex justify-between text-[11px] font-mono-tactical">
+                    <span class="text-zinc-300">SAN · CORDURA (UMBRAL PSICOSIS &lt;15%)</span>
+                    <span id="hud-san-text" class="font-bold text-cyan-300">88% (88/100)</span>
+                  </div>
+                  <div class="bio-track">
+                    <div id="hud-san-bar" class="bio-fill" style="width: 88%; background: linear-gradient(90deg, #8A2BE2, #00f5d4);"></div>
+                  </div>
+                  <input type="range" id="hud-san-slider" min="0" max="100" value="88" class="omega-range" aria-label="Calibrador de Cordura SAN">
+                </div>
+
+                <!-- Vínculo Sacrificial Bloodeater -->
+                <div class="space-y-1 pt-1 border-t border-purple-500/20">
+                  <div class="flex items-center justify-between gap-2">
+                    <label for="hud-bloodeater-select" class="text-[10px] font-mono-tactical text-amber-300 font-semibold">
+                      🩸 ARTEFACTO BLOODEATER:
+                    </label>
+                    <select id="hud-bloodeater-select" class="bg-black/70 border border-amber-500/35 rounded-lg px-2 py-1 text-[11px] font-mono-tactical text-amber-200 outline-none focus:border-amber-400">
+                      <option value="katana">Katana de Cromo Goético (-15 HP)</option>
+                      <option value="canon">Cañón de Bitrate Sangriento (-20 HP)</option>
+                      <option value="anillo">Anillo de Ceniza 189Hz (-10 HP)</option>
+                      <option value="amuleto">Amuleto Panteón Caído (-25 HP · Inmune)</option>
+                      <option value="none">Sin Vínculo (100 HP_Max)</option>
+                    </select>
+                  </div>
+                  <p id="hud-bloodeater-desc" class="text-[10px] font-mono-tactical text-zinc-400 leading-snug">
+                    -15 HP_Max | +5 Daño Físico. En Éxito Omega: x3.0 daño y restaura +10 HP.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Acciones de Prueba Biométrica -->
+              <div class="grid grid-cols-3 gap-1.5 pt-1">
+                <button type="button" id="btn-trigger-psychosis" class="btn-omega-ghost px-2 py-1.5 text-[10px] font-mono-tactical font-semibold text-rose-300 border-rose-500/35 hover:border-rose-400">
+                  🧠 SAN &lt;15%
+                </button>
+                <button type="button" id="btn-simulate-lethal" class="btn-omega-ghost px-2 py-1.5 text-[10px] font-mono-tactical font-semibold text-amber-300 border-amber-500/35 hover:border-amber-400">
+                  💀 Letal 120
+                </button>
+                <button type="button" id="btn-purge-oven89" class="btn-omega-ghost px-2 py-1.5 text-[10px] font-mono-tactical font-semibold text-cyan-300 border-cyan-500/35 hover:border-cyan-400">
+                  🔥 Horno 89
+                </button>
+              </div>
+            </div>
+
+            <!-- MIRILLA CENTRAL DEL VACÍO (Despejada en Desktop para lucir TheVoid 60 FPS) -->
+            <div class="hidden lg:flex lg:col-span-2 flex-col items-center justify-end pb-2 pointer-events-none select-none">
+              <span class="px-2 py-0.5 rounded-full bg-black/55 border border-purple-500/30 text-[9px] font-mono-tactical tracking-widest text-purple-200/80">
+                THE VOID · 60 FPS
+              </span>
+            </div>
+
+            <!-- COLUMNA DERECHA: CALIBRADOR TÁCTICO 2d20 RESONANCIA PRIMA -->
+            <div class="lg:col-span-5 hud-glass-panel hud-glass-panel-cyan p-3.5 flex flex-col justify-between gap-2.5">
+              <div class="flex items-center justify-between gap-2 border-b border-cyan-500/20 pb-2">
+                <div>
+                  <div class="text-xs font-extrabold tracking-wider text-cyan-300 psychosis-chromatic">
+                    ⚡ MOTOR 2d20 · RESONANCIA PRIMA
+                  </div>
+                  <div id="hud-fault-counter" class="font-mono-tactical text-[10px] text-zinc-400">
+                    PIFIAS ACUMULADAS: 0/3
+                  </div>
+                </div>
+                <div class="text-right font-mono-tactical">
+                  <span class="text-[10px] text-zinc-400 block">MOD TÁCTICO</span>
+                  <span id="hud-total-mod" class="text-sm font-extrabold text-amber-300">+10</span>
+                </div>
+              </div>
+
+              <!-- Visualizador Dual d20_A & d20_R -->
+              <div class="flex items-center justify-around gap-3 py-1">
+                <div class="flex flex-col items-center gap-1">
+                  <div id="die-orb-action" class="die-orb">
+                    <span class="text-[9px] font-mono-tactical text-zinc-400">d20_A</span>
+                    <span id="die-val-action" class="die-value font-mono-tactical text-white">17</span>
+                  </div>
+                  <span id="die-tag-action" class="text-[10px] font-mono-tactical text-zinc-300">ACCIÓN</span>
+                </div>
+
+                <div class="text-center font-mono-tactical">
+                  <div class="text-lg text-purple-400 font-bold">☥</div>
+                  <div class="text-[9px] text-zinc-500 tracking-widest">SYNC</div>
+                </div>
+
+                <div class="flex flex-col items-center gap-1">
+                  <div id="die-orb-resonance" class="die-orb die-prime">
+                    <span class="text-[9px] font-mono-tactical text-cyan-300">d20_R</span>
+                    <span id="die-val-resonance" class="die-value font-mono-tactical text-cyan-300">13</span>
+                  </div>
+                  <span id="die-tag-resonance" class="text-[10px] font-mono-tactical text-cyan-300 font-semibold">OMEGA PRIMO ⚡</span>
+                </div>
+              </div>
+
+              <!-- Conjunto Estricto de Primos {2, 3, 5, 7, 11, 13, 17, 19} -->
+              <div class="bg-black/45 border border-white/10 rounded-xl px-2.5 py-1.5 flex flex-wrap items-center justify-between gap-1">
+                <span class="text-[9px] font-mono-tactical text-zinc-400 uppercase">PrimeSet (1≠P):</span>
+                <div class="flex flex-wrap items-center gap-1 font-mono-tactical">
+                  <span class="prime-pill" data-prime-pill="2">2</span>
+                  <span class="prime-pill" data-prime-pill="3">3</span>
+                  <span class="prime-pill" data-prime-pill="5">5</span>
+                  <span class="prime-pill" data-prime-pill="7">7</span>
+                  <span class="prime-pill" data-prime-pill="11">11</span>
+                  <span class="prime-pill active-prime" data-prime-pill="13">13</span>
+                  <span class="prime-pill" data-prime-pill="17">17</span>
+                  <span class="prime-pill" data-prime-pill="19">19</span>
+                </div>
+              </div>
+
+              <!-- Selector de DC y Sinergia de Tríada -->
+              <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tactical">
+                <div class="flex items-center gap-1.5">
+                  <label for="hud-target-dc" class="text-zinc-400">OBJETIVO:</label>
+                  <select id="hud-target-dc" class="bg-black/75 border border-cyan-500/35 rounded-lg px-2 py-1 text-[11px] text-white outline-none focus:border-cyan-400">
+                    <option value="14">DC 14 · Patrulla Cromo</option>
+                    <option value="16" selected>DC 16 · Cortafuegos Deidad</option>
+                    <option value="20">DC 20 · Arconte Blindado</option>
+                    <option value="28">DC 28 · Imposible (Exige Omega)</option>
+                  </select>
+                </div>
+                <label class="inline-flex items-center gap-1.5 text-purple-200 cursor-pointer select-none">
+                  <input type="checkbox" id="hud-synergy-toggle" checked class="accent-cyan-400">
+                  <span>Sinergia Tríada (+3)</span>
+                </label>
+              </div>
+
+              <!-- Botonera de Ejecución 2d20 -->
+              <div class="grid grid-cols-12 gap-1.5">
+                <button type="button" id="btn-roll-2d20" class="col-span-6 btn-omega-primary py-2 px-2.5 text-[11px] font-mono-tactical">
+                  🎲 TIRAR 2d20
+                </button>
+                <button type="button" id="btn-force-double-prime" class="col-span-3 btn-omega-ghost py-2 px-1.5 text-[10px] font-mono-tactical font-bold text-amber-300 border-amber-400/40" title="Inyectar Doble Primo determinista (MockRoller)">
+                  ⚡ 2xPrimo
+                </button>
+                <button type="button" id="btn-force-fumble" class="col-span-3 btn-omega-ghost py-2 px-1.5 text-[10px] font-mono-tactical font-bold text-rose-300 border-rose-500/40" title="Simular Pifia Natural 1 y escalación FaultLevel">
+                  ☢️ Pifia 1
+                </button>
+              </div>
+
+              <!-- Banner de Resolución -->
+              <div id="hud-roll-banner" class="px-3 py-2 rounded-xl border text-xs font-mono-tactical bg-cyan-500/10 border-cyan-400/40 text-cyan-200">
+                SISTEMA LISTO · Pulsa «TIRAR 2d20» para evaluar Resonancia Prima en vivo.
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCK INFERIOR: ARGON ORACLE (GAME MASTER LOCAL OLLAMA / FALLBACK OFFLINE) -->
+          <div class="omega-oracle-dock hud-glass-panel hud-glass-panel-gold p-3 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-extrabold tracking-wider text-amber-300 font-mono-tactical">
+                  𓁹 ARGON ORACLE // GAME MASTER BICAMERAL
+                </span>
+                <span id="oracle-conn-badge" class="px-2 py-0.5 rounded text-[10px] font-mono-tactical bg-purple-500/15 text-purple-200 border border-purple-500/35">
+                  🟣 ORÁCULO LOCAL (FALLBACK 0€)
+                </span>
+              </div>
+              <button type="button" id="btn-probe-ollama" class="btn-omega-ghost px-2.5 py-0.5 text-[10px] font-mono-tactical">
+                🔄 Sondear Ollama (127.0.0.1:11434)
+              </button>
+            </div>
+
+            <form id="omega-oracle-form" class="flex gap-2">
+              <input
+                type="text"
+                id="omega-oracle-input"
+                placeholder="Declara acción táctica al Game Master (ej. /examine altar de obsidiana en Sector 89)..."
+                autocomplete="off"
+                class="flex-1 bg-black/65 border border-purple-500/35 rounded-lg px-3 py-1.5 text-xs font-mono-tactical text-zinc-100 placeholder-zinc-500 outline-none focus:border-cyan-400"
+              >
+              <button type="submit" class="btn-omega-primary px-3.5 py-1.5 text-[11px] font-mono-tactical whitespace-nowrap">
+                Transmitir
+              </button>
+            </form>
+
+            <div id="omega-oracle-log" class="omega-scroll max-h-24 overflow-y-auto space-y-1.5 pr-1"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: CONTRATO DE MONTAJE DESACOPLADO (window.AnusetOmegaHost) -->
+    <section class="hud-glass-panel px-4 py-3.5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+      <div class="space-y-0.5">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono-tactical font-bold uppercase tracking-wider text-cyan-300">
+            🔌 PUENTE DE MONTAJE DESACOPLADO · ZERO-COLLISION BRIDGE
+          </span>
+          <span class="text-[10px] font-mono-tactical px-2 py-0.5 rounded bg-purple-500/20 text-purple-200 border border-purple-500/30">
+            API READY
+          </span>
+        </div>
+        <p class="text-xs text-zinc-400">
+          Cámara lista para acoplar el binario WebAssembly/WebGL de <code class="text-amber-300 font-mono-tactical">anuset-engine</code> sin tocar el estudio comercial principal.
+        </p>
+      </div>
+      <pre class="w-full md:w-auto bg-black/75 border border-purple-500/30 rounded-xl px-3.5 py-2 text-[11px] font-mono-tactical text-cyan-300 overflow-x-auto"><code>window.AnusetOmegaHost.mountEngine({ wasmUrl, wsEndpoint, vrmScene })</code></pre>
+    </section>
+
+    <!-- SECCIÓN 3: ARQUITECTURA TÉCNICA DEL VIDEOJUEGO (TARJETAS DE ESPECIFICACIÓN) -->
+    <section aria-label="Arquitectura Técnica de ANUSET 189 OMEGA" class="space-y-3">
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 class="text-sm sm:text-base font-extrabold tracking-widest uppercase omega-title-gradient font-mono-tactical">
+          🏛️ ARQUITECTURA TÉCNICA // PILARES EN DESARROLLO
+        </h2>
+        <span class="text-[11px] font-mono-tactical text-zinc-500">
+          EDICIÓN B3-KILONOVA-HARDCORE · CAMPAÑA DE 10 AÑOS
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <!-- TARJETA 1: ARGON CORE (GO NATIVE) -->
+        <article class="spec-card space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-mono-tactical font-bold bg-cyan-500/15 text-cyan-300 border border-cyan-400/35">
+              GO NATIVE · CONCURRENTE
+            </span>
+            <span class="text-lg text-cyan-300" aria-hidden="true">⚡</span>
+          </div>
+          <h3 class="text-base font-extrabold text-white tracking-wide">
+            Argon Core (<code class="text-cyan-300 font-mono-tactical text-sm">anuset-engine</code>)
+          </h3>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Motor táctico compilado en Go puro con bloqueo de lectura/escritura sin latencia (<code class="text-purple-300 font-mono-tactical">sync.RWMutex</code>) y entropía criptográfica <code class="text-purple-300 font-mono-tactical">crypto/rand</code>.
+          </p>
+          <ul class="space-y-1.5 text-xs font-mono-tactical text-zinc-400 border-t border-white/10 pt-2.5">
+            <li><span class="text-cyan-300">▸ dice:</span> 2d20 Resonancia Prima &amp; escalación <code class="text-zinc-200">FaultLevel 1..3</code>.</li>
+            <li><span class="text-cyan-300">▸ party:</span> Escuadrón máx. 5, Sinergia Tríada (+3), <code class="text-zinc-200">EnforcePermadeath</code> y Motines.</li>
+            <li><span class="text-cyan-300">▸ bloodeater:</span> Sacrificio permanente de <code class="text-zinc-200">HP_Max</code> por multiplicador Omega.</li>
+            <li><span class="text-cyan-300">▸ psychosis:</span> Colapso cognitivo bajo <code class="text-rose-300">15% SAN</code> y rescate Kilonova.</li>
+          </ul>
+        </article>
+
+        <!-- TARJETA 2: MATRIZ MODULAR 144 & PSYCHO PANTHEON -->
+        <article class="spec-card space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-mono-tactical font-bold bg-purple-500/20 text-purple-200 border border-purple-400/40">
+              12 × 12 · CÓDICE SISTÉMICO
+            </span>
+            <span class="text-lg text-purple-300" aria-hidden="true">☥</span>
+          </div>
+          <h3 class="text-base font-extrabold text-white tracking-wide">
+            Matriz Modular &amp; Psycho Pantheon
+          </h3>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Generación combinatoria determinista que cruza arquetipos de cromo y magia del Vacío con dominios mitológicos antiguos.
+          </p>
+          <ul class="space-y-1.5 text-xs font-mono-tactical text-zinc-400 border-t border-white/10 pt-2.5">
+            <li><span class="text-purple-300">▸ 144 Clases Canónicas:</span> 12 Arquetipos × 12 Pilares Divinos con pasivas únicas.</li>
+            <li><span class="text-purple-300">▸ Facciones Unificadas:</span> Escalado lineal-exponencial a lo largo de la Década (Años 1–10).</li>
+            <li><span class="text-purple-300">▸ Psycho Pantheon:</span> 24 pilares mitológicos integrados como fragmentos disociativos.</li>
+            <li><span class="text-purple-300">▸ Horno Alquímico 89:</span> Purga de cicatrices de datos (<code class="text-zinc-200">DataScars</code>) a 619 Hz.</li>
+          </ul>
+        </article>
+
+        <!-- TARJETA 3: ORÁCULO DUAL 0 € -->
+        <article class="spec-card space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-mono-tactical font-bold bg-amber-500/15 text-amber-300 border border-amber-400/40">
+              AIRGAP · SOBERANÍA 0 € / MES
+            </span>
+            <span class="text-lg text-amber-300" aria-hidden="true">𓁹</span>
+          </div>
+          <h3 class="text-base font-extrabold text-white tracking-wide">
+            Oráculo Dual 0 € (Local Game Master)
+          </h3>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            Dirección narrativa bicameral emergente ejecutada en silicio propio sin dependencia de APIs comerciales ni telemetría externa.
+          </p>
+          <ul class="space-y-1.5 text-xs font-mono-tactical text-zinc-400 border-t border-white/10 pt-2.5">
+            <li><span class="text-amber-300">▸ Modelos Locales:</span> Inferencia QLLM / Ollama (<code class="text-zinc-200">anuu-3b</code> / <code class="text-zinc-200">anuu-1b</code>).</li>
+            <li><span class="text-amber-300">▸ IA Bicameral:</span> <code class="text-zinc-200">ANUU</code> (Radar Traumático) + <code class="text-zinc-200">K4L1</code> (Árbitra Suprema).</li>
+            <li><span class="text-amber-300">▸ Puente 11434:</span> Conector HTTP local con degradación limpia a Códice Offline.</li>
+            <li><span class="text-amber-300">▸ Coste Operativo:</span> 0 € perpetuo · Latencia local determinista.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE CÁMARA -->
+  <footer class="relative z-10 border-t border-purple-500/20 bg-black/60 mt-6">
+    <div class="max-w-7xl mx-auto px-4 py-3.5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tactical text-zinc-500">
+      <span>☥ ANUSET 189 OMEGA // ARGON ENGINE STAGE · K4L1 STUDIO (161914)</span>
+      <span>ARQUITECTURA DESACOPLADA · FRECUENCIA 189.89.619 Hz · SAZE 🏛️</span>
+    </div>
+  </footer>
+
+</body>
+</html>

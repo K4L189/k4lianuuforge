@@ -129,11 +129,11 @@ flowchart LR
 
 ### OFERTA 4: «RADAR DE PRECIOS & BOT DE MONITORIZACIÓN» (Para E-commerce)
 - **El Dolor**: La competencia cambia precios constantemente o se queda sin stock y ellos pierden margen por no enterarse al instante.
-- **La Solución**: Scraper automatizado en Python (Playwright + anti-fingerprinting) que corre cada 3 horas, compara catálogos y dispara una alerta a Telegram/Discord o vuelca los datos a un Google Sheet/Base de datos.
+- **La Solución**: Scraper automatizado en Python (Playwright + anti-fingerprinting) que corre cada 3 horas, compara catálogos y dispara una alerta a Signal E2EE / SimpleX / Discord o vuelca los datos a un Google Sheet/Base de datos.
 - **Precio**: **250 € – 450 €**.
 - **Entregables**:
   1. Script Python containerizado con Docker para ejecución desatendida.
-  2. Sistema de alertas inmediatas a Telegram/Signal/Webhook.
+  2. Sistema de alertas inmediatas a Signal E2EE / SimpleX / PGP.
   3. Documentación de 1 página para ejecución con un solo comando.
 
 ---

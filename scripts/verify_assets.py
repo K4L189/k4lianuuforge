@@ -25,6 +25,7 @@ def run_integrity_check(repo_root: Path):
     # 1. Verificar archivos esenciales de infraestructura y componentes
     critical_files = [
         repo_root / "index.html",
+        repo_root / "README.md",
         repo_root / ".nojekyll",
         repo_root / "manifest.json",
         repo_root / "sw.js",
@@ -52,8 +53,15 @@ def run_integrity_check(repo_root: Path):
         repo_root / "components" / "forensic_carver_service.html",
         repo_root / "components" / "network_diagnostic_studio.html",
         repo_root / "components" / "local_ai_studio.html",
+        repo_root / "assets" / "css" / "anuu_gate.css",
+        repo_root / "assets" / "js" / "anuu_gate.js",
+        repo_root / "omega" / "index.html",
+        repo_root / "omega" / "omega_stage.css",
+        repo_root / "omega" / "omega_bridge.js",
+        repo_root / "api" / "sovereign_envelope_cli.py",
         repo_root / "assets" / "carver_status.json",
-        repo_root / "docs" / "ROI_CALCULATOR_GUIDE.md"
+        repo_root / "docs" / "ROI_CALCULATOR_GUIDE.md",
+        repo_root / "docs" / "QLLM_NEURAL_SURGERY_ARCHITECTURE.md"
     ]
 
     missing_critical = []
@@ -159,7 +167,11 @@ def run_integrity_check(repo_root: Path):
             print("[-] ALERTA: No se encontró array ASSETS_TO_CACHE en sw.js")
 
     # 5. Escanear enlaces y recursos locales en páginas principales
-    core_html_files = [repo_root / "index.html"] + sorted(list((repo_root / "components").glob("*.html")))
+    core_html_files = (
+        [repo_root / "index.html"]
+        + sorted(list((repo_root / "components").glob("*.html")))
+        + sorted(list((repo_root / "omega").glob("*.html")))
+    )
     
     broken_links = []
     checked_count = 0

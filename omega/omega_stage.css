@@ -1,0 +1,590 @@
+/* ==========================================================================
+   ANUSET 189 OMEGA // ARGON ENGINE STAGE STYLESHEET
+   Frecuencia Operativa: 189.89.619 Hz | Concilio ACE (161914)
+   Arquitectura: Saze 🏛️ | Estética Seinen Ciber-Goética Egipcia
+   ========================================================================== */
+
+:root {
+  --omega-obsidian: #050508;
+  --omega-obsidian-deep: #020204;
+  --omega-panel: rgba(9, 8, 16, 0.82);
+  --omega-panel-strong: rgba(12, 10, 22, 0.92);
+  --omega-purple: #8A2BE2;
+  --omega-purple-vivid: #9333ea;
+  --omega-purple-soft: #c084fc;
+  --omega-cyan: #00f5d4;
+  --omega-gold: #fbbf24;
+  --omega-crimson: #ff1e56;
+  --omega-text: #e4e4e7;
+  --omega-muted: #9ca3af;
+  --omega-border: rgba(138, 43, 226, 0.32);
+  --omega-border-cyan: rgba(0, 245, 212, 0.38);
+  --omega-border-gold: rgba(251, 191, 36, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--omega-obsidian);
+  color: var(--omega-text);
+  font-size: 14px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body.omega-body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--omega-obsidian);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(138, 43, 226, 0.14) 0%, transparent 44%),
+    radial-gradient(circle at 82% 18%, rgba(0, 245, 212, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 88%, rgba(251, 191, 36, 0.05) 0%, transparent 48%);
+  color: var(--omega-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Rejilla Ciber-Goética sutil de fondo */
+body.omega-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(138, 43, 226, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 212, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.font-mono-tactical {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ==========================================================================
+   BARRA SUPERIOR SOBERANA
+   ========================================================================== */
+.omega-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(5, 5, 8, 0.88);
+  border-bottom: 1px solid rgba(138, 43, 226, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+}
+
+.omega-brand-emblem {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(0, 245, 212, 0.12));
+  border: 1px solid rgba(0, 245, 212, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--omega-cyan);
+  font-size: 1.25rem;
+  box-shadow: 0 0 18px rgba(0, 245, 212, 0.2);
+}
+
+.omega-title-gradient {
+  background: linear-gradient(90deg, #00f5d4 0%, #f4f4f5 48%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.omega-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  background: rgba(147, 51, 234, 0.14);
+  border: 1px solid rgba(0, 245, 212, 0.38);
+  color: var(--omega-cyan);
+  box-shadow: inset 0 0 12px rgba(138, 43, 226, 0.2);
+}
+
+.omega-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e4e4e7;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.omega-back-btn:hover {
+  color: #050508;
+  background: var(--omega-cyan);
+  border-color: var(--omega-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.45);
+}
+
+/* ==========================================================================
+   CÁMARA DE MONTAJE JUGABLE 16:9 (#omega-viewport-mount)
+   ========================================================================== */
+.omega-stage-shell {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  background: var(--omega-obsidian-deep);
+  border: 1px solid rgba(138, 43, 226, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(0, 245, 212, 0.08),
+    0 24px 64px rgba(0, 0, 0, 0.85),
+    0 0 55px rgba(138, 43, 226, 0.18);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .omega-stage-shell {
+    aspect-ratio: 16 / 9;
+    min-height: 635px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .omega-stage-shell {
+    min-height: 680px;
+  }
+}
+
+/* Esquinas jeroglíficas tácticas */
+.omega-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 25;
+  pointer-events: none;
+}
+
+.omega-corner-tl {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid var(--omega-cyan);
+  border-left: 2px solid var(--omega-cyan);
+}
+
+.omega-corner-tr {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid var(--omega-gold);
+  border-right: 2px solid var(--omega-gold);
+}
+
+.omega-corner-bl {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid var(--omega-purple);
+  border-left: 2px solid var(--omega-purple);
+}
+
+.omega-corner-br {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 2px solid var(--omega-cyan);
+  border-right: 2px solid var(--omega-cyan);
+}
+
+/* Canvas Atmosférico TheVoid */
+#the-void-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+/* Capa CRT / Scanlines muy sutil */
+.omega-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  opacity: 0.55;
+}
+
+/* Contenedor de Runtime Externo (WASM / WebGL / VRM) cuando se monta el motor */
+#omega-external-runtime-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: none;
+}
+
+#omega-external-runtime-layer.is-mounted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HUD de Calibración en Staging */
+.omega-hud-layer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  transition: opacity 0.3s ease;
+}
+
+.omega-hud-layer.hud-minimized .omega-hud-main-grid,
+.omega-hud-layer.hud-minimized .omega-oracle-dock {
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.omega-hud-layer.hud-minimized .omega-hud-main-grid:hover,
+.omega-hud-layer.hud-minimized .omega-oracle-dock:hover {
+  opacity: 0.95;
+  pointer-events: auto;
+}
+
+/* Paneles de cristal oscuro dentro del viewport */
+.hud-glass-panel {
+  background: rgba(7, 6, 14, 0.76);
+  border: 1px solid rgba(138, 43, 226, 0.34);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+.hud-glass-panel-cyan {
+  border-color: rgba(0, 245, 212, 0.32);
+}
+
+.hud-glass-panel-gold {
+  border-color: rgba(251, 191, 36, 0.38);
+}
+
+/* ==========================================================================
+   DADOS 2d20 RESONANCIA PRIMA
+   ========================================================================== */
+.die-orb {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  border-radius: 16px;
+  background: radial-gradient(circle at 30% 25%, rgba(28, 22, 48, 0.95), rgba(5, 5, 8, 0.98));
+  border: 1.5px solid rgba(147, 51, 234, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.die-orb.is-rolling {
+  animation: dieSpinPulse 0.36s ease-in-out;
+}
+
+@keyframes dieSpinPulse {
+  0% { transform: scale(0.92) rotate(-8deg); }
+  50% { transform: scale(1.08) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.die-orb.die-prime {
+  border-color: var(--omega-cyan);
+  box-shadow: 0 0 24px rgba(0, 245, 212, 0.42), inset 0 0 14px rgba(0, 245, 212, 0.18);
+}
+
+.die-orb.die-double-prime {
+  border-color: var(--omega-gold);
+  box-shadow: 0 0 32px rgba(251, 191, 36, 0.65), 0 0 14px rgba(0, 245, 212, 0.5), inset 0 0 18px rgba(251, 191, 36, 0.25);
+}
+
+.die-orb.die-fumble {
+  border-color: var(--omega-crimson);
+  box-shadow: 0 0 28px rgba(255, 30, 86, 0.6), inset 0 0 16px rgba(255, 30, 86, 0.25);
+}
+
+.die-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.prime-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  transition: all 0.2s ease;
+}
+
+.prime-pill.active-prime {
+  background: rgba(0, 245, 212, 0.18);
+  border-color: var(--omega-cyan);
+  color: var(--omega-cyan);
+  box-shadow: 0 0 12px rgba(0, 245, 212, 0.4);
+  transform: translateY(-1px);
+}
+
+.prime-pill.active-double {
+  background: rgba(251, 191, 36, 0.22);
+  border-color: var(--omega-gold);
+  color: var(--omega-gold);
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.55);
+}
+
+/* Botones Tácticos */
+.btn-omega-primary {
+  background: linear-gradient(135deg, #8A2BE2 0%, #6d28d9 60%, #4c1d95 100%);
+  border: 1px solid rgba(0, 245, 212, 0.45);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.35);
+}
+
+.btn-omega-primary:hover {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 60%, #5b21b6 100%);
+  border-color: var(--omega-cyan);
+  box-shadow: 0 0 26px rgba(0, 245, 212, 0.45), 0 0 18px rgba(138, 43, 226, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-omega-primary:active {
+  transform: translateY(0);
+}
+
+.btn-omega-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #d4d4d8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-omega-ghost:hover {
+  border-color: rgba(0, 245, 212, 0.5);
+  color: var(--omega-cyan);
+  background: rgba(0, 245, 212, 0.08);
+}
+
+/* Barras Biométricas */
+.bio-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bio-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+/* Slider SAN personalizado */
+input[type="range"].omega-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  outline: none;
+}
+
+input[type="range"].omega-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--omega-cyan);
+  border: 2px solid #050508;
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.8);
+  cursor: pointer;
+}
+
+input[type="range"].omega-range::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--omega-cyan);
+  border: 2px solid #050508;
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.8);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   MODO PSICOSIS (SAN < 15%) & BENDICIÓN DE KILONOVA — GLITCH CROMÁTICO REAL
+   ========================================================================== */
+.omega-stage-shell[data-psychosis="active"] {
+  border-color: var(--omega-crimson);
+  box-shadow:
+    -3px 0 0 rgba(255, 30, 86, 0.55),
+    3px 0 0 rgba(0, 245, 212, 0.55),
+    0 0 65px rgba(255, 30, 86, 0.35),
+    inset 0 0 80px rgba(255, 30, 86, 0.22);
+  animation: psychosisFrameJitter 3.2s infinite;
+}
+
+.omega-stage-shell[data-psychosis="active"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 30, 86, 0.06) 0px,
+      rgba(255, 30, 86, 0.06) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    radial-gradient(circle at 50% 50%, transparent 45%, rgba(255, 30, 86, 0.24) 100%);
+  mix-blend-mode: screen;
+  animation: psychosisScanTear 0.45s steps(2, end) infinite;
+}
+
+.omega-stage-shell[data-psychosis="active"] .psychosis-chromatic {
+  text-shadow: -2px 0 rgba(255, 30, 86, 0.88), 2px 0 rgba(0, 245, 212, 0.88);
+  animation: chromaticTextShift 1.4s infinite;
+}
+
+.omega-stage-shell[data-psychosis="active"] .hud-glass-panel {
+  border-color: rgba(255, 30, 86, 0.48);
+  box-shadow: -2px 0 12px rgba(255, 30, 86, 0.2), 2px 0 12px rgba(0, 245, 212, 0.2);
+}
+
+@keyframes psychosisFrameJitter {
+  0%, 91%, 100% { transform: translate3d(0, 0, 0); }
+  92% { transform: translate3d(-2px, 1px, 0) skewX(0.35deg); }
+  94% { transform: translate3d(2px, -1px, 0) skewX(-0.35deg); }
+  96% { transform: translate3d(-1px, 0, 0); }
+}
+
+@keyframes psychosisScanTear {
+  0% { opacity: 0.65; clip-path: inset(0 0 0 0); }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes chromaticTextShift {
+  0%, 86%, 100% {
+    text-shadow: -1.5px 0 rgba(255, 30, 86, 0.85), 1.5px 0 rgba(0, 245, 212, 0.85);
+  }
+  88% {
+    text-shadow: -4px 0 rgba(255, 30, 86, 1), 4px 0 rgba(0, 245, 212, 1);
+  }
+  92% {
+    text-shadow: 3px -1px rgba(251, 191, 36, 0.95), -3px 1px rgba(138, 43, 226, 0.95);
+  }
+}
+
+/* Destello de Bendición de Kilonova */
+.omega-stage-shell.kilonova-burst {
+  animation: kilonovaDivineFlash 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes kilonovaDivineFlash {
+  0% {
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.95), 0 0 120px rgba(251, 191, 36, 0.85), inset 0 0 120px rgba(0, 245, 212, 0.7);
+  }
+  100% {
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 55px rgba(138, 43, 226, 0.18);
+  }
+}
+
+/* ==========================================================================
+   TARJETAS DE ESPECIFICACIÓN ARQUITECTÓNICA
+   ========================================================================== */
+.spec-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(14, 12, 24, 0.92) 0%, rgba(7, 6, 13, 0.96) 100%);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.spec-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--omega-purple), var(--omega-cyan), var(--omega-gold));
+  opacity: 0.7;
+}
+
+.spec-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 245, 212, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 28px rgba(138, 43, 226, 0.2);
+}
+
+/* Scrollbar táctico fino */
+.omega-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.omega-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.omega-scroll::-webkit-scrollbar-thumb {
+  background: rgba(138, 43, 226, 0.5);
+  border-radius: 999px;
+}
+
+.omega-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--omega-cyan);
+}

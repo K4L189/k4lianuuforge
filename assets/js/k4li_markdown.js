@@ -40,8 +40,10 @@
       ]
     },
     {
-      group: "🛡️ Guías de Herramientas K4L1",
+      group: "🛡️ Ingeniería QLLM & Guías K4L1",
       items: [
+        { id: "qllm_surgery", title: "Cirugía Neural QLLM & Capa Cuántica Fock", path: "docs/QLLM_NEURAL_SURGERY_ARCHITECTURE.md", icon: "🧠" },
+        { id: "api_zerocloud", title: "Protocolo Zero-Cloud Signal & PGP", path: "api/README_API.md", icon: "🔐" },
         { id: "guia_roi", title: "Guía Calculadora ROI & ROSI", path: "docs/ROI_CALCULATOR_GUIDE.md", icon: "🧮" },
         { id: "guia_security", title: "Guía Test de Hardening Linux", path: "docs/SECURITY_AUDIT_TOOL_GUIDE.md", icon: "🛡️" }
       ]

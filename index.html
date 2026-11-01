@@ -287,6 +287,7 @@
           <button onclick="switchView('studio')" id="tabBtnStudioMobile" class="tab-active px-2 py-0.5 rounded-md">💼 Studio</button>
           <button onclick="switchView('forge')" id="tabBtnForgeMobile" class="px-2 py-0.5 rounded-md text-zinc-400">🌌 Forge</button>
           <button onclick="switchView('bunker')" id="tabBtnBunkerMobile" class="px-2 py-0.5 rounded-md text-zinc-400">🔐 Búnker</button>
+          <a href="omega/index.html" class="px-2 py-0.5 rounded-md text-purple-300 hover:text-cyan-300 font-semibold">🎮 Omega</a>
         </div>
 
         <!-- Selector de Modos (Desktop) -->
@@ -300,6 +301,9 @@
           <button onclick="switchView('bunker')" id="tabBtnBunker" class="px-2.5 py-1 rounded-md border border-transparent text-zinc-400 hover:text-white text-xs font-semibold transition-all flex items-center gap-1">
             <span>🔐</span> Búnker NoSQL (Admin/CRM)
           </button>
+          <a href="omega/index.html" title="Ala Dedicada: ANUSET 189 OMEGA · Argon Engine (En Forja)" class="px-2.5 py-1 rounded-md border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:text-cyan-300 hover:border-cyan-400/50 text-xs font-semibold transition-all flex items-center gap-1 mx-0.5">
+            <span>🎮</span> Omega <span class="text-[9px] font-mono px-1 rounded bg-black/50 text-cyan-300">STAGE</span>
+          </a>
           <!-- Suite de Herramientas Técnicas Interactivas -->
           <div class="relative group">
             <button class="px-3 py-1.5 rounded-lg text-zinc-300 hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 bg-black/40 border theme-border">
@@ -880,20 +884,20 @@
               </div>
               <span class="text-xs font-mono px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-500/30">Desde 600 €</span>
             </div>
-            <h3 class="text-base font-bold text-white group-hover:text-purple-300 transition-colors">Despliegue de IA Local Soberana (On-Premise)</h3>
+            <h3 class="text-base font-bold text-white group-hover:text-purple-300 transition-colors">Despliegue de IA Local &amp; Cirugía QLLM (On-Premise)</h3>
             <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">
-              Configuración de modelos de lenguaje e inteligencia artificial corriendo al 100% en servidores o máquinas de la empresa (Ollama, GGUF, Piper TTS). Cero dependencia de OpenAI y confidencialidad absoluta garantizada por contrato.
+              Ingeniería de modelos locales soberanos (Ollama, llama.cpp Vulkan, GGUF v3) y poda quirúrgica de capas (<em>Layer Slicing</em> 32→16/12 capas sin re-entrenamiento) para máximo rendimiento en APU modesta o Edge ARM64. Cero dependencia cloud y confidencialidad garantizada.
             </p>
             <ul class="text-[11px] text-zinc-400 mt-3 space-y-1 font-mono">
-              <li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> Cero fugas de datos confidenciales a la nube</li>
-              <li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> Interfaz web privada conectada a sus propios documentos</li>
-              <li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> Optimización para correr en hardware modesto o GPUs locales</li>
+              <li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> Poda GGUF (1B / 3B / 4B-Sliced / 12B) y KV Cache <code>q8_0</code></li>
+              <li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> Interfaz RAG privada Airgap con protocolo Zero-Trace RAM</li>
+              <li class="flex items-center gap-1.5"><span class="text-purple-400">✓</span> Calibrado real en AMD Mendocino y Snapdragon 8s Gen 3</li>
             </ul>
             <div class="mt-4 pt-3 border-t theme-border flex items-center justify-between">
-              <a href="components/ai_benchmark_calculator.html" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 hover:text-purple-300 transition-colors">
-                <span>🧮</span> Abrir Simulador de Costes IA ↗
+              <a href="components/local_ai_studio.html" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 hover:text-purple-300 transition-colors">
+                <span>🧠</span> Abrir Local AI &amp; QLLM Studio ↗
               </a>
-              <span class="text-[10px] font-mono text-zinc-500">vLLM Soberano 🤖</span>
+              <span class="text-[10px] font-mono text-zinc-500">QLLM Soberano 🤖</span>
             </div>
           </div>
 
@@ -905,9 +909,9 @@
               </div>
               <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-500/30">Desde 200 €</span>
             </div>
-            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Automatización, Scrapers & Bots en Python</h3>
+            <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Automatización, Scrapers &amp; Agentes Soberanos</h3>
             <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">
-              Desarrollo de scrapers robustos para extracción de datos de mercado, bots de mensajería (Telegram/Discord/Signal), conectores entre bases de datos y scripts de mantenimiento desatendido para ahorrar cientos de horas humanas.
+              Desarrollo de scrapers robustos para extracción de datos de mercado, notificadores cifrados E2EE (Signal / SimpleX / Matrix / PGP), conectores entre bases de datos y demonios Linux desatendidos sin pasar por corporaciones espías.
             </p>
             <ul class="text-[11px] text-zinc-400 mt-3 space-y-1 font-mono">
               <li class="flex items-center gap-1.5"><span class="text-amber-400">✓</span> Scrapers a prueba de bloqueos con rotación de cabeceras</li>
@@ -1101,31 +1105,31 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label class="block text-xs font-bold text-zinc-300 mb-1">Contacto Signal (E2EE) o Email</label>
-                <input type="text" id="contact" required placeholder="@tu_usuario_signal o email" class="w-full bg-black/40 border theme-border rounded-xl px-3 py-2 text-xs text-zinc-200 focus:outline-none">
+                <label class="block text-xs font-bold text-zinc-300 mb-1">Contacto Signal (E2EE) o Email / PGP</label>
+                <input type="text" id="contact" required placeholder="@tu_usuario_signal o email PGP" class="w-full bg-black/40 border theme-border rounded-xl px-3 py-2 text-xs text-zinc-200 focus:outline-none">
               </div>
               <div>
-                <label class="block text-xs font-bold text-zinc-300 mb-1">Nombre / Empresa</label>
-                <input type="text" id="clientName" placeholder="Tu nombre o empresa" class="w-full bg-black/40 border theme-border rounded-xl px-3 py-2 text-xs text-zinc-200 focus:outline-none">
+                <label class="block text-xs font-bold text-zinc-300 mb-1">Nombre / Alias / Entidad</label>
+                <input type="text" id="clientName" placeholder="Tu nombre, alias o empresa" class="w-full bg-black/40 border theme-border rounded-xl px-3 py-2 text-xs text-zinc-200 focus:outline-none">
               </div>
             </div>
 
             <div class="pt-4 border-t theme-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
-                <span class="text-[10px] text-zinc-500 font-mono block">ESTIMACIÓN BASE ORIENTATIVA:</span>
+                <span class="text-[10px] text-zinc-500 font-mono block">ESTIMACIÓN BASE ORIENTATIVA (ZERO-CLOUD DIRECT):</span>
                 <span id="priceDisplay" class="text-lg font-bold font-mono theme-accent-text">450 € - 850 €</span>
               </div>
 
               <button type="submit" class="w-full sm:w-auto px-5 py-2.5 rounded-xl theme-accent-bg text-white text-xs font-bold shadow-lg transition-all flex items-center justify-center gap-2">
-                <span>📩</span> Enviar Petición a Kali
+                <span>🔐</span> Sellar Dossier &amp; Abrir Canal Signal
               </button>
             </div>
           </form>
 
           <div id="submitSuccess" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs text-left">
-            <h4 class="font-bold flex items-center gap-1.5"><span>✅</span> Petición registrada con éxito</h4>
-            <p class="text-zinc-400 mt-1">Recibirás respuesta directa en menos de 24 horas a través de tu canal de contacto preferente.</p>
-            <div id="signalDirectLink" class="mt-2"></div>
+            <h4 class="font-bold flex items-center gap-1.5"><span>🛡️</span> Dossier Sellado en Local (Cero Nubes Intermediarias)</h4>
+            <p class="text-zinc-400 mt-1">Ningún servidor corporativo ni Worker intermedio ha recibido tus metadatos. Transmite tu sobre directamente por Signal E2EE o adjunta el bloque blindado PGP/SHA-256:</p>
+            <div id="signalDirectLink" class="mt-3 space-y-2"></div>
           </div>
         </div>
       </section>
@@ -1360,8 +1364,8 @@
                 <input type="text" id="bunkerClientName" required placeholder="Ej: CyberNova S.L." class="w-full bg-black/50 border theme-border rounded-lg px-3 py-2 text-white text-xs">
               </div>
               <div>
-                <label class="block text-[10px] text-zinc-400 mb-1">Contacto (Email / Signal / Telegram)</label>
-                <input type="text" id="bunkerClientContact" required placeholder="admin@cybernova.io o @signal" class="w-full bg-black/50 border theme-border rounded-lg px-3 py-2 text-white text-xs">
+                <label class="block text-[10px] text-zinc-400 mb-1">Contacto (Signal E2EE / PGP / Email)</label>
+                <input type="text" id="bunkerClientContact" required placeholder="@signal_e2ee o admin@dominio.io" class="w-full bg-black/50 border theme-border rounded-lg px-3 py-2 text-white text-xs">
               </div>
               <div>
                 <label class="block text-[10px] text-zinc-400 mb-1">Servicio Contratado</label>
@@ -2343,40 +2347,87 @@
     async function handleFormSubmit(e) {
       e.preventDefault();
       const service = document.querySelector('input[name="service"]:checked').value;
-      const brief = document.getElementById("brief").value;
-      const contact = document.getElementById("contact").value;
-      const name = document.getElementById("clientName").value || "Cliente";
+      const brief = document.getElementById("brief").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const name = (document.getElementById("clientName").value || "Operador").trim();
       const urgency = document.getElementById("urgency").value;
       const priceDisplay = document.getElementById("priceDisplay").innerText;
+      const timestamp = new Date().toISOString();
+
+      // 1. Construir carga útil soberana (0 llamadas a Workers o nubes externas)
+      const payloadObj = {
+        name,
+        contact,
+        service,
+        urgency,
+        estimate: priceDisplay,
+        brief,
+        frequency: "189.89.619 Hz",
+        createdAt: timestamp
+      };
+
+      const rawJson = JSON.stringify(payloadObj);
+      const digestBuf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(rawJson));
+      const sha256Hex = Array.from(new Uint8Array(digestBuf)).map(b => b.toString(16).padStart(2, "0")).join("");
+
+      const envelopeMeta = {
+        version: "1.0",
+        timestamp,
+        sha256: sha256Hex,
+        mode: "ZERO-CLOUD-DIRECT",
+        payload: payloadObj
+      };
+      const b64Body = btoa(unescape(encodeURIComponent(JSON.stringify(envelopeMeta, null, 2))));
+      const wrappedBody = (b64Body.match(/.{1,64}/g) || [b64Body]).join("\n");
+      const armoredEnvelope = `-----BEGIN K4L1 SOVEREIGN ENVELOPE-----\nVersion: K4L1-ZeroCloud-161914\nHash: SHA-256/${sha256Hex.slice(0, 16)}\n\n${wrappedBody}\n-----END K4L1 SOVEREIGN ENVELOPE-----`;
+
+      // 2. Si el Búnker AES-256-GCM está desbloqueado, archivar expediente cifrado en IndexedDB local
+      let savedInBunker = false;
+      if (typeof BunkerAuth !== "undefined" && BunkerAuth.isUnlocked() && typeof BunkerDB !== "undefined") {
+        try {
+          const docId = `intake_${Date.now()}`;
+          await BunkerDB.put("clients", docId, {
+            name,
+            contact,
+            service,
+            budget: parseInt(priceDisplay.replace(/[^0-9]/g, ""), 10) || 450,
+            status: "Lead Signal/PGP",
+            notes: `[${urgency}] ${brief} (SHA256: ${sha256Hex.slice(0, 12)})`,
+            createdAt: timestamp
+          });
+          savedInBunker = true;
+          if (typeof renderBunkerClientsList === "function") renderBunkerClientsList();
+        } catch (vaultErr) {
+          console.warn("[Bunker Intake] No se pudo archivar en sesión activa:", vaultErr);
+        }
+      }
+
+      window.__lastSovereignEnvelope = armoredEnvelope;
+      window.__lastSovereignFilename = `k4li_dossier_${sha256Hex.slice(0, 10)}.k4li.asc`;
 
       document.getElementById("quoteForm").classList.add("opacity-50", "pointer-events-none");
       document.getElementById("submitSuccess").classList.remove("hidden");
 
-      const encodedMsg = encodeURIComponent(`Hola Kali, soy ${name}. He enviado una solicitud en tu web para un proyecto de ${service} (${urgency}): "${brief.slice(0, 80)}..."`);
-      document.getElementById("signalDirectLink").innerHTML = `
-        <a href="https://signal.me/#u/k4li.89?text=${encodedMsg}" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold text-xs mt-2 hover:bg-indigo-500 transition-all shadow-md">
-          <span>💬</span> Continuar conversación cifrada en Signal ahora mismo ↗
-        </a>
-      `;
+      const signalText = `☥ [K4L1 STUDIO · DOSSIER ${sha256Hex.slice(0, 8).toUpperCase()}]\nOperador: ${name}\nContacto: ${contact}\nVector: ${service} (${urgency}) · Est: ${priceDisplay}\nResumen: ${brief}`;
+      const encodedMsg = encodeURIComponent(signalText);
 
-      // Despacho asíncrono a la infraestructura de intake (Worker o Webhook local)
-      const endpoint = window.FORGE_INTAKE_ENDPOINT || "/api/intake";
-      try {
-        await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            service,
-            urgency,
-            brief,
-            contact,
-            name,
-            presupuesto: priceDisplay
-          })
-        });
-      } catch (err) {
-        console.debug("[Forge Intake] Dispatch offline o en espera de Worker:", err);
-      }
+      document.getElementById("signalDirectLink").innerHTML = `
+        <div class="p-2.5 rounded-lg bg-black/50 border border-emerald-500/20 font-mono text-[10px] text-zinc-300 space-y-1">
+          <div><span class="text-emerald-400">SHA-256:</span> ${sha256Hex.slice(0, 32)}…</div>
+          <div><span class="text-purple-300">Bóveda Local AES-256:</span> ${savedInBunker ? "Archivado en Búnker NoSQL ✓" : "Sellado en memoria efímera (Zero-Trace)"}</div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 pt-1">
+          <a href="https://signal.me/#u/k4li.89?text=${encodedMsg}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold text-xs hover:bg-indigo-500 transition-all shadow-md">
+            <span>💬</span> Abrir Canal Signal E2EE (@k4li.89) ↗
+          </a>
+          <button type="button" onclick="navigator.clipboard.writeText(window.__lastSovereignEnvelope); this.innerText='✓ Bloque Copiado';" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-200 font-mono text-[11px] hover:border-cyan-400/50 hover:text-cyan-300 transition-all">
+            📋 Copiar Bloque Signal / PGP
+          </button>
+          <button type="button" onclick="const b=new Blob([window.__lastSovereignEnvelope],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=window.__lastSovereignFilename;a.click();" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/40 text-purple-200 font-mono text-[11px] hover:bg-purple-900/60 transition-all">
+            💾 Descargar .k4li.asc
+          </button>
+        </div>
+      `;
     }
 
       // Sincronizar evento de diagnóstico desde el componente de auditoría de seguridad

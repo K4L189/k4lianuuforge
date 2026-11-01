@@ -90,7 +90,7 @@ K4L1 STUDIO opera como una boutique de ingeniería de software crítica, fortifi
     - **T1003:** Intentos de OS Credential Dumping (lecturas anómalas de memoria o `/etc/shadow`).
     - **T1059:** Ejecución de intérpretes y shells inversas no autorizadas.
     - **T1053:** Modificación fraudulenta de tareas programadas (`cron` y `systemd timers`).
-  - **Notificaciones E2EE en Tiempo Real:** Configuración de canal de alerta inmediata vía Webhook seguro hacia Bot de Telegram o canal Signal ante incidentes de Severidad 10+.
+  - **Notificaciones E2EE en Tiempo Real:** Configuración de canal de alerta inmediata cifrada hacia Signal E2EE, SimpleX o bloque PGP ante incidentes de Severidad 10+.
   - **Dashboard Blue Team:** Configuración de paneles visuales para monitorización en vivo de ataques, geolocalización de IPs maliciosas y métricas de cumplimiento de normativas.
 - **Requisitos Técnicos del Cliente:**
   - Servidor dedicado o VPS con un mínimo de 4 vCPUs, 8 GB de memoria RAM (recomendado 16 GB para entornos con alto tráfico) y 60 GB de almacenamiento SSD/NVMe libre.
@@ -283,7 +283,7 @@ K4L1 STUDIO opera como una boutique de ingeniería de software crítica, fortifi
 
 ## SERVICIO 4: AUTOMATIZACIÓN, SCRAPERS & BOTS EN PYTHON
 
-> **Objetivo:** Automatización sistemática de tareas repetitivas, scrapers resistentes a protecciones antibot modernas, bots interactivos para Telegram, Signal o Discord, y pipelines de sincronización de datos con máxima resiliencia.
+> **Objetivo:** Automatización sistemática de tareas repetitivas, scrapers resistentes a protecciones antibot modernas, bots interactivos para Signal E2EE, SimpleX o Discord, y pipelines de sincronización de datos con máxima resiliencia.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -295,7 +295,7 @@ K4L1 STUDIO opera como una boutique de ingeniería de software crítica, fortifi
 │                     [Pipeline ETL + Validación Pydantic]               │
 │                                         │                              │
 │                                         ▼                              │
-│         [Base de Datos SQL] ◄──► [Bot Telegram / Signal E2EE]          │
+│         [Base de Datos SQL] ◄──► [Signal E2EE / SimpleX / PGP]         │
 │                                         │                              │
 │                                         ▼                              │
 │               [Servicio Desatendido systemd + Auto-Restart]            │
@@ -317,7 +317,7 @@ K4L1 STUDIO opera como una boutique de ingeniería de software crítica, fortifi
 #### Tier 1: Script de Automatización / Bot Simple (Core) — 200 €
 - **Qué Incluye:**
   - **Desarrollo en Python 3.11+:** Código limpio, tipado estático con *type hints* y arquitectura modular.
-  - **Opción A (Bot de Mensajería):** Bot funcional para Telegram, Discord o notificador seguro de Signal con comandos básicos, respuestas predefinidas y alertas automáticas periódicas.
+  - **Opción A (Bot de Mensajería):** Bot funcional para Signal E2EE, SimpleX o Discord con comandos básicos, respuestas predefinidas y alertas automáticas periódicas.
   - **Opción B (Scraper Web):** Script de extracción estructurada de datos para sitios web sin protecciones complejas (BeautifulSoup4 / requests / Playwright) con volcado ordenado a archivos CSV, Excel, JSON o SQLite.
   - **Robustez y Tolerancia a Fallos:** Manejo global de excepciones, reintentos exponenciales y rotación de logs para evitar detenciones por caídas de conexión.
   - **Despliegue Desatendido:** Configuración como servicio `systemd` para arranque automático con el servidor.

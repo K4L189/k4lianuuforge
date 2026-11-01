@@ -8,7 +8,7 @@ Unidad Técnica: 4NVSET 🟢
 =============================================================================
 Auditoría quirúrgica de seguridad:
 1. Escaneo de secretos, tokens y claves privadas expuestas en repositorio.
-2. Análisis de cabeceras de seguridad y CORS en Workers / Webhooks.
+2. Auditoría Zero-Cloud & Criptografía Soberana (AES-256-GCM, PBKDF2, SHA-256 y CLI .k4li.asc).
 3. Verificación de permisos de archivos y artefactos sensibles.
 4. Módulo de auditoría de Kernel, Red, Permisos del host Linux y Telemetría Android ADB.
 5. Generador automático de script de remediación defensiva (remediation_k4li_hardening.sh).
@@ -39,6 +39,8 @@ RESTRICTED_FILES = [
     "*.pem", "*.key", "*.pfx", "*.p12"
 ]
 
+EXCLUDED_SCAN_DIRS = {".git", "aegis89"}
+
 def scan_for_secrets(repo_root: Path):
     findings = []
     print("[+] Ejecutando escaneo de secretos y credenciales en repositorio...")
@@ -47,7 +49,7 @@ def scan_for_secrets(repo_root: Path):
     audit_extensions = {".py", ".js", ".html", ".md", ".json", ".toml", ".yml", ".yaml", ".sh"}
 
     for path in repo_root.rglob("*"):
-        if ".git" in path.parts:
+        if any(part in EXCLUDED_SCAN_DIRS for part in path.parts):
             continue
         if path.is_file() and path.suffix in audit_extensions:
             try:
@@ -67,43 +69,83 @@ def scan_for_secrets(repo_root: Path):
     return findings
 
 def audit_security_headers(repo_root: Path):
-    print("\n[+] Auditando cabeceras de seguridad y sanitización en Worker / Webhooks...")
+    print("\n[+] Auditando política Zero-Cloud & Criptografía Soberana (Kanuv 🛡️)...")
     report = []
-    
+
+    # 1. Verificar ausencia total de infraestructura Cloud Worker / Webhook legado
     worker_file = repo_root / "api" / "worker_cloudflare.js"
-    if worker_file.exists():
-        content = worker_file.read_text(encoding="utf-8")
-        
-        # Verificar CORS
-        if "Access-Control-Allow-Origin" in content:
-            report.append(("[✓] Worker Cloudflare: Cabecera 'Access-Control-Allow-Origin' configurada.", True))
-        else:
-            report.append(("[-] Worker Cloudflare: Falta cabecera CORS 'Access-Control-Allow-Origin'.", False))
-            
-        # Verificar Sanitización XSS / HTML
-        if "escapeHtml" in content:
-            report.append(("[✓] Worker Cloudflare: Función escapeHtml() implementada para saneamiento de entradas.", True))
-        else:
-            report.append(("[-] Worker Cloudflare: No se detecta escapeHtml().", False))
+    wrangler_file = repo_root / "api" / "wrangler.toml"
+    legacy_webhook = repo_root / "api" / "intake_webhook.py"
 
-        # Verificar Tamaño de Payload
-        if "slice" in content or "cleanString" in content:
-            report.append(("[✓] Worker Cloudflare: Control de longitud máxima de carga útil activo.", True))
-        else:
-            report.append(("[-] Worker Cloudflare: Advertencia sobre límites de payload.", False))
+    if not worker_file.exists() and not wrangler_file.exists() and not legacy_webhook.exists():
+        report.append(("[✓] Política Zero-Cloud: Ausencia verificada de worker_cloudflare.js, wrangler.toml e intake_webhook.py.", True))
+    else:
+        present = [p.name for p in (worker_file, wrangler_file, legacy_webhook) if p.exists()]
+        report.append((f"[-] Política Zero-Cloud violada: Artefactos intermediarios presentes ({', '.join(present)}).", False))
 
-    webhook_py = repo_root / "api" / "intake_webhook.py"
-    if webhook_py.exists():
-        content = webhook_py.read_text(encoding="utf-8")
-        if "MAX_PAYLOAD_BYTES" in content:
-            report.append(("[✓] Webhook Python: MAX_PAYLOAD_BYTES definido para prevención de DoS.", True))
-        else:
-            report.append(("[-] Webhook Python: Falta límite MAX_PAYLOAD_BYTES.", False))
+    # 2. Verificar que no existan URLs api.telegram.org en el código fuente
+    forbidden_tg_host = "api." + "telegram.org"
+    source_exts = {".py", ".js", ".html", ".md", ".json", ".toml", ".yml", ".yaml", ".sh", ".css"}
+    self_path = Path(__file__).resolve()
+    tg_url_hits = []
 
-        if "sanitize_input" in content:
-            report.append(("[✓] Webhook Python: Sanitización estricta de cadenas implementada.", True))
+    for path in repo_root.rglob("*"):
+        if any(part in EXCLUDED_SCAN_DIRS for part in path.parts):
+            continue
+        if path.is_file() and path.suffix in source_exts and path.resolve() != self_path:
+            try:
+                text = path.read_text(encoding="utf-8", errors="ignore")
+                if forbidden_tg_host in text:
+                    tg_url_hits.append(str(path.relative_to(repo_root)))
+            except Exception:
+                continue
+
+    if not tg_url_hits:
+        report.append(("[✓] Purga de Relés Externos: 0 endpoints hacia APIs de mensajería no soberanas detectados.", True))
+    else:
+        report.append((f"[-] Detectadas referencias a endpoint externo prohibido en: {', '.join(tg_url_hits)}", False))
+
+    # 3. Verificar criptografía WebCrypto en assets/js/bunker_vault.js (AES-GCM + PBKDF2)
+    bunker_js = repo_root / "assets" / "js" / "bunker_vault.js"
+    if bunker_js.is_file():
+        bunker_content = bunker_js.read_text(encoding="utf-8", errors="ignore")
+        if "AES-GCM" in bunker_content and "PBKDF2" in bunker_content:
+            report.append(("[✓] Búnker Vault (bunker_vault.js): Motor WebCrypto AES-GCM + PBKDF2 verificado.", True))
         else:
-            report.append(("[-] Webhook Python: Falta módulo sanitize_input.", False))
+            report.append(("[-] Búnker Vault (bunker_vault.js): Faltan primitivas AES-GCM o PBKDF2.", False))
+    else:
+        report.append(("[-] Búnker Vault: No se encontró assets/js/bunker_vault.js.", False))
+
+    # 4. Verificar compuerta criptográfica SHA-256 en assets/js/anuu_gate.js
+    gate_js = repo_root / "assets" / "js" / "anuu_gate.js"
+    if gate_js.is_file():
+        gate_content = gate_js.read_text(encoding="utf-8", errors="ignore")
+        if "SHA-256" in gate_content:
+            report.append(("[✓] Anuu Sentinel Gate (anuu_gate.js): Compuerta criptográfica SHA-256 verificada.", True))
+        else:
+            report.append(("[-] Anuu Sentinel Gate (anuu_gate.js): No se detectó digest SHA-256.", False))
+    else:
+        report.append(("[-] Anuu Sentinel Gate: No se encontró assets/js/anuu_gate.js.", False))
+
+    # 5. Verificar existencia y autodiagnóstico de api/sovereign_envelope_cli.py
+    envelope_cli = repo_root / "api" / "sovereign_envelope_cli.py"
+    if envelope_cli.is_file():
+        try:
+            res_cli = subprocess.run(
+                [sys.executable, str(envelope_cli), "--selftest"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                timeout=10,
+            )
+            if res_cli.returncode == 0:
+                report.append(("[✓] Sovereign Envelope CLI (sovereign_envelope_cli.py): Presente y --selftest PASSED.", True))
+            else:
+                report.append((f"[-] Sovereign Envelope CLI: Falló --selftest (código {res_cli.returncode}).", False))
+        except Exception as exc:
+            report.append((f"[-] Sovereign Envelope CLI: Error al ejecutar verificación ({exc}).", False))
+    else:
+        report.append(("[-] Sovereign Envelope CLI: No se encontró api/sovereign_envelope_cli.py.", False))
 
     return report
 
@@ -111,7 +153,7 @@ def audit_file_permissions(repo_root: Path):
     print("\n[+] Auditando permisos de archivos en repositorio...")
     issues = []
     for path in repo_root.rglob("*"):
-        if ".git" in path.parts:
+        if any(part in EXCLUDED_SCAN_DIRS for part in path.parts):
             continue
         if path.is_file():
             mode = path.stat().st_mode

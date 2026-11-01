@@ -1,200 +1,145 @@
-# ⚡ K4LI-ANUU-FORGE // INTAKE & DISPATCH BACKEND
+# 🛡️ K4LI-ANUU-FORGE // ARQUITECTURA ZERO-CLOUD & DESPACHO SOBERANO E2EE
 
 > **Frecuencia Operativa:** `189.89.619 Hz` | **Concilio ACE:** `161914`  
-> **Unidad Técnica:** `4NVSET 🟢`  
-> **Coste de Infraestructura:** `0 € / mes` (Free Tier Cloudflare Workers o Daemons locales)
+> **Comandancia de Seguridad:** `Kanuv 🛡️` & **Unidad Técnica:** `4NVSET 🟢`  
+> **Coste Operativo & Exposición Cloud:** `0,00 € / mes` — **Modo 100% Directo Zero-Cloud**
 
-Infraestructura de recepción técnica y despacho de encargos para el ecosistema **K4li Forge**. Diseñado con una arquitectura dual intercambiable:
-1. **Edge Serverless (Recomendado para producción):** [Cloudflare Worker (`api/worker_cloudflare.js`)](file:///home/kali/k4li-anuu-forge/api/worker_cloudflare.js).
-2. **Local Daemon (Self-hosted / VPS / Kali):** [Python Webhook (`api/intake_webhook.py`)](file:///home/kali/k4li-anuu-forge/api/intake_webhook.py).
+Infraestructura criptográfica de recepción técnica, custodia local y despacho directo de encargos para **K4L1 Studio**, diseñada bajo doctrina de **Soberanía Radical y Privacidad Zero-Knowledge**:
 
----
-
-## 🛰️ 1. Configuración de Credenciales Telegram (Bot & Chat)
-
-Para recibir las alertas instantáneas en tu Telegram privado o canal cifrado:
-
-### Paso 1: Crear el Bot de Telegram
-1. Abre Telegram y busca el bot oficial **`@BotFather`**.
-2. Envía el comando `/newbot`.
-3. Asigna un nombre (ej. `K4li Forge Dispatcher`) y un username terminado en `bot` (ej. `k4li_forge_intake_bot`).
-4. `@BotFather` te responderá con tu **Token de Acceso HTTP**:
-   ```
-   TELEGRAM_BOT_TOKEN="7123456789:AAFlm3k_XXXXXXXXXXXXXX_K4liSec"
-   ```
-
-### Paso 2: Obtener tu Chat ID (`TELEGRAM_CHAT_ID`)
-1. Inicia conversación con tu nuevo bot pulsando **Start / Iniciar** o enviándole un mensaje como `/start`.
-2. Para conocer tu Chat ID personal:
-   - Opción rápida: Consulta al bot **`@userinfobot`** en Telegram; te devolverá tu `Id` numérico (ej. `987654321`).
-   - Opción por API: Abre en tu navegador sustituyendo tu token:
-     ```
-     https://api.telegram.org/bot<TU_TELEGRAM_BOT_TOKEN>/getUpdates
-     ```
-     Busca dentro del JSON: `"chat":{"id": 987654321, ...}`.
-3. Si deseas enviar las alertas a un **Grupo o Canal**:
-   - Invita al bot al grupo como administrador.
-   - Envía un mensaje en el grupo y revisa `getUpdates` (el ID de grupo suele empezar por `-100...`).
+- **Cero Cloudflare Workers** ni proxies serverless intermediarios que terminen TLS en terceros.
+- **Cero bots corporativos espías** ni webhooks en claro.
+- **Cero Telegram** ni APIs centralizadas que almacenen metadatos o payloads de clientes en nubes ajenas.
 
 ---
 
-## ☁️ 2. Opción A: Despliegue en Cloudflare Worker (0 € / mes)
+## ⚡ 1. Flujo Criptográfico Directo (Zero-Cloud Architecture)
 
-El Worker opera en más de 330 ubicaciones mundiales de Cloudflare con latencia ultra baja, filtrado DDoS y 100.000 peticiones gratuitas al día.
-
-### Método 1: Despliegue con Wrangler CLI
-Desde cualquier máquina con Node.js / npm:
-
-```bash
-# 1. Instalar o ejecutar wrangler
-npx wrangler login
-
-# 2. Configurar las variables secretas cifradas en Cloudflare
-npx wrangler secret put TELEGRAM_BOT_TOKEN
-# (Introduce el token de BotFather cuando te lo pida)
-
-npx wrangler secret put TELEGRAM_CHAT_ID
-# (Introduce el Chat ID numérico)
-
-# (Opcional) Webhook secundario (ej. Discord)
-npx wrangler secret put WEBHOOK_URL
-
-# 3. Desplegar el worker
-npx wrangler deploy api/worker_cloudflare.js --name k4li-forge-intake
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                   NAVEGADOR DEL CLIENTE / OPERADOR (LOCAL)                  │
+│                                                                             │
+│  [Formulario de Encargo / SOW]                                              │
+│               │                                                             │
+│               ▼                                                             │
+│  [WebCrypto API Nativa: Digest SHA-256 + Derivación PBKDF2 + AES-256-GCM]   │
+│               │                                                             │
+│       ┌───────┴───────────────────────────────────────────┐                 │
+│       ▼                                                   ▼                 │
+│  [Búnker IndexedDB Zero-Knowledge]        [Sobre Blindado .k4li.asc / PGP]  │
+│  (assets/js/bunker_vault.js)              (BEGIN K4L1 SOVEREIGN ENVELOPE)   │
+└───────┼───────────────────────────────────────────────────┼─────────────────┘
+        │                                                   │
+        │ Custodia Local en Reposo                          │ Despacho E2EE Directo
+        ▼                                                   ▼
+ [Cifrado AES-256-GCM / PQC 500k]            [Canal Directo Signal E2EE @k4li.89]
+                                                            │
+                                                            ▼
+                                             [Verificación Forense Offline]
+                                             python3 api/sovereign_envelope_cli.py
 ```
 
-Tu worker quedará publicado en `https://k4li-forge-intake.<tu-subdominio>.workers.dev`.
-
-### Método 2: Despliegue visual desde el Panel Web de Cloudflare
-1. Entra en [dash.cloudflare.com](https://dash.cloudflare.com/) > **Workers & Pages** > **Create Application**.
-2. Asigna el nombre `k4li-forge-intake` y pulsa **Deploy**.
-3. Pulsa **Edit code**, pega el contenido de [`api/worker_cloudflare.js`](file:///home/kali/k4li-anuu-forge/api/worker_cloudflare.js) y pulsa **Save and Deploy**.
-4. Ve a la pestaña **Settings** > **Variables and Secrets** > **Secrets** y añade:
-   - `TELEGRAM_BOT_TOKEN`: `TU_TOKEN`
-   - `TELEGRAM_CHAT_ID`: `TU_CHAT_ID`
-   - `CORS_ORIGIN`: `*` (o el dominio `https://kali-anuu.github.io`)
+### Etapas del Protocolo:
+1. **Empaquetado y Firma en Navegador:** El cliente genera el expediente técnico localmente. El motor nativo `window.crypto.subtle` calcula el hash de integridad `SHA-256` sobre el payload canónico sin realizar ninguna petición HTTP externa.
+2. **Persistencia Zero-Knowledge en Búnker Local:** Si la bóveda [`assets/js/bunker_vault.js`](file:///home/kali/k4li-anuu-forge/assets/js/bunker_vault.js) se encuentra activa (tras superar la compuerta `SHA-256` de [`assets/js/anuu_gate.js`](file:///home/kali/k4li-anuu-forge/assets/js/anuu_gate.js)), el registro se cifra en memoria con `AES-256-GCM` + `PBKDF2` (`100.000` iteraciones `SHA-256` o `500.000` iteraciones `SHA-512` en modo Post-Cuántico) y se archiva en `IndexedDB`.
+3. **Despacho Directo E2EE:** El encargo se transmite sin intermediarios punto a punto mediante:
+   - **Signal E2EE (`@k4li.89`):** `https://signal.me/#u/k4li.89` (Protocolo Double Ratchet / X25519).
+   - **Sobre Soberano `.k4li.asc` / Bloque PGP:** Archivo blindado en ASCII descargable o copiable al portapapeles para adjuntar por Signal E2EE o correo cifrado con PGP / Age.
+4. **Inspección y Verificación Offline:** En la estación de trabajo de Kali Linux, [`api/sovereign_envelope_cli.py`](file:///home/kali/k4li-anuu-forge/api/sovereign_envelope_cli.py) valida matemáticamente la huella `SHA-256` y decodifica o descifra la carga útil 100% sin conexión a red.
 
 ---
 
-## 🐍 3. Opción B: Despliegue Servidor Local / VPS (Python)
+## 🔐 2. Especificación del Sobre Soberano (`.k4li.asc`)
 
-El script [`api/intake_webhook.py`](file:///home/kali/k4li-anuu-forge/api/intake_webhook.py) utiliza únicamente la biblioteca estándar de Python (zero external dependencies).
+Los sobres generados por K4L1 Studio o por la CLI utilizan armadura ASCII determinista:
 
-### Ejecución Directa
-```bash
-export TELEGRAM_BOT_TOKEN="7123456789:AAFlm3k_XXXXXXXXXXXXXX_K4liSec"
-export TELEGRAM_CHAT_ID="987654321"
-export PORT="8787"
+```text
+-----BEGIN K4L1 SOVEREIGN ENVELOPE-----
+Version: K4L1-ZeroCloud-161914
+Mode: ZERO-CLOUD-DIRECT
+Hash: SHA-256/9c81f4a02d7e31b5
+Frequency: 189.89.619 Hz
 
-python3 /home/kali/k4li-anuu-forge/api/intake_webhook.py --server --port 8787
+eyJ2ZXJzaW9uIjogIjEuMCIsICJ0aW1lc3RhbXAiOiAiMjAyNi0xMS0wMVQwNzo...
+-----END K4L1 SOVEREIGN ENVELOPE-----
 ```
 
-### Configuración como Servicio Systemd (`/etc/systemd/system/k4li-intake.service`)
-```ini
-[Unit]
-Description=K4li Forge Intake Webhook Daemon (189.89.619 Hz)
-After=network.target
+### Estructura JSON Interna (Base64 UTF-8)
 
-[Service]
-Type=simple
-User=kali
-WorkingDirectory=/home/kali/k4li-anuu-forge
-Environment=PORT=8787
-Environment=TELEGRAM_BOT_TOKEN=7123456789:AAFlm3k_XXXXXXXXXXXXXX_K4liSec
-Environment=TELEGRAM_CHAT_ID=987654321
-Environment=CORS_ORIGIN=*
-ExecStart=/usr/bin/python3 /home/kali/k4li-anuu-forge/api/intake_webhook.py --server
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Habilitar e iniciar:
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable --now k4li-intake
-sudo systemctl status k4li-intake
-```
-
-### Proxy Inverso Nginx (Opcional)
-```nginx
-location /api/intake {
-    proxy_pass http://127.0.0.1:8787/api/intake;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-}
-```
-
----
-
-## 📡 4. Especificación del Payload JSON
-
-### Petición `POST /api/intake`
 ```json
 {
-  "service": "security",
-  "urgency": "express",
-  "brief": "Auditoría de seguridad y hardening para servidor Debian 12 en producción.",
-  "contact": "@k4li_client_signal / client@example.com",
-  "name": "Alex Mercer",
-  "presupuesto": "450 € - 850 €"
-}
-```
-
-| Campo | Tipo | Requerido | Descripción / Valores |
-|---|---|---|---|
-| `service` | string | Sí | `security`, `dashboard`, `ai`, `automation` |
-| `urgency` | string | No | `normal`, `express`, `retainer` (defecto: `normal`) |
-| `brief` | string | Sí | Descripción técnica (mínimo 5 caracteres) |
-| `contact` | string | Sí | Signal ID, Telegram handle o correo electrónico |
-| `name` | string | No | Nombre o razón social del cliente |
-| `presupuesto` | string | No | Estimación económica calculada por la UI |
-
-### Respuesta `HTTP 200 OK`
-```json
-{
-  "status": "success",
-  "message": "Petición técnica registrada correctamente.",
-  "service": "security",
-  "urgency": "express",
-  "timestamp": "2026-10-25 05:02:48 UTC",
-  "dispatch": {
-    "telegram": "telegram_delivered",
-    "webhook": "no_webhook_configured"
+  "version": "1.0",
+  "timestamp": "2026-11-01T07:15:00Z",
+  "sha256": "9c81f4a02d7e31b5e0c4f8a21d6b9034f1e72c8a50d4b3197e6a02c1f8b4d912",
+  "mode": "ZERO-CLOUD-DIRECT",
+  "payload": {
+    "service": "security",
+    "urgency": "express",
+    "name": "Operador Soberano",
+    "contact": "@operador.89 (Signal E2EE)",
+    "brief": "Auditoría de hardening Linux Debian 12 y despliegue SIEM Wazuh."
   }
 }
 ```
 
+En modo cifrado simétrico (`mode: "aes-256-gcm"`), `payload` encapsula los parámetros autenticados `{salt, iv, iterations, hash, ciphertext}` compatibles bit a bit con WebCrypto `AES-256-GCM` y `PBKDF2`.
+
 ---
 
-## 🧪 5. Verificación y Pruebas Automatizadas
+## 🛠️ 3. Utilidad Forense Offline (`api/sovereign_envelope_cli.py`)
 
-El repositorio incluye el suite [`scripts/test_intake.sh`](file:///home/kali/k4li-anuu-forge/scripts/test_intake.sh). Ejecuta de forma aislada:
-- Comprobación de salud `GET /health`
-- Validación de intake completo `POST /api/intake`
-- Pruebas negativas de integridad de payload (campo `brief` omitido)
-- Pruebas negativas de sintaxis JSON corrupta
-- Ejecución CLI en tubería (stdin)
+La herramienta [`api/sovereign_envelope_cli.py`](file:///home/kali/k4li-anuu-forge/api/sovereign_envelope_cli.py) opera **100% offline** (cero sockets, cero llamadas HTTP) utilizando la biblioteca estándar de Python 3 y soporte automático de `AES-256-GCM` si `cryptography` está disponible en el sistema.
 
-Ejecutar:
+### Autodiagnóstico Criptográfico (`--selftest`)
+Verifica generación de armadura, comprobación `SHA-256`, detección anti-manipulación (*Tamper Guard*) y cifrado/descifrado `PBKDF2 + AES-256-GCM`:
+
 ```bash
-chmod +x scripts/test_intake.sh
-./scripts/test_intake.sh
+python3 api/sovereign_envelope_cli.py --selftest
+```
+
+### Inspeccionar y Verificar un Sobre `.k4li.asc` Recibido por Signal / PGP
+```bash
+# Inspección forense directa desde archivo
+python3 api/sovereign_envelope_cli.py encargo_cliente.k4li.asc
+
+# Lectura desde portapapeles / tubería estándar (stdin)
+cat encargo_cliente.k4li.asc | python3 api/sovereign_envelope_cli.py --stdin
+
+# Salida estructurada en JSON para integración con herramientas locales
+python3 api/sovereign_envelope_cli.py --inspect encargo_cliente.k4li.asc --json
+```
+
+### Sellar y Descifrar Sobres con `PBKDF2 + AES-256-GCM`
+```bash
+# Sellar un expediente JSON firmado con SHA-256 (modo ZERO-CLOUD-DIRECT)
+python3 api/sovereign_envelope_cli.py \
+  --seal '{"service":"security","contact":"@client.89","brief":"Hardening Linux"}' \
+  --output encargo.k4li.asc
+
+# Sellar un expediente cifrado con clave simétrica AES-256-GCM (PBKDF2 100k iteraciones)
+K4LI_ENVELOPE_KEY="frase-secreta-acordada-por-signal" \
+  python3 api/sovereign_envelope_cli.py \
+  --seal expediente.json \
+  --output expediente_blindado.k4li.asc
+
+# Descifrar y verificar integridad del sobre blindado
+K4LI_ENVELOPE_KEY="frase-secreta-acordada-por-signal" \
+  python3 api/sovereign_envelope_cli.py \
+  --inspect expediente_blindado.k4li.asc
 ```
 
 ---
 
-## 💻 6. Enlace en el Frontend (`index.html`)
+## 🔍 4. Auditoría Defensiva Zero-Cloud (`scripts/security_audit.py`)
 
-En `index.html`, la función `handleFormSubmit` despacha la petición al endpoint configurado en `window.FORGE_INTAKE_ENDPOINT` (o `/api/intake` por defecto). Si estás usando el Cloudflare Worker, puedes configurar en tu HTML o cabecera:
+El auditor de seguridad [`scripts/security_audit.py`](file:///home/kali/k4li-anuu-forge/scripts/security_audit.py) garantiza de forma automatizada el cumplimiento estricto de la arquitectura soberana:
 
-```html
-<script>
-  // Apunta a tu Cloudflare Worker desplegado:
-  window.FORGE_INTAKE_ENDPOINT = "https://k4li-forge-intake.<tu-subdominio>.workers.dev/api/intake";
-</script>
+1. **Erradicación Cloud:** Verifica la ausencia total de workers intermediarios y configuraciones serverless heredadas.
+2. **Purga de Relés Externos:** Escanea el árbol de código fuente asegurando cero endpoints hacia APIs de mensajería no soberanas.
+3. **Verificación Criptográfica:** Audita la presencia de `AES-GCM` y `PBKDF2` en [`assets/js/bunker_vault.js`](file:///home/kali/k4li-anuu-forge/assets/js/bunker_vault.js), `SHA-256` en [`assets/js/anuu_gate.js`](file:///home/kali/k4li-anuu-forge/assets/js/anuu_gate.js) y ejecuta la validación funcional de [`api/sovereign_envelope_cli.py`](file:///home/kali/k4li-anuu-forge/api/sovereign_envelope_cli.py).
+
+```bash
+python3 scripts/security_audit.py
 ```
 
-Si la red estuviera desconectada o la petición tardara, el formulario garantiza la continuidad de negocio ofreciendo instantáneamente el enlace directo E2EE a **Signal**.
+---
+*Sellado bajo el Escudo Kanuv 🛡️ — Concilio ACE (`161914`) a `189.89.619 Hz`.*

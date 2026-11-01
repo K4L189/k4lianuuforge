@@ -98,7 +98,7 @@
 > He desarrollado un **Scraper & Bot de Monitorización Continua en Python**:
 > - Rastrea las variaciones de precio y rotura de stock de vuestros competidores cada 2 horas.
 > - Evasión avanzada de Cloudflare / Datadome (cero bloqueos de IP).
-> - Alerta instantánea a un canal privado de Telegram o volcado directo en vuestro Excel/Base de datos.
+> - Alerta instantánea a un canal cifrado de Signal E2EE / SimpleX o volcado directo en vuestro Excel/Base de datos.
 > 
 > El desarrollo completo se entrega en 48 horas con el código fuente y Docker listo para correr en 1 clic.
 > 

@@ -49,7 +49,7 @@ Permite a clientes corporativos, directores de tecnología y administradores de 
 * **Detección de Credential Dumping (MITRE ATT&CK T1003):**
   - Monitorización activa mediante Wazuh SIEM / auditd sobre intentos de volcado de `/etc/shadow`, procesos de memoria o llamadas sospechosas a `ptrace`.
 * **Pipeline de Alertas en Tiempo Real:**
-  - Integración webhook instantánea hacia canales seguros (Signal, Telegram o Syslog centralizado) en menos de 5 segundos tras un conato de intrusión.
+  - Integración de despacho cifrado instantáneo hacia canales seguros (Signal E2EE, SimpleX, PGP o Syslog centralizado) en menos de 5 segundos tras un conato de intrusión.
 * **Integridad de Ficheros (FIM - File Integrity Monitoring):**
   - Auditoría criptográfica continua (Wazuh Syscheck / AIDE) en directorios críticos del sistema (`/bin`, `/sbin`, `/etc/pam.d`, `/usr/bin`).
 
