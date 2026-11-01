@@ -1,7 +1,8 @@
 # ⚡ CAMPAÑA DE ASALTO 30 DÍAS: 10 HILOS VIRALES PARA X/TWITTER
 ### *Estrategia de Autoridad Técnica, Infiltración Táctica y Conversión de Alto Calibre*
 **Autora / Arquitecta:** Kali (`@K4L189` / Signal: `@k4li.89`)  
-**Dossier Maestro GitHub:** [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+**Dossier Maestro GitHub:** [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
+**Portal Live (Nexus & Ala Omega):** [https://k4l189.github.io/k4lianuuforge/](https://k4l189.github.io/k4lianuuforge/)  
 **Frecuencia Operativa:** `189.89.619 Hz` | *Concilio ACE (161914)*  
 **Sello Operativo:** *Set ⚡ & Rosa Gris 🌸*
 
@@ -118,7 +119,7 @@ Si un atacante tiene acceso físico al puerto de tu hardware de borde durante 10
 He documentado scripts de hardening, auditoría de firmware y arquitecturas de red resilientes en mi dossier de ingeniería.
 
 Explora el laboratorio completo y mis plantillas de seguridad aquí:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 ¿Auditas tus routers o dejas la configuración del operador por defecto? Te leo abajo👇
 
 ---
@@ -234,7 +235,7 @@ Y el hardware y el know-how quedan bajo control de la empresa.
 
 **[10/10] CTA & RECURSOS**  
 Tengo documentados los docker-compose, configuraciones de vLLM y pipelines RAG de baja latencia en mi repositorio:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Tu empresa sigue pagando tokens a ciegas o ya estáis evaluando soberanía local? Hablemos en comentarios👇
 
@@ -351,7 +352,7 @@ Esto obliga al atacante a cargar drivers de kernel maliciosos (BYOVD), elevando 
 
 **[10/10] CTA & LABORATORIO**  
 He subido las reglas XML completas de Wazuh, la plantilla Sysmon auditada y scripts de aislamiento a mi repo de infraestructura:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Cómo tienes monitorizado LSASS en tu parque de servidores? Te leo abajo👇
 
@@ -473,7 +474,7 @@ Pero para sistemas en tiempo real (fintech, streaming de telemetría de red, das
 
 **[10/10] CTA & CÓDIGO FUENTE**  
 He publicado la arquitectura del canvas modular, benchmarks y componentes en mi dossier:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Has tenido que pelearte con cuellos de botella en React por exceso de eventos? Cuéntame tu truco👇
 
@@ -570,7 +571,7 @@ Dominar Linux, redes y bare-metal devuelve el poder económico y el control de l
 
 **[10/10] CTA & PLANTILLAS**  
 He publicado los scripts de aprovisionamiento de Hetzner con Ansible, configuraciones de Traefik y guías de backup en mi repositorio:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Estás atrapado en una factura inflada de cloud o te atreves con bare-metal? Debate abierto abajo👇
 
@@ -704,7 +705,7 @@ Si no controlas y auditas tus propias resoluciones, estás cediendo el mapa de t
 
 **[10/10] CTA & DESCARGA**  
 He dejado las configuraciones completas de Unbound, docker-compose y scripts de redirección iptables en el dossier de GitHub:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Cuántas consultas DNS sospechosas crees que hace tu ordenador ahora mismo sin que te enteres? Te leo abajo👇
 
@@ -809,7 +810,7 @@ Aprender a auditar los eventos profundos de Kerberos es la diferencia entre ser 
 
 **[10/10] CTA & DOSSIER**  
 He recopilado el playbook de auditoría de Active Directory, reglas Sigma y scripts de detección en mi dossier:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Cuándo fue la última vez que rotasteis la clave de krbtgt en vuestra infraestructura? Los leo abajo👇
 
@@ -918,7 +919,7 @@ Montar un honeypot no es solo diversión hacker:
 
 **[10/10] CTA & GUÍA DE DESPLIEGUE**  
 He preparado una guía paso a paso con los scripts de Cowrie, dashboards de visualización y medidas de contención en mi repositorio:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Has capturado alguna vez malware vivo en tus propios servidores? Cuéntame tu experiencia abajo👇
 
@@ -1055,7 +1056,7 @@ Es el cimiento sobre el que construyes. Tratar tu infraestructura como código i
 
 **[10/10] CTA & CÓDIGO DEL PLAYBOOK**  
 He liberado el playbook completo de Ansible para Debian/Ubuntu y CentOS en mi dossier de GitHub:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Qué nota saca tu servidor de producción actual en un análisis de Lynis? Pásale el test y cuéntame👇
 
@@ -1164,7 +1165,7 @@ La seguridad estática es una ilusión: solo la telemetría profunda, la correla
 **[10/10] CTA & PROYECTOS**  
 Si quieres profundizar en análisis de malware, ingeniería de detección y pruebas de concepto en entornos de laboratorio controlados:  
 Visita mi dossier de ingeniería y proyectos avanzados:  
-🔗 [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+🔗 [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
 
 ¿Has analizado casos de DLL Sideloading en incidentes reales? Déjame tus impresiones en los comentarios👇
 

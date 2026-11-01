@@ -38,7 +38,7 @@ A diferencia de los SaaS convencionales encadenados a APIs de terceros, proxies 
 
 ```mermaid
 flowchart TD
-    subgraph Client ["🖥️ Silicio Local del Operador (Zero-Cloud Browser / PWA v2.7)"]
+    subgraph Client ["🖥️ Silicio Local del Operador (Zero-Cloud Browser / PWA v2.8)"]
         Gate["🛡️ Sentinel Pre-Index Gate\n(WebCrypto SHA-256 Digest)"]
         Studio["💼 K4L1 Studio\n19 Estudios Técnicos en Vivo"]
         Forge["🌌 Anuu-Forge\nMuseo de 26 Reliquias + Lector GFM (Ctrl+M)"]
@@ -52,9 +52,10 @@ flowchart TD
         OfflineCLI["🧪 Verificador Forense Offline\napi/sovereign_envelope_cli.py"]
     end
 
-    subgraph LocalAI ["🧠 Núcleo QLLM & Capa Cuántica (127.0.0.1:11434)"]
-        Ollama["⚙️ Ollama / llama.cpp Vulkan\nanuu-1b · anuu-3b · anuu-4b-sliced · 12b"]
-        Fock["🌀 Capa Fotónica QBIT_ALPHA_089\nEstados Fock / Resonancia 161914.89 Hz"]
+    subgraph LocalAI ["🧠 Núcleo QLLM & Cómputo Híbrido ARM64 (:18989)"]
+        Ollama["⚙️ Inferencia Local 0€\nanuu-1b · anuu-3b · anuu-4b-sliced · 12b"]
+        Fock["🌀 Capa Fotónica QBIT_ALPHA_089\n144 Estados Hilbert Fock / Resonancia 161914.89 Hz"]
+        HybridNode["⚡ Nodo Híbrido POCO F6 ARM64\nSnapdragon 8s Gen 3 (8 cores @ 26°C · 0% CPU PC)"]
     end
 
     Gate -->|"Hash Verificado"| Studio
@@ -67,6 +68,8 @@ flowchart TD
     Studio <-->|"Inferencia 0€"| Ollama
     Omega <-->|"Argon Oracle GM"| Ollama
     Ollama <--> Fock
+    Studio <-->|"Descarga Matricial USB"| HybridNode
+    Omega <-->|"Simulador Monte Carlo 500k"| HybridNode
 ```
 
 ---
@@ -150,20 +153,20 @@ Cada módulo en [`components/`](components/) funciona de manera autónoma en el 
 Ubicada en [`omega/index.html`](omega/index.html) de forma **completamente desacoplada** del portal comercial principal para preservar una arquitectura limpia y modular:
 
 * **Host de Montaje Desacoplado (`window.AnusetOmegaHost`)**: Cámara preparada para inyectar sin fricción el build jugable completo del videojuego táctico Seinen (**Go `anuset-engine` + WebGL/3D + QLLM Argon Oracle**).
-* **Calibrador Interactivo 2d20 Resonancia Prima**: Implementación fiel en vivo de las mecánicas nucleares del motor en Go — detección de primos sagrados `{2, 3, 5, 7, 11, 13, 17, 19}`, **Éxito Omega (Doble Primo)**, *Hard Fault*, simulación de **Psicosis (`<15% SAN`)** con distorsión cromática real en el HUD y puente opcional hacia Ollama local (`127.0.0.1:11434`).
-* **Cimientos del Proyecto**: `144 Clases Modulares`, `Facciones Canónicas Unificadas`, sistema *Bloodeater*, escuadrón con *Permadeath* y *Psycho Pantheon*.
+* **Códice Canónico de 144 Clases Modulares & 12 Facciones**: Destilado en [`omega/codex_144.json`](omega/codex_144.json) (`C001`–`C144`, 12 Arquetipos × 12 Pilares Divinos) con forjador de personajes interactivo, detector de sinergias clase-facción, afinidad con el vacío y crónica Seinen del Año 10 expuesto mediante `window.AnusetOmegaHost.getCanonicalCodex()`.
+* **Calibrador Interactivo 2d20 Resonancia Prima & Simulador Monte Carlo 500k**: Detección de primos sagrados `{2, 3, 5, 7, 11, 13, 17, 19}`, **Éxito Omega (Doble Primo)**, simulación de **Psicosis (`<15% SAN`)** y botón de benchmark Monte Carlo híbrido que ejecuta **`500,000` tiradas en `~18 ms`** sobre los 8 núcleos ARMv9.2 del Snapdragon 8s Gen 3 (`:18989/compute/omega-sim` a `27.3M rolls/s` con 0% CPU en PC) o fallback local en Web Workers/Crypto.
 
 ---
 
 ## 🔐 VII. Seguridad Criptográfica & Verificación Forense Offline
 
 ### Capas de Protección Activas
-1. **Sentinel Pre-Index Gate ([`assets/js/anuu_gate.js`](assets/js/anuu_gate.js))**: Validación `SHA-256` vía WebCrypto antes de revelar la interfaz; sesión efímera compartida entre `/` y `/omega/`.
+1. **Sentinel Pre-Index Gate ([`assets/js/anuu_gate.js`](assets/js/anuu_gate.js))**: Validación `SHA-256` vía WebCrypto antes de revelar la interfaz; sesión efímera compartida entre `/` y `/omega/`, activo en las 54 páginas HTML del repositorio con cero texto en claro.
 2. **Búnker NoSQL Zero-Knowledge ([`assets/js/bunker_vault.js`](assets/js/bunker_vault.js))**:
    * Cifrado simétrico autenticado **AES-256-GCM** con IV aleatorio de 96 bits y sal criptográfica por registro.
    * Derivación **PBKDF2** estándar (`100.000` iteraciones `SHA-256`) y modo **Post-Cuántico** (`500.000` iteraciones `HMAC-SHA-512` con sal de 256 bits para resistencia frente al algoritmo de Grover).
    * Derivación de **Paper Key mnemónica** sobre diccionario canónico de 64 palabras sagradas y botón de pánico **Dead Man Purge** (destrucción instantánea de RAM, `localStorage`, `sessionStorage`, `IndexedDB` y cachés del Service Worker).
-3. **Sobres Blindados `.k4li.asc` ([`api/sovereign_envelope_cli.py`](api/sovereign_envelope_cli.py))**: Herramienta CLI 100% offline (cero sockets de red) para verificar huellas `SHA-256`, detectar manipulación (*Tamper Guard*) y sellar o descifrar expedientes recibidos por Signal o PGP.
+3. **Sobres Blindados `.k4li.asc` ([`api/sovereign_envelope_cli.py`](api/sovereign_envelope_cli.py))**: Herramienta CLI 100% offline (cero sockets de red) para verificar huellas `SHA-256`, detectar manipulación (*Tamper Guard*) y sellar o descifrar expedientes recibidos por Signal o PGP. Integrado nativamente en CRM, ROI Calculator y Generador de SOW.
 
 ### Ejecución Local & Suite de Auditoría CI/CD
 
@@ -172,16 +175,10 @@ Ubicada en [`omega/index.html`](omega/index.html) de forma **completamente desac
 git clone https://github.com/K4L189/k4lianuuforge.git
 cd k4lianuuforge
 
-# 2. Ejecutar auditoría de integridad de activos, JSONs, SW PWA y 150+ enlaces locales
-python3 scripts/verify_assets.py
+# 2. Ejecutar Suite QA Integral E2E v2.8 (AST JS, Sentinel Gate 54 páginas, Zero-Cloud, JSONs, Sub-auditores y Merkle ARM64)
+python3 scripts/full_qa_suite.py
 
-# 3. Ejecutar auditoría defensiva Zero-Cloud, SAST y criptografía soberana
-python3 scripts/security_audit.py
-
-# 4. Ejecutar autodiagnóstico criptográfico 100% offline de sobres .k4li.asc
-python3 api/sovereign_envelope_cli.py --selftest
-
-# 5. Levantar el Nexo en local (0 dependencias externas)
+# 3. Levantar el Nexo en local (0 dependencias externas)
 python3 -m http.server 8089
 ```
 
@@ -192,14 +189,17 @@ python3 -m http.server 8089
 ```text
 k4lianuuforge/
 ├── index.html                          # Portal unificado K4L1 Studio, Anuu-Forge y Búnker NoSQL
-├── sw.js                               # Service Worker Offline-First (PWA Cache)
+├── sw.js                               # Service Worker Offline-First (PWA Cache v2.8)
 ├── manifest.json                       # Manifiesto PWA con Master Seals bespoke
 ├── robots.txt                          # Escudo anti-indexación y bloqueo total de crawlers IA
 ├── .nojekyll                           # Bypass nativo para despliegue directo en GitHub Pages
+├── vendor/                             # Dependencias locales offline
+│   └── tailwind.min.js                 # Tailwind CSS 3.4.17 standalone (398 KB, 0 CDNs externos)
 ├── omega/                              # Ala dedicada y desacoplada del videojuego ANUSET 189 OMEGA
-│   ├── index.html                      # Cámara de montaje Argon Engine Stage + Sentinel Gate
+│   ├── index.html                      # Cámara de montaje Argon Engine Stage + Sentinel Gate + Matriz 144
 │   ├── omega_stage.css                 # Estética ciber-goética y shaders de psicosis (<15% SAN)
-│   └── omega_bridge.js                 # Host API window.AnusetOmegaHost + motor 2d20 Resonancia Prima
+│   ├── omega_bridge.js                 # Host API window.AnusetOmegaHost + motor 2d20 + Monte Carlo ARM64
+│   └── codex_144.json                  # Códice canónico 144 Clases Modulares & 12 Facciones (113 KB)
 ├── api/                                # Herramientas criptográficas Zero-Cloud (0 Workers / 0 Relés)
 │   ├── sovereign_envelope_cli.py       # Inspector, sellador y verificador offline de sobres .k4li.asc
 │   └── README_API.md                   # Especificación del protocolo directo Signal E2EE & PGP
@@ -207,13 +207,13 @@ k4lianuuforge/
 │   ├── brand/ & og/                    # Master Seals PWA (16px–1024px) y tarjeta OpenGraph 1200x630
 │   ├── icons/                          # 19 iconos SVG vectoriales propios (<1.1 KB) + sprite.svg
 │   ├── css/                            # anuu_gate.css, forge_cards.css, fullwallpaper.css, hud_core.css
-│   ├── js/                             # anuu_gate.js, bunker_vault.js, forge_cards.js, k4li_markdown.js
+│   ├── js/                             # anuu_gate.js, bunker_vault.js, forge_cards.js, k4li_markdown.js, hud_core.js
 │   └── wallpapers/                     # 7 fondos HD canónicos rotativos del Espacio 89
-├── components/                         # 19 estudios técnicos autónomos (QLLM, DSP, Forense, SIEM, 3D)
-├── relics/                             # Archivo histórico de las 26 Reliquias interactivas
+├── components/                         # 19 estudios técnicos autónomos (QLLM, DSP, Forense, SIEM, 3D, CRM)
+├── relics/                             # Archivo histórico de las 26 Reliquias interactivas (33 HTMLs con Gate)
 ├── docs/                               # Tratado QLLM, Wiki Espacio 89, Tarifario, SOW/NDA y Guías
-├── scripts/                            # Auditores CI/CD: verify_assets.py y security_audit.py
-└── .github/workflows/                  # Pipelines automatizados de integridad, SAST Bandit y Pages Edge
+├── scripts/                            # Auditores CI/CD: full_qa_suite.py, verify_assets.py, security_audit.py
+└── .github/workflows/                  # Pipelines automatizados: deploy.yml (E2E QA + Pages) y security_audit.yml
 ```
 
 ---

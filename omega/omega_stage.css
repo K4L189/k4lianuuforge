@@ -250,7 +250,7 @@ body.omega-body::before {
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   padding: 1.15rem;
   display: flex;
   flex-direction: column;
@@ -588,3 +588,122 @@ input[type="range"].omega-range::-moz-range-thumb {
 .omega-scroll::-webkit-scrollbar-thumb:hover {
   background: var(--omega-cyan);
 }
+
+/* ==========================================================================
+   SIMULADOR MONTE CARLO HÍBRIDO 500K (ARM64 :18989 / BROWSER ENGINE)
+   ========================================================================== */
+.btn-omega-montecarlo {
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.14) 0%, rgba(138, 43, 226, 0.28) 55%, rgba(251, 191, 36, 0.16) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  color: #fef3c7;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.15), inset 0 0 12px rgba(0, 245, 212, 0.08);
+}
+
+.btn-omega-montecarlo:hover:not(:disabled) {
+  border-color: var(--omega-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 22px rgba(0, 245, 212, 0.38), 0 0 14px rgba(251, 191, 36, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-omega-montecarlo:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.mc-telemetry-box {
+  background: rgba(4, 4, 10, 0.82);
+  border: 1px solid rgba(0, 245, 212, 0.28);
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+}
+
+.mc-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mc-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   FORJADOR DE AGENTE: MATRIZ MODULAR DE 144 CLASES & FACCIONES CANÓNICAS
+   ========================================================================== */
+.codex-chamber-shell {
+  background: linear-gradient(180deg, rgba(11, 9, 20, 0.9) 0%, rgba(6, 5, 12, 0.95) 100%);
+  border: 1px solid rgba(138, 43, 226, 0.38);
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.72), 0 0 36px rgba(138, 43, 226, 0.12);
+}
+
+.codex-triad-pill {
+  padding: 0.34rem 0.7rem;
+  border-radius: 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.codex-triad-pill:hover {
+  border-color: rgba(0, 245, 212, 0.45);
+  color: #f4f4f5;
+}
+
+.codex-triad-pill.is-active {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.34), rgba(0, 245, 212, 0.18));
+  border-color: var(--omega-cyan);
+  color: var(--omega-cyan);
+  box-shadow: 0 0 14px rgba(0, 245, 212, 0.25);
+}
+
+.codex-class-card {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background: rgba(12, 10, 22, 0.78);
+  border: 1px solid rgba(138, 43, 226, 0.24);
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.codex-class-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 245, 212, 0.5);
+  background: rgba(18, 15, 34, 0.92);
+}
+
+.codex-class-card.has-synergy {
+  border-color: rgba(251, 191, 36, 0.34);
+}
+
+.codex-class-card.is-selected {
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.12) 0%, rgba(138, 43, 226, 0.22) 100%);
+  border-color: var(--omega-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.28), inset 0 0 12px rgba(0, 245, 212, 0.1);
+}
+
+.codex-dossier-card {
+  background: radial-gradient(circle at 90% 10%, rgba(138, 43, 226, 0.16), transparent 52%), rgba(7, 6, 14, 0.9);
+  border: 1px solid rgba(0, 245, 212, 0.34);
+  border-radius: 14px;
+  padding: 1rem;
+}
+

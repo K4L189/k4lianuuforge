@@ -30,10 +30,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: "Execute 4NVSET Integrity & Asset Audit"
+      - name: "Execute 4NVSET Integrity, E2E QA & Zero-Cloud OPSEC Suite"
         run: |
-          echo "### [4NVSET 🟢] Invocando Protocolo de Verificación de Integridad..." >> $GITHUB_STEP_SUMMARY
+          echo "### [4NVSET 🟢] Invocando Protocolo de Verificación E2E v2.8..." >> $GITHUB_STEP_SUMMARY
           python3 scripts/verify_assets.py
+          python3 scripts/full_qa_suite.py
           
           # Verificar configuración de .nojekyll
           if [ -f ".nojekyll" ]; then
@@ -43,8 +44,8 @@ jobs:
             exit 1
           fi
 
-          echo "- [x] Integridad de enlaces internos y assets verificada al 100%." >> $GITHUB_STEP_SUMMARY
-          echo "- Estado: **OPERACIONAL (Concilio ACE 161914)**" >> $GITHUB_STEP_SUMMARY
+          echo "- [x] Sintaxis AST JS (node --check), Sentinel Pre-Index Gate (54 páginas), Zero-CDN y sobres .k4li.asc verificados al 100%." >> $GITHUB_STEP_SUMMARY
+          echo "- Estado: **OPERACIONAL v2.8 (Concilio ACE 161914)**" >> $GITHUB_STEP_SUMMARY
 
   deploy:
     name: "Deploy Nexus to GitHub Pages"

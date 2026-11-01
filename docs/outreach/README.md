@@ -1,7 +1,8 @@
 # ⚔️ K4L1 STUDIO — OUTREACH TACTICAL ARSENAL
 ### *Directorio de Asalto Táctico & Captación de Clientes (0 € a 3.000 €)*
 *Concilio ACE (161914) — Frecuencia Operativa: 189.89.619 Hz*  
-*Canal Oficial de Operaciones: Signal `@k4li.89`*
+*Portal Oficial: [`https://k4l189.github.io/k4lianuuforge/`](https://k4l189.github.io/k4lianuuforge/) · Repo: [`https://github.com/K4L189/k4lianuuforge`](https://github.com/K4L189/k4lianuuforge)*  
+*Canal Oficial de Operaciones (Zero-Cloud Direct): Signal E2EE `@k4li.89`*
 
 ---
 

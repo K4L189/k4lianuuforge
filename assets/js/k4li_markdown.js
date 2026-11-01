@@ -29,7 +29,9 @@
       items: [
         { id: "playbook", title: "Playbook de Captación Rápida", path: "docs/outreach/Playbook_Captacion_Rapida.md", icon: "⚡" },
         { id: "filtro", title: "Filtro de Clientes & Cierre 50%", path: "docs/outreach/Filtro_Clientes_y_Cierre_50.md", icon: "🎯" },
-        { id: "guiones", title: "Guiones de Comunicación & Outreach", path: "docs/outreach/Guiones_Cold_Outreach.md", icon: "💬" }
+        { id: "guiones", title: "Guiones de Comunicación & Outreach", path: "docs/outreach/Guiones_Cold_Outreach.md", icon: "💬" },
+        { id: "linkedin_master", title: "LinkedIn Outreach Master", path: "docs/marketing/LinkedIn_Outreach_Master.md", icon: "💼" },
+        { id: "twitter_hilos", title: "Hilos Técnicos 30 Días", path: "docs/marketing/Hilos_Twitter_Virales_30_Dias.md", icon: "📡" }
       ]
     },
     {
@@ -52,6 +54,7 @@
       group: "🏛️ Manifiesto & Perfil",
       items: [
         { id: "readme", title: "README Principal K4L1 Studio", path: "README.md", icon: "🏛️" },
+        { id: "prompt_gemini", title: "Super Prompt Gemini Web (README)", path: "docs/PROMPT_GEMINI_WEB_README.md", icon: "✨" },
         { id: "perfil", title: "Perfil GitHub K4L189", path: "docs/GITHUB_PROFILE_README.md", icon: "👤" }
       ]
     }

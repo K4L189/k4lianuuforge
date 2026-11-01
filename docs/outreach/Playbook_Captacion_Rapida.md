@@ -19,7 +19,7 @@
 ## 1. PRINCIPIOS DE COMBATE (LA DOCTRINA DE HIERRO)
 
 1. **La Ley del 50% Innegociable**: Ningún proceso de compilación, clonado de repositorio o análisis forense se inicia sin el 50% del depósito confirmado (SEPA Inmediata, USDT/USDC o Stripe). Quien no tiene 200€ o 400€ de liquidez para arrancar, no es un cliente; es una trampa de tiempo que te robará el oxígeno.
-2. **Cero Videollamadas de 45 Minutos sin Brief**: Las reuniones infinitas son el refugio de los incompetentes y los vampiros de energía. Nuestra venta se cierra en texto asíncrono, con capturas de código, demos vivas en GitHub Pages/Vercel y audio conciso por Signal (`@k4li.89`).
+2. **Cero Videollamadas de 45 Minutos sin Brief**: Las reuniones infinitas son el refugio de los incompetentes y los vampiros de energía. Nuestra venta se cierra en texto asíncrono, con capturas de código, demos vivas en GitHub Pages (`https://k4l189.github.io/k4lianuuforge/`), sobres criptográficos `.k4li.asc` y audio conciso por Signal (`@k4li.89`).
 3. **El Efecto Demostración Letal (*Show, Don't Pitch*)**: No prometemos que sabemos React, Wazuh o Python. Enviamos el enlace interactivo al Nexus de K4L1 Studio, el terminal en vivo o una captura del dashboard ya respondiendo a 60 FPS.
 4. **Venta Asimétrica por Dolor Real**:
    - Al CTO no le importa tu amor por el código; le importa que su inversor ve un dashboard feo y roto antes de la demo del viernes.
@@ -115,7 +115,7 @@ flowchart LR
 - **Precio**: **450 € – 750 €**.
 - **Entregables**:
   1. Repositorio Git limpio, modular y tipado en TypeScript.
-  2. Despliegue en Vercel/Cloudflare Pages listo para producción.
+  2. Despliegue estático soberano (GitHub Pages / Nginx Bare-Metal) listo para producción.
   3. Componentes atómicos reutilizables y modo oscuro impecable.
 
 ### OFERTA 3: «ESCUDO LINUX & AUDITORÍA FORENSE WAZUH» (Para Empresas con Servidores Expuestos)

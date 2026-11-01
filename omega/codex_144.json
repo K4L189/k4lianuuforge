@@ -1,0 +1,3917 @@
+{
+  "schema": "anuset-omega-codex-144-v1",
+  "frequency": "189.89.619 Hz",
+  "total_classes": 144,
+  "total_factions": 12,
+  "generation_method": "12 Arquetipos x 12 Pilares Divinos",
+  "archetypes": [
+    {
+      "index": 1,
+      "name": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 5,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 28
+      }
+    },
+    {
+      "index": 2,
+      "name": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "mods": {
+        "atk": 0,
+        "ac": 2,
+        "hp_max_delta": 12,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 22
+      }
+    },
+    {
+      "index": 3,
+      "name": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": -4,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 76
+      }
+    },
+    {
+      "index": 4,
+      "name": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 54
+      }
+    },
+    {
+      "index": 5,
+      "name": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 2,
+        "base_void_affinity": 34
+      }
+    },
+    {
+      "index": 6,
+      "name": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -4,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 48
+      }
+    },
+    {
+      "index": 7,
+      "name": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 68
+      }
+    },
+    {
+      "index": 8,
+      "name": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 4,
+        "base_void_affinity": 40
+      }
+    },
+    {
+      "index": 9,
+      "name": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "mods": {
+        "atk": 3,
+        "ac": -1,
+        "hp_max_delta": 8,
+        "san_max_delta": -5,
+        "bloodeater_cost_reduction": 5,
+        "base_void_affinity": 62
+      }
+    },
+    {
+      "index": 10,
+      "name": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "mods": {
+        "atk": 0,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 38
+      }
+    },
+    {
+      "index": 11,
+      "name": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 58
+      }
+    },
+    {
+      "index": 12,
+      "name": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": -2,
+        "san_max_delta": 5,
+        "bloodeater_cost_reduction": 0,
+        "base_void_affinity": 72
+      }
+    }
+  ],
+  "pillars": [
+    {
+      "index": 1,
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 0,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 6,
+        "void_affinity_delta": 10
+      }
+    },
+    {
+      "index": 2,
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 1,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "void_affinity_delta": 8
+      }
+    },
+    {
+      "index": 3,
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 4,
+        "san_max_delta": -2,
+        "void_affinity_delta": 6
+      }
+    },
+    {
+      "index": 4,
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 0,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": 4,
+        "void_affinity_delta": 2
+      }
+    },
+    {
+      "index": 5,
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": -3,
+        "void_affinity_delta": 14
+      }
+    },
+    {
+      "index": 6,
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 4,
+        "void_affinity_delta": -4
+      }
+    },
+    {
+      "index": 7,
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 1,
+        "ac": 0,
+        "hp_max_delta": 2,
+        "san_max_delta": 6,
+        "void_affinity_delta": 6
+      }
+    },
+    {
+      "index": 8,
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 2,
+        "void_affinity_delta": 4
+      }
+    },
+    {
+      "index": 9,
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 0,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 4,
+        "void_affinity_delta": 8
+      }
+    },
+    {
+      "index": 10,
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 0,
+        "void_affinity_delta": 5
+      }
+    },
+    {
+      "index": 11,
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 2,
+        "san_max_delta": 0,
+        "void_affinity_delta": 7
+      }
+    },
+    {
+      "index": 12,
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "void_affinity_delta": 18
+      }
+    }
+  ],
+  "faction_blocks": [
+    {
+      "key": "BAJOS_FONDOS",
+      "block": "Bajos Fondos (Callejeros & Supervivencia)",
+      "faction_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F04"
+      ]
+    },
+    {
+      "key": "CORPORACIONES_Y_ORDEN",
+      "block": "Corporaciones & Orden (Poder Institucional)",
+      "faction_ids": [
+        "F05",
+        "F06",
+        "F07",
+        "F08"
+      ]
+    },
+    {
+      "key": "CULTOS_DEL_PANTEON",
+      "block": "Cultos del Panteón (Misticismo & Frecuencia)",
+      "faction_ids": [
+        "F09",
+        "F10",
+        "F11",
+        "F12"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "F01",
+      "block_key": "BAJOS_FONDOS",
+      "block": "Bajos Fondos (Callejeros & Supervivencia)",
+      "name": "Chatarreros del Alma",
+      "origin": "Compendio + JSON",
+      "status": "CANÓNICA",
+      "leader": "V-Byte",
+      "philosophy": "Reciclar lo muerto para sobrevivir. Todo tiene un precio en voltios.",
+      "tactical_bonus": "+2 a /craft con materiales encontrados, descuento en reparaciones",
+      "hostility_penalty": "Sabotaje de equipamiento; robos de ítems menores durante descanso",
+      "mods": {
+        "atk": 1,
+        "ac": 0,
+        "hp_max_delta": 4,
+        "san_max_delta": 0,
+        "void_affinity_delta": 2
+      },
+      "resonant_archetypes": [
+        "Chatarrero Reciclador",
+        "Ingeniero de la Forja",
+        "Guerrero de Cromo"
+      ],
+      "resonant_pillars": [
+        "Pilar de Anubis",
+        "Pilar de Thoth"
+      ]
+    },
+    {
+      "id": "F02",
+      "block_key": "BAJOS_FONDOS",
+      "block": "Bajos Fondos (Callejeros & Supervivencia)",
+      "name": "Crew del Rap Licorizado",
+      "origin": "JSON (antes Rastro de Cromo en Compendio)",
+      "status": "FUSIONADA",
+      "leader": "MC-Glitch",
+      "philosophy": "La frecuencia es el arma. Los versos cortan más que el cromo.",
+      "tactical_bonus": "+2 a tiradas de Carisma y moral del escuadrón; Tokens de Sync por duelo de rimas",
+      "hostility_penalty": "Humillación pública que reduce Lealtad de reclutas en -10",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "void_affinity_delta": 4
+      },
+      "resonant_archetypes": [
+        "Hacker de Resonancia",
+        "Asesino de Frecuencia",
+        "Invocador del Panteón"
+      ],
+      "resonant_pillars": [
+        "Pilar de Hathor",
+        "Pilar de Set"
+      ]
+    },
+    {
+      "id": "F03",
+      "block_key": "BAJOS_FONDOS",
+      "block": "Bajos Fondos (Callejeros & Supervivencia)",
+      "name": "Sindicato de la Bruma / Neon-Siren",
+      "origin": "JSON (Sindicato de la Bruma) + Compendio (Sindicato Neon-Siren)",
+      "status": "FUSIONADA",
+      "leader": "Nyx-Siren",
+      "philosophy": "El contrabando es libertad. La niebla protege a quien paga.",
+      "tactical_bonus": "Acceso a mercado negro de ítems raros; información anticipada de emboscadas",
+      "hostility_penalty": "Emboscadas con veneno de datos; precios inflados x3 en comercio",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 0,
+        "void_affinity_delta": 10
+      },
+      "resonant_archetypes": [
+        "Asesino de Frecuencia",
+        "Hacker de Resonancia",
+        "Tejedor del Vacío"
+      ],
+      "resonant_pillars": [
+        "Pilar de Bastet",
+        "Pilar de Anuu"
+      ]
+    },
+    {
+      "id": "F04",
+      "block_key": "BAJOS_FONDOS",
+      "block": "Bajos Fondos (Callejeros & Supervivencia)",
+      "name": "Mercaderes del Vacío",
+      "origin": "JSON (Cultistas del Vacío en Compendio)",
+      "status": "FUSIONADA",
+      "leader": "Hollow-Ark",
+      "philosophy": "El Vacío no destruye, transforma. Todo regresa como deuda.",
+      "tactical_bonus": "Compra de Soul Echoes y Bloodeaters a mitad de coste de SAN",
+      "hostility_penalty": "Maldiciones de Vacío: -5% SAN pasivo por sesión de trauma",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": -4,
+        "san_max_delta": -4,
+        "void_affinity_delta": 20
+      },
+      "resonant_archetypes": [
+        "Tejedor del Vacío",
+        "Berserker Bloodeater",
+        "Invocador del Panteón"
+      ],
+      "resonant_pillars": [
+        "Pilar de Anuu",
+        "Pilar de Anubis",
+        "Pilar de Set"
+      ]
+    },
+    {
+      "id": "F05",
+      "block_key": "CORPORACIONES_Y_ORDEN",
+      "block": "Corporaciones & Orden (Poder Institucional)",
+      "name": "Sentinel Corp / Búnkers de Centuriones",
+      "origin": "JSON (Sentinel Corp) + Compendio (Búnkers de Centuriones)",
+      "status": "FUSIONADA",
+      "leader": "Centurion-Prime",
+      "philosophy": "El orden absoluto es la única barrera contra la entropía.",
+      "tactical_bonus": "+2 a CA del escuadrón en zonas controladas; acceso a armería pesada",
+      "hostility_penalty": "Cacería activa; bounty hunters enviados cada 3 sesiones",
+      "mods": {
+        "atk": 0,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 0,
+        "void_affinity_delta": -6
+      },
+      "resonant_archetypes": [
+        "Centinela Djed",
+        "Guerrero de Cromo",
+        "Ingeniero de la Forja"
+      ],
+      "resonant_pillars": [
+        "Pilar de Horus",
+        "Pilar de Sekhmet"
+      ]
+    },
+    {
+      "id": "F06",
+      "block_key": "CORPORACIONES_Y_ORDEN",
+      "block": "Corporaciones & Orden (Poder Institucional)",
+      "name": "Vanguardia Djed",
+      "origin": "Compendio",
+      "status": "CANÓNICA",
+      "leader": "Djed-Anubis",
+      "philosophy": "El pilar Djed sostiene el cielo. La estabilidad es sagrada.",
+      "tactical_bonus": "+2 a tiradas de resistencia y estabilización; curación pasiva +3 HP/descanso",
+      "hostility_penalty": "Excomunión: pérdida de acceso a zonas seguras y santuarios de curación",
+      "mods": {
+        "atk": 0,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": 4,
+        "void_affinity_delta": -4
+      },
+      "resonant_archetypes": [
+        "Centinela Djed",
+        "Médico de Almas",
+        "Guerrero de Cromo"
+      ],
+      "resonant_pillars": [
+        "Pilar de Isis",
+        "Pilar de Osiris"
+      ]
+    },
+    {
+      "id": "F07",
+      "block_key": "CORPORACIONES_Y_ORDEN",
+      "block": "Corporaciones & Orden (Poder Institucional)",
+      "name": "Autómatas Maat",
+      "origin": "Compendio",
+      "status": "CANÓNICA",
+      "leader": "Justicia-Binaria",
+      "philosophy": "La Balanza no miente. Toda acción tiene su peso exacto.",
+      "tactical_bonus": "Juicio de Maat: resolución justa de disputas; bonus a Karma y /favor",
+      "hostility_penalty": "Veredicto de culpabilidad: penalizador -3 a todas las tiradas sociales",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 4,
+        "void_affinity_delta": -5
+      },
+      "resonant_archetypes": [
+        "Centinela Djed",
+        "Exorcista de Bitrate",
+        "Oráculo Goético"
+      ],
+      "resonant_pillars": [
+        "Pilar de Maat",
+        "Pilar de Horus"
+      ]
+    },
+    {
+      "id": "F08",
+      "block_key": "CORPORACIONES_Y_ORDEN",
+      "block": "Corporaciones & Orden (Poder Institucional)",
+      "name": "Hijos de la Forja",
+      "origin": "JSON",
+      "status": "CANÓNICA",
+      "leader": "Vulcan-Set",
+      "philosophy": "Del fuego nace lo irrompible. Solo el metal probado merece existir.",
+      "tactical_bonus": "Mejora de Bloodeaters +1 tier; reparación de ítems legendarios",
+      "hostility_penalty": "Destrucción de un ítem equipado al azar",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 4,
+        "san_max_delta": 0,
+        "void_affinity_delta": 4
+      },
+      "resonant_archetypes": [
+        "Ingeniero de la Forja",
+        "Berserker Bloodeater",
+        "Guerrero de Cromo"
+      ],
+      "resonant_pillars": [
+        "Pilar de Ra",
+        "Pilar de Sekhmet",
+        "Pilar de Set"
+      ]
+    },
+    {
+      "id": "F09",
+      "block_key": "CULTOS_DEL_PANTEON",
+      "block": "Cultos del Panteón (Misticismo & Frecuencia)",
+      "name": "Exorcistas de Bitrate",
+      "origin": "Compendio + JSON",
+      "status": "CANÓNICA",
+      "leader": "Hz-Prophet",
+      "philosophy": "Purgar la corrupción de datos es purgar el alma.",
+      "tactical_bonus": "+3 a tiradas contra entidades del Vacío; limpieza de estados negativos",
+      "hostility_penalty": "Purga forzada: eliminación de un buff activo del jugador",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": 6,
+        "void_affinity_delta": 6
+      },
+      "resonant_archetypes": [
+        "Exorcista de Bitrate",
+        "Médico de Almas",
+        "Centinela Djed"
+      ],
+      "resonant_pillars": [
+        "Pilar de Isis",
+        "Pilar de Ra",
+        "Pilar de Maat"
+      ]
+    },
+    {
+      "id": "F10",
+      "block_key": "CULTOS_DEL_PANTEON",
+      "block": "Cultos del Panteón (Misticismo & Frecuencia)",
+      "name": "Punks Goéticos",
+      "origin": "Compendio + JSON",
+      "status": "CANÓNICA",
+      "leader": "Daemon-Riot",
+      "philosophy": "Los demonios son herramientas. La rebelión es la única oración.",
+      "tactical_bonus": "Invocación de entidades menores como escudos temporales; +2 a /soul",
+      "hostility_penalty": "Posesión parcial de un recluta: pierde 1 turno por encuentro",
+      "mods": {
+        "atk": 2,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": -2,
+        "void_affinity_delta": 15
+      },
+      "resonant_archetypes": [
+        "Invocador del Panteón",
+        "Oráculo Goético",
+        "Berserker Bloodeater"
+      ],
+      "resonant_pillars": [
+        "Pilar de Set",
+        "Pilar de Sekhmet"
+      ]
+    },
+    {
+      "id": "F11",
+      "block_key": "CULTOS_DEL_PANTEON",
+      "block": "Cultos del Panteón (Misticismo & Frecuencia)",
+      "name": "Alquimistas de 189Hz",
+      "origin": "Compendio",
+      "status": "CANÓNICA",
+      "leader": "Resonance-Thoth",
+      "philosophy": "La frecuencia sagrada transmuta la materia y el espíritu.",
+      "tactical_bonus": "Sintonización de Bloodeaters sin coste de SAN; crafting alquímico avanzado",
+      "hostility_penalty": "Desafinación: -2 a todas las tiradas de Resonancia Prima",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 6,
+        "void_affinity_delta": 12
+      },
+      "resonant_archetypes": [
+        "Oráculo Goético",
+        "Tejedor del Vacío",
+        "Ingeniero de la Forja",
+        "Médico de Almas"
+      ],
+      "resonant_pillars": [
+        "Pilar de Thoth",
+        "Pilar de Hathor",
+        "Pilar de Osiris"
+      ]
+    },
+    {
+      "id": "F12",
+      "block_key": "CULTOS_DEL_PANTEON",
+      "block": "Cultos del Panteón (Misticismo & Frecuencia)",
+      "name": "Analistas de Shau / Anomalías de K4L1",
+      "origin": "JSON (ambas)",
+      "status": "FUSIONADA",
+      "leader": "K4L1-Echo / Shau-Lens",
+      "philosophy": "Observar sin intervenir es el poder supremo. Los datos son la verdad desnuda.",
+      "tactical_bonus": "Escaneo completo de enemigos (/whois gratis); predicción de Lair Actions",
+      "hostility_penalty": "Ocultación de información crítica; mapas y escaneos devuelven datos falsos",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "void_affinity_delta": 16
+      },
+      "resonant_archetypes": [
+        "Oráculo Goético",
+        "Hacker de Resonancia",
+        "Tejedor del Vacío"
+      ],
+      "resonant_pillars": [
+        "Pilar de Horus",
+        "Pilar de Anuu",
+        "Pilar de Thoth"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "class_id": 1,
+      "code": "C001",
+      "class_name": "Guerrero de Cromo del Anubis",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 5,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 38
+      }
+    },
+    {
+      "class_id": 2,
+      "code": "C002",
+      "class_name": "Guerrero de Cromo del Thoth",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": 5,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 36
+      }
+    },
+    {
+      "class_id": 3,
+      "code": "C003",
+      "class_name": "Guerrero de Cromo del Sekhmet",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 9,
+        "san_max_delta": -2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 34
+      }
+    },
+    {
+      "class_id": 4,
+      "code": "C004",
+      "class_name": "Guerrero de Cromo del Isis",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 13,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 30
+      }
+    },
+    {
+      "class_id": 5,
+      "code": "C005",
+      "class_name": "Guerrero de Cromo del Set",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 5,
+        "san_max_delta": -3,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 42
+      }
+    },
+    {
+      "class_id": 6,
+      "code": "C006",
+      "class_name": "Guerrero de Cromo del Maat",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 7,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 24
+      }
+    },
+    {
+      "class_id": 7,
+      "code": "C007",
+      "class_name": "Guerrero de Cromo del Hathor",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": 7,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 34
+      }
+    },
+    {
+      "class_id": 8,
+      "code": "C008",
+      "class_name": "Guerrero de Cromo del Horus",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 5,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 32
+      }
+    },
+    {
+      "class_id": 9,
+      "code": "C009",
+      "class_name": "Guerrero de Cromo del Osiris",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 11,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 36
+      }
+    },
+    {
+      "class_id": 10,
+      "code": "C010",
+      "class_name": "Guerrero de Cromo del Bastet",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": 5,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 33
+      }
+    },
+    {
+      "class_id": 11,
+      "code": "C011",
+      "class_name": "Guerrero de Cromo del Ra",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 7,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 35
+      }
+    },
+    {
+      "class_id": 12,
+      "code": "C012",
+      "class_name": "Guerrero de Cromo del Anuu",
+      "archetype": "Guerrero de Cromo",
+      "archetype_role": "FÍSICO-Ofensivo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "FUE",
+      "archetype_passive": "Golpe Crítico ampliado (19-20)",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 5,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 46
+      }
+    },
+    {
+      "class_id": 13,
+      "code": "C013",
+      "class_name": "Centinela Djed del Anubis",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 0,
+        "ac": 3,
+        "hp_max_delta": 12,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 32
+      }
+    },
+    {
+      "class_id": 14,
+      "code": "C014",
+      "class_name": "Centinela Djed del Thoth",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 12,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 30
+      }
+    },
+    {
+      "class_id": 15,
+      "code": "C015",
+      "class_name": "Centinela Djed del Sekhmet",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 16,
+        "san_max_delta": -2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 28
+      }
+    },
+    {
+      "class_id": 16,
+      "code": "C016",
+      "class_name": "Centinela Djed del Isis",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 0,
+        "ac": 3,
+        "hp_max_delta": 20,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 24
+      }
+    },
+    {
+      "class_id": 17,
+      "code": "C017",
+      "class_name": "Centinela Djed del Set",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 12,
+        "san_max_delta": -3,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 36
+      }
+    },
+    {
+      "class_id": 18,
+      "code": "C018",
+      "class_name": "Centinela Djed del Maat",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 1,
+        "ac": 3,
+        "hp_max_delta": 14,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 18
+      }
+    },
+    {
+      "class_id": 19,
+      "code": "C019",
+      "class_name": "Centinela Djed del Hathor",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 14,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 28
+      }
+    },
+    {
+      "class_id": 20,
+      "code": "C020",
+      "class_name": "Centinela Djed del Horus",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 1,
+        "ac": 3,
+        "hp_max_delta": 12,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 26
+      }
+    },
+    {
+      "class_id": 21,
+      "code": "C021",
+      "class_name": "Centinela Djed del Osiris",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 0,
+        "ac": 3,
+        "hp_max_delta": 18,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 30
+      }
+    },
+    {
+      "class_id": 22,
+      "code": "C022",
+      "class_name": "Centinela Djed del Bastet",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 1,
+        "ac": 4,
+        "hp_max_delta": 12,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 27
+      }
+    },
+    {
+      "class_id": 23,
+      "code": "C023",
+      "class_name": "Centinela Djed del Ra",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 14,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 29
+      }
+    },
+    {
+      "class_id": 24,
+      "code": "C024",
+      "class_name": "Centinela Djed del Anuu",
+      "archetype": "Centinela Djed",
+      "archetype_role": "DEFENSA-Tanque",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "CON",
+      "archetype_passive": "Reducción de Daño +2 pasivo",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 1,
+        "ac": 3,
+        "hp_max_delta": 12,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 40
+      }
+    },
+    {
+      "class_id": 25,
+      "code": "C025",
+      "class_name": "Tejedor del Vacío del Anubis",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": -4,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 86
+      }
+    },
+    {
+      "class_id": 26,
+      "code": "C026",
+      "class_name": "Tejedor del Vacío del Thoth",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": -4,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 84
+      }
+    },
+    {
+      "class_id": 27,
+      "code": "C027",
+      "class_name": "Tejedor del Vacío del Sekhmet",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 82
+      }
+    },
+    {
+      "class_id": 28,
+      "code": "C028",
+      "class_name": "Tejedor del Vacío del Isis",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 78
+      }
+    },
+    {
+      "class_id": 29,
+      "code": "C029",
+      "class_name": "Tejedor del Vacío del Set",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": -4,
+        "san_max_delta": 3,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 90
+      }
+    },
+    {
+      "class_id": 30,
+      "code": "C030",
+      "class_name": "Tejedor del Vacío del Maat",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 72
+      }
+    },
+    {
+      "class_id": 31,
+      "code": "C031",
+      "class_name": "Tejedor del Vacío del Hathor",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": -2,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 82
+      }
+    },
+    {
+      "class_id": 32,
+      "code": "C032",
+      "class_name": "Tejedor del Vacío del Horus",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -4,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 80
+      }
+    },
+    {
+      "class_id": 33,
+      "code": "C033",
+      "class_name": "Tejedor del Vacío del Osiris",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 84
+      }
+    },
+    {
+      "class_id": 34,
+      "code": "C034",
+      "class_name": "Tejedor del Vacío del Bastet",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": -4,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 81
+      }
+    },
+    {
+      "class_id": 35,
+      "code": "C035",
+      "class_name": "Tejedor del Vacío del Ra",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": -2,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 83
+      }
+    },
+    {
+      "class_id": 36,
+      "code": "C036",
+      "class_name": "Tejedor del Vacío del Anuu",
+      "archetype": "Tejedor del Vacío",
+      "archetype_role": "MAGIA-Control",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "INT",
+      "archetype_passive": "Acceso anticipado a Void Magic",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -4,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 94
+      }
+    },
+    {
+      "class_id": 37,
+      "code": "C037",
+      "class_name": "Exorcista de Bitrate del Anubis",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 64
+      }
+    },
+    {
+      "class_id": 38,
+      "code": "C038",
+      "class_name": "Exorcista de Bitrate del Thoth",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 62
+      }
+    },
+    {
+      "class_id": 39,
+      "code": "C039",
+      "class_name": "Exorcista de Bitrate del Sekhmet",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 60
+      }
+    },
+    {
+      "class_id": 40,
+      "code": "C040",
+      "class_name": "Exorcista de Bitrate del Isis",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 8,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 56
+      }
+    },
+    {
+      "class_id": 41,
+      "code": "C041",
+      "class_name": "Exorcista de Bitrate del Set",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 7,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 68
+      }
+    },
+    {
+      "class_id": 42,
+      "code": "C042",
+      "class_name": "Exorcista de Bitrate del Maat",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 2,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 50
+      }
+    },
+    {
+      "class_id": 43,
+      "code": "C043",
+      "class_name": "Exorcista de Bitrate del Hathor",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 60
+      }
+    },
+    {
+      "class_id": 44,
+      "code": "C044",
+      "class_name": "Exorcista de Bitrate del Horus",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 58
+      }
+    },
+    {
+      "class_id": 45,
+      "code": "C045",
+      "class_name": "Exorcista de Bitrate del Osiris",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 62
+      }
+    },
+    {
+      "class_id": 46,
+      "code": "C046",
+      "class_name": "Exorcista de Bitrate del Bastet",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 2,
+        "ac": 3,
+        "hp_max_delta": 0,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 59
+      }
+    },
+    {
+      "class_id": 47,
+      "code": "C047",
+      "class_name": "Exorcista de Bitrate del Ra",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 61
+      }
+    },
+    {
+      "class_id": 48,
+      "code": "C048",
+      "class_name": "Exorcista de Bitrate del Anuu",
+      "archetype": "Exorcista de Bitrate",
+      "archetype_role": "MAGIA-Purificación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "SAB",
+      "archetype_passive": "Limpieza de estados negativos",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 72
+      }
+    },
+    {
+      "class_id": 49,
+      "code": "C049",
+      "class_name": "Chatarrero Reciclador del Anubis",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 44
+      }
+    },
+    {
+      "class_id": 50,
+      "code": "C050",
+      "class_name": "Chatarrero Reciclador del Thoth",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 42
+      }
+    },
+    {
+      "class_id": 51,
+      "code": "C051",
+      "class_name": "Chatarrero Reciclador del Sekhmet",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 10,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 40
+      }
+    },
+    {
+      "class_id": 52,
+      "code": "C052",
+      "class_name": "Chatarrero Reciclador del Isis",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 14,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 36
+      }
+    },
+    {
+      "class_id": 53,
+      "code": "C053",
+      "class_name": "Chatarrero Reciclador del Set",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": -1,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 48
+      }
+    },
+    {
+      "class_id": 54,
+      "code": "C054",
+      "class_name": "Chatarrero Reciclador del Maat",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 8,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 30
+      }
+    },
+    {
+      "class_id": 55,
+      "code": "C055",
+      "class_name": "Chatarrero Reciclador del Hathor",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 40
+      }
+    },
+    {
+      "class_id": 56,
+      "code": "C056",
+      "class_name": "Chatarrero Reciclador del Horus",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 38
+      }
+    },
+    {
+      "class_id": 57,
+      "code": "C057",
+      "class_name": "Chatarrero Reciclador del Osiris",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 12,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 42
+      }
+    },
+    {
+      "class_id": 58,
+      "code": "C058",
+      "class_name": "Chatarrero Reciclador del Bastet",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 2,
+        "ac": 3,
+        "hp_max_delta": 6,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 39
+      }
+    },
+    {
+      "class_id": 59,
+      "code": "C059",
+      "class_name": "Chatarrero Reciclador del Ra",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 41
+      }
+    },
+    {
+      "class_id": 60,
+      "code": "C060",
+      "class_name": "Chatarrero Reciclador del Anuu",
+      "archetype": "Chatarrero Reciclador",
+      "archetype_role": "HÍBRIDO-Utilidad",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "DES",
+      "archetype_passive": "+2 a /craft y reparación",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 2,
+        "void_affinity": 52
+      }
+    },
+    {
+      "class_id": 61,
+      "code": "C061",
+      "class_name": "Asesino de Frecuencia del Anubis",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": -4,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 58
+      }
+    },
+    {
+      "class_id": 62,
+      "code": "C062",
+      "class_name": "Asesino de Frecuencia del Thoth",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 4,
+        "ac": 1,
+        "hp_max_delta": -4,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 56
+      }
+    },
+    {
+      "class_id": 63,
+      "code": "C063",
+      "class_name": "Asesino de Frecuencia del Sekhmet",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 5,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": -2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 54
+      }
+    },
+    {
+      "class_id": 64,
+      "code": "C064",
+      "class_name": "Asesino de Frecuencia del Isis",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": 4,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 50
+      }
+    },
+    {
+      "class_id": 65,
+      "code": "C065",
+      "class_name": "Asesino de Frecuencia del Set",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 5,
+        "ac": 1,
+        "hp_max_delta": -4,
+        "san_max_delta": -3,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 62
+      }
+    },
+    {
+      "class_id": 66,
+      "code": "C066",
+      "class_name": "Asesino de Frecuencia del Maat",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 4,
+        "ac": 2,
+        "hp_max_delta": -2,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 44
+      }
+    },
+    {
+      "class_id": 67,
+      "code": "C067",
+      "class_name": "Asesino de Frecuencia del Hathor",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 4,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 54
+      }
+    },
+    {
+      "class_id": 68,
+      "code": "C068",
+      "class_name": "Asesino de Frecuencia del Horus",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 4,
+        "ac": 2,
+        "hp_max_delta": -4,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 52
+      }
+    },
+    {
+      "class_id": 69,
+      "code": "C069",
+      "class_name": "Asesino de Frecuencia del Osiris",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": 2,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 56
+      }
+    },
+    {
+      "class_id": 70,
+      "code": "C070",
+      "class_name": "Asesino de Frecuencia del Bastet",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 4,
+        "ac": 3,
+        "hp_max_delta": -4,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 53
+      }
+    },
+    {
+      "class_id": 71,
+      "code": "C071",
+      "class_name": "Asesino de Frecuencia del Ra",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 5,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 55
+      }
+    },
+    {
+      "class_id": 72,
+      "code": "C072",
+      "class_name": "Asesino de Frecuencia del Anuu",
+      "archetype": "Asesino de Frecuencia",
+      "archetype_role": "FÍSICO-Sigilo",
+      "triad": "FISICO",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "DES",
+      "archetype_passive": "Primer golpe garantizado si no detectado",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 4,
+        "ac": 2,
+        "hp_max_delta": -4,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 66
+      }
+    },
+    {
+      "class_id": 73,
+      "code": "C073",
+      "class_name": "Oráculo Goético del Anubis",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": -2,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 78
+      }
+    },
+    {
+      "class_id": 74,
+      "code": "C074",
+      "class_name": "Oráculo Goético del Thoth",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 76
+      }
+    },
+    {
+      "class_id": 75,
+      "code": "C075",
+      "class_name": "Oráculo Goético del Sekhmet",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 74
+      }
+    },
+    {
+      "class_id": 76,
+      "code": "C076",
+      "class_name": "Oráculo Goético del Isis",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 70
+      }
+    },
+    {
+      "class_id": 77,
+      "code": "C077",
+      "class_name": "Oráculo Goético del Set",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 5,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 82
+      }
+    },
+    {
+      "class_id": 78,
+      "code": "C078",
+      "class_name": "Oráculo Goético del Maat",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 64
+      }
+    },
+    {
+      "class_id": 79,
+      "code": "C079",
+      "class_name": "Oráculo Goético del Hathor",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 74
+      }
+    },
+    {
+      "class_id": 80,
+      "code": "C080",
+      "class_name": "Oráculo Goético del Horus",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": -2,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 72
+      }
+    },
+    {
+      "class_id": 81,
+      "code": "C081",
+      "class_name": "Oráculo Goético del Osiris",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 4,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 76
+      }
+    },
+    {
+      "class_id": 82,
+      "code": "C082",
+      "class_name": "Oráculo Goético del Bastet",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 2,
+        "ac": 3,
+        "hp_max_delta": -2,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 73
+      }
+    },
+    {
+      "class_id": 83,
+      "code": "C083",
+      "class_name": "Oráculo Goético del Ra",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 75
+      }
+    },
+    {
+      "class_id": 84,
+      "code": "C084",
+      "class_name": "Oráculo Goético del Anuu",
+      "archetype": "Oráculo Goético",
+      "archetype_role": "MAGIA-Adivinación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "SAB",
+      "archetype_passive": "Predicción de Lair Actions 1 turno antes",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": -2,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 86
+      }
+    },
+    {
+      "class_id": 85,
+      "code": "C085",
+      "class_name": "Ingeniero de la Forja del Anubis",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 4,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 50
+      }
+    },
+    {
+      "class_id": 86,
+      "code": "C086",
+      "class_name": "Ingeniero de la Forja del Thoth",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 48
+      }
+    },
+    {
+      "class_id": 87,
+      "code": "C087",
+      "class_name": "Ingeniero de la Forja del Sekhmet",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": -2,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 46
+      }
+    },
+    {
+      "class_id": 88,
+      "code": "C088",
+      "class_name": "Ingeniero de la Forja del Isis",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 12,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 42
+      }
+    },
+    {
+      "class_id": 89,
+      "code": "C089",
+      "class_name": "Ingeniero de la Forja del Set",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": -3,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 54
+      }
+    },
+    {
+      "class_id": 90,
+      "code": "C090",
+      "class_name": "Ingeniero de la Forja del Maat",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 36
+      }
+    },
+    {
+      "class_id": 91,
+      "code": "C091",
+      "class_name": "Ingeniero de la Forja del Hathor",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 46
+      }
+    },
+    {
+      "class_id": 92,
+      "code": "C092",
+      "class_name": "Ingeniero de la Forja del Horus",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 4,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 44
+      }
+    },
+    {
+      "class_id": 93,
+      "code": "C093",
+      "class_name": "Ingeniero de la Forja del Osiris",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 10,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 48
+      }
+    },
+    {
+      "class_id": 94,
+      "code": "C094",
+      "class_name": "Ingeniero de la Forja del Bastet",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 2,
+        "ac": 3,
+        "hp_max_delta": 4,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 45
+      }
+    },
+    {
+      "class_id": 95,
+      "code": "C095",
+      "class_name": "Ingeniero de la Forja del Ra",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 0,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 47
+      }
+    },
+    {
+      "class_id": 96,
+      "code": "C096",
+      "class_name": "Ingeniero de la Forja del Anuu",
+      "archetype": "Ingeniero de la Forja",
+      "archetype_role": "HÍBRIDO-Crafting",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "INT",
+      "archetype_passive": "Mejora de Bloodeaters sin coste extra",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 4,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 4,
+        "void_affinity": 58
+      }
+    },
+    {
+      "class_id": 97,
+      "code": "C097",
+      "class_name": "Berserker Bloodeater del Anubis",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": 8,
+        "san_max_delta": 1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 72
+      }
+    },
+    {
+      "class_id": 98,
+      "code": "C098",
+      "class_name": "Berserker Bloodeater del Thoth",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 4,
+        "ac": -1,
+        "hp_max_delta": 8,
+        "san_max_delta": -1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 70
+      }
+    },
+    {
+      "class_id": 99,
+      "code": "C099",
+      "class_name": "Berserker Bloodeater del Sekhmet",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 5,
+        "ac": -1,
+        "hp_max_delta": 12,
+        "san_max_delta": -7,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 68
+      }
+    },
+    {
+      "class_id": 100,
+      "code": "C100",
+      "class_name": "Berserker Bloodeater del Isis",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": 16,
+        "san_max_delta": -1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 64
+      }
+    },
+    {
+      "class_id": 101,
+      "code": "C101",
+      "class_name": "Berserker Bloodeater del Set",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 5,
+        "ac": -1,
+        "hp_max_delta": 8,
+        "san_max_delta": -8,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 76
+      }
+    },
+    {
+      "class_id": 102,
+      "code": "C102",
+      "class_name": "Berserker Bloodeater del Maat",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 10,
+        "san_max_delta": -1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 58
+      }
+    },
+    {
+      "class_id": 103,
+      "code": "C103",
+      "class_name": "Berserker Bloodeater del Hathor",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 4,
+        "ac": -1,
+        "hp_max_delta": 10,
+        "san_max_delta": 1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 68
+      }
+    },
+    {
+      "class_id": 104,
+      "code": "C104",
+      "class_name": "Berserker Bloodeater del Horus",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 8,
+        "san_max_delta": -3,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 66
+      }
+    },
+    {
+      "class_id": 105,
+      "code": "C105",
+      "class_name": "Berserker Bloodeater del Osiris",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": 14,
+        "san_max_delta": -1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 70
+      }
+    },
+    {
+      "class_id": 106,
+      "code": "C106",
+      "class_name": "Berserker Bloodeater del Bastet",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 4,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": -5,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 67
+      }
+    },
+    {
+      "class_id": 107,
+      "code": "C107",
+      "class_name": "Berserker Bloodeater del Ra",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 5,
+        "ac": -1,
+        "hp_max_delta": 10,
+        "san_max_delta": -5,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 69
+      }
+    },
+    {
+      "class_id": 108,
+      "code": "C108",
+      "class_name": "Berserker Bloodeater del Anuu",
+      "archetype": "Berserker Bloodeater",
+      "archetype_role": "FÍSICO-Sacrificio",
+      "triad": "FISICO",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "FUE",
+      "archetype_passive": "Bloodeaters cuestan -5 HP_Max menos",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 8,
+        "san_max_delta": -1,
+        "bloodeater_cost_reduction": 5,
+        "void_affinity": 80
+      }
+    },
+    {
+      "class_id": 109,
+      "code": "C109",
+      "class_name": "Médico de Almas del Anubis",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 0,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 18,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 48
+      }
+    },
+    {
+      "class_id": 110,
+      "code": "C110",
+      "class_name": "Médico de Almas del Thoth",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 46
+      }
+    },
+    {
+      "class_id": 111,
+      "code": "C111",
+      "class_name": "Médico de Almas del Sekhmet",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 10,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 44
+      }
+    },
+    {
+      "class_id": 112,
+      "code": "C112",
+      "class_name": "Médico de Almas del Isis",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 0,
+        "ac": 2,
+        "hp_max_delta": 14,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 40
+      }
+    },
+    {
+      "class_id": 113,
+      "code": "C113",
+      "class_name": "Médico de Almas del Set",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 9,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 52
+      }
+    },
+    {
+      "class_id": 114,
+      "code": "C114",
+      "class_name": "Médico de Almas del Maat",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 8,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 34
+      }
+    },
+    {
+      "class_id": 115,
+      "code": "C115",
+      "class_name": "Médico de Almas del Hathor",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 1,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": 18,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 44
+      }
+    },
+    {
+      "class_id": 116,
+      "code": "C116",
+      "class_name": "Médico de Almas del Horus",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 14,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 42
+      }
+    },
+    {
+      "class_id": 117,
+      "code": "C117",
+      "class_name": "Médico de Almas del Osiris",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 0,
+        "ac": 2,
+        "hp_max_delta": 12,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 46
+      }
+    },
+    {
+      "class_id": 118,
+      "code": "C118",
+      "class_name": "Médico de Almas del Bastet",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 1,
+        "ac": 3,
+        "hp_max_delta": 6,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 43
+      }
+    },
+    {
+      "class_id": 119,
+      "code": "C119",
+      "class_name": "Médico de Almas del Ra",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 8,
+        "san_max_delta": 12,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 45
+      }
+    },
+    {
+      "class_id": 120,
+      "code": "C120",
+      "class_name": "Médico de Almas del Anuu",
+      "archetype": "Médico de Almas",
+      "archetype_role": "DEFENSA-Curación",
+      "triad": "DEFENSA",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "SAB",
+      "archetype_passive": "Curación de SAN +5 por descanso largo",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 1,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 16,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 56
+      }
+    },
+    {
+      "class_id": 121,
+      "code": "C121",
+      "class_name": "Hacker de Resonancia del Anubis",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 68
+      }
+    },
+    {
+      "class_id": 122,
+      "code": "C122",
+      "class_name": "Hacker de Resonancia del Thoth",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 66
+      }
+    },
+    {
+      "class_id": 123,
+      "code": "C123",
+      "class_name": "Hacker de Resonancia del Sekhmet",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 4,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 64
+      }
+    },
+    {
+      "class_id": 124,
+      "code": "C124",
+      "class_name": "Hacker de Resonancia del Isis",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 8,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 60
+      }
+    },
+    {
+      "class_id": 125,
+      "code": "C125",
+      "class_name": "Hacker de Resonancia del Set",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 4,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 1,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 72
+      }
+    },
+    {
+      "class_id": 126,
+      "code": "C126",
+      "class_name": "Hacker de Resonancia del Maat",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": 2,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 54
+      }
+    },
+    {
+      "class_id": 127,
+      "code": "C127",
+      "class_name": "Hacker de Resonancia del Hathor",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 10,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 64
+      }
+    },
+    {
+      "class_id": 128,
+      "code": "C128",
+      "class_name": "Hacker de Resonancia del Horus",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 6,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 62
+      }
+    },
+    {
+      "class_id": 129,
+      "code": "C129",
+      "class_name": "Hacker de Resonancia del Osiris",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 2,
+        "ac": 2,
+        "hp_max_delta": 6,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 66
+      }
+    },
+    {
+      "class_id": 130,
+      "code": "C130",
+      "class_name": "Hacker de Resonancia del Bastet",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 3,
+        "ac": 3,
+        "hp_max_delta": 0,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 63
+      }
+    },
+    {
+      "class_id": 131,
+      "code": "C131",
+      "class_name": "Hacker de Resonancia del Ra",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 4,
+        "ac": 1,
+        "hp_max_delta": 2,
+        "san_max_delta": 4,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 65
+      }
+    },
+    {
+      "class_id": 132,
+      "code": "C132",
+      "class_name": "Hacker de Resonancia del Anuu",
+      "archetype": "Hacker de Resonancia",
+      "archetype_role": "HÍBRIDO-Soporte",
+      "triad": "HIBRIDO",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "INT",
+      "archetype_passive": "Interfiere tiradas enemigas (-1 a su d20)",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": 0,
+        "san_max_delta": 8,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 76
+      }
+    },
+    {
+      "class_id": 133,
+      "code": "C133",
+      "class_name": "Invocador del Panteón del Anubis",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anubis",
+      "deity": "Anubis",
+      "pillar_domain": "Muerte & Tránsito",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 SAN contra horror",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 11,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 82
+      }
+    },
+    {
+      "class_id": 134,
+      "code": "C134",
+      "class_name": "Invocador del Panteón del Thoth",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Thoth",
+      "deity": "Thoth",
+      "pillar_domain": "Conocimiento & Alquimia",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 INT para identificación",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": -2,
+        "san_max_delta": 9,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 80
+      }
+    },
+    {
+      "class_id": 135,
+      "code": "C135",
+      "class_name": "Invocador del Panteón del Sekhmet",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Sekhmet",
+      "deity": "Sekhmet",
+      "pillar_domain": "Guerra & Destrucción",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 daño cuerpo a cuerpo",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 2,
+        "san_max_delta": 3,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 78
+      }
+    },
+    {
+      "class_id": 136,
+      "code": "C136",
+      "class_name": "Invocador del Panteón del Isis",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Isis",
+      "deity": "Isis",
+      "pillar_domain": "Curación & Protección",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 curación recibida",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 6,
+        "san_max_delta": 9,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 74
+      }
+    },
+    {
+      "class_id": 137,
+      "code": "C137",
+      "class_name": "Invocador del Panteón del Set",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Set",
+      "deity": "Set",
+      "pillar_domain": "Caos & Rebelión",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 a pifias convertidas en ventaja",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": -2,
+        "san_max_delta": 2,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 86
+      }
+    },
+    {
+      "class_id": 138,
+      "code": "C138",
+      "class_name": "Invocador del Panteón del Maat",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Maat",
+      "deity": "Maat",
+      "pillar_domain": "Justicia & Equilibrio",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 Karma y resolución de conflictos",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": 0,
+        "san_max_delta": 9,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 68
+      }
+    },
+    {
+      "class_id": 139,
+      "code": "C139",
+      "class_name": "Invocador del Panteón del Hathor",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Hathor",
+      "deity": "Hathor",
+      "pillar_domain": "Arte & Frecuencia",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 a tiradas de Carisma y moral",
+      "mods": {
+        "atk": 3,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": 11,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 78
+      }
+    },
+    {
+      "class_id": 140,
+      "code": "C140",
+      "class_name": "Invocador del Panteón del Horus",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Horus",
+      "deity": "Horus",
+      "pillar_domain": "Visión & Estrategia",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 a /examine y /whois",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 7,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 76
+      }
+    },
+    {
+      "class_id": 141,
+      "code": "C141",
+      "class_name": "Invocador del Panteón del Osiris",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Osiris",
+      "deity": "Osiris",
+      "pillar_domain": "Resurrección & Ciclo",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "Bendición de Kilonova recarga 1 turno antes",
+      "mods": {
+        "atk": 2,
+        "ac": 1,
+        "hp_max_delta": 4,
+        "san_max_delta": 9,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 80
+      }
+    },
+    {
+      "class_id": 142,
+      "code": "C142",
+      "class_name": "Invocador del Panteón del Bastet",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Bastet",
+      "deity": "Bastet",
+      "pillar_domain": "Sigilo & Instinto",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 a iniciativa y evasión",
+      "mods": {
+        "atk": 3,
+        "ac": 2,
+        "hp_max_delta": -2,
+        "san_max_delta": 5,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 77
+      }
+    },
+    {
+      "class_id": 143,
+      "code": "C143",
+      "class_name": "Invocador del Panteón del Ra",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Ra",
+      "deity": "Ra",
+      "pillar_domain": "Fuego & Radiación",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "+2 daño de fuego/energía",
+      "mods": {
+        "atk": 4,
+        "ac": 0,
+        "hp_max_delta": 0,
+        "san_max_delta": 5,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 79
+      }
+    },
+    {
+      "class_id": 144,
+      "code": "C144",
+      "class_name": "Invocador del Panteón del Anuu",
+      "archetype": "Invocador del Panteón",
+      "archetype_role": "MAGIA-Invocación",
+      "triad": "MAGIA",
+      "pillar": "Pilar de Anuu",
+      "deity": "Anuu",
+      "pillar_domain": "Niebla & Paradoja",
+      "base_stat": "CAR",
+      "archetype_passive": "Puede invocar ecos de deidades menores",
+      "pillar_bonus": "Re-roll de 1 dado por encuentro",
+      "mods": {
+        "atk": 3,
+        "ac": 1,
+        "hp_max_delta": -2,
+        "san_max_delta": 9,
+        "bloodeater_cost_reduction": 0,
+        "void_affinity": 90
+      }
+    }
+  ]
+}

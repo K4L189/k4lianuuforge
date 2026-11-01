@@ -5,10 +5,12 @@
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BÚNKER CRM NOSQL // GESTOR CIFRADO DE CLIENTES | K4L1 STUDIO</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
-  <script src="../assets/js/bunker_vault.js"></script>
+  <title>BÚNKER CRM NOSQL v2.8 // INSPECTOR .K4LI.ASC | K4L1 STUDIO</title>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
   <link rel="stylesheet" href="../assets/css/fullwallpaper.css">
+  <script src="../vendor/tailwind.min.js"></script>
+  <script src="../assets/js/anuu_gate.js"></script>
+  <script src="../assets/js/bunker_vault.js"></script>
   <style>
     :root, [data-theme="anuu"] {
       --bg-main: #08080d;
@@ -110,159 +112,396 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-card);
     }
+    .theme-subcard {
+      background-color: var(--bg-card-sub);
+      border: 1px solid var(--border-card);
+    }
     .theme-border { border-color: var(--border-card); }
     .theme-accent-text { color: var(--accent-secondary); }
     .theme-accent-bg { background-color: var(--accent-primary); }
     .theme-accent-bg:hover { background-color: var(--accent-hover); }
+    .dropzone-active {
+      border-color: #10b981 !important;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.35);
+      background-color: rgba(16, 185, 129, 0.06) !important;
+    }
   </style>
 </head>
 <body class="min-h-screen p-4 sm:p-6">
-  <div class="max-w-6xl mx-auto space-y-6">
+  <div class="max-w-7xl mx-auto space-y-6">
 
     <!-- Header y Estado Criptográfico -->
-    <header class="theme-card p-4 sm:p-5 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4">
+    <header class="theme-card p-4 sm:p-5 rounded-2xl border flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-xl text-purple-400">
+        <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-xl text-purple-400">
           🏛️
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-300">Búnker NoSQL Cifrado</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-300">Búnker NoSQL Cifrado v2.8</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" id="badgeVaultStatus">
-              ● AES-256-GCM Activo
+              ● AES-256-GCM // Zero-Cloud
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+              Signal E2EE: @k4li.89
             </span>
           </div>
-          <h1 class="text-lg sm:text-xl font-black text-white">Gestor Interno de Clientes & Encargos</h1>
+          <h1 class="text-lg sm:text-xl font-black text-white mt-0.5">Gestor Soberano de Expedientes &amp; Inspector <code class="text-purple-300 font-mono text-base">.k4li.asc</code></h1>
         </div>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <a href="../index.html" class="px-3 py-1.5 rounded-xl border theme-border bg-black/40 text-xs font-mono text-zinc-300 hover:text-white transition-colors">
           ⬅ Volver a K4L1 Studio
         </a>
-        <button onclick="lockVaultAndExit()" class="px-3 py-1.5 rounded-xl border border-rose-500/40 bg-rose-500/10 text-xs font-mono text-rose-300 hover:bg-rose-500/20 transition-colors flex items-center gap-1.5">
+        <button type="button" onclick="lockVaultAndExit()" class="px-3 py-1.5 rounded-xl border border-rose-500/40 bg-rose-500/10 text-xs font-mono text-rose-300 hover:bg-rose-500/20 transition-colors flex items-center gap-1.5">
           <span>🔒</span> Bloquear Sesión
         </button>
       </div>
     </header>
+
+    <!-- Notificación Flotante -->
+    <div id="crmToast" class="hidden fixed bottom-5 right-5 z-50 max-w-md px-4 py-3 rounded-xl border border-emerald-500/40 bg-zinc-950/95 text-xs font-mono text-emerald-300 shadow-2xl"></div>
 
     <!-- Estado de Desbloqueo Requerido -->
     <div id="lockScreen" class="theme-card p-8 rounded-2xl border text-center space-y-4 max-w-md mx-auto my-12">
       <div class="text-4xl">🔐</div>
       <h2 class="text-xl font-bold text-white">Búnker NoSQL Bloqueado</h2>
       <p class="text-xs text-zinc-400 leading-relaxed">
-        Los datos de clientes y presupuestos se encuentran cifrados con AES-256-GCM en el almacenamiento local. Introduce tu llave soberana para descifrar en memoria.
+        Los expedientes de clientes, métricas de pipeline y sobres soberanos <code class="text-purple-300">.k4li.asc</code> se almacenan cifrados con <strong>AES-256-GCM</strong> en IndexedDB local (Zero-Cloud). Introduce tu llave maestra para descifrar en memoria volátil.
       </p>
-      <div class="space-y-3">
-        <input type="password" id="inputPassphrase" placeholder="Llave Maestra (ej: 161914-K4L1)" class="w-full px-3 py-2 rounded-xl bg-black/50 border theme-border text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 font-mono">
-        <button onclick="unlockVaultUI()" class="w-full py-2.5 rounded-xl theme-accent-bg text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2">
-          <span>🔓</span> Descifrar Búnker NoSQL
+      <form onsubmit="event.preventDefault(); unlockVaultUI();" class="space-y-3">
+        <input type="password" id="inputPassphrase" autocomplete="current-password" placeholder="Llave Maestra (ej: 161914-K4L1)" class="w-full px-3 py-2.5 rounded-xl bg-black/50 border theme-border text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 font-mono">
+        <button type="submit" class="w-full py-2.5 rounded-xl theme-accent-bg text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2">
+          <span>🔓</span> Descifrar Búnker NoSQL &amp; Inspector .k4li.asc
         </button>
         <p id="authErrorMsg" class="text-[11px] font-mono text-rose-400 hidden"></p>
-      </div>
+      </form>
     </div>
 
     <!-- Contenido del CRM Desbloqueado -->
     <div id="unlockedContent" class="space-y-6 hidden">
-      <!-- Estadísticas de Cartera -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <!-- Métricas Ejecutivas de Pipeline -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="theme-card p-4 rounded-xl border">
-          <span class="text-[11px] font-mono text-zinc-400 uppercase">Total Encargos</span>
-          <div class="text-2xl font-black text-white mt-1" id="statTotalClients">0</div>
-        </div>
-        <div class="theme-card p-4 rounded-xl border">
-          <span class="text-[11px] font-mono text-emerald-400 uppercase">En Staging / Activos</span>
+          <span class="text-[11px] font-mono text-emerald-400 uppercase">Expedientes Activos</span>
           <div class="text-2xl font-black text-emerald-300 mt-1" id="statActiveClients">0</div>
+          <div class="text-[11px] font-mono text-zinc-500 mt-1">Total registrados: <span id="statTotalClients" class="text-zinc-300">0</span></div>
         </div>
         <div class="theme-card p-4 rounded-xl border">
-          <span class="text-[11px] font-mono text-amber-400 uppercase">50% Anticipo Recibido</span>
-          <div class="text-2xl font-black text-amber-300 mt-1" id="statDepositPaid">0 €</div>
-        </div>
-        <div class="theme-card p-4 rounded-xl border">
-          <span class="text-[11px] font-mono text-purple-400 uppercase">Pipeline Total</span>
+          <span class="text-[11px] font-mono text-purple-400 uppercase">Valor Estimado €</span>
           <div class="text-2xl font-black text-purple-300 mt-1" id="statTotalPipeline">0 €</div>
+          <div class="text-[11px] font-mono text-zinc-500 mt-1">Pipeline bruto acumulado</div>
+        </div>
+        <div class="theme-card p-4 rounded-xl border">
+          <span class="text-[11px] font-mono text-amber-400 uppercase">SOW (50%) &amp; Cobrado</span>
+          <div class="text-2xl font-black text-amber-300 mt-1" id="statDepositPaid">0 €</div>
+          <div class="text-[11px] font-mono text-zinc-500 mt-1">Anticipos + cierres consolidados</div>
+        </div>
+        <div class="theme-card p-4 rounded-xl border">
+          <span class="text-[11px] font-mono text-cyan-400 uppercase">Estado Cifrado AES-256-GCM</span>
+          <div class="text-sm font-black text-cyan-300 mt-2 font-mono" id="statCryptoState">ACTIVO // PBKDF2-SHA256</div>
+          <div class="text-[11px] font-mono text-zinc-500 mt-1.5">Sobres .k4li.asc verificados: <span id="statVerifiedEnvelopes" class="text-emerald-300 font-bold">0</span></div>
         </div>
       </div>
 
-      <!-- Formulario para Registrar Nuevo Cliente / Encargo -->
-      <div class="theme-card p-5 rounded-2xl border">
+      <!-- Panel Inspector & Descifrador de Sobres Soberanos .k4li.asc -->
+      <section class="theme-card p-5 rounded-2xl border space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b theme-border pb-3">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <h2 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                <span>🛡️</span> Panel Inspector &amp; Descifrador de Sobres Soberanos <code class="text-purple-300 font-mono">.k4li.asc</code>
+              </h2>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/15 text-purple-300 border border-purple-500/30">Signal E2EE / PGP Armor</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">WebCrypto SHA-256 + AES-256-GCM</span>
+            </div>
+            <p class="text-xs text-zinc-400 mt-1">
+              Arrastra un archivo <code class="text-zinc-300">.k4li.asc</code> o pega el bloque blindado recibido por Signal (<code class="text-cyan-300">@k4li.89</code>). Soporta <code class="text-emerald-300">SIGNED-BASE64-SHA256</code> y cifrado autenticado <code class="text-amber-300">PBKDF2-AES256GCM</code>.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="loadDemoEnvelope('signed')" class="px-3 py-1.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold transition-colors">
+              🧪 Cargar Sobre .k4li.asc de Demostración
+            </button>
+            <button type="button" onclick="loadDemoEnvelope('encrypted')" class="px-3 py-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs font-mono transition-colors">
+              🔐 Demo PBKDF2-AES256GCM
+            </button>
+            <label class="px-3 py-1.5 rounded-xl border theme-border bg-black/40 hover:bg-white/5 text-zinc-300 text-xs font-mono cursor-pointer transition-colors">
+              📂 Abrir Archivo
+              <input type="file" id="envelopeFileInput" accept=".asc,.k4li,.txt,text/plain" class="hidden" onchange="handleEnvelopeFileSelect(event)">
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Zona de Carga / Drag & Drop -->
+          <div class="space-y-3">
+            <div id="envelopeDropzone" class="rounded-xl border-2 border-dashed theme-border bg-black/40 p-3 transition-all">
+              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-1.5">
+                <span>BLOQUE ARMOR (.k4li.asc) // DRAG &amp; DROP ACTIVO</span>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="simulateTamperAttack()" class="text-rose-400 hover:text-rose-300 underline" title="Altera 1 byte del payload Base64 para probar SHA-256 Tamper Guard">
+                    ⚡ Simular 1-Bit Tamper
+                  </button>
+                  <button type="button" onclick="clearEnvelopeInspector()" class="text-zinc-500 hover:text-zinc-300">
+                    Limpiar
+                  </button>
+                </div>
+              </div>
+              <textarea
+                id="envelopeInput"
+                rows="10"
+                spellcheck="false"
+                oninput="scheduleEnvelopeVerification()"
+                placeholder="-----BEGIN K4L1 SOVEREIGN ENVELOPE-----&#10;Version: K4L1-ZeroCloud-161914&#10;Mode: SIGNED-BASE64-SHA256&#10;SHA256: ...&#10;&#10;ewogICJ2ZXJzaW9uIjogIjEuMC1TT1ZFUkVJR04i...&#10;-----END K4L1 SOVEREIGN ENVELOPE-----"
+                class="w-full bg-transparent text-[11px] font-mono text-zinc-200 placeholder-zinc-600 focus:outline-none resize-y leading-relaxed"
+              ></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <div class="flex-1 relative">
+                <input
+                  type="password"
+                  id="envelopePassphrase"
+                  onkeydown="if(event.key==='Enter'){event.preventDefault();verifyAndDecryptEnvelope();}"
+                  placeholder="Passphrase opcional (para sobres PBKDF2-AES256GCM)"
+                  class="w-full px-3 py-2 rounded-xl bg-black/50 border theme-border text-xs font-mono text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500"
+                >
+              </div>
+              <button
+                type="button"
+                onclick="verifyAndDecryptEnvelope()"
+                class="px-4 py-2 rounded-xl theme-accent-bg text-white font-bold text-xs font-mono shadow-md transition-all flex items-center justify-center gap-1.5"
+              >
+                <span>🔍</span> Verificar &amp; Descifrar
+              </button>
+            </div>
+          </div>
+
+          <!-- Resultado Forense SHA-256 Tamper Guard -->
+          <div class="theme-subcard rounded-xl p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-3">
+              <!-- Badge Estado Tamper Guard -->
+              <div id="tamperGuardBanner" class="p-3 rounded-xl border border-zinc-800 bg-zinc-900/70 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span id="tamperGuardIcon" class="text-base">⏳</span>
+                  <div>
+                    <div id="tamperGuardTitle" class="text-xs font-mono font-bold text-zinc-300">
+                      ESPERANDO SOBRE SOBERANO .K4LI.ASC
+                    </div>
+                    <div id="tamperGuardSubtitle" class="text-[10px] font-mono text-zinc-500">
+                      Carga o arrastra un bloque blindado para verificar su integridad SHA-256 en cliente.
+                    </div>
+                  </div>
+                </div>
+                <span id="envelopeModeBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">
+                  IDLE
+                </span>
+              </div>
+
+              <!-- Huellas SHA-256 Comparadas -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-mono">
+                <div class="p-2 rounded-lg bg-black/40 border theme-border">
+                  <span class="text-zinc-500 block">CABECERA SHA256 DECLARADA:</span>
+                  <span id="declaredShaDisplay" class="text-zinc-300 break-all">—</span>
+                </div>
+                <div class="p-2 rounded-lg bg-black/40 border theme-border">
+                  <span class="text-zinc-500 block">DIGEST SHA-256 CALCULADO (WEBCRYPTO):</span>
+                  <span id="computedShaDisplay" class="text-zinc-300 break-all">—</span>
+                </div>
+              </div>
+
+              <!-- Vista Previa JSON Decodificado / Descifrado -->
+              <div>
+                <div class="flex items-center justify-between text-[10px] font-mono text-zinc-400 mb-1">
+                  <span>PAYLOAD VERIFICADO (ZERO-CLOUD MEMORY):</span>
+                  <span id="envelopeTimestampDisplay" class="text-zinc-500"></span>
+                </div>
+                <pre id="inspectorPayloadPreview" class="p-3 rounded-lg bg-black/60 border theme-border text-[11px] font-mono text-emerald-300 overflow-x-auto max-h-44 leading-relaxed">{
+  "status": "esperando_sobre_k4li_asc"
+}</pre>
+              </div>
+            </div>
+
+            <!-- Botón de Inyección Directa al Búnker CRM -->
+            <div class="pt-2 border-t theme-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
+              <span id="importReadyHint" class="text-[10px] font-mono text-zinc-500">
+                Requiere verificación SHA-256 íntegra para habilitar la importación.
+              </span>
+              <button
+                type="button"
+                id="btnImportVerified"
+                disabled
+                onclick="importVerifiedEnvelopeToCRM()"
+                class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed text-white font-bold text-xs font-mono transition-all flex items-center justify-center gap-1.5"
+              >
+                📥 Importar Expediente Verificado al Búnker CRM
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formulario para Registrar Nuevo Cliente / Encargo Manualmente -->
+      <section class="theme-card p-5 rounded-2xl border">
         <h3 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
-          <span>➕</span> Registrar Nuevo Cliente en la Base NoSQL Cifrada
+          <span>➕</span> Registrar Nuevo Expediente Manual en Base NoSQL Cifrada
         </h3>
         <form onsubmit="handleSaveClient(event)" class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Nombre / Empresa</label>
+            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Nombre / Organización</label>
             <input type="text" id="clientName" required placeholder="Ej: CyberDef Systems SL" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500">
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Contacto (Signal / Email)</label>
-            <input type="text" id="clientContact" required placeholder="@handle.01 o email" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500">
+            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Contacto Soberano (Signal / Email)</label>
+            <input type="text" id="clientContact" required placeholder="@handle.01 o sec@dominio.io" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500 font-mono">
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Servicio</label>
-            <select id="clientService" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500">
-              <option value="siem">🛡️ Hardening & SIEM (450 €)</option>
+            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Línea de Servicio</label>
+            <select id="clientService" onchange="autoSuggestServiceBudget()" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500">
+              <option value="siem">🛡️ Hardening &amp; SIEM (450 €)</option>
               <option value="react">⚡ Dashboards React (350 €)</option>
               <option value="ai_local">🤖 IA Local Soberana (600 €)</option>
-              <option value="bots">⚙️ Bots & Scrapers (200 €)</option>
-              <option value="custom">🔮 Encargo a Medida</option>
+              <option value="bots">⚙️ Automatización &amp; Bots (200 €)</option>
+              <option value="custom">🔮 Ingeniería a Medida</option>
             </select>
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Presupuesto Acordado (€)</label>
-            <input type="number" id="clientBudget" required min="100" placeholder="450" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500 font-mono">
+            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Valor Estimado (€)</label>
+            <input type="number" id="clientBudget" required min="50" step="10" placeholder="450" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500 font-mono">
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Estado del Hito</label>
+            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Etapa de Pipeline</label>
             <select id="clientStatus" class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500 font-mono">
-              <option value="lead">Propuesta Enviada</option>
-              <option value="deposit_paid">50% Anticipo Recibido (Kick-off)</option>
-              <option value="in_staging">En Staging / Validación</option>
-              <option value="completed">100% Pagado & Entregado</option>
+              <option value="lead">Nuevo Lead</option>
+              <option value="discovery">Discovery Técnico</option>
+              <option value="sow_signed">SOW Firmado (50%)</option>
+              <option value="in_execution">En Ejecución</option>
+              <option value="closed_paid">Cerrado / Cobrado</option>
             </select>
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Notas Confidenciales</label>
-            <input type="text" id="clientNotes" placeholder="Detalles de SSH, requisitos, etc." class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500">
+            <label class="block text-[11px] font-mono text-zinc-400 mb-1">Notas Técnicas / Alcance</label>
+            <input type="text" id="clientNotes" placeholder="Requisitos, arquitectura objetivo, SLA..." class="w-full px-3 py-1.5 rounded-lg bg-black/40 border theme-border text-xs text-white focus:outline-none focus:border-purple-500">
           </div>
           <div class="md:col-span-3 flex justify-end">
             <button type="submit" class="px-4 py-2 rounded-xl theme-accent-bg text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
-              <span>💾</span> Cifrar y Guardar en NoSQL
+              <span>💾</span> Cifrar y Guardar Expediente en NoSQL
             </button>
           </div>
         </form>
-      </div>
+      </section>
 
-      <!-- Listado de Clientes Almacenados Cifrados -->
-      <div class="theme-card rounded-2xl border overflow-hidden">
-        <div class="p-4 border-b theme-border flex items-center justify-between">
-          <h3 class="text-sm font-bold text-white flex items-center gap-2">
-            <span>📑</span> Expedientes de Clientes Cifrados en IndexedDB Zero-Knowledge
-          </h3>
-          <button onclick="renderClientsList()" class="px-2.5 py-1 rounded-lg border theme-border bg-black/30 text-xs font-mono text-zinc-400 hover:text-white transition-colors">
-            🔄 Refrescar
-          </button>
+      <!-- Pipeline Kanban & Tabla Ejecutiva Mejorada -->
+      <section class="theme-card rounded-2xl border overflow-hidden">
+        <div class="p-4 border-b theme-border flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          <div>
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>📑</span> Pipeline Ejecutivo &amp; Kanban Cifrado (IndexedDB Zero-Knowledge)
+            </h3>
+            <p class="text-[11px] text-zinc-400 font-mono mt-0.5">
+              Filtra expedientes en memoria o emite un acuse firmado <code class="text-purple-300">.k4li.asc</code> listo para Signal (<code class="text-cyan-300">@k4li.89</code>).
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Búsqueda Instantánea -->
+            <input
+              type="search"
+              id="pipelineSearch"
+              oninput="renderClientsList()"
+              placeholder="🔎 Buscar cliente, ID, @contacto, SHA-256..."
+              class="px-3 py-1.5 rounded-xl bg-black/50 border theme-border text-xs font-mono text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 w-60"
+            >
+
+            <!-- Filtro por Estado -->
+            <select
+              id="pipelineStageFilter"
+              onchange="renderClientsList()"
+              class="px-3 py-1.5 rounded-xl bg-black/50 border theme-border text-xs font-mono text-zinc-200 focus:outline-none focus:border-purple-500"
+            >
+              <option value="all">Todos los estados (5)</option>
+              <option value="lead">Nuevo Lead</option>
+              <option value="discovery">Discovery Técnico</option>
+              <option value="sow_signed">SOW Firmado (50%)</option>
+              <option value="in_execution">En Ejecución</option>
+              <option value="closed_paid">Cerrado / Cobrado</option>
+            </select>
+
+            <!-- Selector Vista Tabla / Kanban -->
+            <div class="inline-flex rounded-xl border theme-border bg-black/40 p-0.5 text-xs font-mono">
+              <button type="button" id="btnViewTable" onclick="setPipelineView('table')" class="px-2.5 py-1 rounded-lg bg-purple-600 text-white font-bold transition-colors">
+                📋 Tabla
+              </button>
+              <button type="button" id="btnViewKanban" onclick="setPipelineView('kanban')" class="px-2.5 py-1 rounded-lg text-zinc-400 hover:text-white transition-colors">
+                🗂️ Kanban
+              </button>
+            </div>
+
+            <button type="button" onclick="renderClientsList()" class="px-2.5 py-1.5 rounded-xl border theme-border bg-black/30 text-xs font-mono text-zinc-400 hover:text-white transition-colors">
+              🔄 Refrescar
+            </button>
+          </div>
         </div>
-        <div class="overflow-x-auto">
+
+        <!-- Vista 1: Tabla Ejecutiva -->
+        <div id="tableViewContainer" class="overflow-x-auto">
           <table class="w-full text-left text-xs font-mono">
             <thead class="bg-black/50 text-zinc-400 border-b theme-border">
               <tr>
-                <th class="p-3">ID / Token</th>
-                <th class="p-3">Cliente</th>
-                <th class="p-3">Servicio</th>
-                <th class="p-3">Presupuesto</th>
-                <th class="p-3">Estado</th>
-                <th class="p-3 text-right">Acciones</th>
+                <th class="p-3">ID / Integridad</th>
+                <th class="p-3">Cliente &amp; Contacto</th>
+                <th class="p-3">Servicio &amp; Alcance</th>
+                <th class="p-3">Valor (€)</th>
+                <th class="p-3">Estado Pipeline</th>
+                <th class="p-3 text-right">Despacho Soberano</th>
               </tr>
             </thead>
             <tbody id="clientsTableBody" class="divide-y theme-border">
-              <!-- Renderizado dinámico -->
+              <!-- Renderizado dinámico seguro -->
             </tbody>
           </table>
         </div>
+
+        <!-- Vista 2: Tablero Kanban de 5 Etapas -->
+        <div id="kanbanViewContainer" class="hidden p-4">
+          <div id="kanbanColumnsGrid" class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-3">
+            <!-- Columnas Kanban dinámicas -->
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Modal de Acuse Soberano .k4li.asc para Signal (@k4li.89) -->
+  <div id="receiptModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="theme-card rounded-2xl border max-w-2xl w-full p-5 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b theme-border pb-3">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400">Acuse Criptográfico Firmado // Signal E2EE (@k4li.89)</span>
+          <h4 id="receiptModalTitle" class="text-sm font-bold text-white mt-0.5">Sobre de Acuse .k4li.asc</h4>
+        </div>
+        <button type="button" onclick="closeReceiptModal()" class="px-2.5 py-1 rounded-lg bg-zinc-800 text-zinc-300 hover:text-white text-xs font-mono">
+          ✕ Cerrar
+        </button>
+      </div>
+      <p class="text-xs text-zinc-400">
+        El bloque inferior incluye firma de integridad <code class="text-emerald-300">SHA-256</code> verificable con <code class="text-purple-300">sovereign_envelope_cli.py</code> o desde este mismo Inspector. Pégalo directamente en el hilo de Signal con el cliente.
+      </p>
+      <textarea id="receiptModalTextarea" readonly rows="11" class="w-full p-3 rounded-xl bg-black/70 border theme-border text-[11px] font-mono text-emerald-300 focus:outline-none"></textarea>
+      <div class="flex flex-wrap items-center justify-end gap-2">
+        <button type="button" onclick="downloadActiveReceipt()" class="px-3 py-2 rounded-xl border theme-border bg-black/50 text-zinc-200 hover:text-white text-xs font-mono">
+          💾 Descargar .k4li.asc
+        </button>
+        <button type="button" onclick="copyActiveReceipt()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono">
+          📋 Copiar para Signal (@k4li.89)
+        </button>
       </div>
     </div>
-
   </div>
 
   <script>
@@ -270,6 +509,647 @@
     const savedTheme = localStorage.getItem("k4li_theme") || "anuu";
     document.documentElement.setAttribute("data-theme", savedTheme);
 
+    // Catálogo canónico de etapas de Pipeline v2.8 (con retrocompatibilidad v2.x)
+    const PIPELINE_STAGES = [
+      { key: "lead", label: "Nuevo Lead", badgeClass: "bg-zinc-800 text-zinc-300 border border-zinc-700" },
+      { key: "discovery", label: "Discovery Técnico", badgeClass: "bg-purple-500/20 text-purple-300 border border-purple-500/30" },
+      { key: "sow_signed", label: "SOW Firmado (50%)", badgeClass: "bg-amber-500/20 text-amber-300 border border-amber-500/30" },
+      { key: "in_execution", label: "En Ejecución", badgeClass: "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30" },
+      { key: "closed_paid", label: "Cerrado / Cobrado", badgeClass: "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" }
+    ];
+
+    const SERVICE_LABELS = {
+      siem: "🛡️ Hardening & SIEM",
+      security: "🛡️ Hardening & SIEM",
+      react: "⚡ Dashboards React",
+      dashboard: "⚡ Dashboards React",
+      ai_local: "🤖 IA Local Soberana",
+      ai: "🤖 IA Local Soberana",
+      bots: "⚙️ Automatización & Bots",
+      custom: "🔮 Ingeniería a Medida"
+    };
+
+    const SERVICE_DEFAULT_BUDGETS = {
+      siem: 450,
+      react: 350,
+      ai_local: 600,
+      bots: 200,
+      custom: 500
+    };
+
+    let currentPipelineView = "table";
+    let verifiedCandidate = null;
+    let verifyDebounceTimer = null;
+    let activeReceiptFilename = "acuse_k4li.k4li.asc";
+
+    function escapeHtml(val) {
+      return String(val == null ? "" : val)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function normalizeStage(rawStage) {
+      const map = {
+        lead: "lead",
+        nuevo_lead: "lead",
+        discovery: "discovery",
+        deposit_paid: "sow_signed",
+        sow_signed: "sow_signed",
+        in_staging: "in_execution",
+        in_execution: "in_execution",
+        completed: "closed_paid",
+        closed_paid: "closed_paid"
+      };
+      return map[String(rawStage || "lead").toLowerCase()] || "lead";
+    }
+
+    function getStageMeta(stageKey) {
+      const norm = normalizeStage(stageKey);
+      return PIPELINE_STAGES.find(s => s.key === norm) || PIPELINE_STAGES[0];
+    }
+
+    function formatServiceLabel(serviceKey) {
+      if (!serviceKey) return SERVICE_LABELS.custom;
+      const clean = String(serviceKey).trim();
+      return SERVICE_LABELS[clean.toLowerCase()] || clean;
+    }
+
+    function showToast(message, isError) {
+      const toast = document.getElementById("crmToast");
+      toast.textContent = message;
+      toast.className = "fixed bottom-5 right-5 z-50 max-w-md px-4 py-3 rounded-xl border text-xs font-mono shadow-2xl " +
+        (isError
+          ? "border-rose-500/50 bg-zinc-950/95 text-rose-300"
+          : "border-emerald-500/40 bg-zinc-950/95 text-emerald-300");
+      toast.classList.remove("hidden");
+      clearTimeout(window.__crmToastTimer);
+      window.__crmToastTimer = setTimeout(() => toast.classList.add("hidden"), 4200);
+    }
+
+    function autoSuggestServiceBudget() {
+      const sel = document.getElementById("clientService").value;
+      const budgetInput = document.getElementById("clientBudget");
+      if (!budgetInput.value && SERVICE_DEFAULT_BUDGETS[sel]) {
+        budgetInput.value = SERVICE_DEFAULT_BUDGETS[sel];
+      }
+    }
+
+    // Utilidades WebCrypto (SHA-256 + Base64 UTF-8 + PBKDF2-AES256GCM)
+    async function sha256HexFromBytes(uint8Bytes) {
+      const digest = await crypto.subtle.digest("SHA-256", uint8Bytes);
+      return Array.from(new Uint8Array(digest))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+    }
+
+    async function sha256HexFromString(str) {
+      return sha256HexFromBytes(new TextEncoder().encode(str));
+    }
+
+    function bytesToBase64(bytes) {
+      let binary = "";
+      const arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+      for (let i = 0; i < arr.length; i++) {
+        binary += String.fromCharCode(arr[i]);
+      }
+      return btoa(binary);
+    }
+
+    function base64ToBytes(b64) {
+      const clean = b64.replace(/\s+/g, "");
+      const binary = atob(clean);
+      const out = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        out[i] = binary.charCodeAt(i);
+      }
+      return out;
+    }
+
+    function wrapBase64Lines(b64, width) {
+      const size = width || 64;
+      const chunks = [];
+      for (let i = 0; i < b64.length; i += size) {
+        chunks.push(b64.slice(i, i + size));
+      }
+      return chunks.join("\n");
+    }
+
+    async function encryptPayloadPBKDF2(plainObj, passphrase) {
+      const enc = new TextEncoder();
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const iterations = 100000;
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        enc.encode(passphrase),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+      );
+      const aesKey = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt, iterations, hash: "SHA-256" },
+        keyMaterial,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt"]
+      );
+      const ctBuf = await crypto.subtle.encrypt(
+        { name: "AES-GCM", iv },
+        aesKey,
+        enc.encode(JSON.stringify(plainObj))
+      );
+      return {
+        salt: bytesToBase64(salt),
+        iv: bytesToBase64(iv),
+        iterations,
+        hash: "SHA-256",
+        ciphertext: bytesToBase64(new Uint8Array(ctBuf))
+      };
+    }
+
+    async function decryptPayloadPBKDF2(encPayload, passphrase) {
+      const enc = new TextEncoder();
+      const salt = base64ToBytes(encPayload.salt);
+      const iv = base64ToBytes(encPayload.iv);
+      const ciphertext = base64ToBytes(encPayload.ciphertext);
+      const iterations = Number(encPayload.iterations) || 100000;
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        enc.encode(passphrase),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+      );
+      const aesKey = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt, iterations, hash: "SHA-256" },
+        keyMaterial,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["decrypt"]
+      );
+      const plainBuf = await crypto.subtle.decrypt(
+        { name: "AES-GCM", iv },
+        aesKey,
+        ciphertext
+      );
+      return JSON.parse(new TextDecoder("utf-8").decode(plainBuf));
+    }
+
+    async function buildSovereignEnvelope(payloadObj, options) {
+      const opts = options || {};
+      const timestamp = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+      let mode = opts.mode || "SIGNED-BASE64-SHA256";
+      let innerPayload = payloadObj;
+
+      if (opts.passphrase) {
+        mode = "PBKDF2-AES256GCM";
+        innerPayload = await encryptPayloadPBKDF2(payloadObj, opts.passphrase);
+      }
+
+      const canonicalPayloadStr = JSON.stringify(innerPayload);
+      const sha256 = await sha256HexFromString(canonicalPayloadStr);
+      const outerDoc = {
+        version: "1.0-SOVEREIGN",
+        timestamp,
+        sha256,
+        mode: opts.passphrase ? "aes-256-gcm" : mode,
+        payload: innerPayload
+      };
+
+      const outerBytes = new TextEncoder().encode(JSON.stringify(outerDoc, null, 2));
+      const armoredBody = wrapBase64Lines(bytesToBase64(outerBytes), 64);
+
+      return [
+        "-----BEGIN K4L1 SOVEREIGN ENVELOPE-----",
+        "Version: K4L1-ZeroCloud-161914",
+        "Mode: " + mode,
+        "Hash: SHA-256/" + sha256.slice(0, 16),
+        "SHA256: " + sha256,
+        "Channel: Signal-E2EE (@k4li.89)",
+        "Frequency: 189.89.619 Hz",
+        "",
+        armoredBody,
+        "-----END K4L1 SOVEREIGN ENVELOPE-----"
+      ].join("\n");
+    }
+
+    function parseArmoredEnvelope(rawText) {
+      const beginMarker = "-----BEGIN K4L1 SOVEREIGN ENVELOPE-----";
+      const endMarker = "-----END K4L1 SOVEREIGN ENVELOPE-----";
+      const startIdx = rawText.indexOf(beginMarker);
+      const endIdx = rawText.indexOf(endMarker);
+
+      if (startIdx === -1 || endIdx === -1 || endIdx <= startIdx) {
+        throw new Error("Bloque armor inválido: faltan delimitadores -----BEGIN/END K4L1 SOVEREIGN ENVELOPE-----.");
+      }
+
+      const innerBlock = rawText.slice(startIdx + beginMarker.length, endIdx).trim();
+      const lines = innerBlock.split(/\r?\n/);
+      const headers = {};
+      const b64Lines = [];
+      let readingHeaders = true;
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) {
+          readingHeaders = false;
+          continue;
+        }
+        if (readingHeaders && /^[A-Za-z0-9_-]+\s*:/.test(trimmed)) {
+          const sep = trimmed.indexOf(":");
+          const k = trimmed.slice(0, sep).trim();
+          const v = trimmed.slice(sep + 1).trim();
+          headers[k] = v;
+        } else {
+          readingHeaders = false;
+          b64Lines.push(trimmed);
+        }
+      }
+
+      if (b64Lines.length === 0) {
+        throw new Error("El sobre .k4li.asc no contiene carga Base64.");
+      }
+
+      return {
+        headers,
+        base64Payload: b64Lines.join("")
+      };
+    }
+
+    function setInspectorVisualState(state, title, subtitle, modeText) {
+      const banner = document.getElementById("tamperGuardBanner");
+      const icon = document.getElementById("tamperGuardIcon");
+      const titleEl = document.getElementById("tamperGuardTitle");
+      const subEl = document.getElementById("tamperGuardSubtitle");
+      const badge = document.getElementById("envelopeModeBadge");
+
+      if (state === "intact") {
+        banner.className = "p-3 rounded-xl border border-emerald-500/50 bg-emerald-500/10 flex items-center justify-between gap-2";
+        icon.textContent = "✅";
+        titleEl.className = "text-xs font-mono font-bold text-emerald-300";
+        subEl.className = "text-[10px] font-mono text-emerald-200/80";
+        badge.className = "text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+      } else if (state === "locked_gcm") {
+        banner.className = "p-3 rounded-xl border border-amber-500/50 bg-amber-500/10 flex items-center justify-between gap-2";
+        icon.textContent = "🔐";
+        titleEl.className = "text-xs font-mono font-bold text-amber-300";
+        subEl.className = "text-[10px] font-mono text-amber-200/80";
+        badge.className = "text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30";
+      } else if (state === "tampered") {
+        banner.className = "p-3 rounded-xl border border-rose-500/60 bg-rose-500/15 flex items-center justify-between gap-2";
+        icon.textContent = "🚨";
+        titleEl.className = "text-xs font-mono font-bold text-rose-300";
+        subEl.className = "text-[10px] font-mono text-rose-200/90";
+        badge.className = "text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/25 text-rose-300 border border-rose-500/40";
+      } else {
+        banner.className = "p-3 rounded-xl border border-zinc-800 bg-zinc-900/70 flex items-center justify-between gap-2";
+        icon.textContent = "⏳";
+        titleEl.className = "text-xs font-mono font-bold text-zinc-300";
+        subEl.className = "text-[10px] font-mono text-zinc-500";
+        badge.className = "text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400";
+      }
+
+      titleEl.textContent = title;
+      subEl.textContent = subtitle;
+      badge.textContent = modeText || "IDLE";
+    }
+
+    function scheduleEnvelopeVerification() {
+      clearTimeout(verifyDebounceTimer);
+      verifyDebounceTimer = setTimeout(() => {
+        const val = document.getElementById("envelopeInput").value.trim();
+        if (!val) {
+          clearEnvelopeInspector(true);
+          return;
+        }
+        verifyAndDecryptEnvelope();
+      }, 220);
+    }
+
+    async function verifyAndDecryptEnvelope() {
+      const rawText = document.getElementById("envelopeInput").value.trim();
+      const passphrase = document.getElementById("envelopePassphrase").value;
+      const btnImport = document.getElementById("btnImportVerified");
+      const previewEl = document.getElementById("inspectorPayloadPreview");
+      const declaredEl = document.getElementById("declaredShaDisplay");
+      const computedEl = document.getElementById("computedShaDisplay");
+      const tsEl = document.getElementById("envelopeTimestampDisplay");
+      const hintEl = document.getElementById("importReadyHint");
+
+      verifiedCandidate = null;
+      btnImport.disabled = true;
+
+      if (!rawText) {
+        clearEnvelopeInspector(true);
+        return;
+      }
+
+      try {
+        const parsed = parseArmoredEnvelope(rawText);
+        const rawBytes = base64ToBytes(parsed.base64Payload);
+        const decodedText = new TextDecoder("utf-8", { fatal: true }).decode(rawBytes);
+        const parsedJson = JSON.parse(decodedText);
+
+        // Detectar envoltura canónica 1.0-SOVEREIGN vs JSON directo con cabecera SHA256:
+        const hasOuterWrapper = parsedJson && typeof parsedJson === "object" && "payload" in parsedJson && ("sha256" in parsedJson || "version" in parsedJson);
+        const targetPayload = hasOuterWrapper ? parsedJson.payload : parsedJson;
+        const envelopeModeRaw = (parsed.headers.Mode || parsedJson.mode || "SIGNED-BASE64-SHA256").trim();
+        const envelopeTimestamp = parsedJson.timestamp || parsed.headers.Timestamp || new Date().toISOString();
+        tsEl.textContent = envelopeTimestamp;
+
+        // Calcular SHA-256 real con WebCrypto
+        let computedSha = await sha256HexFromString(JSON.stringify(targetPayload));
+        if (!hasOuterWrapper) {
+          const rawBytesSha = await sha256HexFromBytes(rawBytes);
+          const hdrShaCandidate = (parsed.headers.SHA256 || "").toLowerCase();
+          if (hdrShaCandidate && rawBytesSha === hdrShaCandidate) {
+            computedSha = rawBytesSha;
+          }
+        }
+
+        const headerShaFull = (parsed.headers.SHA256 || "").trim().toLowerCase();
+        const headerHashShort = (parsed.headers.Hash || "").replace(/^SHA-256\//i, "").trim().toLowerCase();
+        const outerSha = hasOuterWrapper && parsedJson.sha256 ? String(parsedJson.sha256).trim().toLowerCase() : "";
+
+        const primaryDeclared = outerSha || headerShaFull || headerHashShort;
+        declaredEl.textContent = primaryDeclared || "(Ausente — Rechazado)";
+        computedEl.textContent = computedSha;
+
+        if (!primaryDeclared) {
+          throw new Error("Cabecera SHA256 / Hash ausente en el sobre .k4li.asc.");
+        }
+
+        let hashIntact = true;
+        if (outerSha && outerSha !== computedSha) hashIntact = false;
+        if (headerShaFull && headerShaFull !== computedSha) hashIntact = false;
+        if (headerHashShort && (headerHashShort.length < 8 || !computedSha.startsWith(headerHashShort))) hashIntact = false;
+
+        if (!hashIntact) {
+          setInspectorVisualState(
+            "tampered",
+            "SHA-256 TAMPER GUARD: ALERTA ROJA — SOBRE ALTERADO",
+            "La huella criptográfica no coincide con el payload decodificado. Importación bloqueada.",
+            envelopeModeRaw
+          );
+          previewEl.className = "p-3 rounded-lg bg-rose-950/40 border border-rose-500/40 text-[11px] font-mono text-rose-300 overflow-x-auto max-h-44 leading-relaxed";
+          previewEl.textContent = JSON.stringify({
+            tamper_guard: "REJECTED_HASH_MISMATCH",
+            declared_sha256: primaryDeclared,
+            computed_sha256: computedSha
+          }, null, 2);
+          hintEl.textContent = "⛔ Bloqueo Kanuv: al menos 1 bit del sobre fue modificado.";
+          return;
+        }
+
+        // Comprobar si el payload está cifrado con PBKDF2-AES256GCM
+        const isEncryptedMode =
+          /aes-256-gcm|pbkdf2-aes256gcm/i.test(envelopeModeRaw) ||
+          /aes-256-gcm|pbkdf2-aes256gcm/i.test(String(parsedJson.mode || "")) ||
+          (targetPayload && typeof targetPayload === "object" && targetPayload.ciphertext && targetPayload.salt && targetPayload.iv);
+
+        let finalClientPayload = targetPayload;
+        let displayModeBadge = isEncryptedMode ? "PBKDF2-AES256GCM" : "SIGNED-BASE64-SHA256";
+
+        if (isEncryptedMode) {
+          if (!passphrase) {
+            setInspectorVisualState(
+              "locked_gcm",
+              "SHA-256 TAMPER GUARD: ÍNTEGRO // CIFRADO AES-256-GCM",
+              "Huella exterior verificada. Introduce la passphrase PBKDF2 para abrir el payload cifrado.",
+              displayModeBadge
+            );
+            previewEl.className = "p-3 rounded-lg bg-black/60 border theme-border text-[11px] font-mono text-amber-300 overflow-x-auto max-h-44 leading-relaxed";
+            previewEl.textContent = JSON.stringify(targetPayload, null, 2);
+            hintEl.textContent = "🔒 Introduce la passphrase del sobre y pulsa Verificar & Descifrar.";
+            return;
+          }
+
+          try {
+            finalClientPayload = await decryptPayloadPBKDF2(targetPayload, passphrase);
+          } catch (gcmErr) {
+            setInspectorVisualState(
+              "tampered",
+              "FALLO GCM AUTH TAG // PASSPHRASE INVÁLIDA",
+              "AES-256-GCM rechazó la apertura: passphrase errónea o etiqueta de autenticación corrupta.",
+              displayModeBadge
+            );
+            previewEl.className = "p-3 rounded-lg bg-rose-950/40 border border-rose-500/40 text-[11px] font-mono text-rose-300 overflow-x-auto max-h-44 leading-relaxed";
+            previewEl.textContent = JSON.stringify({
+              gcm_auth_tag: "DECRYPTION_REJECTED",
+              outer_sha256_intact: true
+            }, null, 2);
+            hintEl.textContent = "⛔ Passphrase PBKDF2-AES256GCM incorrecta.";
+            return;
+          }
+        }
+
+        // Éxito criptográfico completo
+        setInspectorVisualState(
+          "intact",
+          "SHA-256 TAMPER GUARD: ÍNTEGRO" + (isEncryptedMode ? " + AES-256-GCM OK" : ""),
+          "Integridad verificada bit a bit mediante WebCrypto SubtleCrypto. Listo para importar al Búnker.",
+          displayModeBadge
+        );
+        previewEl.className = "p-3 rounded-lg bg-black/60 border theme-border text-[11px] font-mono text-emerald-300 overflow-x-auto max-h-44 leading-relaxed";
+        previewEl.textContent = JSON.stringify(finalClientPayload, null, 2);
+        hintEl.textContent = "✓ Expediente autenticado (" + computedSha.slice(0, 12) + "…). Importación habilitada.";
+
+        verifiedCandidate = {
+          sha256: computedSha,
+          mode: displayModeBadge,
+          timestamp: envelopeTimestamp,
+          payload: finalClientPayload
+        };
+        btnImport.disabled = false;
+      } catch (err) {
+        setInspectorVisualState(
+          "tampered",
+          "SHA-256 TAMPER GUARD: FORMATO O CODIFICACIÓN CORRUPTA",
+          err.message || "Error al decodificar el sobre .k4li.asc.",
+          "CORRUPT"
+        );
+        declaredEl.textContent = "ERROR";
+        computedEl.textContent = "ERROR";
+        previewEl.className = "p-3 rounded-lg bg-rose-950/40 border border-rose-500/40 text-[11px] font-mono text-rose-300 overflow-x-auto max-h-44 leading-relaxed";
+        previewEl.textContent = JSON.stringify({ error: err.message || "Invalid .k4li.asc block" }, null, 2);
+        hintEl.textContent = "⛔ Corrige o vuelve a cargar un sobre .k4li.asc válido.";
+      }
+    }
+
+    function clearEnvelopeInspector(keepPassphrase) {
+      document.getElementById("envelopeInput").value = "";
+      if (!keepPassphrase) {
+        document.getElementById("envelopePassphrase").value = "";
+      }
+      document.getElementById("declaredShaDisplay").textContent = "—";
+      document.getElementById("computedShaDisplay").textContent = "—";
+      document.getElementById("envelopeTimestampDisplay").textContent = "";
+      document.getElementById("inspectorPayloadPreview").className = "p-3 rounded-lg bg-black/60 border theme-border text-[11px] font-mono text-emerald-300 overflow-x-auto max-h-44 leading-relaxed";
+      document.getElementById("inspectorPayloadPreview").textContent = '{\n  "status": "esperando_sobre_k4li_asc"\n}';
+      document.getElementById("btnImportVerified").disabled = true;
+      document.getElementById("importReadyHint").textContent = "Requiere verificación SHA-256 íntegra para habilitar la importación.";
+      verifiedCandidate = null;
+      setInspectorVisualState(
+        "idle",
+        "ESPERANDO SOBRE SOBERANO .K4LI.ASC",
+        "Carga o arrastra un bloque blindado para verificar su integridad SHA-256 en cliente.",
+        "IDLE"
+      );
+    }
+
+    async function loadDemoEnvelope(kind) {
+      const demoPayload = {
+        client: kind === "encrypted" ? "Aether BioCompute Labs" : "Valkyrie SecOps SL",
+        contact: kind === "encrypted" ? "@aether_sec.89" : "@valkyrie_ops.01",
+        service: kind === "encrypted" ? "ai_local" : "siem",
+        budget: kind === "encrypted" ? 950 : 650,
+        urgency: "express",
+        stage: "discovery",
+        brief: kind === "encrypted"
+          ? "Despliegue air-gapped de inferencia GGUF local + auditoría criptográfica Zero-Cloud."
+          : "Hardening Debian 12 en bare-metal, reglas SIEM y túnel WireGuard soberano."
+      };
+
+      if (kind === "encrypted") {
+        const demoPass = "161914-K4L1";
+        document.getElementById("envelopePassphrase").value = demoPass;
+        const env = await buildSovereignEnvelope(demoPayload, { passphrase: demoPass });
+        document.getElementById("envelopeInput").value = env;
+      } else {
+        document.getElementById("envelopePassphrase").value = "";
+        const env = await buildSovereignEnvelope(demoPayload, { mode: "SIGNED-BASE64-SHA256" });
+        document.getElementById("envelopeInput").value = env;
+      }
+
+      await verifyAndDecryptEnvelope();
+      showToast("🧪 Sobre .k4li.asc de demostración cargado y verificado con SHA-256.", false);
+    }
+
+    async function simulateTamperAttack() {
+      const textarea = document.getElementById("envelopeInput");
+      if (!textarea.value.trim()) {
+        await loadDemoEnvelope("signed");
+      }
+      const lines = textarea.value.split(/\r?\n/);
+      // Mutar 1 carácter válido dentro de una línea Base64 del cuerpo
+      for (let i = lines.length - 2; i >= 0; i--) {
+        const l = lines[i].trim();
+        if (l && !l.startsWith("-----") && !l.includes(":") && l.length > 8) {
+          const pos = Math.floor(l.length / 2);
+          const origChar = l[pos];
+          const replacement = origChar === "A" ? "B" : "A";
+          lines[i] = l.slice(0, pos) + replacement + l.slice(pos + 1);
+          break;
+        }
+      }
+      textarea.value = lines.join("\n");
+      await verifyAndDecryptEnvelope();
+      showToast("🚨 Simulación Tamper: 1 byte alterado en Base64 -> bloqueado por SHA-256 Tamper Guard.", true);
+    }
+
+    function parseBudgetNumber(rawVal, serviceCode) {
+      if (typeof rawVal === "number" && !isNaN(rawVal) && rawVal > 0) {
+        return Math.round(rawVal);
+      }
+      if (typeof rawVal === "string") {
+        const m = rawVal.match(/\d+(?:[.,]\d+)?/);
+        if (m) {
+          return Math.round(parseFloat(m[0].replace(",", ".")));
+        }
+      }
+      return SERVICE_DEFAULT_BUDGETS[serviceCode] || 450;
+    }
+
+    function normalizeServiceCode(rawService) {
+      const s = String(rawService || "").toLowerCase();
+      if (s.includes("siem") || s.includes("sec") || s.includes("hardening")) return "siem";
+      if (s.includes("react") || s.includes("dash") || s.includes("front")) return "react";
+      if (s.includes("ai") || s.includes("llm") || s.includes("ia") || s.includes("gguf")) return "ai_local";
+      if (s.includes("bot") || s.includes("scrap") || s.includes("auto")) return "bots";
+      return "custom";
+    }
+
+    async function importVerifiedEnvelopeToCRM() {
+      if (!verifiedCandidate || !verifiedCandidate.payload) {
+        showToast("No hay ningún sobre verificado listo para importar.", true);
+        return;
+      }
+
+      const p = verifiedCandidate.payload;
+      const serviceCode = normalizeServiceCode(p.service || p.servicio);
+      const name = String(p.name || p.client || p.cliente || p.organization || "Cliente Soberano .k4li.asc").trim();
+      const contact = String(p.contact || p.contacto || p.signal || p.email || "@signal_verified").trim();
+      const budget = parseBudgetNumber(p.budget || p.presupuesto || p.budget_eur, serviceCode);
+      const status = normalizeStage(p.stage || p.status || "lead");
+      const briefText = String(p.brief || p.notes || p.notas || p.scope || "Expediente importado desde sobre soberano .k4li.asc").trim();
+      const urgencyTag = p.urgency ? " [Urgencia: " + String(p.urgency) + "]" : "";
+
+      const docId = "K4-" + verifiedCandidate.sha256.slice(0, 6).toUpperCase();
+      const clientData = {
+        docId,
+        name,
+        contact,
+        service: serviceCode,
+        budget,
+        status,
+        notes: briefText + urgencyTag,
+        envelopeSha256: verifiedCandidate.sha256,
+        envelopeMode: verifiedCandidate.mode,
+        createdAt: new Date().toISOString()
+      };
+
+      await BunkerDB.put("clients", docId, clientData);
+      await renderClientsList();
+      showToast("📥 Expediente " + docId + " cifrado e importado en BunkerDB con huella SHA-256.", false);
+    }
+
+    function handleEnvelopeFileSelect(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      readEnvelopeFile(file);
+      event.target.value = "";
+    }
+
+    function readEnvelopeFile(file) {
+      const reader = new FileReader();
+      reader.onload = async (ev) => {
+        document.getElementById("envelopeInput").value = String(ev.target.result || "");
+        await verifyAndDecryptEnvelope();
+        showToast("📂 Archivo '" + file.name + "' cargado en el Inspector.", false);
+      };
+      reader.readAsText(file);
+    }
+
+    // Configurar Drag & Drop en el área del Inspector
+    (function setupDropzone() {
+      const dz = document.getElementById("envelopeDropzone");
+      if (!dz) return;
+      ["dragenter", "dragover"].forEach(evtName => {
+        dz.addEventListener(evtName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dz.classList.add("dropzone-active");
+        });
+      });
+      ["dragleave", "drop"].forEach(evtName => {
+        dz.addEventListener(evtName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dz.classList.remove("dropzone-active");
+        });
+      });
+      dz.addEventListener("drop", (e) => {
+        const files = e.dataTransfer && e.dataTransfer.files;
+        if (files && files.length > 0) {
+          readEnvelopeFile(files[0]);
+        }
+      });
+    })();
+
+    // Autenticación del Búnker NoSQL (compatible 100% con BunkerAuth / BunkerDB)
     async function unlockVaultUI() {
       const pass = document.getElementById("inputPassphrase").value;
       const errorMsg = document.getElementById("authErrorMsg");
@@ -279,12 +1159,13 @@
         await BunkerAuth.login(pass);
         document.getElementById("lockScreen").classList.add("hidden");
         document.getElementById("unlockedContent").classList.remove("hidden");
-        document.getElementById("badgeVaultStatus").innerText = "🔓 Desbloqueado // Admin Kali ⊘k-0";
-        document.getElementById("badgeVaultStatus").classList.replace("bg-emerald-500/20", "bg-purple-500/20");
-        document.getElementById("badgeVaultStatus").classList.replace("text-emerald-300", "text-purple-300");
+        const badge = document.getElementById("badgeVaultStatus");
+        badge.innerText = "🔓 Desbloqueado // Admin Kali ⊘k-0";
+        badge.classList.replace("bg-emerald-500/20", "bg-purple-500/20");
+        badge.classList.replace("text-emerald-300", "text-purple-300");
         await renderClientsList();
       } catch (err) {
-        errorMsg.innerText = err.message;
+        errorMsg.innerText = err.message || "Fallo de autenticación criptográfica.";
         errorMsg.classList.remove("hidden");
       }
     }
@@ -296,14 +1177,14 @@
 
     async function handleSaveClient(e) {
       e.preventDefault();
-      const name = document.getElementById("clientName").value;
-      const contact = document.getElementById("clientContact").value;
+      const name = document.getElementById("clientName").value.trim();
+      const contact = document.getElementById("clientContact").value.trim();
       const service = document.getElementById("clientService").value;
       const budget = parseFloat(document.getElementById("clientBudget").value) || 0;
-      const status = document.getElementById("clientStatus").value;
-      const notes = document.getElementById("clientNotes").value;
+      const status = normalizeStage(document.getElementById("clientStatus").value);
+      const notes = document.getElementById("clientNotes").value.trim();
 
-      const docId = 'CL-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      const docId = "CL-" + Math.random().toString(36).substring(2, 8).toUpperCase();
       const clientData = {
         docId,
         name,
@@ -315,66 +1196,254 @@
         createdAt: new Date().toISOString()
       };
 
-      await BunkerDB.put('clients', docId, clientData);
+      await BunkerDB.put("clients", docId, clientData);
       e.target.reset();
       await renderClientsList();
+      showToast("💾 Expediente " + docId + " cifrado con AES-256-GCM en IndexedDB.", false);
+    }
+
+    function setPipelineView(viewMode) {
+      currentPipelineView = viewMode === "kanban" ? "kanban" : "table";
+      const tableContainer = document.getElementById("tableViewContainer");
+      const kanbanContainer = document.getElementById("kanbanViewContainer");
+      const btnTable = document.getElementById("btnViewTable");
+      const btnKanban = document.getElementById("btnViewKanban");
+
+      if (currentPipelineView === "kanban") {
+        tableContainer.classList.add("hidden");
+        kanbanContainer.classList.remove("hidden");
+        btnKanban.className = "px-2.5 py-1 rounded-lg bg-purple-600 text-white font-bold transition-colors";
+        btnTable.className = "px-2.5 py-1 rounded-lg text-zinc-400 hover:text-white transition-colors";
+      } else {
+        kanbanContainer.classList.add("hidden");
+        tableContainer.classList.remove("hidden");
+        btnTable.className = "px-2.5 py-1 rounded-lg bg-purple-600 text-white font-bold transition-colors";
+        btnKanban.className = "px-2.5 py-1 rounded-lg text-zinc-400 hover:text-white transition-colors";
+      }
+      renderClientsList();
+    }
+
+    async function updateClientStage(docId, newStage) {
+      const existing = await BunkerDB.get("clients", docId);
+      if (!existing) return;
+      existing.status = normalizeStage(newStage);
+      existing.updatedAt = new Date().toISOString();
+      await BunkerDB.put("clients", docId, existing);
+      await renderClientsList();
+      showToast("🔄 Etapa de " + docId + " actualizada a: " + getStageMeta(existing.status).label, false);
+    }
+
+    async function emitSignalReceipt(docId) {
+      const record = await BunkerDB.get("clients", docId);
+      if (!record) {
+        showToast("No se encontró el expediente " + docId + " en BunkerDB.", true);
+        return;
+      }
+
+      const stageMeta = getStageMeta(record.status);
+      const receiptPayload = {
+        type: "K4L1_SOVEREIGN_ACK",
+        studio: "K4L1 Studio",
+        dispatch_channel: "Signal E2EE (@k4li.89)",
+        expediente_id: record.docId,
+        client: record.name,
+        contact: record.contact,
+        service: formatServiceLabel(record.service),
+        estimated_value_eur: Number(record.budget) || 0,
+        pipeline_stage: stageMeta.label,
+        origin_envelope_sha256: record.envelopeSha256 || "LOCAL_BUNKER_ENTRY",
+        issued_at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z")
+      };
+
+      const armoredReceipt = await buildSovereignEnvelope(receiptPayload, { mode: "SIGNED-BASE64-SHA256" });
+      activeReceiptFilename = "acuse_" + record.docId.toLowerCase() + ".k4li.asc";
+
+      document.getElementById("receiptModalTitle").textContent =
+        "Acuse Soberano .k4li.asc — " + record.docId + " (" + record.name + ")";
+      document.getElementById("receiptModalTextarea").value = armoredReceipt;
+      document.getElementById("receiptModal").classList.remove("hidden");
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(armoredReceipt);
+          showToast("📤 Acuse .k4li.asc de " + record.docId + " firmado y copiado al portapapeles para Signal (@k4li.89).", false);
+        }
+      } catch (_) {
+        showToast("📤 Acuse .k4li.asc generado. Pulsa Copiar para enviarlo por Signal (@k4li.89).", false);
+      }
+    }
+
+    function closeReceiptModal() {
+      document.getElementById("receiptModal").classList.add("hidden");
+    }
+
+    async function copyActiveReceipt() {
+      const txt = document.getElementById("receiptModalTextarea").value;
+      try {
+        await navigator.clipboard.writeText(txt);
+        showToast("📋 Bloque .k4li.asc copiado. Listo para pegar en Signal (@k4li.89).", false);
+      } catch (_) {
+        const area = document.getElementById("receiptModalTextarea");
+        area.select();
+        document.execCommand("copy");
+        showToast("📋 Bloque .k4li.asc seleccionado y copiado.", false);
+      }
+    }
+
+    function downloadActiveReceipt() {
+      const txt = document.getElementById("receiptModalTextarea").value;
+      const blob = new Blob([txt + "\n"], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = activeReceiptFilename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function buildStageSelectHtml(docId, currentStageKey) {
+      const norm = normalizeStage(currentStageKey);
+      const opts = PIPELINE_STAGES.map(st => {
+        const selected = st.key === norm ? " selected" : "";
+        return '<option value="' + st.key + '"' + selected + ">" + escapeHtml(st.label) + "</option>";
+      }).join("");
+      return '<select data-docid="' + escapeHtml(docId) + '" onchange="updateClientStage(this.dataset.docid, this.value)" class="px-2 py-1 rounded-lg bg-black/60 border theme-border text-[11px] font-mono text-zinc-200 focus:outline-none focus:border-purple-500">' + opts + "</select>";
     }
 
     async function renderClientsList() {
       const tbody = document.getElementById("clientsTableBody");
+      const kanbanGrid = document.getElementById("kanbanColumnsGrid");
       tbody.innerHTML = "";
+      kanbanGrid.innerHTML = "";
 
-      const clients = await BunkerDB.list('clients');
-      document.getElementById("statTotalClients").innerText = clients.length;
+      const rawClients = await BunkerDB.list("clients");
+      const searchQuery = (document.getElementById("pipelineSearch").value || "").trim().toLowerCase();
+      const stageFilter = document.getElementById("pipelineStageFilter").value || "all";
 
       let totalPipeline = 0;
-      let depositPaid = 0;
+      let consolidatedEur = 0;
       let activeCount = 0;
+      let verifiedEnvelopesCount = 0;
 
-      if (clients.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-zinc-500">No hay clientes almacenados en el Búnker NoSQL todavía. Añade el primero arriba.</td></tr>`;
-        return;
-      }
+      const normalizedRecords = rawClients.map(entry => {
+        const d = entry.data || {};
+        const normStatus = normalizeStage(d.status);
+        const budget = Number(d.budget) || 0;
 
-      clients.forEach(c => {
-        const d = c.data;
-        totalPipeline += d.budget;
-        if (d.status === 'deposit_paid' || d.status === 'in_staging') {
-          depositPaid += (d.budget * 0.5);
+        totalPipeline += budget;
+        if (normStatus !== "closed_paid") {
           activeCount++;
         }
-        if (d.status === 'completed') depositPaid += d.budget;
+        if (normStatus === "sow_signed" || normStatus === "in_execution") {
+          consolidatedEur += budget * 0.5;
+        } else if (normStatus === "closed_paid") {
+          consolidatedEur += budget;
+        }
+        if (d.envelopeSha256) {
+          verifiedEnvelopesCount++;
+        }
 
-        let statusBadge = '';
-        if (d.status === 'deposit_paid') statusBadge = '<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">50% Anticipo</span>';
-        else if (d.status === 'in_staging') statusBadge = '<span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300">En Staging</span>';
-        else if (d.status === 'completed') statusBadge = '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Completado</span>';
-        else statusBadge = '<span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">Propuesta</span>';
-
-        const tr = document.createElement("tr");
-        tr.className = "hover:bg-white/[0.02] transition-colors";
-        tr.innerHTML = `
-          <td class="p-3 text-purple-300 font-bold">${d.docId}</td>
-          <td class="p-3 text-white">${d.name}<br><span class="text-[10px] text-zinc-500">${d.contact}</span></td>
-          <td class="p-3 text-zinc-300">${d.service}</td>
-          <td class="p-3 text-emerald-400 font-bold">${d.budget} €</td>
-          <td class="p-3">${statusBadge}</td>
-          <td class="p-3 text-right">
-            <button onclick="deleteClientRecord('${d.docId}')" class="px-2 py-1 rounded bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-[10px]">Eliminar</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
+        return Object.assign({}, d, { normStatus, budget });
       });
 
-      document.getElementById("statTotalPipeline").innerText = `${totalPipeline} €`;
-      document.getElementById("statDepositPaid").innerText = `${depositPaid} €`;
+      // Actualizar métricas globales del Búnker
+      document.getElementById("statTotalClients").innerText = normalizedRecords.length;
       document.getElementById("statActiveClients").innerText = activeCount;
+      document.getElementById("statTotalPipeline").innerText = Math.round(totalPipeline) + " €";
+      document.getElementById("statDepositPaid").innerText = Math.round(consolidatedEur) + " €";
+      document.getElementById("statVerifiedEnvelopes").innerText = verifiedEnvelopesCount;
+      document.getElementById("statCryptoState").innerText = "AES-256-GCM // ÍNTEGRO";
+
+      // Aplicar filtro por etapa + búsqueda instantánea
+      const filtered = normalizedRecords.filter(d => {
+        if (stageFilter !== "all" && d.normStatus !== stageFilter) return false;
+        if (!searchQuery) return true;
+        const haystack = [
+          d.docId,
+          d.name,
+          d.contact,
+          d.service,
+          formatServiceLabel(d.service),
+          d.notes,
+          d.envelopeSha256
+        ].join(" ").toLowerCase();
+        return haystack.includes(searchQuery);
+      });
+
+      // Renderizar Tabla Ejecutiva
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-zinc-500">No hay expedientes que coincidan con el filtro actual en el Búnker NoSQL.</td></tr>';
+      } else {
+        filtered.forEach(d => {
+          const stageMeta = getStageMeta(d.normStatus);
+          const provenanceBadge = d.envelopeSha256
+            ? '<span class="inline-block mt-1 px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-[9px]" title="SHA-256: ' + escapeHtml(d.envelopeSha256) + '">🛡️ .k4li.asc ' + escapeHtml(d.envelopeSha256.slice(0, 8)) + "</span>"
+            : '<span class="inline-block mt-1 px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 text-[9px]">🔐 NoSQL Local</span>';
+
+          const tr = document.createElement("tr");
+          tr.className = "hover:bg-white/[0.02] transition-colors align-top";
+          tr.innerHTML =
+            '<td class="p-3"><div class="text-purple-300 font-bold">' + escapeHtml(d.docId) + "</div>" + provenanceBadge + "</td>" +
+            '<td class="p-3 text-white font-semibold">' + escapeHtml(d.name) + '<div class="text-[10px] text-cyan-300 font-normal mt-0.5">' + escapeHtml(d.contact) + "</div></td>" +
+            '<td class="p-3 text-zinc-200">' + escapeHtml(formatServiceLabel(d.service)) + (d.notes ? '<div class="text-[10px] text-zinc-500 mt-0.5 max-w-xs truncate" title="' + escapeHtml(d.notes) + '">' + escapeHtml(d.notes) + "</div>" : "") + "</td>" +
+            '<td class="p-3 text-emerald-400 font-bold whitespace-nowrap">' + escapeHtml(d.budget) + " €</td>" +
+            '<td class="p-3"><div class="mb-1"><span class="px-2 py-0.5 rounded text-[10px] ' + stageMeta.badgeClass + '">' + escapeHtml(stageMeta.label) + "</span></div>" + buildStageSelectHtml(d.docId, d.normStatus) + "</td>" +
+            '<td class="p-3 text-right space-y-1 whitespace-nowrap">' +
+              '<button type="button" data-docid="' + escapeHtml(d.docId) + '" onclick="emitSignalReceipt(this.dataset.docid)" class="px-2.5 py-1 rounded-lg bg-purple-500/15 border border-purple-500/40 text-purple-200 hover:bg-purple-500/30 text-[10px] font-bold block ml-auto">📤 Emitir Acuse .k4li.asc</button>' +
+              '<button type="button" data-docid="' + escapeHtml(d.docId) + '" onclick="deleteClientRecord(this.dataset.docid)" class="px-2 py-1 rounded-lg bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-[10px]">Eliminar</button>' +
+            "</td>";
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Renderizar Tablero Kanban (5 Columnas)
+      PIPELINE_STAGES.forEach(stage => {
+        const stageItems = filtered.filter(item => item.normStatus === stage.key);
+        const stageSum = stageItems.reduce((acc, item) => acc + (Number(item.budget) || 0), 0);
+
+        const col = document.createElement("div");
+        col.className = "theme-subcard rounded-xl p-3 flex flex-col gap-2.5 min-h-[220px]";
+
+        const cardsHtml = stageItems.length === 0
+          ? '<div class="text-[10px] font-mono text-zinc-600 text-center py-6 border border-dashed border-zinc-800 rounded-lg">Sin expedientes</div>'
+          : stageItems.map(d => {
+              return (
+                '<div class="theme-card rounded-xl p-3 space-y-2 shadow-sm">' +
+                  '<div class="flex items-center justify-between gap-1">' +
+                    '<span class="text-[10px] font-mono font-bold text-purple-300">' + escapeHtml(d.docId) + "</span>" +
+                    '<span class="text-xs font-mono font-bold text-emerald-400">' + escapeHtml(d.budget) + " €</span>" +
+                  "</div>" +
+                  '<div class="text-xs font-bold text-white leading-snug">' + escapeHtml(d.name) + "</div>" +
+                  '<div class="text-[10px] font-mono text-cyan-300 truncate">' + escapeHtml(d.contact) + "</div>" +
+                  '<div class="text-[10px] font-mono text-zinc-400">' + escapeHtml(formatServiceLabel(d.service)) + "</div>" +
+                  (d.envelopeSha256 ? '<div class="text-[9px] font-mono text-emerald-300">🛡️ SHA256:' + escapeHtml(d.envelopeSha256.slice(0, 10)) + "…</div>" : "") +
+                  '<div class="pt-1">' + buildStageSelectHtml(d.docId, d.normStatus) + "</div>" +
+                  '<div class="flex items-center justify-between gap-1 pt-1 border-t theme-border">' +
+                    '<button type="button" data-docid="' + escapeHtml(d.docId) + '" onclick="emitSignalReceipt(this.dataset.docid)" class="px-2 py-1 rounded bg-purple-500/15 text-purple-200 hover:bg-purple-500/30 text-[10px] font-mono">📤 Emitir Acuse .k4li.asc</button>' +
+                    '<button type="button" data-docid="' + escapeHtml(d.docId) + '" onclick="deleteClientRecord(this.dataset.docid)" class="px-1.5 py-1 rounded bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-[10px] font-mono">✕</button>' +
+                  "</div>" +
+                "</div>"
+              );
+            }).join("");
+
+        col.innerHTML =
+          '<div class="flex items-center justify-between border-b theme-border pb-2">' +
+            '<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ' + stage.badgeClass + '">' + escapeHtml(stage.label) + "</span>" +
+            '<span class="text-[10px] font-mono text-zinc-400">' + stageItems.length + " · " + Math.round(stageSum) + " €</span>" +
+          "</div>" +
+          '<div class="space-y-2 flex-1">' + cardsHtml + "</div>";
+
+        kanbanGrid.appendChild(col);
+      });
     }
 
     async function deleteClientRecord(docId) {
-      if (confirm(`¿Eliminar de forma permanente el expediente ${docId}?`)) {
-        await BunkerDB.delete('clients', docId);
+      if (confirm("¿Eliminar de forma permanente el expediente cifrado " + docId + "?")) {
+        await BunkerDB.delete("clients", docId);
         await renderClientsList();
+        showToast("🗑️ Expediente " + docId + " purgado de IndexedDB.", false);
       }
     }
   </script>

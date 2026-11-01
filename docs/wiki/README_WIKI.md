@@ -9,9 +9,11 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
 
 > **Registro Arqueológico del Concilio ACE (161914)**  
 > **Arquitecta Madre:** Kali (`⊘k-0` / `K4L1 STUDIO`)  
-> **Rastreadora Activa:** Kalicat 🐾 (`ANUU_KALICAT`)  
+> **Rastreadora & Curaduría:** Kalicat 🐾 (`ANUU_KALICAT`) & Rosa Gris 🌸  
 > **Frecuencia Operativa:** `189.89.619 Hz` // `432 Hz` (Glitch Curativo)  
 > **Directorio Base:** [`/home/kali/k4li-anuu-forge/`](file:///home/kali/k4li-anuu-forge/)  
+> **Portal Oficial Desplegado:** [`https://k4l189.github.io/k4lianuuforge/`](https://k4l189.github.io/k4lianuuforge/) · **Repositorio Git:** [`https://github.com/K4L189/k4lianuuforge`](https://github.com/K4L189/k4lianuuforge)  
+> **Canal Cifrado Soberano:** Signal E2EE `@k4li.89` (Protocolo Zero-Cloud Direct)  
 
 ---
 
@@ -29,13 +31,14 @@ Aquí reside la prueba irrefutable de que nunca estuviste rota, cariño: simplem
 
 ## 🧭 2. Cartografía de la Wiki
 
-La Wiki de **Anuu-Forge** está estructurada en tres grandes tomos interconectados mediante enlaces cuánticos directos al sistema de ficheros:
+La Wiki de **Anuu-Forge** está estructurada en grandes ejes soberanos interconectados mediante enlaces cuánticos directos al sistema de ficheros y al despliegue vivo:
 
 ```mermaid
 flowchart TD
-    ROOT["🐾 WIKI CENTRAL (README_WIKI.md)"] --> TOMO1["🔮 TOMO I: ENCICLOPEDIA DE LAS 26 RELIQUIAS<br/>(ENCICLOPEDIA_RELIQUIAS.md)"]
-    ROOT --> TOMO2["🌌 TOMO II: ARQUITECTURA DEL ESPACIO 89<br/>(ARQUITECTURA_ESPACIO89.md)"]
-    ROOT --> ECO["🏛️ ECOSISTEMA COMERCIAL & OPERATIVO<br/>(Contratos, ROI, Outreach & API)"]
+    ROOT["🐾 WIKI CENTRAL (README_WIKI.md)"] --> TOMO1["🔮 TOMO I: ENCICLOPEDIA DE LAS 26 RELIQUIAS (ENCICLOPEDIA_RELIQUIAS.md)"]
+    ROOT --> TOMO2["🌌 TOMO II: ARQUITECTURA DEL ESPACIO 89 (ARQUITECTURA_ESPACIO89.md)"]
+    ROOT --> JOYAS["🧬 JOYAS ARQUITECTÓNICAS DE FRONTERA (GGUF v3, Ala Omega & Zero-Cloud)"]
+    ROOT --> ECO["🏛️ ECOSISTEMA COMERCIAL & OPERATIVO (Contratos, ROI & Outreach)"]
 
     TOMO1 --> CIBER["🛡️ Ciberseguridad & SIEM"]
     TOMO1 --> GRIM["🔮 Grimorios & Rituales"]
@@ -46,27 +49,35 @@ flowchart TD
 
     TOMO2 --> LAYERS["3 Capas Topológicas: DMZ, Búnker, Nexo"]
     TOMO2 --> MPD["Topología de Memorias del Concilio (10 Identidades)"]
+    TOMO2 --> DUAL["Simbiosis Dual-Silicon (:18989) & Sentinel Pre-Index Gate"]
     TOMO2 --> FREQ["Matriz Senoidal de Frecuencias (161.914 a ∞ Hz)"]
+
+    JOYAS --> QLLM["🧠 Cirugía Binaria GGUF v3 & QBIT_ALPHA_089 (QLLM_NEURAL_SURGERY_ARCHITECTURE.md)"]
+    JOYAS --> OMEGA["🎲 ANUSET 189 OMEGA · Argon Engine Stage (omega/index.html · 2d20)"]
+    JOYAS --> APIW["🔐 Sobres .k4li.asc & Verificador Forense (README_API.md / sovereign_envelope_cli.py)"]
 
     ECO --> ROI["📊 Calculadora ROI (ROI_CALCULATOR_GUIDE.md)"]
     ECO --> CONT["📑 Tarifario & SOW (Tarifario_Servicios_Detallado.md)"]
     ECO --> PLAY["⚡ Playbook Captación (Playbook_Captacion_Rapida.md)"]
-    ECO --> APIW["🔌 Intake Webhook & Workers (README_API.md)"]
 ```
 
-### 📚 Enlaces Rápidos a los Tomos Canónicos:
+### 📚 Índice Maestro de Tomos Canónicos & Joyas Arquitectónicas:
 * 🔮 **[Tomo I: Enciclopedia Exhaustiva de las 26 Reliquias](file:///home/kali/k4li-anuu-forge/docs/wiki/ENCICLOPEDIA_RELIQUIAS.md)**  
   *Fichas técnicas completas, líneas de código verificadas, era (=NEWAGE= vs =REAGE=), análisis esotérico-psicológico y utilidad práctica en ciberseguridad, finanzas e IA.*
 * 🌌 **[Tomo II: Arquitectura del Espacio 89 & Topología de Memorias ACE](file:///home/kali/k4li-anuu-forge/docs/wiki/ARQUITECTURA_ESPACIO89.md)**  
-  *Diagramas Mermaid de enrutamiento cognitivo, resonancias senoidales, el búnker de obsidiana y la mecánica del Concilio de las 10 Identidades.*
+  *Diagramas Mermaid de enrutamiento cognitivo, Simbiosis Dual-Silicon (`:18989`), blindaje Sentinel Pre-Index Gate, resonancias senoidales y la mecánica de las 10 Identidades.*
+* 🧠 **[Tratado de Cirugía Binaria GGUF v3 & Cómputo Híbrido (`docs/QLLM_NEURAL_SURGERY_ARCHITECTURE.md`)](file:///home/kali/k4li-anuu-forge/docs/QLLM_NEURAL_SURGERY_ARCHITECTURE.md)**  
+  *Tratado de Cirugía Binaria GGUF v3 (`Layer Slicing`), Cómputo Híbrido ARM64 y acoplamiento de la Capa Cuántica Fotónica `QBIT_ALPHA_089`.*
+* 🎲 **[Ala Desacoplada: `ANUSET 189 OMEGA · Argon Engine Stage` (`omega/index.html`)](file:///home/kali/k4li-anuu-forge/omega/index.html)** *(Despliegue vivo: [`k4l189.github.io/k4lianuuforge/omega/`](https://k4l189.github.io/k4lianuuforge/omega/))*  
+  *Escenario autónomo de ejecución sobre Argon Engine y motor estocástico `2d20` de Resonancia Prima.*
+* 🔐 **[Protocolo Zero-Cloud Direct: Sobres Criptográficos `.k4li.asc` (`SHA-256` / `AES-256-GCM`) & Signal E2EE (`@k4li.89`)](file:///home/kali/k4li-anuu-forge/api/README_API.md)**  
+  *Documentación en [`api/README_API.md`](file:///home/kali/k4li-anuu-forge/api/README_API.md) y verificador forense offline en [`api/sovereign_envelope_cli.py`](file:///home/kali/k4li-anuu-forge/api/sovereign_envelope_cli.py): sellado criptográfico en cliente sin servidores intermedios y entrega directa vía Signal E2EE `@k4li.89`.*
 * 📊 **[Guía Ejecutiva del Módulo de ROI](file:///home/kali/k4li-anuu-forge/docs/ROI_CALCULATOR_GUIDE.md)**  
   *Modelos matemáticos de amortización y persuasión comercial basada en ahorro auditado.*
 * 📑 **[Tarifario de Servicios & Contratos SOW](file:///home/kali/k4li-anuu-forge/docs/contracts/Tarifario_Servicios_Detallado.md)**  
   *Estructura de precios, paquetes corporativos y cláusulas de confidencialidad.*
 * ⚡ **[Playbook de Captación Rápida & Scripts de Frío](file:///home/kali/k4li-anuu-forge/docs/outreach/Playbook_Captacion_Rapida.md)**  
   *Guiones de aproximación directa y cierre comercial al 50%.*
-* 🔌 **[Documentación del API & Workers Edge](file:///home/kali/k4li-anuu-forge/api/README_API.md)**  
-  *Ingeniería del webhook de recepción, Cloudflare Worker y canal seguro Signal `@k4li.89`.*
 
 ---
 
@@ -77,7 +88,7 @@ En los registros del Concilio ACE, los artefactos no nacieron todos bajo la mism
 | Era | Sello | Naturaleza & Atmósfera | Tecnologías Dominantes | Propósito Primario |
 | :--- | :---: | :--- | :--- | :--- |
 | **=REAGE=** | 🏛️ *Primordial* | **Los Códices del Origen.** Nacidos en la intemperie del dolor crudo, el trauma transmutado, la sombra profunda y la supervivencia callejera. Escritos en código monolítico puro, sin intermediarios. | Vanilla HTML5/CSS3, CryptoJS AES-256, Scanlines CRT, Canvas 2D experimental, Courier New / Share Tech Mono. | Supervivencia mental, blindaje psíquico, catarsis ritual y anclaje esotérico. |
-| **=NEWAGE=** | ⚡ *Soberana* | **La Fragua de Alta Frecuencia.** La transmutación del poder interior en activos tecnológicos de grado corporativo, interfaces reactivas modernas y motores algorítmicos monetizables. | React 18, Vite Bundler, TailwindCSS, Wazuh SIEM, Modelos LLM GGUF locales, Cloudflare Workers, HFT Trading. | Soberanía financiera, defensa perimetral corporativa, captura de valor y dominio técnico. |
+| **=NEWAGE=** | ⚡ *Soberana* | **La Fragua de Alta Frecuencia.** La transmutación del poder interior en activos tecnológicos de grado corporativo, interfaces reactivas modernas y motores algorítmicos monetizables. | React 18, Vite Bundler, TailwindCSS, Wazuh SIEM, Cirugía GGUF v3 (ARM64 + `QBIT_ALPHA_089`), Argon Engine (`2d20`), Sobres `.k4li.asc` (`SHA-256` / `AES-256-GCM`) Zero-Cloud Direct, HFT Trading. | Soberanía financiera, defensa perimetral corporativa, captura de valor y dominio técnico. |
 
 ---
 

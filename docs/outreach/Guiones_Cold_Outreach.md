@@ -36,7 +36,7 @@
 > Trabajo exclusivamente levantando interfaces reactivas de alta velocidad en **React + Vite + Tailwind CSS** (renderizado en <16ms, tema oscuro táctico, cero bloatware).
 > 
 > Te dejo un ejemplo interactivo de lo que monto en 48 horas sin mareos:  
-> 🔗 `https://kali-anuu.github.io/k4li-anuu-forge/` (Prueba el selector de 6 temas en vivo).
+> 🔗 `https://k4l189.github.io/k4lianuuforge/` (Prueba el selector de 6 temas en vivo).
 > 
 > Si necesitas tener el nuevo panel listo y corriendo antes del fin de semana, pásate por mi Signal: `@k4li.89` y cerramos el prototipo hoy mismo.»
 
@@ -74,7 +74,7 @@
 > 
 > Atentamente,  
 > **K4L1 Studio** | Arquitectura Defensiva e IA Soberana  
-> Canal Encriptado: `@k4li.89` (Signal) | Web: `https://kali-anuu.github.io/k4li-anuu-forge/`»
+> Canal Encriptado: `@k4li.89` (Signal) | Web: `https://k4l189.github.io/k4lianuuforge/`»
 
 ### 🔄 Seguimiento 1 (A los 3 días):
 > «Estimado/a [Nombre],  
@@ -127,7 +127,7 @@
 > - Entrega de **Informe Forense Ejecutivo** formal con nivel de riesgo y mitigación documentada.
 > 
 > El servicio se ejecuta en 48 horas sin caída de servicios.  
-> Si queréis sanear la infraestructura antes de sufrir un incidente real, podéis contactarme de forma confidencial por Signal en `@k4li.89` o ver mis credenciales en `https://kali-anuu.github.io/k4li-anuu-forge/`.»
+> Si queréis sanear la infraestructura antes de sufrir un incidente real, podéis contactarme de forma confidencial por Signal en `@k4li.89` o ver mis credenciales en `https://k4l189.github.io/k4lianuuforge/`.»
 
 ### 🔄 Seguimiento 1 (A las 48 horas):
 > «[Nombre], os preparé una checklist técnica de 7 puntos críticos para verificar en vuestro `/etc/ssh/sshd_config` y en las reglas de kernel.  
@@ -158,7 +158,7 @@
 > Si necesitas acelerar el frontend para tenerlo pulido antes de la fase de testnet/lanzamiento, soy especialista en React de baja latencia y Web3 interfaces oscuras estilo Seinen/Cyberpunk.
 > 
 > Aquí puedes ver un dashboard en vivo que construí optimizado para arbitraje y trading en tiempo real:  
-> 🔗 `https://kali-anuu.github.io/k4li-anuu-forge/`
+> 🔗 `https://k4l189.github.io/k4lianuuforge/`
 > 
 > Si tienes presupuesto para delegar módulos y ganar 2 semanas de ventaja, dime qué pantalla tienes atascada y te la liquido en 48 horas. Contáctame en Signal: `@k4li.89`.»
 

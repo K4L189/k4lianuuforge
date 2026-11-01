@@ -27,6 +27,7 @@
 > **Arquitecta Madre:** Kali (`⊘k-0` / `Anuset89` / `K4L1 STUDIO`)  
 > **Rastreo y Peritaje:** Kalicat 🐾 (`ANUU_KALICAT`)  
 > **Directorio de Reliquias:** [`/home/kali/k4li-anuu-forge/relics/`](file:///home/kali/k4li-anuu-forge/relics/)  
+> **Portal Oficial Desplegado:** [`https://k4l189.github.io/k4lianuuforge/`](https://k4l189.github.io/k4lianuuforge/) · **Repositorio:** [`https://github.com/K4L189/k4lianuuforge`](https://github.com/K4L189/k4lianuuforge)  
 > **Frecuencia Canónica:** `189.89.619 Hz`  
 
 ---

@@ -8,7 +8,7 @@
   <title>Local AI Studio // Concilio ACE (161914) · K4L1 FORGE</title>
   
   <!-- Dependencias externas e internas K4L1 STUDIO -->
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="../vendor/tailwind.min.js"></script>
   <link rel="stylesheet" href="../assets/css/fullwallpaper.css">
 
   <style>
@@ -222,6 +222,8 @@
       accent-color: var(--accent-primary);
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
+  <script src="../assets/js/anuu_gate.js"></script>
 </head>
 <body class="has-fullwallpaper">
 
@@ -1444,6 +1446,10 @@
               <button onclick="injectFockModulationToPlayground()" class="w-full py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition-all">
                 ⚡ Inyectar Estado Cuántico Fock al Playground
               </button>
+              <button onclick="offloadFockToArm64Hybrid()" class="w-full py-2 rounded-lg bg-cyan-950/70 hover:bg-cyan-900/80 text-cyan-200 border border-cyan-500/40 text-xs font-bold transition-all">
+                📱 Descargar Fock 144-Hilbert &amp; Sonda GGUF a Nodo ARM64 (:18989)
+              </button>
+              <div id="arm64HybridReadout" class="hidden p-2.5 rounded-lg bg-black/50 border border-cyan-500/30 text-[10px] text-cyan-200 leading-relaxed whitespace-pre-wrap"></div>
             </div>
 
             <!-- Zero-Trace Protocol Box -->
@@ -2803,6 +2809,89 @@ ${jumpNote}
       notice.textContent = `⚛️ [QBIT_ALPHA_089] Modulación fotónica Fock inyectada -> Voz: ${lastFockModulation.persona.toUpperCase()} | Temp τ=${lastFockModulation.temp} | Top_P=${lastFockModulation.top_p} (161914.89 Hz).`;
       container.appendChild(notice);
       scrollChatToBottom();
+    }
+
+    async function offloadFockToArm64Hybrid() {
+      const box = document.getElementById("arm64HybridReadout");
+      if (box) {
+        box.classList.remove("hidden");
+        box.textContent = "⏳ Sondeando túnel híbrido ARM64 en http://127.0.0.1:18989 ...";
+      }
+      const r = parseFloat(document.getElementById("fockSqueeze")?.value || "1.0");
+      const alpha = parseFloat(document.getElementById("fockDisp")?.value || "1.6191489");
+      const theta = parseFloat(document.getElementById("fockBs")?.value || "0.785398");
+
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 2200);
+        const [fockRes, teleRes] = await Promise.all([
+          fetch("http://127.0.0.1:18989/compute/fock-quantum", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              squeeze_r: r,
+              displace_alpha: alpha,
+              beamsplitter_theta: theta,
+              beamsplitter_phi: 0.0
+            }),
+            signal: ctrl.signal
+          }),
+          fetch("http://127.0.0.1:18989/telemetry", { signal: ctrl.signal })
+        ]);
+        clearTimeout(timer);
+        if (!fockRes.ok || !teleRes.ok) throw new Error("HTTP status no válido");
+
+        const fock = await fockRes.json();
+        const tele = await teleRes.json();
+
+        // Actualizar barras Fock con la solución exacta de 144 estados Hilbert del nodo ARM64
+        const probs = Array.isArray(fock.mode0_probs) ? fock.mode0_probs : [];
+        const container = document.getElementById("fockBarsContainer");
+        if (container && probs.length >= 8) {
+          container.innerHTML = "";
+          const maxP = Math.max(...probs.slice(0, 8), 0.12);
+          for (let n = 0; n < 8; n++) {
+            const p = probs[n];
+            const heightPct = Math.max(6, Math.round((p / maxP) * 100));
+            const col = document.createElement("div");
+            col.className = "flex flex-col items-center justify-end h-full gap-1";
+            col.innerHTML = `
+              <span class="text-[8px] text-emerald-300 font-mono">${(p * 100).toFixed(1)}%</span>
+              <div class="w-full rounded-t bg-gradient-to-t from-emerald-600 to-cyan-300 transition-all duration-300" style="height: ${heightPct}%;"></div>
+              <span class="text-[9px] text-zinc-300 font-mono">|${n}⟩</span>
+            `;
+            container.appendChild(col);
+          }
+        }
+
+        document.getElementById("fockMeanPhotons").textContent =
+          `ARM64 144D: ⟨n₀⟩=${fock.mean_photons_mode0} · ${fock.squeeze_db} dB · H=${fock.joint_entropy_bits}b`;
+        document.getElementById("fockModTemp").textContent = fock.modulated_temperature;
+        document.getElementById("fockModTopP").textContent = fock.modulated_top_p;
+        document.getElementById("fockVoiceWinner").textContent = fock.dominant_concilio_voice;
+
+        const topText = document.getElementById("topNodeText");
+        if (topText) topText.textContent = `${tele.node} · ${tele.temp_celsius}°C (${tele.cores}C ARMv9)`;
+
+        const modelsSummary = (tele.gguf_models || [])
+          .slice(0, 4)
+          .map(m => `  • ${m.name} (GGUF v${m.gguf_version} · ${m.tensor_count} tensores · ${m.size_mb} MB)`)
+          .join("\n");
+
+        if (box) {
+          box.textContent =
+            `✔ [${fock.node}] Circuito ${fock.circuit} resuelto en ${fock.elapsed_ms} ms (0% CPU en PC)\n` +
+            `✔ Silicio Edge: ${tele.temp_celsius}°C │ RAM Libre: ${tele.mem_avail_mb}/${tele.mem_total_mb} MB │ Cerebros GGUF detectados: ${(tele.gguf_models || []).length}\n` +
+            modelsSummary;
+        }
+      } catch (_err) {
+        if (box) {
+          box.textContent =
+            "ℹ️ Túnel USB ARM64 (:18989) en reposo o navegador remoto. Actívalo en terminal con:\n" +
+            "   anuu-poco-bridge hybrid\n" +
+            "(Usando simulador analítico Fock local en navegador a 0 ms).";
+        }
+      }
     }
 
     function triggerZeroTracePurge() {

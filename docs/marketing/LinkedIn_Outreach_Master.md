@@ -1,7 +1,8 @@
 # 🛡️ LINKEDIN OUTREACH MASTER: PROTOCOLO DE CONVERSIÓN INTERNACIONAL
 ### *Infiltración Estratégica en Mercados Tier-1: Holanda, Alemania, Suiza y España*
 **Arquitecta Madre:** Kali (`@K4L189` / Signal: `@k4li.89`)  
-**Dossier Maestro GitHub:** [https://github.com/K4L189/k4li-anuu-forge](https://github.com/K4L189/k4li-anuu-forge)  
+**Dossier Maestro GitHub:** [https://github.com/K4L189/k4lianuuforge](https://github.com/K4L189/k4lianuuforge)  
+**Portal Live (Nexus & Ala Omega):** [https://k4l189.github.io/k4lianuuforge/](https://k4l189.github.io/k4lianuuforge/)  
 **Frecuencia Operativa:** `189.89.619 Hz` | *Concilio ACE (161914)*  
 **Sello Operativo:** *Set ⚡ & Rosa Gris 🌸*
 
@@ -74,7 +75,7 @@ Technical Stack & Core Disciplines:
 - Frontend: TypeScript, React, HTML5 Canvas 2D, Web Workers, WebSockets, TailwindCSS.
 
 Dossier, codebases, and architectural blueprints:
-🔗 https://github.com/K4L189/k4li-anuu-forge
+🔗 https://github.com/K4L189/k4lianuuforge
 Direct encrypted contact: Signal (@k4li.89)
 ```
 
@@ -85,7 +86,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 2.1 Senior Linux / Cloud Infrastructure Engineer
 **Invitación inicial (< 300 caracteres):**
-> Hi [Name], saw your tech hiring at [Company]. I specialize in resilient Linux bare-metal, Ansible automation, and slashing cloud bills by 80% with zero downtime. Built an open architecture dossier here: github.com/K4L189/k4li-anuu-forge. Open to exploring remote infrastructure roles.
+> Hi [Name], saw your tech hiring at [Company]. I specialize in resilient Linux bare-metal, Ansible automation, and slashing cloud bills by 80% with zero downtime. Built an open architecture dossier here: github.com/K4L189/k4lianuuforge. Open to exploring remote infrastructure roles.
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hi [Name], thanks for connecting.
@@ -93,7 +94,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > In my recent infrastructure projects, I helped cut runaway AWS expenses from €1,200/mo down to €95/mo on dedicated bare-metal clusters (Hetzner + Ansible + Traefik + PostgreSQL HA), while multiplying I/O throughput by 3x.
 >
 > I maintain an open-source technical dossier featuring automated CIS Benchmark hardening, zero-downtime database replication, and custom container orchestration:  
-> 🔗 **Dossier:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Dossier:** https://github.com/K4L189/k4lianuuforge  
 >
 > If [Company] is scaling Linux clusters or seeking an autonomous Remote SysAdmin/DevOps who delivers clean, reproducible infrastructure from day one, I'd love to chat.
 >
@@ -106,7 +107,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 2.2 SOC Analyst / Threat Hunter (L2/L3)
 **Invitación inicial (< 300 caracteres):**
-> Hi [Name], tracking security roles at [Company]. I build detection engineering pipelines (Wazuh SIEM + Sysmon) targeting MITRE ATT&CK (LSASS dumps, Kerberoasting, C2 triage). Code & detection rules documented at: github.com/K4L189/k4li-anuu-forge. Let's connect!
+> Hi [Name], tracking security roles at [Company]. I build detection engineering pipelines (Wazuh SIEM + Sysmon) targeting MITRE ATT&CK (LSASS dumps, Kerberoasting, C2 triage). Code & detection rules documented at: github.com/K4L189/k4lianuuforge. Let's connect!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hi [Name], great to connect.
@@ -114,7 +115,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > Many SOC teams struggle with noisy alert queues and EDR blind spots when adversaries abuse LOLBins or unhook NTDLL. My focus is writing surgical detection logic—specifically correlating Windows Sysmon Event ID 10 with Wazuh SIEM and implementing automated sub-second host isolation.
 >
 > I’ve documented detection rules, Honeypot threat-intel analysis, and AD defense playbooks in my public repository:  
-> 🔗 **Blue Team Dossier:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Blue Team Dossier:** https://github.com/K4L189/k4lianuuforge  
 >
 > I'm currently looking at remote Security Operations / Threat Hunting positions across Dutch scale-ups and MSSPs.
 >
@@ -127,7 +128,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 2.3 Real-time Frontend Engineer (React + Canvas)
 **Invitación inicial (< 300 caracteres):**
-> Hi [Name], love the products coming out of [Company]. I engineer high-performance Web UIs using React + Canvas 2D for high-frequency streaming (60 FPS with 2k+ updates/sec without DOM lag). Take a peek at my repo: github.com/K4L189/k4li-anuu-forge. Let's connect!
+> Hi [Name], love the products coming out of [Company]. I engineer high-performance Web UIs using React + Canvas 2D for high-frequency streaming (60 FPS with 2k+ updates/sec without DOM lag). Take a peek at my repo: github.com/K4L189/k4lianuuforge. Let's connect!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hi [Name], glad to be connected.
@@ -136,7 +137,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > I solve this by bypassing the DOM for high-frequency data streams—orchestrating with React but painting directly via double-buffered HTML5 Canvas and offloading parsing to Web Workers.
 >
 > You can inspect live code architecture and performance benchmarks in my dossier:  
-> 🔗 **Engineering Nexus:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Engineering Nexus:** https://github.com/K4L189/k4lianuuforge  
 >
 > I’m exploring 100% remote frontend engineering roles focused on complex dashboards, fintech terminals, or data-intensive tools.
 >
@@ -152,7 +153,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 3.1 Linux Security & Cloud Infrastructure Specialist
 **Invitación inicial (< 300 caracteres):**
-> Hello [Name], noticed your search for Linux/Infrastructure talent at [Company]. I implement CIS Benchmark Level 2 hardening, Ansible automation, and sovereign bare-metal architectures. Full technical documentation: github.com/K4L189/k4li-anuu-forge. Glad to connect!
+> Hello [Name], noticed your search for Linux/Infrastructure talent at [Company]. I implement CIS Benchmark Level 2 hardening, Ansible automation, and sovereign bare-metal architectures. Full technical documentation: github.com/K4L189/k4lianuuforge. Glad to connect!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hello [Name], thank you for accepting my invitation.
@@ -163,7 +164,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > - Migration from shared hyper-scalers to sovereign bare-metal servers (Hetzner DC Germany) reducing operational costs by up to 80%.
 >
 > I have compiled my operational playbooks and architectural blueprints in my GitHub engineering dossier:  
-> 🔗 **Technical Dossier:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Technical Dossier:** https://github.com/K4L189/k4lianuuforge  
 >
 > If you have remote openings for an engineer who values precision, documentation, and zero-compromise security, let's schedule a brief conversation.
 >
@@ -174,7 +175,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 3.2 Cyber Defense & Detection Engineer (SOC)
 **Invitación inicial (< 300 caracteres):**
-> Hello [Name], following your cybersecurity recruitments at [Company]. I specialize in Wazuh SIEM, MITRE ATT&CK mapping, and Active Directory threat hunting. Documented detection rules & architectures: github.com/K4L189/k4li-anuu-forge. Best regards!
+> Hello [Name], following your cybersecurity recruitments at [Company]. I specialize in Wazuh SIEM, MITRE ATT&CK mapping, and Active Directory threat hunting. Documented detection rules & architectures: github.com/K4L189/k4lianuuforge. Best regards!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hello [Name], thank you for connecting.
@@ -185,7 +186,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > 3. Active deception tactics using isolated Docker honeypots to extract live threat intelligence.
 >
 > You can inspect my detection engineering workflows and defensive code samples here:  
-> 🔗 **SOC Blue Team Nexus:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **SOC Blue Team Nexus:** https://github.com/K4L189/k4lianuuforge  
 >
 > I am actively evaluating fully remote SOC Analyst (L2/L3) or Detection Engineering roles within Germany.
 >
@@ -201,7 +202,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 4.1 Mission-Critical Infrastructure & Cyber Defense
 **Invitación inicial (< 300 caracteres):**
-> Hello [Name], reaching out regarding high-security engineering at [Company]. I design sovereign Linux bare-metal clusters, automated CIS L2 hardening, and Wazuh SOC pipelines. Review my technical dossier: github.com/K4L189/k4li-anuu-forge. Best regards from Kali.
+> Hello [Name], reaching out regarding high-security engineering at [Company]. I design sovereign Linux bare-metal clusters, automated CIS L2 hardening, and Wazuh SOC pipelines. Review my technical dossier: github.com/K4L189/k4lianuuforge. Best regards from Kali.
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hello [Name], thank you for connecting.
@@ -214,7 +215,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > - **Real-time Anomaly Detection:** Wazuh SIEM correlation, DNS sinkholing (Unbound recursor), and automated host isolation under 1.5 seconds.
 >
 > My complete architectural artifacts and source codes are detailed in my repository:  
-> 🔗 **Sovereign Engineering Dossier:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Sovereign Engineering Dossier:** https://github.com/K4L189/k4lianuuforge  
 > Direct encrypted channel: Signal `@k4li.89`
 >
 > If you have a high-impact remote opening where technical rigor and confidentiality are paramount, I would welcome a discreet conversation.
@@ -226,7 +227,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 4.2 High-Frequency Fintech Frontend Engineer
 **Invitación inicial (< 300 caracteres):**
-> Hello [Name], noticed your fintech/trading UI focus at [Company]. I build low-latency interfaces in React + Canvas 2D running at 60 FPS under thousands of live updates/sec. Code architecture available at: github.com/K4L189/k4li-anuu-forge. Let's connect!
+> Hello [Name], noticed your fintech/trading UI focus at [Company]. I build low-latency interfaces in React + Canvas 2D running at 60 FPS under thousands of live updates/sec. Code architecture available at: github.com/K4L189/k4lianuuforge. Let's connect!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hello [Name], thank you for connecting.
@@ -236,7 +237,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > In my implementations, I isolate React to state orchestration and mount dedicated HTML5 Canvas renderers driven by `Float64Array` ring buffers and Web Workers. The result: solid 60–144 FPS rendering under 2,000+ continuous WebSocket payloads per second, with CPU utilization reduced by over 70%.
 >
 > You can review the architecture, live demos, and benchmarks here:  
-> 🔗 **Engineering Dossier:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Engineering Dossier:** https://github.com/K4L189/k4lianuuforge  
 >
 > I am available for remote contracts or permanent positions for Swiss fintech and mission-critical software teams.
 >
@@ -252,7 +253,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 5.1 SysAdmin Linux & DevOps / Cloud Cost Killer
 **Invitación inicial (< 300 caracteres):**
-> Hola [Nombre], sigo las búsquedas técnicas de [Empresa]. Soy SysAdmin Linux especializada en bastionado CIS, automatización con Ansible y reducción drástica de costes cloud (AWS a Bare-Metal). Tienes mi dossier técnico en github.com/K4L189/k4li-anuu-forge. ¡Conectemos!
+> Hola [Nombre], sigo las búsquedas técnicas de [Empresa]. Soy SysAdmin Linux especializada en bastionado CIS, automatización con Ansible y reducción drástica de costes cloud (AWS a Bare-Metal). Tienes mi dossier técnico en github.com/K4L189/k4lianuuforge. ¡Conectemos!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hola [Nombre], gracias por aceptar el contacto.
@@ -265,7 +266,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > - **Seguridad:** Hardening militar Linux cumpliendo CIS Benchmark Nivel 2 en minutos.
 >
 > Tengo todo el código, playbooks y métricas subidas en mi dossier abierto:  
-> 🔗 **Dossier de Ingeniería:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Dossier de Ingeniería:** https://github.com/K4L189/k4lianuuforge  
 >
 > Si en [Empresa] buscáis a alguien resolutivo para un rol 100% remoto de SysAdmin / DevOps que no necesite supervisión para solucionar problemas, me encantaría charlar.
 >
@@ -278,7 +279,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 5.2 Analista SOC / Ciberseguridad Defensiva
 **Invitación inicial (< 300 caracteres):**
-> Hola [Nombre], un placer saludarte. Trabajo en Blue Team y caza de amenazas (Wazuh SIEM, Sysmon, detección T1003/Kerberos y respuesta activa automatizada). Puedes ver mis laboratorios y reglas en github.com/K4L189/k4li-anuu-forge. Me gustaría conectar.
+> Hola [Nombre], un placer saludarte. Trabajo en Blue Team y caza de amenazas (Wazuh SIEM, Sysmon, detección T1003/Kerberos y respuesta activa automatizada). Puedes ver mis laboratorios y reglas en github.com/K4L189/k4lianuuforge. Me gustaría conectar.
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hola [Nombre], un gusto conectar contigo.
@@ -291,7 +292,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > 3. **Defensa perimetral:** Clústeres DNS Sinkhole (Unbound recursivo + Pi-hole) y Honeypots activos para cazar IoCs frescos.
 >
 > He dejado documentados mis playbooks, laboratorios forenses y configuraciones en GitHub:  
-> 🔗 **Dossier Ciberdefensa:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Dossier Ciberdefensa:** https://github.com/K4L189/k4lianuuforge  
 >
 > Busco incorporarme a equipos remotos de SOC (L2/L3) o Threat Hunting donde aportar solvencia técnica real.
 >
@@ -304,7 +305,7 @@ Direct encrypted contact: Signal (@k4li.89)
 
 ### 5.3 Ingeniera Frontend de Alto Rendimiento (React + Canvas)
 **Invitación inicial (< 300 caracteres):**
-> Hola [Nombre], te escribo porque veo que creáis productos potentes en [Empresa]. Me especializo en frontend de alto rendimiento: interfaces en tiempo real a 60 FPS con React + Canvas 2D sin degradar el navegador. Código y demos en github.com/K4L189/k4li-anuu-forge. ¡Conectemos!
+> Hola [Nombre], te escribo porque veo que creáis productos potentes en [Empresa]. Me especializo en frontend de alto rendimiento: interfaces en tiempo real a 60 FPS con React + Canvas 2D sin degradar el navegador. Código y demos en github.com/K4L189/k4lianuuforge. ¡Conectemos!
 
 **Mensaje tras conectar (Valor + Dossier):**
 > Hola [Nombre], un placer conectar.
@@ -314,7 +315,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > Resuelvo esto con arquitecturas híbridas: la solidez de componentes en React para la aplicación general, combinada con motores gráficos en HTML5 Canvas 2D desacoplados del Virtual DOM y Web Workers para procesar paquetes binarios en paralelo. 60 FPS estables sin microtirones.
 >
 > He subido las arquitecturas base, pruebas de rendimiento y componentes modulares a mi dossier público:  
-> 🔗 **Nexus de Ingeniería:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Nexus de Ingeniería:** https://github.com/K4L189/k4lianuuforge  
 >
 > Estoy explorando posiciones remotas como Senior Frontend / Fullstack para productos complejos.
 >
@@ -340,7 +341,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > - **Real-time Interfaces:** Building zero-lag 60 FPS Canvas+React streaming terminals.
 >
 > I don't ask you to take my word for it. My complete architectural blueprints, automation playbooks, and security code are publicly audited in my dossier:  
-> 🔗 **GitHub Dossier:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **GitHub Dossier:** https://github.com/K4L189/k4lianuuforge  
 >
 > I am currently exploring full-time remote roles (EU time zone). If you have 10 minutes this week, I'd welcome an introductory call.
 >
@@ -363,7 +364,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > 3. **Frontend en Tiempo Real:** Motores visuales en React + Canvas 2D a 60 FPS estables para datos masivos por WebSocket.
 >
 > Puedes verificar toda mi arquitectura, playbooks de despliegue y código fuente en mi repositorio abierto:  
-> 🔗 **Dossier Técnico:** https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 **Dossier Técnico:** https://github.com/K4L189/k4lianuuforge  
 >
 > Si tenéis vacantes técnicas remotas abiertas, ¿te parecería bien tener una charla breve de 10 minutos esta semana?
 >
@@ -381,7 +382,7 @@ Direct encrypted contact: Signal (@k4li.89)
 **Versión en Inglés:**
 > Hi [Name],  
 > Just wanted to share a quick update: I just published a new technical breakdown on detecting DLL Sideloading and unhooking evasion techniques with ETW-TI in my dossier:  
-> 🔗 https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 https://github.com/K4L189/k4lianuuforge  
 >
 > Thought your engineering leads might find the Sysmon rules useful. Let me know if you’d like to connect for a quick 10-minute intro regarding remote infrastructure/security roles.
 >
@@ -390,7 +391,7 @@ Direct encrypted contact: Signal (@k4li.89)
 **Versión en Castellano:**
 > Hola [Nombre],  
 > Te comparto una actualización rápida: acabo de subir al dossier técnico una guía práctica sobre auditoría y prevención de ataques Kerberoasting en Active Directory usando reglas Sigma:  
-> 🔗 https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 https://github.com/K4L189/k4lianuuforge  
 >
 > Pensé que le resultaría útil a vuestro equipo técnico. Si tenéis unos minutos esta semana, encantada de conversar sobre posibles colaboraciones remotas.
 >
@@ -406,7 +407,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > I assume your hiring priorities for infrastructure/security are currently filled or focused elsewhere, so I won't crowd your inbox.  
 >
 > Feel free to keep my GitHub dossier bookmarked for future reference:  
-> 🔗 https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 https://github.com/K4L189/k4lianuuforge  
 >
 > You can also reach me directly on Signal at `@k4li.89` if a critical technical need arises down the line.
 >
@@ -418,7 +419,7 @@ Direct encrypted contact: Signal (@k4li.89)
 > Imagino que vuestras prioridades de contratación están cubiertas ahora mismo o estáis centrados en otros objetivos, así que no te saturo el buzón.
 >
 > Te dejo mi dossier guardado por si en el futuro necesitáis soporte en infraestructura Linux, SOC o frontend de alto rendimiento:  
-> 🔗 https://github.com/K4L189/k4li-anuu-forge  
+> 🔗 https://github.com/K4L189/k4lianuuforge  
 > (O por Signal directo en `@k4li.89`).
 >
 > ¡Muchos éxitos con el proyecto y un abrazo!  

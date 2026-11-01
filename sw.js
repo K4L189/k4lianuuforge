@@ -1,11 +1,12 @@
 // Service Worker - K4L1 Studio & Anuu-Forge (ACE Concilium 161914)
 // Frecuencia Operativa: 189.89.619 Hz
-const CACHE_NAME = 'k4li-anuu-forge-v2.7';
+const CACHE_NAME = 'k4li-anuu-forge-v2.8';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './README.md',
   './manifest.json',
+  './vendor/tailwind.min.js',
   './assets/css/anuu_gate.css',
   './assets/js/anuu_gate.js',
   './assets/css/fullwallpaper.css',
@@ -14,6 +15,8 @@ const ASSETS_TO_CACHE = [
   './omega/index.html',
   './omega/omega_stage.css',
   './omega/omega_bridge.js',
+  './omega/codex_144.json',
+  './api/README_API.md',
   './docs/QLLM_NEURAL_SURGERY_ARCHITECTURE.md',
   './assets/vault_payload.json',
   './assets/relics_manifest.json',

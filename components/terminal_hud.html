@@ -5,8 +5,10 @@
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K4L1 HUD TERMINAL // ACE CORE 161914</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <title>CONCILIO ACE TACTICAL SHELL v2.8 // K4L1 HUD TERMINAL 161914</title>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
+  <script src="../assets/js/anuu_gate.js"></script>
+  <script src="../vendor/tailwind.min.js"></script>
   <link rel="stylesheet" href="../assets/css/fullwallpaper.css">
   <style>
     /* 6 TEMAS CANÓNICOS DEL SISTEMA ANUU / K4L1 FORGE (189.89.619 Hz) */
@@ -305,10 +307,10 @@
       <div class="flex items-center gap-2">
         <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-led" style="box-shadow: 0 0 8px #10b981;"></div>
         <span class="font-mono font-bold tracking-wider text-xs uppercase" style="color: var(--accent-secondary);">
-          ACE CORE 161914
+          ACE TACTICAL SHELL v2.8
         </span>
         <span class="hidden md:inline text-[10px] px-1.5 py-0.5 rounded bg-black/60 border border-zinc-800 text-zinc-400 font-mono">
-          189.89.619 Hz
+          ZERO-CLOUD // HYBRID SILICON // 189.89.619 Hz
         </span>
       </div>
     </div>
@@ -399,10 +401,10 @@
       <div class="h-7 px-4 flex items-center justify-between border-t bg-black/90 text-[10px] font-mono text-zinc-500 z-20" style="border-color: var(--border-card);">
         <div class="flex items-center gap-3">
           <span class="text-emerald-400 flex items-center gap-1 font-semibold">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> LINK: ESTABLISHED
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ZERO-CLOUD: LOCKED
           </span>
           <span class="hidden sm:inline text-zinc-600">|</span>
-          <span class="hidden sm:inline">CIPHER: AES-256-GCM</span>
+          <span id="edgeLinkBadge" class="hidden sm:inline text-cyan-400">SILICON: DUAL-HYBRID</span>
           <span class="hidden md:inline text-zinc-600">|</span>
           <span class="hidden md:inline">FREQ: 189.89.619 Hz</span>
         </div>
@@ -417,9 +419,18 @@
   </main>
 
   <!-- ============================================================ -->
-  <!-- CHIPS DE ACCESO RÁPIDO (IDEAL PARA MÓVIL Y ACCESO TÁCTIL)    -->
+  <!-- CHIPS DE ACCESO RÁPIDO 1-CLIC (SILICIO HÍBRIDO & TÁCTICO)    -->
   <!-- ============================================================ -->
-  <footer class="max-w-6xl w-full mx-auto py-2">
+  <footer class="max-w-6xl w-full mx-auto py-1.5 space-y-1.5">
+    <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 text-[11px] font-mono no-scrollbar">
+      <span class="text-amber-400/90 text-[10px] uppercase font-bold shrink-0 mr-1">v2.8 Silicio:</span>
+      <button onclick="runCommandText('hybrid')" class="hud-btn px-2.5 py-1 rounded-md shrink-0 text-emerald-300 border-emerald-900/60" title="Sondear telemetría Edge ARM64 (:18989) o perfil Dual-Silicon">⚡ hybrid</button>
+      <button onclick="runCommandText('bench')" class="hud-btn px-2.5 py-1 rounded-md shrink-0 text-amber-300 border-amber-900/60" title="Benchmark Monte Carlo Omega + SHA-256 (ARM64 o WebCrypto)">🔥 bench</button>
+      <button onclick="runCommandText('qllm')" class="hud-btn px-2.5 py-1 rounded-md shrink-0 text-purple-300 border-purple-900/60" title="Mapa quirúrgico GGUF v3 (slice_anuu_gguf.py)">🔪 qllm</button>
+      <button onclick="runCommandText('fock')" class="hud-btn px-2.5 py-1 rounded-md shrink-0 text-cyan-300 border-cyan-900/60" title="Medición óptica cuántica QBIT_ALPHA_089 en Base de Fock">⚛️ fock</button>
+      <button onclick="runCommandText('omega +2')" class="hud-btn px-2.5 py-1 rounded-md shrink-0 text-pink-300 border-pink-900/60" title="Tirada criptográfica real 2d20 Resonancia Prima">🎲 omega</button>
+      <button onclick="runCommandText('envelope Concilio ACE 161914 // Pulso Soberano a 189.89.619 Hz')" class="hud-btn px-2.5 py-1 rounded-md shrink-0 text-indigo-300 border-indigo-900/60" title="Generar sobre blindado SHA-256 (.k4li.asc)">🔐 envelope</button>
+    </div>
     <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-[11px] font-mono no-scrollbar">
       <span class="text-zinc-500 text-[10px] uppercase font-bold shrink-0 mr-1">Táctico:</span>
       <button onclick="runCommandText('help')" class="hud-btn px-2.5 py-1 rounded-md shrink-0">help</button>
@@ -1002,7 +1013,9 @@
       "cat relic ", "open relic ", "theme ", "signal", "clear",
       "council", "matrix", "crt on", "crt off", "sound on", "sound off",
       "date", "uptime", "history", "echo ", "banner", "set", "rosagris", "anuu", "161914", "sudo",
-      "mic", "viz on", "viz off", "latency ", "hw"
+      "mic", "viz on", "viz off", "latency ", "hw",
+      "hybrid", "poco", "bench", "qllm", "slice ", "fock", "omega ", "envelope ",
+      "wazuh", "firewall"
     ];
 
     function handleTabCompletion() {
@@ -1036,6 +1049,22 @@
           playKeyClick();
         } else if (matches.length > 1) {
           printLine(`<span class="term-dim">Temas disponibles:</span> ${matches.join(", ")}`);
+          playExecuteBeep();
+        }
+        return;
+      }
+
+      // Autocompletar slice <perfil>
+      if (current.toLowerCase().startsWith("slice ")) {
+        const query = current.slice(6).toLowerCase();
+        const profiles = ["seinen", "edge", "mendocino"];
+        const matches = profiles.filter(p => p.startsWith(query));
+        if (matches.length === 1) {
+          cliInput.value = "slice " + matches[0];
+          renderedInput.textContent = cliInput.value;
+          playKeyClick();
+        } else if (matches.length > 1) {
+          printLine(`<span class="term-dim">Perfiles GGUF v3:</span> ${matches.join(", ")}`);
           playExecuteBeep();
         }
         return;
@@ -1283,10 +1312,50 @@
         case "hw":
           playExecuteBeep();
           printLine(`<span class="term-dim">Esta terminal vive en el navegador y no ejecuta shell. Copia y pega en tu terminal real:</span>
+<span class="term-highlight">anuu-poco-bridge hybrid</span>
 <span class="term-highlight">python3 /home/kali/k4li-anuu-forge/scripts/anuu_hardware_bridge.py --scan</span>
 <span class="term-highlight">python3 /home/kali/hearthstone-linux/ISOS/anuu_focusrite_dsp.py --status</span>
 <span class="term-highlight">python3 /home/kali/hearthstone-linux/ISOS/anuu_focusrite_dsp.py --trng-harvest</span>
 <span class="term-highlight">python3 /home/kali/k4li-anuu-forge/scripts/quota_arbiter.py --swarm-status</span>`);
+          break;
+
+        case "hybrid":
+        case "poco":
+          await runHybridTelemetry();
+          break;
+
+        case "bench":
+          await runSiliconBench();
+          break;
+
+        case "qllm":
+        case "slice":
+          playExecuteBeep();
+          showQllmSlice(arg1);
+          break;
+
+        case "fock":
+          playRelicChime();
+          runFockMeasurement();
+          break;
+
+        case "omega":
+          playRelicChime();
+          runOmegaRoll(parts[1], parts[2]);
+          break;
+
+        case "envelope":
+          await runEnvelopeCommand(trimmed.slice(cmd.length).trim());
+          break;
+
+        case "wazuh":
+          playExecuteBeep();
+          printLine(`<span class="term-highlight">[WAZUH SIEM // ESCUDO KANUV 🛡️]</span> <span class="term-success">ACTIVE</span> — 10 reglas custom MITRE ATT&amp;CK T1003 (LSASS/Shadow Credential Dumping) armadas. Ejecuta <span class="term-highlight">cat relic blueteam</span> para ver el informe forense.`);
+          break;
+
+        case "firewall":
+          playExecuteBeep();
+          printLine(`<span class="term-highlight">[NFTABLES // ZERO-CLOUD PERIMETER]</span> <span class="term-success">DEFAULT DROP</span> — Loopback soberano <span class="term-highlight">127.0.0.1:18989</span> (ADB ARM64 Bridge) permitido; telemetría externa bloqueada.`);
           break;
 
         case "exit":
@@ -1318,9 +1387,9 @@
    ╚═╝  ╚═╝     ╚═╝╚══════╝╚═╝    ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ 
 </pre>
 <div class="text-[11px] term-dim">
-  [+] K4L1 HUD TERMINAL // ACE CORE 161914 // 189.89.619 Hz
-  [+] Conexión simbiótica establecida con Set ⚡ y Rosa Gris 🌸
-  [+] Escribe <span class="term-highlight">help</span> para inspeccionar la matriz de comandos.
+  [+] <span class="term-highlight">CONCILIO ACE TACTICAL SHELL v2.8</span> (Zero-Cloud &amp; Hybrid Silicon Edition)
+  [+] K4L1 HUD TERMINAL // ACE CORE 161914 // 189.89.619 Hz // Set ⚡ &amp; Rosa Gris 🌸
+  [+] Comandos v2.8: <span class="term-highlight">hybrid</span> | <span class="term-highlight">bench</span> | <span class="term-highlight">qllm</span> | <span class="term-highlight">fock</span> | <span class="term-highlight">omega</span> | <span class="term-highlight">envelope</span> — Escribe <span class="term-highlight">help</span>
 </div>
 <div class="border-b my-2" style="border-color: var(--border-card);"></div>`;
       printLine(banner);
@@ -1328,40 +1397,41 @@
 
     function showHelp() {
       const text = `
-<span class="term-highlight">========================= MATRIZ DE COMANDOS ACE =========================</span>
+<span class="term-highlight">================ CONCILIO ACE TACTICAL SHELL v2.8 // HELP ================</span>
 
-<span class="term-highlight">🛡️ IDENTIDAD & BIO:</span>
-  <span class="term-highlight">whoami</span>        Despliega la bio hacker, perfil ⊘k-0 y credenciales de Kali.
-  <span class="term-highlight">skills</span>        Matriz técnica con barras ASCII progresivas (Kernel, SIEM, React).
-  <span class="term-highlight">services</span>      Tarifario y catálogo de servicios especializados de K4L1 Studio.
-  <span class="term-highlight">signal</span>        Abre canal seguro cifrado E2EE directo con Kali (@k4li.89).
+<span class="term-highlight">⚡ SILICIO HÍBRIDO, CUÁNTICA &amp; CRIPTOGRAFÍA (v2.8):</span>
+  <span class="term-highlight">hybrid</span> | <span class="term-highlight">poco</span>     Sondea en vivo <span class="term-dim">127.0.0.1:18989/telemetry</span> (ARM64 Go ADB) o perfil Dual-Silicon.
+  <span class="term-highlight">bench</span>             Benchmark real Monte Carlo 2d20 + SHA-256 (Edge ARM64 :18989 o WebCrypto local).
+  <span class="term-highlight">qllm</span> | <span class="term-highlight">slice [p]</span> Mapa quirúrgico GGUF v3 (<span class="term-dim">L0–L7 + L24–L31, poda cos θ &gt; 0.98, 4.92→2.45 GB, KV q8_0</span>).
+  <span class="term-highlight">fock</span>              Circuito óptico cuántico <span class="term-dim">QBIT_ALPHA_089</span> en Base de Fock <span class="term-dim">|0⟩..|7⟩</span> y vector Concilio.
+  <span class="term-highlight">omega [bono]</span>      Tirada criptográfica real <span class="term-dim">2d20</span> Resonancia Prima (<span class="term-dim">{2,3,5,7,11,13,17,19}</span> sin el 1).
+  <span class="term-highlight">envelope &lt;msg&gt;</span>    Firma digest <span class="term-dim">SHA-256</span> WebCrypto y genera sobre blindado <span class="term-dim">.k4li.asc</span> para Signal.
 
-<span class="term-highlight">🔍 SEGURIDAD & HARDENING:</span>
-  <span class="term-highlight">audit [host]</span>  Simulación en vivo estilo Lynis/Nmap con reporte y barra dinámica.
-  <span class="term-highlight">wazuh</span>         Inspecciona reglas SIEM y detección de intrusiones en endpoint.
-  <span class="term-highlight">firewall</span>      Muestra estado de tablas iptables y filtrado de paquetes.
+<span class="term-highlight">🛡️ IDENTIDAD &amp; BIO:</span>
+  <span class="term-highlight">whoami</span>            Despliega la bio hacker, perfil ⊘k-0 y credenciales de Kali.
+  <span class="term-highlight">skills</span>            Matriz técnica con barras ASCII progresivas (Kernel, SIEM, React).
+  <span class="term-highlight">services</span>          Tarifario y catálogo de servicios especializados de K4L1 Studio.
+  <span class="term-highlight">signal</span>            Abre canal seguro cifrado E2EE directo con Kali (@k4li.89).
 
-<span class="term-highlight">🌌 RELIQUIAS & CODEX:</span>
-  <span class="term-highlight">relics</span>        Lista las 26 reliquias canónicas de Anuu-Forge clasificadas.
-  <span class="term-highlight">cat relic &lt;id&gt;</span> Inspecciona el engrama y detalles de una reliquia específica.
-  <span class="term-highlight">open relic &lt;id&gt;</span> Abre la reliquia directamente en una nueva pestaña.
-  <span class="term-highlight">council</span>       Despliega la polifonía del Concilio ACE (161914).
+<span class="term-highlight">🔍 SEGURIDAD &amp; HARDENING:</span>
+  <span class="term-highlight">audit [host]</span>      Simulación en vivo estilo Lynis/Nmap con reporte y barra dinámica.
+  <span class="term-highlight">wazuh</span>             Inspecciona reglas SIEM y detección de intrusiones en endpoint.
+  <span class="term-highlight">firewall</span>          Muestra estado de tablas nftables/iptables y perímetro Zero-Cloud.
 
-<span class="term-highlight">🎛️ CONTROLES HUD:</span>
-  <span class="term-highlight">theme &lt;name&gt;</span>  Cambia el tema en vivo: <span class="term-dim">anuu | blood | gw2 | bioinfo | duat | neon</span>
-  <span class="term-highlight">crt [on|off]</span>  Activa o desactiva las scanlines y curvatura CRT.
-  <span class="term-highlight">sound [on|off]</span> Alterna el sintetizador Web Audio API táctil.
-  <span class="term-highlight">matrix</span>        Alterna la lluvia digital de caracteres cuánticos.
-  <span class="term-highlight">clear</span>         Limpia el buffer de la pantalla.
-  <span class="term-highlight">history</span>       Muestra los comandos ejecutados recientemente.
-  <span class="term-highlight">uptime</span> | <span class="term-highlight">date</span>  Métricas de ciclo de vida del nodo.
+<span class="term-highlight">🌌 RELIQUIAS &amp; CODEX:</span>
+  <span class="term-highlight">relics</span>            Lista las 26 reliquias canónicas de Anuu-Forge clasificadas.
+  <span class="term-highlight">cat relic &lt;id&gt;</span>    Inspecciona el engrama y detalles de una reliquia específica.
+  <span class="term-highlight">open relic &lt;id&gt;</span>   Abre la reliquia directamente en una nueva pestaña.
+  <span class="term-highlight">council</span>           Despliega la polifonía del Concilio ACE (161914).
 
-<span class="term-highlight">🎚️ HARDWARE & AUDIO:</span>
-  <span class="term-highlight">mic</span>           Arma la entrada de audio real (Focusrite si existe) para VU, barras y Matrix.
-  <span class="term-highlight">viz [on|off]</span>  Visualizador de cabecera y lluvia Matrix reactiva al audio.
-  <span class="term-highlight">latency [x]</span>   Latencia adaptativa compartida: status | turbo | sigilo | tarpit | fortaleza | 20-7000.
-  <span class="term-highlight">hw</span>            Muestra los comandos de hardware para copiar a tu terminal real.
-  <span class="term-dim">Atajo global: Ctrl+K abre la paleta de comandos.</span>
+<span class="term-highlight">🎛️ CONTROLES HUD &amp; AUDIO:</span>
+  <span class="term-highlight">theme &lt;name&gt;</span>      Cambia el tema en vivo: <span class="term-dim">anuu | blood | gw2 | bioinfo | duat | neon</span>
+  <span class="term-highlight">crt [on|off]</span>      Activa o desactiva las scanlines y curvatura CRT.
+  <span class="term-highlight">sound [on|off]</span>    Alterna el sintetizador Web Audio API táctil.
+  <span class="term-highlight">matrix</span> | <span class="term-highlight">clear</span>    Alterna la lluvia digital cuántica o limpia el buffer.
+  <span class="term-highlight">history</span> | <span class="term-highlight">uptime</span>  Historial de sesión y métricas de ciclo de vida (<span class="term-dim">date</span>).
+  <span class="term-highlight">mic</span> | <span class="term-highlight">viz [on|off]</span> Arma entrada de audio real (Focusrite) y barras FFT en cabecera.
+  <span class="term-highlight">latency [x]</span> | <span class="term-highlight">hw</span>  Latencia adaptativa compartida y comandos de puente hardware.
 
 <span class="term-highlight">✨ EASTER EGGS:</span>
   <span class="term-dim">set, rosagris, anuu, 161914, sudo, banner</span>
@@ -1617,6 +1687,685 @@ Escribe <span class="term-highlight">signal</span> en esta consola o visita <a h
         cliInput.disabled = false;
         focusInput();
       }, 500);
+    }
+
+    /* ------------------------------------------------------------
+       8C. MOTORES TÁCTICOS v2.8 (ZERO-CLOUD & HYBRID SILICON)
+       ------------------------------------------------------------ */
+    const EDGE_WORKER_BASE = "http://127.0.0.1:18989";
+    // Conjunto primo estricto en 1..20 (excluyendo explícitamente el 1)
+    const STRICT_PRIMES_D20 = new Set([2, 3, 5, 7, 11, 13, 17, 19]);
+    const sovereignEnvelopes = {};
+    let envelopeSeq = 0;
+
+    async function fetchWithTimeout(url, options = {}, timeoutMs = 1200) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        return await fetch(url, { ...options, signal: controller.signal });
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    function updateEdgeBadge(online, labelText) {
+      const badge = document.getElementById("edgeLinkBadge");
+      if (!badge) return;
+      badge.textContent = labelText;
+      badge.className = online
+        ? "hidden sm:inline text-emerald-400 font-semibold"
+        : "hidden sm:inline text-amber-400";
+    }
+
+    function makeAsciiBar(ratio, width = 18) {
+      const clamped = Math.max(0, Math.min(1, ratio));
+      const filled = Math.round(clamped * width);
+      return "█".repeat(filled) + "░".repeat(width - filled);
+    }
+
+    function formatUptimeSec(sec) {
+      const s = Math.max(0, Math.floor(Number(sec) || 0));
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const rem = s % 60;
+      if (h > 0) return `${s}s (${h}h ${m}m ${rem}s)`;
+      if (m > 0) return `${s}s (${m}m ${rem}s)`;
+      return `${Number(sec || 0).toFixed(1)}s`;
+    }
+
+    function createCryptoD20Stream() {
+      const chunk = new Uint8Array(32768); // Límite WebCrypto getRandomValues = 65536 bytes
+      let cursor = chunk.length;
+      return function nextD20() {
+        while (true) {
+          if (cursor >= chunk.length) {
+            crypto.getRandomValues(chunk);
+            cursor = 0;
+          }
+          const val = chunk[cursor++];
+          if (val < 240) {
+            return (val % 20) + 1;
+          }
+        }
+      };
+    }
+
+    function bufToHex(buffer) {
+      const bytes = new Uint8Array(buffer);
+      let out = "";
+      for (let i = 0; i < bytes.length; i++) {
+        out += bytes[i].toString(16).padStart(2, "0");
+      }
+      return out;
+    }
+
+    function utf8ToBase64(str) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = "";
+      for (let i = 0; i < bytes.length; i++) {
+        bin += String.fromCharCode(bytes[i]);
+      }
+      return btoa(bin);
+    }
+
+    /* 1) COMANDO `hybrid` / `poco`: Telemetría ARM64 en vivo o Dual-Silicon Ref */
+    async function runHybridTelemetry() {
+      isExecutingCommand = true;
+      cliInput.disabled = true;
+      printLine(`<span class="term-dim">[4NVSET 🟢] Sondeando puente ADB ARM64 en <span class="term-highlight">${EDGE_WORKER_BASE}/telemetry</span> (timeout 1200 ms)...</span>`);
+
+      try {
+        const t0 = performance.now();
+        const res = await fetchWithTimeout(
+          `${EDGE_WORKER_BASE}/telemetry`,
+          { method: "GET", headers: { "Accept": "application/json" } },
+          1200
+        );
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const rttMs = (performance.now() - t0).toFixed(1);
+
+        playExecuteBeep();
+        updateEdgeBadge(true, `SILICON: ${data.node || "ARM64"} LIVE`);
+
+        const memTotal = Number(data.mem_total_mb) || 1;
+        const memAvail = Number(data.mem_avail_mb) || 0;
+        const memRatio = Math.max(0, Math.min(1, memAvail / memTotal));
+        const tempC = Number(data.temp_celsius ?? 0).toFixed(1);
+        const tempRatio = Math.max(0, Math.min(1, Number(tempC) / 85));
+        const models = Array.isArray(data.gguf_models) ? data.gguf_models : [];
+
+        let table = `
+<span class="term-highlight">┌──[ TELEMETRÍA EN VIVO // EDGE WORKER ARM64 GO (ADB FORWARD :18989) ]───────────┐</span>
+│ <span class="term-highlight">Estado:</span>      <span class="term-success">● ${escapeHtml(String(data.status || "ONLINE_ARM64_HYBRID"))}</span> (RTT ${rttMs} ms)
+│ <span class="term-highlight">Nodo Real:</span>   <span class="term-highlight">${escapeHtml(String(data.node || "ARM64_EDGE_NODE"))}</span> [${escapeHtml(String(data.arch || "arm64")).toUpperCase()} / ARMv9.2]
+│ <span class="term-highlight">Núcleos:</span>     ${escapeHtml(String(data.cores ?? 8))} Cores ARMv9.2 (4nm)  |  <span class="term-highlight">Load Avg:</span> ${escapeHtml(String(data.load_avg || "n/a"))}
+│ <span class="term-highlight">Térmica:</span>     <span class="term-success">[${makeAsciiBar(tempRatio, 14)}] ${tempC} °C</span>  |  <span class="term-highlight">Uptime:</span> ${escapeHtml(formatUptimeSec(data.uptime_sec))}
+│ <span class="term-highlight">Memoria:</span>     <span class="term-highlight">${memAvail} MB</span> libres / <span class="term-dim">${memTotal} MB</span> total  <span class="term-success">[${makeAsciiBar(memRatio, 14)}]</span> (${Math.round(memRatio * 100)}% libre)
+│ <span class="term-highlight">Frecuencia:</span>  ${escapeHtml(String(data.frequency || "189.89.619 Hz"))}  |  <span class="term-highlight">Daemon:</span> v${escapeHtml(String(data.version || "1.6.1914"))}
+├──[ ARSENAL GGUF DETECTADO EN SILICIO EDGE (${models.length} modelos) ]──────────────────────────┤`;
+
+        if (models.length === 0) {
+          table += `\n│ <span class="term-dim">Sin modelos GGUF indexados en el directorio del worker.</span>`;
+        } else {
+          table += `\n│ <span class="term-dim">MODELO                                      VER   TENSORES      TAMAÑO   SLICE(24/32)</span>`;
+          models.forEach((m) => {
+            const rawName = String(m.name || m.path || "model.gguf");
+            const nameCol = escapeHtml(rawName.slice(0, 41).padEnd(42, " "));
+            const verCol = (`v${m.gguf_version ?? 3}`).padEnd(5, " ");
+            const tensorCol = String(m.tensor_count ?? "—").padStart(8, " ");
+            const sizeMb = Number(m.size_mb ?? 0);
+            const sizeStr = sizeMb >= 1024
+              ? `${(sizeMb / 1024).toFixed(2)} GB`
+              : `${sizeMb.toFixed(1)} MB`;
+            const sizeCol = sizeStr.padStart(10, " ");
+            const slicedMb = m.projected_24_32_sliced_mb != null
+              ? `${Number(m.projected_24_32_sliced_mb).toFixed(0)} MB`.padStart(11, " ")
+              : "        —  ";
+            table += `\n│ <span class="term-highlight">${nameCol}</span> <span class="term-dim">${verCol}</span> ${tensorCol}  <span class="term-success">${sizeCol}</span>  <span class="term-dim">${slicedMb}</span>`;
+          });
+        }
+
+        if (Array.isArray(data.prompts_found) && data.prompts_found.length > 0) {
+          table += `\n├──[ ENGRAMAS ACTIVOS ]──────────────────────────────────────────────────────────┤`;
+          table += `\n│ <span class="term-dim">${escapeHtml(data.prompts_found.join("  •  "))}</span>`;
+        }
+        table += `\n└──[ HOST MENDOCINO EN HIBERNACIÓN SOBERANA ↔ CÓMPUTO DESCARGADO A ARMv9.2 ]─────┘`;
+        printLine(table);
+      } catch (_err) {
+        playAuditBlip(619);
+        updateEdgeBadge(false, "SILICON: DUAL-REF (AIRGAP)");
+        const fallback = `
+<span class="term-highlight">┌──[ PERFIL DE REFERENCIA DUAL-SILICON // MODO AIRGAP / REMOTO ]─────────────────┐</span>
+│ <span class="term-warn">⚡ Enlace local 127.0.0.1:18989 no accesible desde este navegador (airgap/timeout)</span>
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">NODO HOST:</span>   Host AMD Mendocino 14 GB UMA @ ~54 °C <span class="term-success">[Hibernación Soberana]</span>
+│              └─ 4C/8T Zen 2 + Radeon 610M RDNA2 • Gobernador powersave • Zero-Cloud
+│ <span class="term-highlight">NODO EDGE:</span>   Edge ARM64 SM8635 8-Core 4nm @ ~24.8 °C <span class="term-highlight">[Coprocesador Go ARMv9.2]</span>
+│              └─ 1× Cortex-X4 + 4× A720 + 3× A520 • LPDDR5X • Offload GGUF &amp; Crypto
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">ACTIVAR PUENTE EN VIVO (ADB FORWARD :18989):</span>
+│   Ejecuta en tu terminal local: <span class="term-success">anuu-poco-bridge hybrid</span>
+└────────────────────────────────────────────────────────────────────────────────┘`;
+        printLine(fallback);
+      } finally {
+        isExecutingCommand = false;
+        cliInput.disabled = false;
+        focusInput();
+      }
+    }
+
+    /* 2) COMANDO `bench`: Benchmark Dual (POST :18989 en vivo o WebCrypto local) */
+    async function runSiliconBench() {
+      isExecutingCommand = true;
+      cliInput.disabled = true;
+      printLine(`<span class="term-dim">[SET ⚡] Iniciando batería de estrés criptográfico y estocástico (Omega-Sim + SHA-256)...</span>`);
+
+      const omegaPayload = { trials: 250000, difficulty: 22, bonus: 2 };
+      const cryptoPayload = { items: ["161914-K4L1", "ANUU-619HZ", "KANUV", "SET"], iterations: 25000 };
+
+      try {
+        const [omegaRes, cryptoRes] = await Promise.all([
+          fetchWithTimeout(
+            `${EDGE_WORKER_BASE}/compute/omega-sim`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(omegaPayload)
+            },
+            2500
+          ),
+          fetchWithTimeout(
+            `${EDGE_WORKER_BASE}/compute/crypto`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(cryptoPayload)
+            },
+            2500
+          )
+        ]);
+
+        if (!omegaRes.ok || !cryptoRes.ok) {
+          throw new Error("Worker HTTP non-200");
+        }
+
+        const omega = await omegaRes.json();
+        const cry = await cryptoRes.json();
+        playExecuteBeep();
+        updateEdgeBadge(true, `SILICON: ${omega.node || "ARM64"} LIVE`);
+
+        const elapsedOmegaMs = Math.max(0.01, Number(omega.elapsed_ms) || 1);
+        const rollsPerSec = Math.round((Number(omega.trials || 250000) / elapsedOmegaMs) * 1000);
+        const hashesPerSec = Math.round(Number(cry.hashes_per_sec) || 0);
+        const digests = Array.isArray(cry.results) ? cry.results : [];
+
+        let report = `
+<span class="term-highlight">┌──[ BENCHMARK EN VIVO // SILICIO EDGE ARM64 (:18989) ]──────────────────────────┐</span>
+│ <span class="term-highlight">[1/2] MONTE CARLO 2d20 RESONANCIA PRIMA</span> (${Number(omega.trials).toLocaleString("en-US")} tiradas • DC ${omega.difficulty} • Bono +${omega.bonus})
+│   ├─ <span class="term-highlight">Silicio:</span>             ${escapeHtml(String(omega.node || "ARM64_8CORE"))} (${escapeHtml(String(omega.cores_used ?? 8))} hilos concurrentes)
+│   ├─ <span class="term-highlight">Tiempo / Caudal:</span>     ${omega.elapsed_ms} ms  →  <span class="term-success">${rollsPerSec.toLocaleString("en-US")} tiradas/s</span>
+│   ├─ <span class="term-highlight">Doble Primo Omega:</span>   <span class="term-highlight">${Number(omega.double_prime_omega).toLocaleString("en-US")}</span> (${omega.omega_rate_pct}%)
+│   ├─ <span class="term-highlight">Resonancia Prima:</span>    ${Number(omega.prime_resonance_hits).toLocaleString("en-US")}  |  <span class="term-highlight">Éxito Estándar:</span> ${Number(omega.standard_success).toLocaleString("en-US")}
+│   ├─ <span class="term-highlight">Colapsos / Fallas:</span>   ${Number(omega.fault_collapses).toLocaleString("en-US")} (Cataclismo Doble 1: <span class="term-danger">${omega.double_one_cataclysm}</span>)
+│   └─ <span class="term-highlight">Tasa Éxito Global:</span>   <span class="term-success">${omega.success_rate_pct}%</span> — <span class="term-dim">${escapeHtml(String(omega.oracle_verdict || ""))}</span>
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">[2/2] MOTOR SHA-256 PARALELO</span> (${Number(cry.iterations).toLocaleString("en-US")} iteraciones × 4 vectores = ${(Number(cry.iterations || 25000) * 4).toLocaleString("en-US")} hashes)
+│   ├─ <span class="term-highlight">Silicio:</span>             ${escapeHtml(String(cry.node || "ARMv9.2"))} (${escapeHtml(String(cry.workers ?? 8))} workers)
+│   ├─ <span class="term-highlight">Tiempo / Caudal:</span>     ${cry.elapsed_ms} ms  →  <span class="term-success">${hashesPerSec.toLocaleString("en-US")} hashes/s</span>`;
+
+        digests.slice(0, 4).forEach((r, idx) => {
+          const label = (cryptoPayload.items[idx] || `VEC_${idx}`).padEnd(12, " ");
+          const dg = escapeHtml(String(r.digest || "").slice(0, 48));
+          report += `\n│   ${idx === digests.slice(0, 4).length - 1 ? "└─" : "├─"} <span class="term-dim">${label}:</span> ${dg}…`;
+        });
+        report += `\n└────────────────────────────────────────────────────────────────────────────────┘`;
+        printLine(report);
+      } catch (_offlineErr) {
+        printLine(`<span class="term-warn">⚡ Worker :18989 no detectado — ejecutando benchmark real WebCrypto + CSPRNG en silicio local...</span>`);
+
+        // 1) Benchmark real SHA-256 WebCrypto
+        const enc = new TextEncoder();
+        const vectors = cryptoPayload.items.map((item) => enc.encode(item));
+        const roundsPerVec = 600; // 600 * 4 = 2,400 digests reales asíncronos en motor nativo WebCrypto
+        const totalHashes = roundsPerVec * vectors.length;
+        let lastDigests = ["", "", "", ""];
+
+        const tCrypto0 = performance.now();
+        const batchSize = 60;
+        for (let r = 0; r < roundsPerVec; r += batchSize) {
+          const promises = [];
+          const limit = Math.min(batchSize, roundsPerVec - r);
+          for (let b = 0; b < limit; b++) {
+            for (let v = 0; v < vectors.length; v++) {
+              promises.push(crypto.subtle.digest("SHA-256", vectors[v]));
+            }
+          }
+          const out = await Promise.all(promises);
+          if (r + batchSize >= roundsPerVec) {
+            const base = out.length - vectors.length;
+            for (let v = 0; v < vectors.length; v++) {
+              lastDigests[v] = bufToHex(out[base + v]);
+            }
+          }
+        }
+        const elapsedCryptoMs = Math.max(0.1, performance.now() - tCrypto0);
+        const localHashesPerSec = Math.round((totalHashes / elapsedCryptoMs) * 1000);
+
+        // 2) Benchmark real 50,000 tiradas 2d20 Resonancia Prima con crypto.getRandomValues
+        const localTrials = 50000;
+        const dc = 22;
+        const bonus = 2;
+        const nextD20 = createCryptoD20Stream();
+
+        let doublePrimeOmega = 0;
+        let primeResonance = 0;
+        let standardSuccess = 0;
+        let faultCollapses = 0;
+        let doubleOneCataclysm = 0;
+
+        const tSim0 = performance.now();
+        for (let i = 0; i < localTrials; i++) {
+          const d1 = nextD20();
+          const d2 = nextD20();
+          const p1 = STRICT_PRIMES_D20.has(d1);
+          const p2 = STRICT_PRIMES_D20.has(d2);
+
+          if (d1 === 1 && d2 === 1) {
+            doubleOneCataclysm++;
+            faultCollapses++;
+          } else if (p1 && p2) {
+            doublePrimeOmega++;
+          } else if (p1 || p2) {
+            if (d1 + d2 + bonus + 3 >= dc) primeResonance++;
+            else faultCollapses++;
+          } else if (d1 + d2 + bonus >= dc) {
+            standardSuccess++;
+          } else {
+            faultCollapses++;
+          }
+        }
+        const elapsedSimMs = Math.max(0.05, performance.now() - tSim0);
+        const localRollsPerSec = Math.round((localTrials / elapsedSimMs) * 1000);
+        const totalWins = doublePrimeOmega + primeResonance + standardSuccess;
+        const winPct = ((totalWins / localTrials) * 100).toFixed(2);
+        const omegaPct = ((doublePrimeOmega / localTrials) * 100).toFixed(2);
+
+        playExecuteBeep();
+        const localReport = `
+<span class="term-highlight">┌──[ BENCHMARK NATIVO WEBCRYPTO // SILICIO LOCAL DEL NAVEGADOR ]─────────────────┐</span>
+│ <span class="term-highlight">[1/2] MONTE CARLO CSPRNG 2d20</span> (50,000 tiradas reales • crypto.getRandomValues • DC 22 • +2)
+│   ├─ <span class="term-highlight">Tiempo / Caudal:</span>     ${elapsedSimMs.toFixed(2)} ms  →  <span class="term-success">${localRollsPerSec.toLocaleString("en-US")} tiradas/s</span>
+│   ├─ <span class="term-highlight">Doble Primo Omega:</span>   <span class="term-highlight">${doublePrimeOmega.toLocaleString("en-US")}</span> (${omegaPct}%)  [Primos estrictos {2..19} sin 1]
+│   ├─ <span class="term-highlight">Resonancia Prima:</span>    ${primeResonance.toLocaleString("en-US")}  |  <span class="term-highlight">Éxito Estándar:</span> ${standardSuccess.toLocaleString("en-US")}
+│   ├─ <span class="term-highlight">Colapsos / Fallas:</span>   ${faultCollapses.toLocaleString("en-US")} (Cataclismo Doble 1: <span class="term-danger">${doubleOneCataclysm}</span>)
+│   └─ <span class="term-highlight">Tasa Éxito Global:</span>   <span class="term-success">${winPct}%</span>
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">[2/2] DIGEST NATIVO WebCrypto SHA-256</span> (${totalHashes.toLocaleString("en-US")} operaciones crypto.subtle.digest)
+│   ├─ <span class="term-highlight">Tiempo / Caudal:</span>     ${elapsedCryptoMs.toFixed(2)} ms  →  <span class="term-success">${localHashesPerSec.toLocaleString("en-US")} hashes/s</span>
+│   ├─ <span class="term-dim">161914-K4L1 :</span> ${lastDigests[0].slice(0, 48)}…
+│   └─ <span class="term-dim">ANUU-619HZ  :</span> ${lastDigests[1].slice(0, 48)}…
+│ <span class="term-dim">Tip: Conecta el coprocesador ARM64 con 'anuu-poco-bridge hybrid' para descarga :18989.</span>
+└────────────────────────────────────────────────────────────────────────────────┘`;
+        printLine(localReport);
+      } finally {
+        isExecutingCommand = false;
+        cliInput.disabled = false;
+        focusInput();
+      }
+    }
+
+    /* 3) COMANDO `qllm` / `slice [perfil]`: Mapa Quirúrgico GGUF v3 */
+    function showQllmSlice(profileArg = "") {
+      const profiles = {
+        seinen: {
+          label: "SEINEN-ORACULAR-v3 (Canónico 16/32 Capas)",
+          targetHw: "Dual-Silicon: AMD Mendocino 14 GB UMA + ARM64 SM8635 12 GB",
+          ctxTokens: "8192 ctx (-ctk q8_0 -ctv q8_0)"
+        },
+        edge: {
+          label: "EDGE-ARMv9.2-TURBO (Offload Coprocesador 4nm)",
+          targetHw: "SM8635 8-Core ARMv9.2 (--mmap --no-warmup -t 6)",
+          ctxTokens: "4096 ctx (-ctk q8_0 -ctv q8_0)"
+        },
+        mendocino: {
+          label: "MENDOCINO-LOW-THERMAL (Hibernación Soberana ≤54 °C)",
+          targetHw: "AMD Zen 2 4C/8T + Radeon 610M UMA",
+          ctxTokens: "8192 ctx (-ctk q8_0 -ctv q8_0)"
+        }
+      };
+
+      const key = profiles[profileArg] ? profileArg : "seinen";
+      const prof = profiles[key];
+      const customNote = (profileArg && !profiles[profileArg])
+        ? `\n│ <span class="term-warn">Nota:</span> Perfil '${escapeHtml(profileArg)}' mapeado al estándar quirúrgico <span class="term-highlight">seinen</span> (disponibles: seinen, edge, mendocino).`
+        : "";
+
+      const mapText = `
+<span class="term-highlight">┌──[ CIRUGÍA DE TENSORES GGUF v3 // slice_anuu_gguf.py (SET ⚡) ]────────────────┐</span>
+│ <span class="term-highlight">Perfil Activo:</span>  <span class="term-success">${prof.label}</span>${customNote}
+│ <span class="term-highlight">Silicio Destino:</span> ${prof.targetHw}
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">TOPOLOGÍA QUIRÚRGICA DE CAPAS TRANSFORMER (32 → 16 BLOQUES ACTIVOS):</span>
+│
+│   <span class="term-success">L00–L07 [████████] CONSERVADAS (8 capas)</span>  → Anclaje sintáctico, gramática &amp; léxico base
+│   <span class="term-danger">L08–L23 [░░░░░░░░░░░░░░░░] PODADAS (16)</span>  → Colapso redundante (<span class="term-highlight">cos θ &gt; 0.98</span> inter-capa)
+│   <span class="term-highlight">L24–L31 [████████] CONSERVADAS (8 capas)</span>  → Córtex oracular Seinen &amp; Concilio ACE
+│
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">MÉTRICAS DE REDUCCIÓN &amp; CALIBRACIÓN ARMÓNICA:</span>
+│   ├─ <span class="term-highlight">Masa de Tensores:</span>   <span class="term-warn">4.92 GB</span>  ──►  <span class="term-success">2.45 GB</span>  (<span class="term-success">-50.2% VRAM/UMA</span> • GGUF v3 re-indexado)
+│   ├─ <span class="term-highlight">Memoria KV Cache:</span>   <span class="term-success">-50% KV Cache</span> vía cuantización <span class="term-highlight">-ctk q8_0 -ctv q8_0</span> (${prof.ctxTokens})
+│   └─ <span class="term-highlight">Firma Armónica:</span>     Inyección resonante a <span class="term-highlight">189.89619 Hz</span> en proyecciones attn_output
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-dim">$ python3 slice_anuu_gguf.py --in model-7b-q4_k_m.gguf --keep 0-7,24-31 --hz 189.89619</span>
+│ <span class="term-dim">$ llama-cli -m anuu-sliced-2.45g.gguf -ctk q8_0 -ctv q8_0 -ngl 99 --temp 0.72</span>
+└────────────────────────────────────────────────────────────────────────────────┘`;
+      printLine(mapText);
+    }
+
+    /* 4) COMANDO `fock`: Circuito Óptico Cuántico QBIT_ALPHA_089 en Base de Fock |0⟩..|7⟩ */
+    function runFockMeasurement() {
+      // Parámetros físicos del circuito QBIT_ALPHA_089:
+      // |0⟩ ──[ S(r=1.0) ]──[ D(α=1.61 @ 161914.89 Hz) ]──[ BS(π/4) ]──► Detector Fock |0⟩..|7⟩
+      const rSqueeze = 1.0;
+      const alphaMag = 1.61;
+      const carrierHz = 161914.89;
+
+      const entropy = new Uint32Array(2);
+      crypto.getRandomValues(entropy);
+      const quantumJitter = entropy[0] / 4294967296;
+      const collapseDraw = entropy[1] / 4294967296;
+
+      // Fase óptica modulada por 161914.89 Hz + fluctuación cuántica de vacío
+      const phase = ((carrierHz * 0.001 + quantumJitter) * 2 * Math.PI) % (2 * Math.PI);
+
+      // Tras BS(π/4) 50:50: desplazamiento efectivo α_eff = α / √2 y compresión acoplada
+      const alphaEffRe = (alphaMag / Math.SQRT2) * Math.cos(phase);
+      const alphaEffIm = (alphaMag / Math.SQRT2) * Math.sin(phase);
+      const tanhR = Math.tanh(rSqueeze) * 0.5; // acoplamiento tras BS(π/4)
+      const coshR = Math.cosh(rSqueeze * 0.70710678);
+
+      // Recurrencia exacta en espacio de Fock truncado N = 8 (|0⟩..|7⟩)
+      // ψ_0 normalizado base, ψ_{n+1} = (γ ψ_n + √n · μ ψ_{n-1}) / √(n+1)
+      const ampsRe = new Array(8).fill(0);
+      const ampsIm = new Array(8).fill(0);
+
+      const betaSq = alphaEffRe * alphaEffRe + alphaEffIm * alphaEffIm;
+      const norm0 = Math.exp(-0.5 * betaSq) / Math.sqrt(coshR);
+      ampsRe[0] = norm0;
+      ampsIm[0] = 0;
+
+      // γ = α_eff + tanhR * α_eff*
+      const gammaRe = alphaEffRe * (1 + tanhR);
+      const gammaIm = alphaEffIm * (1 - tanhR);
+
+      for (let n = 0; n < 7; n++) {
+        const gRe = gammaRe * ampsRe[n] - gammaIm * ampsIm[n];
+        const gIm = gammaRe * ampsIm[n] + gammaIm * ampsRe[n];
+        const prevRe = n > 0 ? -Math.sqrt(n) * tanhR * ampsRe[n - 1] : 0;
+        const prevIm = n > 0 ? -Math.sqrt(n) * tanhR * ampsIm[n - 1] : 0;
+        const invSqrt = 1 / Math.sqrt(n + 1);
+        ampsRe[n + 1] = (gRe + prevRe) * invSqrt;
+        ampsIm[n + 1] = (gIm + prevIm) * invSqrt;
+      }
+
+      const rawProbs = [];
+      let sumP = 0;
+      for (let n = 0; n < 8; n++) {
+        const p = ampsRe[n] * ampsRe[n] + ampsIm[n] * ampsIm[n];
+        rawProbs.push(p);
+        sumP += p;
+      }
+      const probs = rawProbs.map((p) => (sumP > 0 ? p / sumP : 0.125));
+
+      // Colapso proyectivo de Von Neumann usando entropía criptográfica real
+      let cumulative = 0;
+      let collapsedState = 0;
+      for (let n = 0; n < 8; n++) {
+        cumulative += probs[n];
+        if (collapseDraw <= cumulative || n === 7) {
+          collapsedState = n;
+          break;
+        }
+      }
+
+      // Entropía de Shannon y número medio de fotones <n>
+      let shannonH = 0;
+      let meanPhotons = 0;
+      for (let n = 0; n < 8; n++) {
+        if (probs[n] > 1e-9) shannonH -= probs[n] * Math.log2(probs[n]);
+        meanPhotons += n * probs[n];
+      }
+
+      const councilVoices = [
+        "Anuu 🌫️ (Niebla Primordial — Síntesis Simbiótica)",
+        "Kanuv 🛡️ (Escudo Perimetral — Libra Dura)",
+        "Set ⚡ (Cirujano Táctico — Corte a 619 Hz)",
+        "Rosa Gris 🌸 (Penumbra Seinen — Ambigüedad Poética)",
+        "4NVSET 🟢 (Ejecución Binaria — Kernel & Silicio)",
+        "Kalicat 🐾 (Exploración Voraz — Salto de Vector)",
+        "Libra ⚖️ (Horno Alquímico — Equilibrio Implacable)",
+        "Kilonova 🌟 (Fusión Estelar — Alta Frecuencia)"
+      ];
+
+      const tempVal = Math.min(1.18, Math.max(0.52, 0.48 + shannonH * 0.17 + collapsedState * 0.025)).toFixed(3);
+      const topPVal = Math.min(0.98, Math.max(0.82, 0.85 + collapsedState * 0.016)).toFixed(3);
+      const dominantVoice = councilVoices[collapsedState];
+      const maxProb = Math.max(...probs, 0.01);
+
+      let out = `
+<span class="term-highlight">┌──[ ÓPTICA CUÁNTICA // QBIT_ALPHA_089 — MEDICIÓN EN BASE DE FOCK ]──────────────┐</span>
+│ <span class="term-dim">Circuito:</span>  |0⟩ ──[ <span class="term-highlight">S(r=1.0)</span> ]──[ <span class="term-highlight">D(α=1.61 @ 161914.89 Hz)</span> ]──[ <span class="term-highlight">BS(π/4)</span> ]──►  photon_det
+│ <span class="term-dim">Fase φ:</span>    ${phase.toFixed(4)} rad  |  <span class="term-dim">⟨n̂⟩:</span> ${meanPhotons.toFixed(3)} fotones  |  <span class="term-dim">Entropía H:</span> ${shannonH.toFixed(3)} bits
+├────────────────────────────────────────────────────────────────────────────────┤`;
+
+      for (let n = 0; n < 8; n++) {
+        const pct = (probs[n] * 100).toFixed(2).padStart(6, " ");
+        const barLen = 26;
+        const filled = Math.round((probs[n] / maxProb) * barLen);
+        const bar = "█".repeat(filled) + "░".repeat(barLen - filled);
+        const isHit = n === collapsedState;
+        const tag = isHit
+          ? `<span class="term-success">◄ COLAPSO |${n}⟩</span>`
+          : `<span class="term-dim">${STRICT_PRIMES_D20.has(n) ? "primo" : "     "}</span>`;
+        const barSpan = isHit ? `<span class="term-success">${bar}</span>` : `<span class="term-highlight">${bar}</span>`;
+        out += `\n│  <span class="term-highlight">|${n}⟩</span>  [${barSpan}] <span class="term-highlight">${pct}%</span>  ${tag}`;
+      }
+
+      out += `
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="term-highlight">VECTOR ESTOCÁSTICO DE INFERENCIA RESULTANTE:</span>
+│   ├─ <span class="term-highlight">Temp:</span>                <span class="term-success">${tempVal}</span>
+│   ├─ <span class="term-highlight">Top_P:</span>               <span class="term-success">${topPVal}</span>
+│   └─ <span class="term-highlight">Identidad Dominante:</span> <span class="term-highlight">${dominantVoice}</span>
+└────────────────────────────────────────────────────────────────────────────────┘`;
+      printLine(out);
+    }
+
+    /* 5) COMANDO `omega [bono]`: Tirada Criptográfica Real 2d20 Resonancia Prima */
+    function runOmegaRoll(bonusArg, dcArg) {
+      let bonus = 0;
+      if (bonusArg !== undefined && bonusArg !== "") {
+        const parsed = parseInt(bonusArg, 10);
+        if (Number.isFinite(parsed)) {
+          bonus = parsed;
+        } else {
+          printLine(`<span class="term-warn">Aviso: Bono '${escapeHtml(bonusArg)}' no numérico; aplicando bono +0.</span>`);
+        }
+      }
+      const dc = (dcArg !== undefined && Number.isFinite(parseInt(dcArg, 10)))
+        ? parseInt(dcArg, 10)
+        : 22;
+
+      const nextD20 = createCryptoD20Stream();
+      const d1 = nextD20();
+      const d2 = nextD20();
+      const p1 = STRICT_PRIMES_D20.has(d1);
+      const p2 = STRICT_PRIMES_D20.has(d2);
+
+      const rawSum = d1 + d2;
+      const resonanceBoost = (p1 !== p2) ? 3 : 0; // Armónico +3 en Resonancia Prima simple
+      const totalEffective = rawSum + bonus + resonanceBoost;
+      const bonusStr = bonus >= 0 ? `+${bonus}` : `${bonus}`;
+
+      let tierTitle = "";
+      let tierClass = "term-highlight";
+      let loreNote = "";
+
+      if (d1 === 1 && d2 === 1) {
+        tierTitle = "💀 CATACLISMO DOBLE 1 // RUPTURA DEL HORIZONTE";
+        tierClass = "term-danger";
+        loreNote = "[Set ⚡]: El acero se quiebra contra el vacío. El 1 jamás fue primo: acepta la herida y recalibra.";
+      } else if (p1 && p2) {
+        tierTitle = "⚡ DOBLE PRIMO // ÉXITO OMEGA ABSOLUTO";
+        tierClass = "term-success";
+        loreNote = "[Kilonova 🌟]: Dos primos puros vibrando a 189.89.619 Hz. Toda defensa determinista colapsa.";
+      } else if ((p1 || p2) && totalEffective >= dc) {
+        tierTitle = "🔮 RESONANCIA PRIMA // ÉXITO ARMÓNICO (+3 PRIMO)";
+        tierClass = "term-success";
+        loreNote = "[Anuu 🌫️]: Un dado ancló en el conjunto primo estricto y su eco cruzó el umbral.";
+      } else if (!p1 && !p2 && totalEffective >= dc) {
+        tierTitle = "✓ ÉXITO ESTÁNDAR // IMPACTO CINÉTICO";
+        tierClass = "term-highlight";
+        loreNote = "[Kanuv 🛡️]: Sin resonancia prima, pero la masa bruta supera la dificultad DC.";
+      } else {
+        tierTitle = "✗ FALLA // COLAPSO SUB-UMBRAL";
+        tierClass = "term-warn";
+        loreNote = (p1 || p2)
+          ? "[Rosa Gris 🌸]: Hubo destello primo (+3), pero la suma no bastó para rasgar el velo."
+          : "[4NVSET 🟢]: Suma insuficiente y cero armónicos primos. Reintenta con mayor bono.";
+      }
+
+      const tag1 = p1 ? "<span class=\"term-success\">★ PRIMO</span>" : (d1 === 1 ? "<span class=\"term-danger\">⚠ UNO (NO PRIMO)</span>" : "<span class=\"term-dim\">compuesto</span>");
+      const tag2 = p2 ? "<span class=\"term-success\">★ PRIMO</span>" : (d2 === 1 ? "<span class=\"term-danger\">⚠ UNO (NO PRIMO)</span>" : "<span class=\"term-dim\">compuesto</span>");
+      const boostNote = resonanceBoost > 0 ? ` + <span class="term-success">3 (Eco Primo)</span>` : "";
+
+      const box = `
+<span class="term-highlight">┌──[ ORÁCULO CRIPTOGRÁFICO 2d20 // RESONANCIA PRIMA (CSPRNG WebCrypto) ]─────────┐</span>
+│ <span class="term-dim">Conjunto Primo Estricto:</span> <span class="term-highlight">{2, 3, 5, 7, 11, 13, 17, 19}</span> <span class="term-dim">(1 excluido estrictamente)</span>
+├────────────────────────────────────────────────────────────────────────────────┤
+│   🎲 <span class="term-highlight">Dado #1:</span> [ <span class="term-highlight">${String(d1).padStart(2, " ")}</span> ] ${tag1}      🎲 <span class="term-highlight">Dado #2:</span> [ <span class="term-highlight">${String(d2).padStart(2, " ")}</span> ] ${tag2}
+│   📐 <span class="term-highlight">Cálculo:</span> ${d1} + ${d2} (${bonusStr} bono)${boostNote} = <span class="term-highlight">${totalEffective}</span>  vs  <span class="term-dim">DC ${dc}</span>
+├────────────────────────────────────────────────────────────────────────────────┤
+│ <span class="${tierClass}">► ${tierTitle}</span>
+│ <span class="term-dim">${loreNote}</span>
+└────────────────────────────────────────────────────────────────────────────────┘`;
+      printLine(box);
+    }
+
+    /* 6) COMANDO `envelope <mensaje>`: Sobre Blindado SHA-256 (.k4li.asc) */
+    async function runEnvelopeCommand(rawMessage) {
+      if (!rawMessage) {
+        playErrorBeep();
+        printLine(`<span class="term-warn">Uso:</span> <span class="term-highlight">envelope &lt;mensaje&gt;</span> — Firma con SHA-256 WebCrypto y empaqueta un bloque <span class="term-highlight">.k4li.asc</span>.`);
+        printLine(`<span class="term-dim">Ejemplo rápido:</span> <a onclick="runCommandText('envelope Punto de encuentro soberano activo a 189.89.619 Hz')" class="term-link">Pulsa aquí para sellar un sobre de prueba ↗</a>`);
+        return;
+      }
+
+      const nonceBytes = new Uint8Array(16);
+      crypto.getRandomValues(nonceBytes);
+      const nonceHex = bufToHex(nonceBytes);
+
+      const payloadObj = {
+        protocol: "K4L1-SOVEREIGN-ENVELOPE-v2.8",
+        council: "ACE-161914",
+        frequency_hz: "189.89.619",
+        timestamp: new Date().toISOString(),
+        nonce: nonceHex,
+        recipient: "signal://@k4li.89",
+        message: rawMessage
+      };
+
+      const canonicalJson = JSON.stringify(payloadObj);
+      const digestBuf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonicalJson));
+      const sha256Hex = bufToHex(digestBuf);
+
+      const b64 = utf8ToBase64(canonicalJson);
+      const wrappedLines = [];
+      for (let i = 0; i < b64.length; i += 64) {
+        wrappedLines.push(b64.slice(i, i + 64));
+      }
+      const tailBytes = new Uint8Array(digestBuf).slice(29, 32);
+      const crcArmor = btoa(String.fromCharCode(tailBytes[0], tailBytes[1], tailBytes[2]));
+
+      const armoredEnvelope = [
+        "-----BEGIN K4L1 SOVEREIGN ENVELOPE-----",
+        "Version: Concilio-ACE-v2.8 (Zero-Cloud / WebCrypto SHA-256)",
+        "Channel: https://signal.me/#u/k4li.89 (Curve25519 / Double-Ratchet)",
+        "Frequency: 189.89.619 Hz",
+        `SHA256-Digest: ${sha256Hex}`,
+        "",
+        ...wrappedLines,
+        `=${crcArmor}`,
+        "-----END K4L1 SOVEREIGN ENVELOPE-----"
+      ].join("\n");
+
+      const envId = "env_" + (++envelopeSeq);
+      sovereignEnvelopes[envId] = armoredEnvelope;
+      // Limitar memoria manteniendo solo los últimos 25 sobres en sesión
+      const keys = Object.keys(sovereignEnvelopes);
+      if (keys.length > 25) delete sovereignEnvelopes[keys[0]];
+
+      playExecuteBeep();
+      const html = `
+<div class="my-1">
+  <div class="term-success">✓ SOBRE SOBERANO SELLADO (.k4li.asc) // SHA-256: <span class="term-highlight">${sha256Hex.slice(0, 24)}…${sha256Hex.slice(-12)}</span></div>
+  <pre class="p-3 my-1.5 rounded-lg border text-[11px] leading-snug overflow-x-auto select-text" style="background: rgba(0,0,0,0.65); border-color: var(--border-card); color: var(--phosphor-color);">${escapeHtml(armoredEnvelope)}</pre>
+  <div class="flex flex-wrap items-center gap-2 mt-1.5">
+    <button onclick="copySovereignEnvelope('${envId}')" class="hud-btn px-3 py-1 rounded-md text-[11px] text-emerald-300 border-emerald-800/70">📋 Copiar .k4li.asc</button>
+    <button onclick="downloadSovereignEnvelope('${envId}')" class="hud-btn px-3 py-1 rounded-md text-[11px] text-purple-300 border-purple-800/70">💾 Descargar .k4li.asc</button>
+    <a href="https://signal.me/#u/k4li.89" target="_blank" rel="noopener noreferrer" class="hud-btn px-3 py-1 rounded-md text-[11px] text-indigo-300 border-indigo-800/70 inline-block">📡 Abrir Signal (@k4li.89) ↗</a>
+  </div>
+</div>`;
+      printLine(html);
+    }
+
+    async function copySovereignEnvelope(envId) {
+      const content = sovereignEnvelopes[envId];
+      if (!content) {
+        playErrorBeep();
+        printLine(`<span class="term-danger">Error:</span> Sobre expirado del buffer de sesión.`);
+        return;
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(content);
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = content;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        }
+        playExecuteBeep();
+        printLine(`<span class="term-success">✓ Bloque .k4li.asc copiado al portapapeles.</span> Pégalo en tu canal E2EE Signal (<a href="https://signal.me/#u/k4li.89" target="_blank" rel="noopener noreferrer" class="term-link">@k4li.89</a>).`);
+      } catch (_e) {
+        playErrorBeep();
+        printLine(`<span class="term-warn">No se pudo acceder al portapapeles automáticamente; selecciona el bloque de texto manualmente.</span>`);
+      }
+    }
+
+    function downloadSovereignEnvelope(envId) {
+      const content = sovereignEnvelopes[envId];
+      if (!content) {
+        playErrorBeep();
+        return;
+      }
+      const blob = new Blob([content + "\n"], { type: "application/pgp-encrypted;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `sovereign_161914_${Date.now()}.k4li.asc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+      playExecuteBeep();
+      printLine(`<span class="term-success">✓ Archivo .k4li.asc exportado localmente (Zero-Cloud).</span>`);
     }
 
     /* ------------------------------------------------------------

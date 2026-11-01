@@ -60,8 +60,8 @@ Cuando un contacto llegue a Signal desde X, LinkedIn, Discord o la web, no entre
 > Por favor, completa los puntos solicitados por aquí en Signal. Si el proyecto encaja en ambas partes, cerraremos los detalles técnicos por notas de voz o llamada breve de 10 minutos.»
 
 ### Caso C: Pide prueba o desarrollo gratis
-> «No realizamos pruebas gratuitas de desarrollo. Nuestro trabajo previo, arquitectura y nivel técnico están públicamente documentados en nuestro repositorio y en nuestro Nexus interactivo:  
-> 🔗 `https://kali-anuu.github.io/k4li-anuu-forge/`  
+> «No realizamos pruebas gratuitas de desarrollo. Nuestro trabajo previo, arquitectura y nivel técnico están públicamente documentados en nuestro repositorio (`https://github.com/K4L189/k4lianuuforge`) y en nuestro Nexus interactivo:  
+> 🔗 `https://k4l189.github.io/k4lianuuforge/`  
 > Si requieres una Prueba de Concepto (PoC) personalizada para tu caso de uso, el coste de ejecución es de 250 € que se descontarán íntegramente del presupuesto final del proyecto si decides continuar.»
 
 ---
@@ -113,7 +113,7 @@ Usa la fórmula de ingeniería estructurada:
 Para que el cliente **tenga que pagar sí o sí el 50% final**:
 
 1. **La Regla del Servidor Neutro (Staging Host)**:
-   - Los dashboards se previsualizan en tu subdominio de Vercel/Cloudflare protegido con contraseña (`cliente-demo.k4li-studio.dev`).
+   - Los dashboards se previsualizan en tu entorno de Staging aislado / GitHub Pages protegido (`cliente-demo.k4li-studio.dev`).
    - Los bots y scrapers se demuestran con un vídeo de pantalla completa o una ejecución en vivo compartida por Signal/Loom sobre una muestra de 50 registros.
    - El Búnker IA se demuestra en remoto sobre una máquina de pruebas controlada por ti.
 2. **Cero Acceso Root Prematuro**:

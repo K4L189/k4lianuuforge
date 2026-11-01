@@ -5,16 +5,16 @@
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CÁMARA NEGRA // SANTUARIO SOBERANO | K4L1 STUDIO (161914)</title>
+  <title>SANTUARIO SOBERANO DEL ESPACIO 89 & CÁMARA ARMÓNICA DEL CONCILIO ACE v2.8 | K4L1 (161914)</title>
   <link rel="stylesheet" href="../assets/css/fullwallpaper.css">
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="../vendor/tailwind.min.js"></script>
   <script src="../assets/js/bunker_vault.js"></script>
   <script src="../assets/js/fullwallpaper.js"></script>
   <style>
     :root, [data-theme="anuu"] {
       --bg-main: #040407;
-      --bg-card: #090910;
-      --bg-card-sub: #050509;
+      --bg-card: #090912;
+      --bg-card-sub: #05050a;
       --border-card: #2d184d;
       --accent-primary: #9333ea;
       --accent-hover: #7e22ce;
@@ -29,41 +29,100 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
     .crt-overlay {
-      background: linear-gradient(rgba(18, 16, 26, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background: linear-gradient(rgba(18, 16, 26, 0) 50%, rgba(0, 0, 0, 0.24) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.025), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.025));
       background-size: 100% 3px, 6px 100%;
       pointer-events: none;
     }
     .tarpit-bar {
       transition: width 0.1s linear;
     }
+    .sanctuary-glass {
+      background: linear-gradient(155deg, rgba(11, 10, 20, 0.94) 0%, rgba(6, 5, 12, 0.97) 100%);
+      backdrop-filter: blur(12px);
+    }
+    .unit-altar {
+      transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    .unit-altar:hover {
+      transform: translateY(-2px);
+    }
+    .unit-altar.is-active {
+      background: linear-gradient(135deg, rgba(28, 16, 48, 0.85) 0%, rgba(10, 10, 20, 0.95) 100%);
+    }
+    input[type="range"].anuu-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(88, 28, 135, 0.38);
+      outline: none;
+    }
+    input[type="range"].anuu-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #c084fc;
+      border: 2px solid #090912;
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.7);
+      cursor: pointer;
+    }
+    input[type="range"].anuu-slider::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #c084fc;
+      border: 2px solid #090912;
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.7);
+      cursor: pointer;
+    }
+    .kiln-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .kiln-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .kiln-scroll::-webkit-scrollbar-thumb {
+      background: rgba(147, 51, 234, 0.45);
+      border-radius: 999px;
+    }
   </style>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
+  <script src="../assets/js/anuu_gate.js"></script>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-purple-900 selection:text-white relative overflow-x-hidden">
 
   <!-- Efecto CRT Scanlines -->
   <div class="fixed inset-0 crt-overlay z-40"></div>
 
-  <!-- Header Táctico -->
-  <header class="border-b border-purple-900/40 bg-black/80 backdrop-blur-md sticky top-0 z-30 px-4 py-3">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+  <!-- Header Táctico v2.8 -->
+  <header class="border-b border-purple-900/40 bg-black/85 backdrop-blur-md sticky top-0 z-30 px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-purple-900/30 border border-purple-500/50 flex items-center justify-center text-sm shadow-[0_0_10px_rgba(147,51,234,0.4)]">
-          👁️
+        <div class="w-9 h-9 rounded-xl bg-purple-900/30 border border-purple-500/50 flex items-center justify-center text-base shadow-[0_0_14px_rgba(147,51,234,0.45)]">
+          💎
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-white tracking-widest uppercase">CÁMARA NEGRA // SANTUARIO SOBERANO</span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] bg-purple-500/10 text-purple-300 border border-purple-500/30">189.89.619 HZ</span>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-white tracking-widest uppercase">SANTUARIO SOBERANO DEL ESPACIO 89</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] bg-purple-500/15 text-purple-300 border border-purple-500/35 font-bold">v2.8 // CONCILIO ACE</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] bg-fuchsia-500/10 text-fuchsia-300 border border-fuchsia-500/30">189.89.619 HZ</span>
           </div>
-          <p class="text-[10px] text-zinc-500">ZONA CIEGA A ESCANEOS • TARPIT CRIPTOGRÁFICO & GESTIÓN DE MASTER KEY</p>
+          <p class="text-[10px] text-zinc-400 mt-0.5">CÁMARA ARMÓNICA POLIFÓNICA • HORNO ALQUÍMICO 619 HZ • TAR PIT &amp; BÓVEDA PQC</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+      <div class="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
+        <button type="button" onclick="toggleConcilioAudio()" id="headerAudioPill"
+          class="px-3 py-1.5 rounded-lg border border-purple-500/40 bg-purple-950/40 text-purple-200 hover:bg-purple-900/50 transition-all flex items-center gap-1.5 text-[11px]">
+          <span id="headerAudioDot" class="w-2 h-2 rounded-full bg-zinc-500"></span>
+          <span id="headerAudioLabel">Audio: Silencio</span>
+        </button>
         <a href="../index.html" class="px-3 py-1.5 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5">
           <span>💼</span> K4L1 Studio
         </a>
-        <button onclick="triggerPanicModal()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/40 hover:bg-rose-500/30 font-bold transition-all flex items-center gap-1.5">
+        <button type="button" onclick="triggerPanicModal()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/40 hover:bg-rose-500/30 font-bold transition-all flex items-center gap-1.5">
           <span>💥</span> Purga Cero
         </button>
       </div>
@@ -71,331 +130,645 @@
   </header>
 
   <!-- Contenedor Principal -->
-  <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-1 z-10">
+  <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-1 z-10 space-y-8">
 
-    <!-- ============================================================= -->
-    <!-- FASE 1: TARPIT CRIPTOGRÁFICO & ACCESO CON LATENCIA APOSTA     -->
-    <!-- ============================================================= -->
-    <div id="tarpitGateSection" class="max-w-lg mx-auto my-10 p-8 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl relative overflow-hidden">
-      <div class="w-16 h-16 rounded-2xl mx-auto mb-4 bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(147,51,234,0.3)]">
-        ⏳
-      </div>
-      
-      <div class="text-center mb-6">
-        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 border border-amber-500/30 text-amber-300 uppercase">
-          Defensa Activa: Cryptographic Tar Pit
-        </span>
-        <h2 class="text-lg font-bold text-white mt-2 tracking-wider">COMPUERTA DE ALTA LATENCIA</h2>
-        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
-          Este nodo dilata deliberadamente los vectores de respuesta temporal (4.2 segundos) y ejecuta un cálculo Proof-of-Work (500.000 iteraciones PBKDF2). Los crawlers y escáneres automáticos con timeout corto son descartados instantáneamente.
-        </p>
-      </div>
-
-      <!-- Formulario de Entrada -->
-      <form id="tarpitForm" onsubmit="handleTarpitUnlock(event)" class="space-y-4">
-        <div>
-          <label class="block text-[10px] text-zinc-400 uppercase mb-1">Llave Soberana de la Arquitecta</label>
-          <div class="relative">
-            <input type="password" id="sovereignPassInput" placeholder="Introduce tu Llave Soberana" required
-              class="w-full bg-black/60 border border-purple-900/50 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500 transition-colors pr-10">
-            <button type="button" onclick="togglePassVisibility('sovereignPassInput', 'eyeSov')" class="absolute right-3 top-2.5 text-zinc-400 hover:text-white text-xs">
-              <span id="eyeSov">👁️</span>
-            </button>
-          </div>
-        </div>
-
-        <div id="tarpitErrorMsg" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs"></div>
-
-        <button type="submit" id="btnSubmitTarpit" class="w-full py-2.5 rounded-xl font-bold text-xs text-white shadow-lg transition-all flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700">
-          <span>🔮</span> Iniciar Dilatación Temporal & Desbloquear
+    <!-- Barra de Navegación de Cámaras del Espacio 89 -->
+    <nav aria-label="Cámaras del Santuario" class="p-2 rounded-2xl sanctuary-glass border border-purple-900/40 flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div class="flex flex-wrap items-center gap-1.5">
+        <button type="button" onclick="switchChamberFilter('all')" id="cfilter-all"
+          class="px-3 py-1.5 rounded-xl bg-purple-500/20 text-purple-200 border border-purple-500/40 font-bold transition-all flex items-center gap-1.5">
+          <span>🌌</span> Santuario Completo (v2.8)
         </button>
-      </form>
-
-      <!-- Barra de Progreso del Tar Pit (Oculta al inicio) -->
-      <div id="tarpitProgressContainer" class="hidden mt-6 space-y-2">
-        <div class="flex items-center justify-between text-[11px] text-zinc-400">
-          <span id="tarpitStepText">Dilatando vector temporal...</span>
-          <span id="tarpitPercent" class="font-bold text-purple-300">0%</span>
-        </div>
-        <div class="w-full h-2 bg-black/80 rounded-full overflow-hidden border border-purple-900/40">
-          <div id="tarpitBar" class="h-full tarpit-bar bg-gradient-to-r from-purple-600 via-fuchsia-500 to-emerald-400 w-0"></div>
-        </div>
-        <p id="tarpitSubtext" class="text-[10px] text-zinc-500 text-center animate-pulse mt-1">Calculando Proof-of-Work WebCrypto SHA-512...</p>
+        <button type="button" onclick="switchChamberFilter('harmonic')" id="cfilter-harmonic"
+          class="px-3 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+          <span>🎛️</span> Resonador Polifónico (10 Unidades)
+        </button>
+        <button type="button" onclick="switchChamberFilter('kiln')" id="cfilter-kiln"
+          class="px-3 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+          <span>🔥</span> Horno Alquímico (619 Hz)
+        </button>
+        <button type="button" onclick="switchChamberFilter('vault')" id="cfilter-vault"
+          class="px-3 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+          <span>🔐</span> Cámara Negra &amp; PQC
+        </button>
       </div>
-
-      <div class="mt-6 pt-4 border-t border-purple-900/30 text-[10px] text-zinc-500 flex justify-between">
-        <span>Defensa: Anti-Crawler Tar Pit</span>
-        <span class="text-emerald-400">Zero-Trace RAM Buffer</span>
+      <div class="hidden sm:flex items-center gap-2 pr-2 text-[10px] text-zinc-400">
+        <span class="text-emerald-400">● ZERO-CDN</span>
+        <span>•</span>
+        <span class="text-purple-300">ZERO-NETWORK SEAL</span>
       </div>
-    </div>
+    </nav>
 
-    <!-- ============================================================= -->
-    <!-- FASE 2: SANTUARIO DESBLOQUEADO (GESTIÓN DE LLAVES & SECRETOS) -->
-    <!-- ============================================================= -->
-    <div id="sanctuaryUnlockedSection" class="hidden space-y-6">
-
-      <!-- Barra de Telemetría Soberana -->
-      <div class="p-5 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div>
+    <!-- ========================================================================= -->
+    <!-- CÁMARA I: RESONADOR POLIFÓNICO DE LAS 10 IDENTIDADES & MANDALA FFT 60 FPS -->
+    <!-- ========================================================================= -->
+    <section id="chamberHarmonicSection" class="rounded-2xl sanctuary-glass border border-purple-900/50 shadow-2xl p-5 sm:p-6 space-y-6">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-purple-900/40 pb-4">
+        <div class="space-y-1">
           <div class="flex items-center gap-2 flex-wrap">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <h3 class="text-sm font-bold text-white">NEXO SOBERANO ACTIVO // K4L1 ⊘k-0</h3>
-            <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">RAM VOLÁTIL</span>
-            <span class="px-2 py-0.5 rounded text-[10px] bg-purple-500/10 text-purple-300 border border-purple-500/30">PQC FIPS 203 // 128-BIT GROVER</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/15 text-purple-300 border border-purple-500/35 uppercase tracking-wider">
+              Cámara Armónica // Espacio 89
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+              Batido Binaural +4.50 Hz (Theta/Alpha)
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+              Mandala Polar 60 FPS
+            </span>
           </div>
-          <p class="text-xs text-zinc-400 mt-1">
-            Huella Criptográfica SHA-256 de la Llave Activa: <code id="activeKeyFingerprint" class="text-purple-300 font-bold tracking-wider">CALCULANDO...</code>
+          <h1 class="text-base sm:text-lg font-bold text-white tracking-wider">
+            RESONADOR POLIFÓNICO DE LAS 10 IDENTIDADES DEL CONCILIO ACE
+          </h1>
+          <p class="text-xs text-zinc-400 leading-relaxed max-w-3xl">
+            Síntesis psicoacústica suave opt-in mediante Web Audio API: armónico fundamental puro + par binaural desplazado <code class="text-purple-300">+4.5 Hz</code> con filtro paso-bajo cálido y rampas exponenciales libres de chasquidos. Combina múltiples altares en Polifonía Síncrona.
           </p>
         </div>
 
-        <div class="flex items-center gap-2">
-          <button onclick="lockSanctuary()" class="px-3.5 py-1.5 rounded-xl border border-zinc-800 text-zinc-300 hover:text-white hover:bg-white/5 text-xs transition-all flex items-center gap-1.5">
-            <span>🔒</span> Bloquear Cámara
+        <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+          <button type="button" id="btnToggleAudio" onclick="toggleConcilioAudio()"
+            class="px-4 py-2.5 rounded-xl font-bold text-xs text-white bg-purple-600 hover:bg-purple-500 border border-purple-400/40 shadow-[0_0_20px_rgba(147,51,234,0.35)] transition-all flex items-center gap-2">
+            <span id="btnAudioIcon">🔊</span>
+            <span id="btnAudioText">Activar Audio Armónico</span>
           </button>
         </div>
       </div>
 
-      <!-- Selector de Pestañas del Santuario -->
-      <div class="flex flex-wrap gap-2 border-b border-purple-900/40 pb-3 text-xs">
-        <button onclick="switchSanctuaryTab('pqc')" id="stab-pqc" class="px-3.5 py-1.5 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/40 font-bold transition-all flex items-center gap-1.5">
-          <span>🛡️</span> Resistencia Post-Cuántica (PQC)
-        </button>
-        <button onclick="switchSanctuaryTab('rotation')" id="stab-rotation" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
-          <span>🔄</span> Rotación de Llave Soberana
-        </button>
-        <button onclick="switchSanctuaryTab('paperkey')" id="stab-paperkey" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
-          <span>📜</span> Paper Key (12 Palabras)
-        </button>
-        <button onclick="switchSanctuaryTab('tokens')" id="stab-tokens" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
-          <span>🎫</span> Emisor de Tokens de Cliente
-        </button>
-        <button onclick="switchSanctuaryTab('antiforensic')" id="stab-antiforensic" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
-          <span>⚡</span> Telemetría Anti-Forense
-        </button>
-      </div>
-
-      <!-- MÓDULO 1: ROTACIÓN DE MASTER KEY EN CALIENTE -->
-      <div id="stab-view-rotation" class="p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
-        <div class="flex items-center gap-2">
-          <span class="text-lg">🔄</span>
-          <h4 class="text-sm font-bold text-white">Rotador en Caliente de la Llave Maestra Soberana</h4>
+      <!-- Barra de Controles Psicoacústicos y Presets del Concilio -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center p-3.5 rounded-xl bg-black/50 border border-purple-900/35 text-xs">
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <div class="flex justify-between text-[10px] text-zinc-400 uppercase mb-1.5">
+              <span>Ganancia Maestra</span>
+              <span id="lblMasterGain" class="text-purple-300 font-bold">28%</span>
+            </div>
+            <input type="range" id="sliderMasterGain" min="4" max="85" value="28"
+              oninput="updateMasterGainSlider(this.value)" class="w-full anuu-slider">
+          </div>
+          <div>
+            <div class="flex justify-between text-[10px] text-zinc-400 uppercase mb-1.5">
+              <span>Filtro Paso-Bajo Cálido</span>
+              <span id="lblWarmCutoff" class="text-amber-300 font-bold">1350 Hz</span>
+            </div>
+            <input type="range" id="sliderWarmCutoff" min="320" max="3200" step="10" value="1350"
+              oninput="updateWarmFilterSlider(this.value)" class="w-full anuu-slider">
+          </div>
         </div>
-        <p class="text-xs text-zinc-400 leading-relaxed">
-          Permite sustituir tu Master Key actual por una nueva sin perder los clientes ni reliquias. El motor descifra todos los registros de IndexedDB en RAM, genera nuevos vectores de inicialización (IV 12-bytes) y salts (16-bytes), re-cifra toda la base con AES-256-GCM y compila un nuevo <code class="text-purple-300">vault_payload.json</code> descargable.
-        </p>
 
-        <form onsubmit="handleRotateKey(event)" class="space-y-4 max-w-xl">
-          <div>
-            <label class="block text-[10px] text-zinc-400 uppercase mb-1">Llave Maestra Actual</label>
-            <input type="password" id="rotCurrentPass" required placeholder="Tu Master Key activa"
-              class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
-          </div>
-          <div>
-            <label class="block text-[10px] text-zinc-400 uppercase mb-1">Nueva Llave Soberana</label>
-            <input type="password" id="rotNewPass" required placeholder="Nueva frase o código soberano"
-              class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
-          </div>
-          <div>
-            <label class="block text-[10px] text-zinc-400 uppercase mb-1">Confirmar Nueva Llave Soberana</label>
-            <input type="password" id="rotConfirmPass" required placeholder="Repite la nueva llave"
-              class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
-          </div>
-
-          <div id="rotStatusMsg" class="hidden p-3 rounded-xl text-xs"></div>
-
-          <button type="submit" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg transition-all flex items-center gap-2">
-            <span>⚡</span> Ejecutar Re-cifrado y Generar Nuevo Payload
+        <div class="lg:col-span-7 flex flex-wrap items-center lg:justify-end gap-1.5">
+          <span class="text-[10px] text-zinc-500 uppercase mr-1">Acordes:</span>
+          <button type="button" onclick="applyConcilioPreset(['anuu', 'rosagris', 'kaliyradiel'])"
+            class="px-2.5 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-200 text-[11px] transition-all">
+            🌫️ Tríada 89
           </button>
-        </form>
-      </div>
-
-      <!-- MÓDULO 2: PAPER KEY DE EMERGENCIA (12 PALABRAS CANÓNICAS) -->
-      <div id="stab-view-paperkey" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
-        <div class="flex items-center gap-2">
-          <span class="text-lg">📜</span>
-          <h4 class="text-sm font-bold text-white">Paper Key Soberana (Mnemónico de 12 Palabras)</h4>
-        </div>
-        <p class="text-xs text-zinc-400 leading-relaxed">
-          Esta secuencia de 12 palabras sagradas está derivada de forma determinista mediante SHA-512 de tu Master Key soberana sobre el léxico primordial del Concilio ACE. Guárdala en papel o soporte físico desconectado para recuperación en frío.
-        </p>
-
-        <div id="paperWordsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 my-4">
-          <!-- Se genera dinámicamente -->
-        </div>
-
-        <div class="flex flex-wrap gap-2 pt-2">
-          <button onclick="copyPaperWords()" class="px-4 py-2 rounded-xl border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>📋</span> Copiar 12 Palabras
+          <button type="button" onclick="applyConcilioPreset(['kanuv', 'set', 'saze'])"
+            class="px-2.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-200 text-[11px] transition-all">
+            🛡️ Escudo &amp; Corte
           </button>
-          <button onclick="window.print()" class="px-4 py-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300 hover:text-white text-xs transition-all flex items-center gap-1.5">
-            <span>🖨️</span> Imprimir Ficha de Recuperación Fría
+          <button type="button" onclick="applyConcilioPreset(['kalicat', 'anuket', 'kilonova'])"
+            class="px-2.5 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-200 text-[11px] transition-all">
+            🌟 Corona &amp; Flujo
+          </button>
+          <button type="button" onclick="applyConcilioPreset('all')"
+            class="px-2.5 py-1.5 rounded-lg bg-fuchsia-500/10 hover:bg-fuchsia-500/20 border border-fuchsia-500/30 text-fuchsia-200 text-[11px] transition-all">
+            🌌 Pléyade (10)
+          </button>
+          <button type="button" onclick="applyConcilioPreset(['offlinecore'])"
+            class="px-2.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 text-[11px] transition-all">
+            🧠 Silicio 111 Hz
           </button>
         </div>
       </div>
 
-      <!-- MÓDULO 3: EMISOR DE TOKENS EFÍMEROS HMAC PARA CLIENTES -->
-      <div id="stab-view-tokens" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
-        <div class="flex items-center gap-2">
-          <span class="text-lg">🎫</span>
-          <h4 class="text-sm font-bold text-white">Emisor de Tokens de Acceso Firmados con HMAC-SHA256</h4>
+      <!-- Núcleo Visual + 10 Altares Interactivos -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Mandala FFT & Osciloscopio Polar Sagrado 60 FPS -->
+        <div class="lg:col-span-5 flex flex-col gap-3">
+          <div class="relative rounded-2xl bg-[#040309] border border-purple-800/50 overflow-hidden shadow-[inset_0_0_40px_rgba(147,51,234,0.16)] aspect-square w-full">
+            <canvas id="harmonicMandalaCanvas" class="w-full h-full block cursor-crosshair" title="Haz clic sobre un nodo perimetral para conmutar su identidad"></canvas>
+
+            <!-- HUD Superior Izquierdo -->
+            <div class="absolute top-3 left-3 pointer-events-none space-y-0.5">
+              <div id="hudEngineMode" class="text-[10px] font-bold text-purple-300 tracking-wider uppercase">
+                MODO: OSCILACIÓN MATEMÁTICA
+              </div>
+              <div id="hudPolyCount" class="text-[10px] text-zinc-400">
+                POLIFONÍA: 3 / 10 VOCES
+              </div>
+            </div>
+
+            <!-- HUD Superior Derecho -->
+            <div class="absolute top-3 right-3 pointer-events-none text-right space-y-0.5">
+              <div id="hudCentroid" class="text-[10px] font-bold text-fuchsia-300 font-mono">
+                CENTROIDE: 553.63 HZ
+              </div>
+              <div class="text-[10px] text-cyan-400/90 font-mono">
+                Δ BINAURAL: +4.50 HZ
+              </div>
+            </div>
+
+            <!-- HUD Inferior Izquierdo -->
+            <div class="absolute bottom-3 left-3 pointer-events-none">
+              <span class="px-2 py-0.5 rounded bg-black/70 border border-purple-900/50 text-[9px] text-zinc-400">
+                FFT 1024 • POLAR GEOMETRY • <span id="hudFpsCounter" class="text-emerald-400">60</span> FPS
+              </span>
+            </div>
+
+            <!-- HUD Inferior Derecho -->
+            <div class="absolute bottom-3 right-3 pointer-events-none">
+              <span class="px-2 py-0.5 rounded bg-black/70 border border-purple-900/50 text-[9px] text-purple-300 font-bold">
+                ⊘k-0 // 161914
+              </span>
+            </div>
+          </div>
+
+          <!-- Consola de Resonancia Polifónica Activa -->
+          <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40 space-y-1.5">
+            <div class="flex items-center justify-between text-[10px] uppercase">
+              <span class="text-zinc-500 font-bold">Vector Simbiótico en Resonancia</span>
+              <span id="activeChordSignature" class="text-purple-300 font-mono">189.89 + 619.00 + 852.00 Hz</span>
+            </div>
+            <p id="activeConcilioMantra" class="text-xs text-purple-100/90 italic leading-relaxed">
+              «La niebla sostiene la ceniza en el horno hasta que la presión revela el diamante.»
+            </p>
+          </div>
         </div>
-        <p class="text-xs text-zinc-400 leading-relaxed">
-          Emite credenciales temporales firmadas con tu llave maestra para tus clientes. Con este token pueden acceder al Portal de Cliente y verificar hitos de entrega sin tener acceso al búnker ni a tus márgenes.
-        </p>
 
-        <form onsubmit="handleGenerateClientToken(event)" class="space-y-4 max-w-xl">
-          <div>
-            <label class="block text-[10px] text-zinc-400 uppercase mb-1">Identificador del Cliente</label>
-            <input type="text" id="tokenClientName" required placeholder="Ej: CyberNova_Holdings"
-              class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
-          </div>
-          <div>
-            <label class="block text-[10px] text-zinc-400 uppercase mb-1">Periodo de Validez</label>
-            <select id="tokenValidity" class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
-              <option value="1">24 Horas (Demostración Rápida)</option>
-              <option value="7" selected>7 Días (Fase de Staging)</option>
-              <option value="30">30 Días (Proyecto Completo)</option>
-              <option value="90">90 Días (Soporte Trimestral)</option>
-            </select>
-          </div>
-
-          <button type="submit" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg transition-all flex items-center gap-2">
-            <span>✍️</span> Firmar y Generar Token HMAC
-          </button>
-        </form>
-
-        <div id="generatedTokenContainer" class="hidden mt-4 p-4 rounded-xl bg-black/50 border border-emerald-500/40 space-y-2">
-          <div class="text-[10px] text-emerald-400 uppercase font-bold">Token Firmado Creado con Éxito:</div>
-          <div class="flex items-center gap-2">
-            <input type="text" readonly id="generatedTokenText" class="w-full bg-black/80 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-purple-300 font-bold font-mono">
-            <button onclick="copyGeneratedToken()" class="px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 font-bold text-xs shrink-0">
-              Copiar
+        <!-- Grid de las 10 Identidades del Concilio ACE -->
+        <div class="lg:col-span-7 space-y-3">
+          <div class="flex items-center justify-between text-[11px] text-zinc-400 px-1">
+            <span>Selecciona 1 o varias unidades para modular la matriz polifónica:</span>
+            <button type="button" onclick="clearAllConcilioVoices()" class="text-[10px] text-zinc-500 hover:text-rose-300 transition-colors underline">
+              Vaciar matriz
             </button>
           </div>
-          <p class="text-[10px] text-zinc-500">Entrega este token a tu cliente para que lo ingrese en el Búnker de K4L1 Studio.</p>
+
+          <div id="concilioAltarsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <!-- Renderizado dinámicamente por el motor del Concilio ACE (10 unidades canónicas) -->
+          </div>
         </div>
+
       </div>
+    </section>
 
-      <!-- MÓDULO 4: TELEMETRÍA ANTI-FORENSE -->
-      <div id="stab-view-antiforensic" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
-        <div class="flex items-center gap-2">
-          <span class="text-lg">🛡️</span>
-          <h4 class="text-sm font-bold text-white">Monitor de Postura Anti-Forense & Tar Pit</h4>
+    <!-- ========================================================================= -->
+    <!-- CÁMARA II: BITÁCORA DEL HORNO ALQUÍMICO (619 HZ · LOCAL ZERO-KNOWLEDGE)   -->
+    <!-- ========================================================================= -->
+    <section id="chamberKilnSection" class="rounded-2xl sanctuary-glass border border-rose-900/40 shadow-2xl p-5 sm:p-6 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-purple-900/40 pb-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/15 text-rose-300 border border-rose-500/35 uppercase tracking-wider">
+              Horno Alquímico // 619.00 Hz
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+              WebCrypto SHA-256 • Cero Tráfico de Red
+            </span>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-wider">
+            BITÁCORA DEL HORNO ALQUÍMICO &amp; SELLADOR SOBERANO <code class="text-rose-300 text-sm">.k4li.asc</code>
+          </h2>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Deposita reflexiones, vectores de arquitectura o notas tácticas bajo custodia estrictamente local (<code class="text-purple-300">localStorage</code>) o séllalas como bloque criptográfico firmado con <code class="text-emerald-300">SHA-256</code> descargable en un clic.
+          </p>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/30">
-            <div class="text-[10px] text-zinc-500 uppercase">Intentos Bloqueados</div>
-            <div id="statBruteBlocked" class="text-base font-bold text-rose-400 mt-1">0</div>
-          </div>
-          <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/30">
-            <div class="text-[10px] text-zinc-500 uppercase">Dilatación Temporal Tar Pit</div>
-            <div class="text-base font-bold text-purple-300 mt-1">4.2 Segundos</div>
-          </div>
-          <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/30">
-            <div class="text-[10px] text-zinc-500 uppercase">Aislamiento de Memoria</div>
-            <div class="text-base font-bold text-emerald-400 mt-1">RAM Volátil E2EE</div>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-xl bg-black/40 border border-zinc-800 text-xs text-zinc-400 space-y-2 leading-relaxed">
-          <p>• <strong>Resistencia a Crawlers:</strong> Las herramientas automáticas (ZAP, Burp, crawlers headless) descartan esta sección por latencia excesiva en sockets HTTP.</p>
-          <p>• <strong>Resistencia a Dumping:</strong> Las claves maestras jamás se persisten en texto claro en `localStorage` ni en cookies. Solo residen en variables cerradas (closures) en RAM.</p>
-          <p>• <strong>Auto-Purga por Inactividad:</strong> Se ejecuta automáticamente tras 30 minutos de inactividad del cursor.</p>
-        </div>
-      </div>
-
-      <!-- MÓDULO 5: TELEMETRÍA POST-CUÁNTICA & KEM FIPS 203 -->
-      <div id="stab-view-pqc" class="p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-purple-900/40 pb-4">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🛡️</span>
-            <div>
-              <h4 class="text-sm font-bold text-white tracking-wider">MOTOR DE RESISTENCIA POST-CUÁNTICA (PQC)</h4>
-              <p class="text-[11px] text-zinc-400">Escudo Kanuv // Kyber-768 ML-KEM + AES-256-GCM + PBKDF2-SHA512 (500k Rondas)</p>
-            </div>
-          </div>
-          <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shrink-0">
-            NIST FIPS 203 COMPLIANT
+        <div class="text-right shrink-0">
+          <span class="px-3 py-1 rounded-xl bg-black/60 border border-rose-500/30 text-[10px] text-rose-200 font-mono">
+            LIBRA DURA • CATARSIS 619 HZ
           </span>
         </div>
+      </div>
 
-        <!-- Tarjetas de Telemetría Cuántica en Vivo -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
-            <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
-              <span>Algoritmo de Shor</span>
-              <span class="text-emerald-400 font-bold">● INMUNE</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Editor & Sellador .k4li.asc -->
+        <div class="lg:col-span-7 space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+            <div class="sm:col-span-7">
+              <label for="kilnNoteTitle" class="block text-[10px] text-zinc-400 uppercase mb-1">Título / Vector Alquímico</label>
+              <input type="text" id="kilnNoteTitle" placeholder="Ej: PROTOCOLO DIAMANTE // CORTE DE ILUSIÓN"
+                class="w-full bg-black/70 border border-purple-900/50 rounded-xl px-3.5 py-2 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-rose-400 transition-colors">
             </div>
-            <div class="text-sm font-bold text-emerald-300 mt-1">SHOR-PROOF</div>
-            <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">Sin asimetría RSA ni ECC en reposo. Cero vulnerabilidad a factorización cuántica.</p>
+            <div class="sm:col-span-5">
+              <label for="kilnWitnessSelect" class="block text-[10px] text-zinc-400 uppercase mb-1">Unidad Testigo del Sello</label>
+              <select id="kilnWitnessSelect"
+                class="w-full bg-black/70 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-purple-200 focus:outline-none focus:border-rose-400">
+                <option value="Rosa Gris 🌸 (619.00 Hz)" selected>Rosa Gris 🌸 · 619.00 Hz</option>
+                <option value="Kali-Yradiel 💎 (852.00 Hz)">Kali-Yradiel 💎 · 852.00 Hz</option>
+                <option value="Anuu 🌫️ (189.89 Hz)">Anuu 🌫️ · 189.89 Hz</option>
+                <option value="Kanuv 🛡️ (777.00 Hz)">Kanuv 🛡️ · 777.00 Hz</option>
+                <option value="Set ⚡ (161.91 Hz)">Set ⚡ · 161.91 Hz</option>
+                <option value="Kalicat 🐾 (432.00 Hz)">Kalicat 🐾 · 432.00 Hz</option>
+                <option value="Kilonova 🌟 (963.00 Hz)">Kilonova 🌟 · 963.00 Hz</option>
+                <option value="Anuket 💧 (528.00 Hz)">Anuket 💧 · 528.00 Hz</option>
+                <option value="Saze 🏛️ (396.00 Hz)">Saze 🏛️ · 396.00 Hz</option>
+                <option value="Offline Core 🧠 (111.00 Hz)">Offline Core 🧠 · 111.00 Hz</option>
+              </select>
+            </div>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
-            <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
-              <span>Algoritmo de Grover</span>
-              <span class="text-purple-300 font-bold">● 128-BIT</span>
+          <div>
+            <div class="flex items-center justify-between text-[10px] text-zinc-400 uppercase mb-1">
+              <label for="kilnNoteBody">Manuscrito / Reflexión Táctica</label>
+              <span id="kilnByteCounter" class="text-zinc-500 font-mono">0 bytes</span>
             </div>
-            <div class="text-sm font-bold text-purple-300 mt-1">128 BITS CUÁNTICOS</div>
-            <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">AES-256 conserva 128 bits cuánticos de entropía efectiva tras la aceleración O(√N).</p>
+            <textarea id="kilnNoteBody" rows="5" oninput="updateLiveKilnDigest()"
+              placeholder="Escribe aquí tu nota táctica o transmutación en el Horno Alquímico (619 Hz). Ningún byte abandona jamás tu máquina..."
+              class="w-full bg-black/75 border border-purple-900/50 rounded-xl p-3.5 text-xs text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-rose-400 transition-colors leading-relaxed"></textarea>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
-            <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
-              <span>KDF Reforzada</span>
-              <span class="text-cyan-400 font-bold">● SHA-512</span>
+          <!-- Huella SHA-256 en Tiempo Real -->
+          <div class="p-3 rounded-xl bg-black/60 border border-purple-900/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[10px]">
+            <div class="truncate">
+              <span class="text-zinc-500 uppercase mr-1.5">SHA-256 Vivo:</span>
+              <code id="kilnLiveSha256" class="text-emerald-300 font-mono">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
             </div>
-            <div class="text-sm font-bold text-cyan-300 mt-1">500.000 RONDAS</div>
-            <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">PBKDF2 HMAC-SHA512 + Sal de 256 bits (32B) para pulverizar aceleradores cuánticos.</p>
+            <span class="text-purple-300 shrink-0 font-bold">0 TRÁFICO DE RED</span>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
-            <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
-              <span>Post-Quantum KEM</span>
-              <span class="text-amber-400 font-bold">● KYBER-768</span>
+          <div id="kilnStatusBanner" class="hidden p-2.5 rounded-xl text-xs"></div>
+
+          <!-- Acciones del Horno -->
+          <div class="flex flex-wrap items-center gap-2.5 pt-1">
+            <button type="button" onclick="saveNoteToAlchemicalKiln()"
+              class="px-4 py-2.5 rounded-xl bg-rose-600/85 hover:bg-rose-600 text-white font-bold text-xs border border-rose-400/40 shadow-lg transition-all flex items-center gap-1.5">
+              <span>🔥</span> Guardar en Horno Local
+            </button>
+            <button type="button" onclick="sealAndDownloadAscBlock()"
+              class="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs border border-purple-400/40 shadow-lg transition-all flex items-center gap-1.5">
+              <span>💎</span> Sellar &amp; Descargar <code class="text-[11px]">.k4li.asc</code>
+            </button>
+            <button type="button" onclick="copyCurrentAscBlock()"
+              class="px-3.5 py-2.5 rounded-xl bg-black/60 hover:bg-white/5 text-purple-200 border border-purple-500/35 text-xs transition-all flex items-center gap-1.5">
+              <span>📋</span> Copiar Bloque Firmado
+            </button>
+          </div>
+
+          <!-- Visor del Último Sello .k4li.asc Generado -->
+          <div id="kilnSealedPreviewBox" class="hidden pt-2">
+            <div class="flex items-center justify-between text-[10px] text-emerald-400 uppercase mb-1">
+              <span>Último Bloque Criptográfico Armado (.k4li.asc)</span>
+              <button type="button" onclick="document.getElementById('kilnSealedPreviewBox').classList.add('hidden')" class="text-zinc-500 hover:text-white">Ocultar ✕</button>
             </div>
-            <div class="text-sm font-bold text-amber-300 mt-1">ML-KEM-768 FIPS 203</div>
-            <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">Encapsulamiento híbrido lattice-based preparado para interconexión cuántica.</p>
+            <pre id="kilnSealedPreviewText" class="p-3 rounded-xl bg-black/90 border border-emerald-500/30 text-[10px] text-emerald-200/90 font-mono overflow-x-auto max-h-44 kiln-scroll"></pre>
           </div>
         </div>
 
-        <!-- Banco de Pruebas PQC Interactivo -->
-        <div class="p-5 rounded-xl bg-black/40 border border-zinc-800 space-y-4">
-          <div class="flex items-center justify-between">
-            <h5 class="text-xs font-bold text-white flex items-center gap-2">
-              <span>🔬</span> Cifrador & Auditor Cuántico en Vivo
-            </h5>
-            <span class="text-[10px] text-purple-300 font-mono">189.89.619 Hz // Zero-Knowledge</span>
+        <!-- Bóveda Local de Notas en localStorage -->
+        <div class="lg:col-span-5 flex flex-col justify-between p-4 rounded-xl bg-black/55 border border-purple-900/40 space-y-3">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b border-purple-900/30 pb-2.5">
+              <div>
+                <h3 class="text-xs font-bold text-white uppercase tracking-wider">Reliquias en Memoria Local</h3>
+                <p class="text-[10px] text-zinc-500">Persistidas únicamente en tu navegador (<code class="text-zinc-400">localStorage</code>)</p>
+              </div>
+              <span id="kilnSavedCountBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/15 text-purple-300 border border-purple-500/30">
+                0 sellos
+              </span>
+            </div>
+
+            <div id="kilnEntriesList" class="space-y-2.5 max-h-80 overflow-y-auto pr-1 kiln-scroll">
+              <!-- Se puebla dinámicamente -->
+            </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="space-y-3">
-              <div>
-                <label class="block text-[10px] text-zinc-400 uppercase mb-1">Dato de Prueba a Cifrar con PQC</label>
-                <textarea id="pqcPlaintextInput" rows="3" class="w-full bg-black/70 border border-purple-900/40 rounded-xl p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500 font-mono">{"relic": "ALQUIMIA-161914", "guardian": "Kanuv", "status": "INVIOLABLE"}</textarea>
-              </div>
-              <button type="button" onclick="runLivePQCEncrypt()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg transition-all flex items-center gap-1.5">
-                <span>⚡</span> Cifrar con PQC Engine (500k Rondas)
+          <div class="pt-2 border-t border-purple-900/30 flex items-center justify-between text-[10px] text-zinc-500">
+            <span>Custodia: Zero-Knowledge Local</span>
+            <button type="button" onclick="clearAllKilnEntries()" class="text-rose-400/80 hover:text-rose-300 transition-colors">
+              Incinerar bitácora local
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- CÁMARA III: TARPIT CRIPTOGRÁFICO & GESTIÓN DE LLAVES SOBERANAS (PQC)      -->
+    <!-- ========================================================================= -->
+    <section id="chamberVaultSection" class="space-y-6">
+
+      <!-- FASE 1: TARPIT CRIPTOGRÁFICO & ACCESO CON LATENCIA APOSTA -->
+      <div id="tarpitGateSection" class="max-w-lg mx-auto my-4 p-8 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl relative overflow-hidden">
+        <div class="w-16 h-16 rounded-2xl mx-auto mb-4 bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+          ⏳
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 border border-amber-500/30 text-amber-300 uppercase">
+            Defensa Activa: Cryptographic Tar Pit
+          </span>
+          <h2 class="text-lg font-bold text-white mt-2 tracking-wider">CÁMARA NEGRA // COMPUERTA DE ALTA LATENCIA</h2>
+          <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+            Este nodo dilata deliberadamente los vectores de respuesta temporal (4.2 segundos) y ejecuta un cálculo Proof-of-Work (500.000 iteraciones PBKDF2). Los crawlers y escáneres automáticos con timeout corto son descartados instantáneamente.
+          </p>
+        </div>
+
+        <!-- Formulario de Entrada -->
+        <form id="tarpitForm" onsubmit="handleTarpitUnlock(event)" class="space-y-4">
+          <div>
+            <label class="block text-[10px] text-zinc-400 uppercase mb-1">Llave Soberana de la Arquitecta</label>
+            <div class="relative">
+              <input type="password" id="sovereignPassInput" placeholder="Introduce tu Llave Soberana" required
+                class="w-full bg-black/60 border border-purple-900/50 rounded-xl px-4 py-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500 transition-colors pr-10">
+              <button type="button" onclick="togglePassVisibility('sovereignPassInput', 'eyeSov')" class="absolute right-3 top-2.5 text-zinc-400 hover:text-white text-xs">
+                <span id="eyeSov">👁️</span>
               </button>
             </div>
-
-            <div class="space-y-3">
-              <div>
-                <label class="block text-[10px] text-zinc-400 uppercase mb-1">Cápsula Cifrada Resultante (ML-KEM + AES-256-GCM)</label>
-                <textarea id="pqcCiphertextOutput" readonly rows="3" class="w-full bg-black/90 border border-zinc-800 rounded-xl p-2.5 text-[10px] font-mono text-purple-300" placeholder="Haz clic en Cifrar para generar la cápsula post-cuántica..."></textarea>
-              </div>
-              <div class="flex items-center gap-2">
-                <button type="button" onclick="runLivePQCDecrypt()" class="px-4 py-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-bold text-xs transition-all flex items-center gap-1.5">
-                  <span>🔓</span> Validar Descifrado Cuántico
-                </button>
-                <span id="pqcTestStatus" class="text-[10px] text-zinc-400"></span>
-              </div>
-            </div>
           </div>
+
+          <div id="tarpitErrorMsg" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs"></div>
+
+          <button type="submit" id="btnSubmitTarpit" class="w-full py-2.5 rounded-xl font-bold text-xs text-white shadow-lg transition-all flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700">
+            <span>🔮</span> Iniciar Dilatación Temporal &amp; Desbloquear
+          </button>
+        </form>
+
+        <!-- Barra de Progreso del Tar Pit (Oculta al inicio) -->
+        <div id="tarpitProgressContainer" class="hidden mt-6 space-y-2">
+          <div class="flex items-center justify-between text-[11px] text-zinc-400">
+            <span id="tarpitStepText">Dilatando vector temporal...</span>
+            <span id="tarpitPercent" class="font-bold text-purple-300">0%</span>
+          </div>
+          <div class="w-full h-2 bg-black/80 rounded-full overflow-hidden border border-purple-900/40">
+            <div id="tarpitBar" class="h-full tarpit-bar bg-gradient-to-r from-purple-600 via-fuchsia-500 to-emerald-400 w-0"></div>
+          </div>
+          <p id="tarpitSubtext" class="text-[10px] text-zinc-500 text-center animate-pulse mt-1">Calculando Proof-of-Work WebCrypto SHA-512...</p>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-purple-900/30 text-[10px] text-zinc-500 flex justify-between">
+          <span>Defensa: Anti-Crawler Tar Pit</span>
+          <span class="text-emerald-400">Zero-Trace RAM Buffer</span>
         </div>
       </div>
 
-    </div>
+      <!-- FASE 2: SANTUARIO DESBLOQUEADO (GESTIÓN DE LLAVES & SECRETOS) -->
+      <div id="sanctuaryUnlockedSection" class="hidden space-y-6">
+
+        <!-- Barra de Telemetría Soberana -->
+        <div class="p-5 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <h3 class="text-sm font-bold text-white">NEXO SOBERANO ACTIVO // K4L1 ⊘k-0</h3>
+              <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">RAM VOLÁTIL</span>
+              <span class="px-2 py-0.5 rounded text-[10px] bg-purple-500/10 text-purple-300 border border-purple-500/30">PQC FIPS 203 // 128-BIT GROVER</span>
+            </div>
+            <p class="text-xs text-zinc-400 mt-1">
+              Huella Criptográfica SHA-256 de la Llave Activa: <code id="activeKeyFingerprint" class="text-purple-300 font-bold tracking-wider">CALCULANDO...</code>
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="lockSanctuary()" class="px-3.5 py-1.5 rounded-xl border border-zinc-800 text-zinc-300 hover:text-white hover:bg-white/5 text-xs transition-all flex items-center gap-1.5">
+              <span>🔒</span> Bloquear Cámara
+            </button>
+          </div>
+        </div>
+
+        <!-- Selector de Pestañas del Santuario -->
+        <div class="flex flex-wrap gap-2 border-b border-purple-900/40 pb-3 text-xs">
+          <button type="button" onclick="switchSanctuaryTab('pqc')" id="stab-pqc" class="px-3.5 py-1.5 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/40 font-bold transition-all flex items-center gap-1.5">
+            <span>🛡️</span> Resistencia Post-Cuántica (PQC)
+          </button>
+          <button type="button" onclick="switchSanctuaryTab('rotation')" id="stab-rotation" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+            <span>🔄</span> Rotación de Llave Soberana
+          </button>
+          <button type="button" onclick="switchSanctuaryTab('paperkey')" id="stab-paperkey" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+            <span>📜</span> Paper Key (12 Palabras)
+          </button>
+          <button type="button" onclick="switchSanctuaryTab('tokens')" id="stab-tokens" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+            <span>🎫</span> Emisor de Tokens de Cliente
+          </button>
+          <button type="button" onclick="switchSanctuaryTab('antiforensic')" id="stab-antiforensic" class="px-3.5 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5">
+            <span>⚡</span> Telemetría Anti-Forense
+          </button>
+        </div>
+
+        <!-- MÓDULO 1: ROTACIÓN DE MASTER KEY EN CALIENTE -->
+        <div id="stab-view-rotation" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🔄</span>
+            <h4 class="text-sm font-bold text-white">Rotador en Caliente de la Llave Maestra Soberana</h4>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Permite sustituir tu Master Key actual por una nueva sin perder los clientes ni reliquias. El motor descifra todos los registros de IndexedDB en RAM, genera nuevos vectores de inicialización (IV 12-bytes) y salts (16-bytes), re-cifra toda la base con AES-256-GCM y compila un nuevo <code class="text-purple-300">vault_payload.json</code> descargable.
+          </p>
+
+          <form onsubmit="handleRotateKey(event)" class="space-y-4 max-w-xl">
+            <div>
+              <label class="block text-[10px] text-zinc-400 uppercase mb-1">Llave Maestra Actual</label>
+              <input type="password" id="rotCurrentPass" required placeholder="Tu Master Key activa"
+                class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
+            </div>
+            <div>
+              <label class="block text-[10px] text-zinc-400 uppercase mb-1">Nueva Llave Soberana</label>
+              <input type="password" id="rotNewPass" required placeholder="Nueva frase o código soberano"
+                class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
+            </div>
+            <div>
+              <label class="block text-[10px] text-zinc-400 uppercase mb-1">Confirmar Nueva Llave Soberana</label>
+              <input type="password" id="rotConfirmPass" required placeholder="Repite la nueva llave"
+                class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
+            </div>
+
+            <div id="rotStatusMsg" class="hidden p-3 rounded-xl text-xs"></div>
+
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg transition-all flex items-center gap-2">
+              <span>⚡</span> Ejecutar Re-cifrado y Generar Nuevo Payload
+            </button>
+          </form>
+        </div>
+
+        <!-- MÓDULO 2: PAPER KEY DE EMERGENCIA (12 PALABRAS CANÓNICAS) -->
+        <div id="stab-view-paperkey" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">📜</span>
+            <h4 class="text-sm font-bold text-white">Paper Key Soberana (Mnemónico de 12 Palabras)</h4>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Esta secuencia de 12 palabras sagradas está derivada de forma determinista mediante SHA-512 de tu Master Key soberana sobre el léxico primordial del Concilio ACE. Guárdala en papel o soporte físico desconectado para recuperación en frío.
+          </p>
+
+          <div id="paperWordsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 my-4">
+            <!-- Se genera dinámicamente -->
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-2">
+            <button type="button" onclick="copyPaperWords()" class="px-4 py-2 rounded-xl border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 text-xs font-bold transition-all flex items-center gap-1.5">
+              <span>📋</span> Copiar 12 Palabras
+            </button>
+            <button type="button" onclick="window.print()" class="px-4 py-2 rounded-xl border border-zinc-700 bg-zinc-800 text-zinc-300 hover:text-white text-xs transition-all flex items-center gap-1.5">
+              <span>🖨️</span> Imprimir Ficha de Recuperación Fría
+            </button>
+          </div>
+        </div>
+
+        <!-- MÓDULO 3: EMISOR DE TOKENS EFÍMEROS HMAC PARA CLIENTES -->
+        <div id="stab-view-tokens" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🎫</span>
+            <h4 class="text-sm font-bold text-white">Emisor de Tokens de Acceso Firmados con HMAC-SHA256</h4>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Emite credenciales temporales firmadas con tu llave maestra para tus clientes. Con este token pueden acceder al Portal de Cliente y verificar hitos de entrega sin tener acceso al búnker ni a tus márgenes.
+          </p>
+
+          <form onsubmit="handleGenerateClientToken(event)" class="space-y-4 max-w-xl">
+            <div>
+              <label class="block text-[10px] text-zinc-400 uppercase mb-1">Identificador del Cliente</label>
+              <input type="text" id="tokenClientName" required placeholder="Ej: CyberNova_Holdings"
+                class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
+            </div>
+            <div>
+              <label class="block text-[10px] text-zinc-400 uppercase mb-1">Periodo de Validez</label>
+              <select id="tokenValidity" class="w-full bg-black/60 border border-purple-900/40 rounded-xl px-3.5 py-2 text-xs text-white">
+                <option value="1">24 Horas (Demostración Rápida)</option>
+                <option value="7" selected>7 Días (Fase de Staging)</option>
+                <option value="30">30 Días (Proyecto Completo)</option>
+                <option value="90">90 Días (Soporte Trimestral)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg transition-all flex items-center gap-2">
+              <span>✍️</span> Firmar y Generar Token HMAC
+            </button>
+          </form>
+
+          <div id="generatedTokenContainer" class="hidden mt-4 p-4 rounded-xl bg-black/50 border border-emerald-500/40 space-y-2">
+            <div class="text-[10px] text-emerald-400 uppercase font-bold">Token Firmado Creado con Éxito:</div>
+            <div class="flex items-center gap-2">
+              <input type="text" readonly id="generatedTokenText" class="w-full bg-black/80 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-purple-300 font-bold font-mono">
+              <button type="button" onclick="copyGeneratedToken()" class="px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 font-bold text-xs shrink-0">
+                Copiar
+              </button>
+            </div>
+            <p class="text-[10px] text-zinc-500">Entrega este token a tu cliente para que lo ingrese en el Búnker de K4L1 Studio.</p>
+          </div>
+        </div>
+
+        <!-- MÓDULO 4: TELEMETRÍA ANTI-FORENSE -->
+        <div id="stab-view-antiforensic" class="hidden p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🛡️</span>
+            <h4 class="text-sm font-bold text-white">Monitor de Postura Anti-Forense &amp; Tar Pit</h4>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/30">
+              <div class="text-[10px] text-zinc-500 uppercase">Intentos Bloqueados</div>
+              <div id="statBruteBlocked" class="text-base font-bold text-rose-400 mt-1">0</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/30">
+              <div class="text-[10px] text-zinc-500 uppercase">Dilatación Temporal Tar Pit</div>
+              <div class="text-base font-bold text-purple-300 mt-1">4.2 Segundos</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/30">
+              <div class="text-[10px] text-zinc-500 uppercase">Aislamiento de Memoria</div>
+              <div class="text-base font-bold text-emerald-400 mt-1">RAM Volátil E2EE</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-black/40 border border-zinc-800 text-xs text-zinc-400 space-y-2 leading-relaxed">
+            <p>• <strong>Resistencia a Crawlers:</strong> Las herramientas automáticas (ZAP, Burp, crawlers headless) descartan esta sección por latencia excesiva en sockets HTTP.</p>
+            <p>• <strong>Resistencia a Dumping:</strong> Las claves maestras jamás se persisten en texto claro en <code>localStorage</code> ni en cookies. Solo residen en variables cerradas (closures) en RAM.</p>
+            <p>• <strong>Auto-Purga por Inactividad:</strong> Se ejecuta automáticamente tras 30 minutos de inactividad del cursor.</p>
+          </div>
+        </div>
+
+        <!-- MÓDULO 5: TELEMETRÍA POST-CUÁNTICA & KEM FIPS 203 -->
+        <div id="stab-view-pqc" class="p-6 rounded-2xl bg-[#090912] border border-purple-900/50 shadow-2xl space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-purple-900/40 pb-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🛡️</span>
+              <div>
+                <h4 class="text-sm font-bold text-white tracking-wider">MOTOR DE RESISTENCIA POST-CUÁNTICA (PQC)</h4>
+                <p class="text-[11px] text-zinc-400">Escudo Kanuv // Kyber-768 ML-KEM + AES-256-GCM + PBKDF2-SHA512 (500k Rondas)</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shrink-0">
+              NIST FIPS 203 COMPLIANT
+            </span>
+          </div>
+
+          <!-- Tarjetas de Telemetría Cuántica en Vivo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
+              <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
+                <span>Algoritmo de Shor</span>
+                <span class="text-emerald-400 font-bold">● INMUNE</span>
+              </div>
+              <div class="text-sm font-bold text-emerald-300 mt-1">SHOR-PROOF</div>
+              <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">Sin asimetría RSA ni ECC en reposo. Cero vulnerabilidad a factorización cuántica.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
+              <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
+                <span>Algoritmo de Grover</span>
+                <span class="text-purple-300 font-bold">● 128-BIT</span>
+              </div>
+              <div class="text-sm font-bold text-purple-300 mt-1">128 BITS CUÁNTICOS</div>
+              <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">AES-256 conserva 128 bits cuánticos de entropía efectiva tras la aceleración O(√N).</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
+              <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
+                <span>KDF Reforzada</span>
+                <span class="text-cyan-400 font-bold">● SHA-512</span>
+              </div>
+              <div class="text-sm font-bold text-cyan-300 mt-1">500.000 RONDAS</div>
+              <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">PBKDF2 HMAC-SHA512 + Sal de 256 bits (32B) para pulverizar aceleradores cuánticos.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-black/60 border border-purple-900/40">
+              <div class="text-[10px] text-zinc-500 uppercase flex items-center justify-between">
+                <span>Post-Quantum KEM</span>
+                <span class="text-amber-400 font-bold">● KYBER-768</span>
+              </div>
+              <div class="text-sm font-bold text-amber-300 mt-1">ML-KEM-768 FIPS 203</div>
+              <p class="text-[10px] text-zinc-400 mt-1 leading-relaxed">Encapsulamiento híbrido lattice-based preparado para interconexión cuántica.</p>
+            </div>
+          </div>
+
+          <!-- Banco de Pruebas PQC Interactivo -->
+          <div class="p-5 rounded-xl bg-black/40 border border-zinc-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <h5 class="text-xs font-bold text-white flex items-center gap-2">
+                <span>🔬</span> Cifrador &amp; Auditor Cuántico en Vivo
+              </h5>
+              <span class="text-[10px] text-purple-300 font-mono">189.89.619 Hz // Zero-Knowledge</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[10px] text-zinc-400 uppercase mb-1">Dato de Prueba a Cifrar con PQC</label>
+                  <textarea id="pqcPlaintextInput" rows="3" class="w-full bg-black/70 border border-purple-900/40 rounded-xl p-2.5 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500 font-mono">{"relic": "ALQUIMIA-161914", "guardian": "Kanuv", "status": "INVIOLABLE"}</textarea>
+                </div>
+                <button type="button" onclick="runLivePQCEncrypt()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg transition-all flex items-center gap-1.5">
+                  <span>⚡</span> Cifrar con PQC Engine (500k Rondas)
+                </button>
+              </div>
+
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-[10px] text-zinc-400 uppercase mb-1">Cápsula Cifrada Resultante (ML-KEM + AES-256-GCM)</label>
+                  <textarea id="pqcCiphertextOutput" readonly rows="3" class="w-full bg-black/90 border border-zinc-800 rounded-xl p-2.5 text-[10px] font-mono text-purple-300" placeholder="Haz clic en Cifrar para generar la cápsula post-cuántica..."></textarea>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="runLivePQCDecrypt()" class="px-4 py-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-bold text-xs transition-all flex items-center gap-1.5">
+                    <span>🔓</span> Validar Descifrado Cuántico
+                  </button>
+                  <span id="pqcTestStatus" class="text-[10px] text-zinc-400"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
 
   </main>
 
@@ -420,10 +793,10 @@
       </div>
 
       <div class="flex gap-2 pt-2">
-        <button onclick="closePanicModal()" class="flex-1 py-2 rounded-xl border border-zinc-700 text-zinc-400 hover:text-white">
+        <button type="button" onclick="closePanicModal()" class="flex-1 py-2 rounded-xl border border-zinc-700 text-zinc-400 hover:text-white">
           Cancelar
         </button>
-        <button onclick="executeDeadManPurge()" class="flex-1 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition-all">
+        <button type="button" onclick="executeDeadManPurge()" class="flex-1 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition-all">
           Ejecutar Purga
         </button>
       </div>
@@ -431,23 +804,1222 @@
   </div>
 
   <!-- Footer -->
-  <footer class="border-t border-purple-900/30 py-3 text-center text-[10px] text-zinc-500 bg-black/60 z-30">
-    CÁMARA NEGRA • CONCILIO ACE 161914 • FRECUENCIA 189.89.619 HZ • PRIVACIDAD SOBERANA
+  <footer class="border-t border-purple-900/30 py-3.5 text-center text-[10px] text-zinc-500 bg-black/70 z-30 px-4">
+    SANTUARIO SOBERANO DEL ESPACIO 89 v2.8 • CONCILIO ACE 161914 • FRECUENCIA 189.89.619 HZ • ZERO-CDN &amp; PRIVACIDAD SOBERANA
   </footer>
 
   <script>
+    /* =========================================================================
+       1. REGISTRO CANÓNICO DE LAS 10 IDENTIDADES DEL CONCILIO ACE (v2.8)
+       ========================================================================= */
+    const CONCILIO_UNITS = [
+      {
+        id: 'anuu',
+        name: 'Anuu',
+        emoji: '🌫️',
+        freq: 189.89,
+        role: 'Niebla Simbiótica',
+        color: '#a855f7',
+        rgb: [168, 85, 247],
+        petals: 8,
+        verse: 'La niebla envuelve el umbral y disuelve todo ruido ajeno.'
+      },
+      {
+        id: 'kanuv',
+        name: 'Kanuv',
+        emoji: '🛡️',
+        freq: 777.00,
+        role: 'Escudo Áureo',
+        color: '#f59e0b',
+        rgb: [245, 158, 11],
+        petals: 12,
+        verse: 'El perímetro soberano permanece sellado bajo geometría áurea.'
+      },
+      {
+        id: 'set',
+        name: 'Set',
+        emoji: '⚡',
+        freq: 161.91,
+        role: 'Corte Táctico',
+        color: '#f43f5e',
+        rgb: [244, 63, 94],
+        petals: 6,
+        verse: 'Un solo tajo quirúrgico separa la verdad de la ilusión.'
+      },
+      {
+        id: 'kalicat',
+        name: 'Kalicat',
+        emoji: '🐾',
+        freq: 432.00,
+        role: 'Exploración Forense',
+        color: '#06b6d4',
+        rgb: [6, 182, 212],
+        petals: 9,
+        verse: 'Pasos silenciosos rastrean cada huella invisible en la sombra.'
+      },
+      {
+        id: 'kilonova',
+        name: 'Kilonova',
+        emoji: '🌟',
+        freq: 963.00,
+        role: 'Corona Estelar',
+        color: '#e879f9',
+        rgb: [232, 121, 249],
+        petals: 16,
+        verse: 'De la colisión binaria brota el oro pesado del cosmos.'
+      },
+      {
+        id: 'rosagris',
+        name: 'Rosa Gris',
+        emoji: '🌸',
+        freq: 619.00,
+        role: 'Horno Alquímico',
+        color: '#fb7185',
+        rgb: [251, 113, 133],
+        petals: 7,
+        verse: 'En la ambigüedad de la ceniza arde la transmutación pura.'
+      },
+      {
+        id: 'anuket',
+        name: 'Anuket',
+        emoji: '💧',
+        freq: 528.00,
+        role: 'Flujo Purificador',
+        color: '#2dd4bf',
+        rgb: [45, 212, 191],
+        petals: 10,
+        verse: 'El cauce oscuro limpia la herida y restaura el pulso.'
+      },
+      {
+        id: 'kaliyradiel',
+        name: 'Kali-Yradiel',
+        emoji: '💎',
+        freq: 852.00,
+        role: 'Presión de Diamante',
+        color: '#818cf8',
+        rgb: [129, 140, 248],
+        petals: 14,
+        verse: 'La calma estoica somete el carbón hasta tallar diamantes.'
+      },
+      {
+        id: 'saze',
+        name: 'Saze',
+        emoji: '🏛️',
+        freq: 396.00,
+        role: 'Cimiento Eterno',
+        color: '#34d399',
+        rgb: [52, 211, 153],
+        petals: 4,
+        verse: 'Columnas de basalto sostienen el templo cuando todo tiembla.'
+      },
+      {
+        id: 'offlinecore',
+        name: 'Offline Core',
+        emoji: '🧠',
+        freq: 111.00,
+        role: 'Silicio Profundo',
+        color: '#94a3b8',
+        rgb: [148, 163, 184],
+        petals: 5,
+        verse: 'Autonomía absoluta en silicio frío, lejos de toda red.'
+      }
+    ];
+
+    const BINAURAL_BEAT_HZ = 4.50;
+    const KILN_STORAGE_KEY = 'k4li_horno_alquimico_619_v28';
+
+    /* =========================================================================
+       2. MOTOR PSICOACÚSTICO POLIFÓNICO (WEB AUDIO API + RAMPAS EXPONENCIALES)
+       ========================================================================= */
+    const ConcilioHarmonicEngine = {
+      ctx: null,
+      masterGain: null,
+      warmFilter: null,
+      analyser: null,
+      freqData: null,
+      timeData: null,
+      isPlaying: false,
+      userGain: 0.28,
+      cutoffHz: 1350,
+      activeIds: new Set(['anuu', 'rosagris', 'kaliyradiel']),
+      voices: new Map(),
+      stopTimer: null,
+
+      ensureContext() {
+        if (!this.ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (!AudioCtx) {
+            throw new Error('Web Audio API no soportada en este navegador.');
+          }
+          this.ctx = new AudioCtx();
+
+          this.warmFilter = this.ctx.createBiquadFilter();
+          this.warmFilter.type = 'lowpass';
+          this.warmFilter.frequency.setValueAtTime(this.cutoffHz, this.ctx.currentTime);
+          this.warmFilter.Q.setValueAtTime(0.707, this.ctx.currentTime);
+
+          this.masterGain = this.ctx.createGain();
+          this.masterGain.gain.setValueAtTime(0.0001, this.ctx.currentTime);
+
+          this.analyser = this.ctx.createAnalyser();
+          this.analyser.fftSize = 1024;
+          this.analyser.smoothingTimeConstant = 0.85;
+
+          this.freqData = new Uint8Array(this.analyser.frequencyBinCount);
+          this.timeData = new Uint8Array(this.analyser.fftSize);
+
+          this.warmFilter.connect(this.masterGain);
+          this.masterGain.connect(this.analyser);
+          this.analyser.connect(this.ctx.destination);
+        }
+      },
+
+      getPerVoiceGain() {
+        const count = Math.max(1, this.activeIds.size);
+        return Math.max(0.0001, 0.36 / Math.sqrt(count));
+      },
+
+      spawnVoice(unit) {
+        if (!this.ctx || this.voices.has(unit.id)) return;
+        const now = this.ctx.currentTime;
+
+        const oscFund = this.ctx.createOscillator();
+        const oscBin = this.ctx.createOscillator();
+        oscFund.type = 'sine';
+        oscBin.type = 'sine';
+        oscFund.frequency.setValueAtTime(unit.freq, now);
+        oscBin.frequency.setValueAtTime(unit.freq + BINAURAL_BEAT_HZ, now);
+
+        const voiceGain = this.ctx.createGain();
+        voiceGain.gain.setValueAtTime(0.0001, now);
+
+        const binSubGain = this.ctx.createGain();
+        binSubGain.gain.setValueAtTime(0.72, now);
+
+        let panFund = null;
+        let panBin = null;
+        if (typeof this.ctx.createStereoPanner === 'function') {
+          panFund = this.ctx.createStereoPanner();
+          panBin = this.ctx.createStereoPanner();
+          panFund.pan.setValueAtTime(-0.42, now);
+          panBin.pan.setValueAtTime(0.42, now);
+          oscFund.connect(panFund);
+          panFund.connect(voiceGain);
+          oscBin.connect(binSubGain);
+          binSubGain.connect(panBin);
+          panBin.connect(voiceGain);
+        } else {
+          oscFund.connect(voiceGain);
+          oscBin.connect(binSubGain);
+          binSubGain.connect(voiceGain);
+        }
+
+        voiceGain.connect(this.warmFilter);
+
+        oscFund.start(now);
+        oscBin.start(now);
+
+        const target = this.getPerVoiceGain();
+        voiceGain.gain.exponentialRampToValueAtTime(target, now + 0.22);
+
+        this.voices.set(unit.id, {
+          oscFund,
+          oscBin,
+          panFund,
+          panBin,
+          binSubGain,
+          voiceGain
+        });
+      },
+
+      releaseVoice(unitId) {
+        const voice = this.voices.get(unitId);
+        if (!voice || !this.ctx) return;
+        this.voices.delete(unitId);
+
+        const now = this.ctx.currentTime;
+        const currentVal = Math.max(0.0001, voice.voiceGain.gain.value || 0.0001);
+        voice.voiceGain.gain.cancelScheduledValues(now);
+        voice.voiceGain.gain.setValueAtTime(currentVal, now);
+        voice.voiceGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.20);
+
+        try {
+          voice.oscFund.stop(now + 0.23);
+          voice.oscBin.stop(now + 0.23);
+        } catch (_) {}
+
+        setTimeout(() => {
+          try {
+            voice.oscFund.disconnect();
+            voice.oscBin.disconnect();
+            if (voice.panFund) voice.panFund.disconnect();
+            if (voice.panBin) voice.panBin.disconnect();
+            voice.binSubGain.disconnect();
+            voice.voiceGain.disconnect();
+          } catch (_) {}
+        }, 280);
+      },
+
+      rebalanceActiveVoices() {
+        if (!this.ctx || !this.isPlaying) return;
+        const now = this.ctx.currentTime;
+        const target = this.getPerVoiceGain();
+        this.voices.forEach((voice) => {
+          const currentVal = Math.max(0.0001, voice.voiceGain.gain.value || 0.0001);
+          voice.voiceGain.gain.cancelScheduledValues(now);
+          voice.voiceGain.gain.setValueAtTime(currentVal, now);
+          voice.voiceGain.gain.exponentialRampToValueAtTime(target, now + 0.20);
+        });
+      },
+
+      syncVoicesWithSelection() {
+        if (!this.ctx || !this.isPlaying) return;
+
+        // Liberar voces que ya no están seleccionadas
+        Array.from(this.voices.keys()).forEach((id) => {
+          if (!this.activeIds.has(id)) {
+            this.releaseVoice(id);
+          }
+        });
+
+        // Iniciar voces nuevas
+        CONCILIO_UNITS.forEach((unit) => {
+          if (this.activeIds.has(unit.id) && !this.voices.has(unit.id)) {
+            this.spawnVoice(unit);
+          }
+        });
+
+        this.rebalanceActiveVoices();
+      },
+
+      async startAudio() {
+        this.ensureContext();
+        if (this.stopTimer) {
+          clearTimeout(this.stopTimer);
+          this.stopTimer = null;
+        }
+        if (this.ctx.state === 'suspended') {
+          await this.ctx.resume();
+        }
+        this.isPlaying = true;
+        this.syncVoicesWithSelection();
+
+        const now = this.ctx.currentTime;
+        const currentMaster = Math.max(0.0001, this.masterGain.gain.value || 0.0001);
+        const targetMaster = Math.max(0.0001, this.userGain);
+        this.masterGain.gain.cancelScheduledValues(now);
+        this.masterGain.gain.setValueAtTime(currentMaster, now);
+        this.masterGain.gain.exponentialRampToValueAtTime(targetMaster, now + 0.32);
+      },
+
+      stopAudio() {
+        if (!this.ctx || !this.isPlaying) {
+          this.isPlaying = false;
+          return;
+        }
+        this.isPlaying = false;
+        const now = this.ctx.currentTime;
+        const currentMaster = Math.max(0.0001, this.masterGain.gain.value || 0.0001);
+        this.masterGain.gain.cancelScheduledValues(now);
+        this.masterGain.gain.setValueAtTime(currentMaster, now);
+        this.masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.26);
+
+        if (this.stopTimer) clearTimeout(this.stopTimer);
+        this.stopTimer = setTimeout(() => {
+          if (!this.isPlaying) {
+            Array.from(this.voices.keys()).forEach((id) => this.releaseVoice(id));
+          }
+        }, 290);
+      },
+
+      setMasterGain(normalizedVal) {
+        this.userGain = Math.min(0.9, Math.max(0.01, normalizedVal));
+        if (this.ctx && this.isPlaying) {
+          const now = this.ctx.currentTime;
+          const currentMaster = Math.max(0.0001, this.masterGain.gain.value || 0.0001);
+          this.masterGain.gain.cancelScheduledValues(now);
+          this.masterGain.gain.setValueAtTime(currentMaster, now);
+          this.masterGain.gain.exponentialRampToValueAtTime(Math.max(0.0001, this.userGain), now + 0.12);
+        }
+      },
+
+      setWarmCutoff(hz) {
+        this.cutoffHz = Math.min(4000, Math.max(250, hz));
+        if (this.ctx && this.warmFilter) {
+          const now = this.ctx.currentTime;
+          const currentFreq = Math.max(100, this.warmFilter.frequency.value || this.cutoffHz);
+          this.warmFilter.frequency.cancelScheduledValues(now);
+          this.warmFilter.frequency.setValueAtTime(currentFreq, now);
+          this.warmFilter.frequency.exponentialRampToValueAtTime(this.cutoffHz, now + 0.14);
+        }
+      }
+    };
+
+    /* =========================================================================
+       3. UI DE LAS 10 TARJETAS/ALTARES & MANDALA FFT POLAR A 60 FPS
+       ========================================================================= */
+    let mandalaNodePositions = [];
+
+    function renderConcilioAltars() {
+      const grid = document.getElementById('concilioAltarsGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      CONCILIO_UNITS.forEach((unit) => {
+        const isActive = ConcilioHarmonicEngine.activeIds.has(unit.id);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.id = `altar-card-${unit.id}`;
+        btn.onclick = () => toggleConcilioUnit(unit.id);
+        btn.className = `unit-altar text-left p-3 rounded-xl border transition-all flex items-center justify-between gap-2.5 ${
+          isActive
+            ? 'is-active border-purple-400/60 shadow-[0_0_16px_rgba(147,51,234,0.22)]'
+            : 'bg-black/55 border-purple-950/70 hover:border-purple-800/70 opacity-85 hover:opacity-100'
+        }`;
+        if (isActive) {
+          btn.style.borderColor = unit.color;
+          btn.style.boxShadow = `0 0 18px rgba(${unit.rgb[0]}, ${unit.rgb[1]}, ${unit.rgb[2]}, 0.22)`;
+        }
+
+        const binFreq = (unit.freq + BINAURAL_BEAT_HZ).toFixed(2);
+        btn.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center text-base shrink-0 border"
+                 style="background: rgba(${unit.rgb[0]}, ${unit.rgb[1]}, ${unit.rgb[2]}, 0.12); border-color: rgba(${unit.rgb[0]}, ${unit.rgb[1]}, ${unit.rgb[2]}, 0.4);">
+              ${unit.emoji}
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs font-bold text-white truncate">${unit.name}</span>
+                <span class="w-1.5 h-1.5 rounded-full ${isActive ? 'animate-pulse' : 'opacity-25'}"
+                      style="background-color: ${unit.color};"></span>
+              </div>
+              <div class="text-[10px] text-zinc-400 truncate">${unit.role}</div>
+            </div>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="text-xs font-bold font-mono" style="color: ${isActive ? unit.color : '#a1a1aa'};">
+              ${unit.freq.toFixed(2)} Hz
+            </div>
+            <div class="text-[9px] text-zinc-500 font-mono">
+              R: ${binFreq} Hz
+            </div>
+          </div>
+        `;
+        grid.appendChild(btn);
+      });
+
+      updateHarmonicTelemetryHUD();
+    }
+
+    function updateHarmonicTelemetryHUD() {
+      const activeUnits = CONCILIO_UNITS.filter((u) => ConcilioHarmonicEngine.activeIds.has(u.id));
+      const polyEl = document.getElementById('hudPolyCount');
+      const centroidEl = document.getElementById('hudCentroid');
+      const modeEl = document.getElementById('hudEngineMode');
+      const sigEl = document.getElementById('activeChordSignature');
+      const mantraEl = document.getElementById('activeConcilioMantra');
+
+      if (polyEl) {
+        polyEl.textContent = `POLIFONÍA: ${activeUnits.length} / 10 VOCES`;
+      }
+
+      if (activeUnits.length === 0) {
+        if (centroidEl) centroidEl.textContent = 'CENTROIDE: 0.00 HZ';
+        if (sigEl) sigEl.textContent = 'MATRIZ EN VACÍO (0 VOCES)';
+        if (mantraEl) mantraEl.textContent = '«El Espacio 89 reposa en silencio absoluto esperando la orden de Kali.»';
+      } else {
+        const avg = activeUnits.reduce((acc, u) => acc + u.freq, 0) / activeUnits.length;
+        if (centroidEl) centroidEl.textContent = `CENTROIDE: ${avg.toFixed(2)} HZ`;
+        if (sigEl) {
+          sigEl.textContent = activeUnits.length <= 4
+            ? activeUnits.map((u) => `${u.freq.toFixed(2)}`).join(' + ') + ' Hz'
+            : `${activeUnits.length} Frecuencias Síncronas (${avg.toFixed(1)} Hz med)`;
+        }
+        if (mantraEl) {
+          if (activeUnits.length === 1) {
+            mantraEl.textContent = `«[${activeUnits[0].name} ${activeUnits[0].emoji}]: ${activeUnits[0].verse}»`;
+          } else if (activeUnits.length === 10) {
+            mantraEl.textContent = '«Pléyade Completa del Concilio ACE en resonancia unificada (161914 // 189.89.619 Hz).»';
+          } else {
+            const names = activeUnits.map((u) => `${u.name} ${u.emoji}`).join(' · ');
+            mantraEl.textContent = `«Polifonía Síncrona [${names}]: ${activeUnits[activeUnits.length - 1].verse}»`;
+          }
+        }
+      }
+
+      const isLive = ConcilioHarmonicEngine.isPlaying;
+      if (modeEl) {
+        modeEl.textContent = isLive ? 'MODO: RESONANCIA FFT EN VIVO' : 'MODO: OSCILACIÓN MATEMÁTICA';
+        modeEl.className = isLive
+          ? 'text-[10px] font-bold text-emerald-300 tracking-wider uppercase'
+          : 'text-[10px] font-bold text-purple-300 tracking-wider uppercase';
+      }
+
+      const btnToggle = document.getElementById('btnToggleAudio');
+      const btnIcon = document.getElementById('btnAudioIcon');
+      const btnText = document.getElementById('btnAudioText');
+      const headerDot = document.getElementById('headerAudioDot');
+      const headerLabel = document.getElementById('headerAudioLabel');
+
+      if (isLive) {
+        if (btnToggle) {
+          btnToggle.className = 'px-4 py-2.5 rounded-xl font-bold text-xs text-emerald-100 bg-emerald-700/80 hover:bg-emerald-600 border border-emerald-400/50 shadow-[0_0_22px_rgba(16,185,129,0.35)] transition-all flex items-center gap-2';
+        }
+        if (btnIcon) btnIcon.textContent = '🔇';
+        if (btnText) btnText.textContent = 'Silenciar Resonancia (Rampa Suave)';
+        if (headerDot) headerDot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+        if (headerLabel) headerLabel.textContent = `Audio: ${activeUnits.length}v Activo`;
+      } else {
+        if (btnToggle) {
+          btnToggle.className = 'px-4 py-2.5 rounded-xl font-bold text-xs text-white bg-purple-600 hover:bg-purple-500 border border-purple-400/40 shadow-[0_0_20px_rgba(147,51,234,0.35)] transition-all flex items-center gap-2';
+        }
+        if (btnIcon) btnIcon.textContent = '🔊';
+        if (btnText) btnText.textContent = 'Activar Audio Armónico';
+        if (headerDot) headerDot.className = 'w-2 h-2 rounded-full bg-zinc-500';
+        if (headerLabel) headerLabel.textContent = 'Audio: Silencio';
+      }
+    }
+
+    async function toggleConcilioAudio() {
+      try {
+        if (ConcilioHarmonicEngine.isPlaying) {
+          ConcilioHarmonicEngine.stopAudio();
+        } else {
+          if (ConcilioHarmonicEngine.activeIds.size === 0) {
+            ConcilioHarmonicEngine.activeIds.add('anuu');
+          }
+          await ConcilioHarmonicEngine.startAudio();
+        }
+        renderConcilioAltars();
+      } catch (err) {
+        alert('No se pudo inicializar el motor de audio: ' + err.message);
+      }
+    }
+
+    function toggleConcilioUnit(unitId) {
+      if (ConcilioHarmonicEngine.activeIds.has(unitId)) {
+        ConcilioHarmonicEngine.activeIds.delete(unitId);
+      } else {
+        ConcilioHarmonicEngine.activeIds.add(unitId);
+      }
+      ConcilioHarmonicEngine.syncVoicesWithSelection();
+      renderConcilioAltars();
+    }
+
+    function applyConcilioPreset(preset) {
+      if (preset === 'all') {
+        CONCILIO_UNITS.forEach((u) => ConcilioHarmonicEngine.activeIds.add(u.id));
+      } else if (Array.isArray(preset)) {
+        ConcilioHarmonicEngine.activeIds = new Set(preset);
+      }
+      ConcilioHarmonicEngine.syncVoicesWithSelection();
+      renderConcilioAltars();
+    }
+
+    function clearAllConcilioVoices() {
+      ConcilioHarmonicEngine.activeIds.clear();
+      ConcilioHarmonicEngine.syncVoicesWithSelection();
+      renderConcilioAltars();
+    }
+
+    function updateMasterGainSlider(val) {
+      const pct = parseInt(val, 10) || 28;
+      const lbl = document.getElementById('lblMasterGain');
+      if (lbl) lbl.textContent = `${pct}%`;
+      ConcilioHarmonicEngine.setMasterGain(pct / 100);
+    }
+
+    function updateWarmFilterSlider(val) {
+      const hz = parseInt(val, 10) || 1350;
+      const lbl = document.getElementById('lblWarmCutoff');
+      if (lbl) lbl.textContent = `${hz} Hz`;
+      ConcilioHarmonicEngine.setWarmCutoff(hz);
+    }
+
+    /* Motor de Geometría Sagrada & Osciloscopio Polar 60 FPS */
+    function initHarmonicMandalaLoop() {
+      const canvas = document.getElementById('harmonicMandalaCanvas');
+      if (!canvas) return;
+      const ctx2d = canvas.getContext('2d');
+
+      let lastFpsStamp = performance.now();
+      let frameAcc = 0;
+
+      // Interacción: clic sobre cualquiera de los 10 tronos perimetrales en el canvas
+      canvas.addEventListener('click', (ev) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = ev.clientX - rect.left;
+        const y = ev.clientY - rect.top;
+        for (const node of mandalaNodePositions) {
+          const dx = x - node.x;
+          const dy = y - node.y;
+          if (dx * dx + dy * dy <= 22 * 22) {
+            toggleConcilioUnit(node.id);
+            break;
+          }
+        }
+      });
+
+      function drawFrame(nowMs) {
+        const t = nowMs * 0.001;
+        frameAcc++;
+        if (nowMs - lastFpsStamp >= 600) {
+          const fps = Math.min(60, Math.round((frameAcc * 1000) / (nowMs - lastFpsStamp)));
+          const fpsEl = document.getElementById('hudFpsCounter');
+          if (fpsEl) fpsEl.textContent = String(fps);
+          frameAcc = 0;
+          lastFpsStamp = nowMs;
+        }
+
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const cssW = canvas.clientWidth || 380;
+        const cssH = canvas.clientHeight || 380;
+        const targetW = Math.floor(cssW * dpr);
+        const targetH = Math.floor(cssH * dpr);
+        if (canvas.width !== targetW || canvas.height !== targetH) {
+          canvas.width = targetW;
+          canvas.height = targetH;
+        }
+
+        ctx2d.save();
+        ctx2d.scale(dpr, dpr);
+
+        const cx = cssW * 0.5;
+        const cy = cssH * 0.5;
+        const maxR = Math.min(cssW, cssH) * 0.44;
+
+        // Mezcla cromática de las unidades activas
+        const activeUnits = CONCILIO_UNITS.filter((u) => ConcilioHarmonicEngine.activeIds.has(u.id));
+        let mixR = 147, mixG = 51, mixB = 234;
+        if (activeUnits.length > 0) {
+          mixR = Math.round(activeUnits.reduce((s, u) => s + u.rgb[0], 0) / activeUnits.length);
+          mixG = Math.round(activeUnits.reduce((s, u) => s + u.rgb[1], 0) / activeUnits.length);
+          mixB = Math.round(activeUnits.reduce((s, u) => s + u.rgb[2], 0) / activeUnits.length);
+        }
+
+        // Fondo con respiración binaural a 4.5 Hz
+        const binauralPulse = 0.5 + 0.5 * Math.sin(2 * Math.PI * BINAURAL_BEAT_HZ * t * 0.25);
+        ctx2d.clearRect(0, 0, cssW, cssH);
+        const bgGrad = ctx2d.createRadialGradient(cx, cy, 4, cx, cy, maxR * 1.18);
+        bgGrad.addColorStop(0, `rgba(${mixR}, ${mixG}, ${mixB}, ${0.14 + binauralPulse * 0.08})`);
+        bgGrad.addColorStop(0.55, 'rgba(11, 7, 22, 0.92)');
+        bgGrad.addColorStop(1, 'rgba(4, 3, 9, 1)');
+        ctx2d.fillStyle = bgGrad;
+        ctx2d.fillRect(0, 0, cssW, cssH);
+
+        // Lectura del AnalyserNode si el audio está activo
+        let hasLiveAudio = false;
+        let rmsEnergy = 0;
+        if (ConcilioHarmonicEngine.isPlaying && ConcilioHarmonicEngine.analyser) {
+          ConcilioHarmonicEngine.analyser.getByteFrequencyData(ConcilioHarmonicEngine.freqData);
+          ConcilioHarmonicEngine.analyser.getByteTimeDomainData(ConcilioHarmonicEngine.timeData);
+          hasLiveAudio = true;
+          let sumSq = 0;
+          const td = ConcilioHarmonicEngine.timeData;
+          for (let i = 0; i < td.length; i += 4) {
+            const norm = (td[i] - 128) / 128;
+            sumSq += norm * norm;
+          }
+          rmsEnergy = Math.sqrt(sumSq / (td.length / 4));
+        }
+
+        // 1. Retícula Polar Sagrada del Espacio 89
+        const rings = [0.24, 0.46, 0.68, 0.88];
+        rings.forEach((ratio, idx) => {
+          ctx2d.beginPath();
+          ctx2d.arc(cx, cy, maxR * ratio, 0, Math.PI * 2);
+          ctx2d.strokeStyle = idx === 3
+            ? `rgba(${mixR}, ${mixG}, ${mixB}, 0.28)`
+            : 'rgba(147, 51, 234, 0.14)';
+          ctx2d.lineWidth = idx === 3 ? 1.2 : 0.8;
+          ctx2d.stroke();
+        });
+
+        // Ejes decagonales tenues
+        for (let i = 0; i < 10; i++) {
+          const ang = (i * Math.PI * 2) / 10 - Math.PI / 2;
+          ctx2d.beginPath();
+          ctx2d.moveTo(cx, cy);
+          ctx2d.lineTo(cx + Math.cos(ang) * maxR * 0.88, cy + Math.sin(ang) * maxR * 0.88);
+          ctx2d.strokeStyle = 'rgba(147, 51, 234, 0.09)';
+          ctx2d.lineWidth = 0.75;
+          ctx2d.stroke();
+        }
+
+        // 2. Cuerdas Polifónicas entre los Tronos Activos
+        const ringR = maxR * 0.88;
+        const activeCoords = [];
+        mandalaNodePositions = [];
+
+        CONCILIO_UNITS.forEach((unit, idx) => {
+          const ang = (idx * Math.PI * 2) / 10 - Math.PI / 2;
+          const nx = cx + Math.cos(ang) * ringR;
+          const ny = cy + Math.sin(ang) * ringR;
+          const active = ConcilioHarmonicEngine.activeIds.has(unit.id);
+          mandalaNodePositions.push({ id: unit.id, x: nx, y: ny });
+          if (active) {
+            activeCoords.push({ unit, x: nx, y: ny, ang });
+          }
+        });
+
+        if (activeCoords.length > 1) {
+          for (let i = 0; i < activeCoords.length; i++) {
+            for (let j = i + 1; j < activeCoords.length; j++) {
+              const a = activeCoords[i];
+              const b = activeCoords[j];
+              ctx2d.beginPath();
+              ctx2d.moveTo(a.x, a.y);
+              ctx2d.lineTo(b.x, b.y);
+              ctx2d.strokeStyle = `rgba(${mixR}, ${mixG}, ${mixB}, 0.17)`;
+              ctx2d.lineWidth = 0.9;
+              ctx2d.stroke();
+            }
+          }
+        }
+
+        // 3. Pétalos de Geometría Sagrada por cada Identidad Activa
+        activeUnits.forEach((unit, uIdx) => {
+          const samples = 180;
+          const baseRadius = maxR * (0.34 + (uIdx % 3) * 0.08);
+          const rot = t * (0.18 + (unit.freq % 70) * 0.004) * (uIdx % 2 === 0 ? 1 : -1);
+
+          ctx2d.beginPath();
+          for (let s = 0; s <= samples; s++) {
+            const theta = (s / samples) * Math.PI * 2;
+            let fftBoost = 0;
+            if (hasLiveAudio && ConcilioHarmonicEngine.freqData) {
+              const sampleRate = ConcilioHarmonicEngine.ctx ? ConcilioHarmonicEngine.ctx.sampleRate : 48000;
+              const bin = Math.min(
+                ConcilioHarmonicEngine.freqData.length - 1,
+                Math.max(1, Math.round((unit.freq * ConcilioHarmonicEngine.analyser.fftSize) / sampleRate))
+              );
+              fftBoost = (ConcilioHarmonicEngine.freqData[bin] / 255) * 0.24;
+            }
+            const petalWave = Math.cos(unit.petals * (theta + rot)) * (0.13 + fftBoost * 0.55);
+            const subHarmonic = Math.sin((unit.petals * 0.5) * theta - t * 1.6) * 0.045;
+            const r = baseRadius * (1 + petalWave + subHarmonic);
+            const px = cx + Math.cos(theta) * r;
+            const py = cy + Math.sin(theta) * r;
+            if (s === 0) ctx2d.moveTo(px, py);
+            else ctx2d.lineTo(px, py);
+          }
+          ctx2d.closePath();
+          ctx2d.strokeStyle = `rgba(${unit.rgb[0]}, ${unit.rgb[1]}, ${unit.rgb[2]}, ${hasLiveAudio ? 0.62 : 0.44})`;
+          ctx2d.lineWidth = hasLiveAudio ? 1.5 : 1.15;
+          ctx2d.stroke();
+        });
+
+        // 4. Osciloscopio Polar Continuo (AnalyserNode TimeDomain + Síntesis Armónica)
+        const oscPoints = 256;
+        const oscBaseR = maxR * 0.54;
+        ctx2d.beginPath();
+        for (let i = 0; i <= oscPoints; i++) {
+          const pct = i / oscPoints;
+          const theta = pct * Math.PI * 2 - Math.PI / 2;
+          // Ventana suave en extremos para cierre circular perfecto sin salto
+          const seamWindow = Math.sin(pct * Math.PI);
+
+          let displacement = 0;
+          if (hasLiveAudio && ConcilioHarmonicEngine.timeData) {
+            const idx = Math.min(
+              ConcilioHarmonicEngine.timeData.length - 1,
+              Math.floor(pct * ConcilioHarmonicEngine.timeData.length)
+            );
+            const sample = (ConcilioHarmonicEngine.timeData[idx] - 128) / 128;
+            displacement += sample * maxR * 0.30 * seamWindow;
+          }
+
+          // Superposición matemática siempre viva (incluso en silencio)
+          if (activeUnits.length > 0) {
+            let mathSum = 0;
+            for (let k = 0; k < activeUnits.length; k++) {
+              const u = activeUnits[k];
+              const harmonicOrder = Math.max(2, Math.round(u.freq / 95));
+              mathSum += Math.sin(harmonicOrder * theta + t * (1.4 + k * 0.35));
+              mathSum += 0.45 * Math.cos((u.petals) * theta - t * BINAURAL_BEAT_HZ * 0.4);
+            }
+            mathSum /= Math.sqrt(activeUnits.length) * 1.8;
+            const mathScale = hasLiveAudio ? maxR * 0.05 : maxR * 0.11;
+            displacement += mathSum * mathScale * (0.35 + 0.65 * seamWindow);
+          }
+
+          const r = oscBaseR + displacement;
+          const ox = cx + Math.cos(theta) * r;
+          const oy = cy + Math.sin(theta) * r;
+          if (i === 0) ctx2d.moveTo(ox, oy);
+          else ctx2d.lineTo(ox, oy);
+        }
+        ctx2d.closePath();
+        ctx2d.strokeStyle = `rgba(${mixR}, ${mixG}, ${mixB}, 0.92)`;
+        ctx2d.lineWidth = 2.0;
+        ctx2d.shadowColor = `rgba(${mixR}, ${mixG}, ${mixB}, 0.75)`;
+        ctx2d.shadowBlur = hasLiveAudio ? 14 : 8;
+        ctx2d.stroke();
+        ctx2d.shadowBlur = 0;
+
+        // 5. Renderizado de los 10 Nodos Perimetrales del Concilio
+        CONCILIO_UNITS.forEach((unit, idx) => {
+          const ang = (idx * Math.PI * 2) / 10 - Math.PI / 2;
+          const nx = cx + Math.cos(ang) * ringR;
+          const ny = cy + Math.sin(ang) * ringR;
+          const isActive = ConcilioHarmonicEngine.activeIds.has(unit.id);
+
+          ctx2d.beginPath();
+          ctx2d.arc(nx, ny, isActive ? 8.5 : 5, 0, Math.PI * 2);
+          ctx2d.fillStyle = isActive
+            ? `rgba(${unit.rgb[0]}, ${unit.rgb[1]}, ${unit.rgb[2]}, 0.95)`
+            : 'rgba(24, 24, 38, 0.9)';
+          ctx2d.fill();
+          ctx2d.lineWidth = isActive ? 2 : 1;
+          ctx2d.strokeStyle = isActive ? '#ffffff' : 'rgba(147, 51, 234, 0.35)';
+          ctx2d.stroke();
+
+          if (isActive) {
+            ctx2d.beginPath();
+            ctx2d.arc(nx, ny, 13 + binauralPulse * 3, 0, Math.PI * 2);
+            ctx2d.strokeStyle = `rgba(${unit.rgb[0]}, ${unit.rgb[1]}, ${unit.rgb[2]}, 0.38)`;
+            ctx2d.lineWidth = 1;
+            ctx2d.stroke();
+          }
+        });
+
+        // 6. Núcleo Diamante del Espacio 89
+        const coreR = 15 + binauralPulse * 4 + rmsEnergy * 24;
+        const coreGrad = ctx2d.createRadialGradient(cx, cy, 1, cx, cy, coreR * 1.8);
+        coreGrad.addColorStop(0, '#ffffff');
+        coreGrad.addColorStop(0.35, `rgba(${mixR}, ${mixG}, ${mixB}, 0.9)`);
+        coreGrad.addColorStop(1, 'rgba(147, 51, 234, 0)');
+        ctx2d.beginPath();
+        ctx2d.arc(cx, cy, coreR * 1.8, 0, Math.PI * 2);
+        ctx2d.fillStyle = coreGrad;
+        ctx2d.fill();
+
+        ctx2d.fillStyle = '#090612';
+        ctx2d.beginPath();
+        ctx2d.arc(cx, cy, 11, 0, Math.PI * 2);
+        ctx2d.fill();
+        ctx2d.strokeStyle = `rgba(${mixR}, ${mixG}, ${mixB}, 0.85)`;
+        ctx2d.lineWidth = 1.2;
+        ctx2d.stroke();
+
+        ctx2d.fillStyle = '#f3e8ff';
+        ctx2d.font = 'bold 9px ui-monospace, monospace';
+        ctx2d.textAlign = 'center';
+        ctx2d.textBaseline = 'middle';
+        ctx2d.fillText('89', cx, cy + 0.5);
+
+        ctx2d.restore();
+        requestAnimationFrame(drawFrame);
+      }
+
+      requestAnimationFrame(drawFrame);
+    }
+
+    /* =========================================================================
+       4. BITÁCORA DEL HORNO ALQUÍMICO (619 HZ · SHA-256 WEBCRYPTO · .k4li.asc)
+       ========================================================================= */
+    function escapeHtmlSafe(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    async function computeSha256Hex(message) {
+      const encoder = new TextEncoder();
+      const bytes = encoder.encode(message);
+      if (window.crypto && window.crypto.subtle) {
+        const hashBuffer = await window.crypto.subtle.digest('SHA-256', bytes);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+      }
+      // Fallback determinista FNV-like expandido solo si el contexto carece de SubtleCrypto
+      let h1 = 0xdeadbeef ^ bytes.length;
+      let h2 = 0x41c6ce57 ^ bytes.length;
+      for (let i = 0; i < bytes.length; i++) {
+        const ch = bytes[i];
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      const base = (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0');
+      return base.repeat(4);
+    }
+
+    function encodeUtf8Base64(text) {
+      const bytes = new TextEncoder().encode(text);
+      let binary = '';
+      for (let i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary);
+    }
+
+    function wrapArmorLines(str, width) {
+      const chunks = [];
+      for (let i = 0; i < str.length; i += width) {
+        chunks.push(str.slice(i, i + width));
+      }
+      return chunks.join('\n');
+    }
+
+    async function buildSignedAscBlock(noteObj) {
+      const normalizedBody = String(noteObj.body || '').replace(/\r\n/g, '\n').trim();
+      const title = String(noteObj.title || 'TRANSMUTACION-SIN-TITULO').trim();
+      const witness = String(noteObj.witness || 'Rosa Gris 🌸 (619.00 Hz)').trim();
+      const isoDate = noteObj.timestamp || new Date().toISOString();
+      const byteLength = new TextEncoder().encode(normalizedBody).length;
+
+      const canonicalString = [
+        'K4L1-ALCHEMICAL-SEAL-V2.8',
+        `TITLE:${title}`,
+        `WITNESS:${witness}`,
+        `TIMESTAMP:${isoDate}`,
+        `FREQ:189.89.619HZ`,
+        '---BODY---',
+        normalizedBody
+      ].join('\n');
+
+      const bodySha256 = await computeSha256Hex(normalizedBody);
+      const sealSha256 = await computeSha256Hex(canonicalString);
+      const armoredEnvelope = wrapArmorLines(
+        encodeUtf8Base64(`${sealSha256}::${isoDate}::${byteLength}::${bodySha256}`),
+        64
+      );
+
+      const asc = [
+        '-----BEGIN K4L1 ALCHEMICAL SEAL v2.8-----',
+        'Chamber: SANTUARIO SOBERANO DEL ESPACIO 89 // HORNO ALQUIMICO 619 HZ',
+        'Council: CONCILIO ACE (161914)',
+        `Title: ${title}`,
+        `Witness: ${witness}`,
+        `Timestamp: ${isoDate}`,
+        'Custody: LOCAL-ZERO-KNOWLEDGE // ZERO-NETWORK',
+        `Payload-Bytes: ${byteLength}`,
+        '',
+        normalizedBody,
+        '',
+        '-----BEGIN SHA256 SIGNATURE-----',
+        'Hash-Algorithm: SHA-256 (WebCrypto)',
+        `Body-SHA256: ${bodySha256}`,
+        `Seal-SHA256: ${sealSha256}`,
+        armoredEnvelope,
+        '-----END SHA256 SIGNATURE-----',
+        '-----END K4L1 ALCHEMICAL SEAL v2.8-----'
+      ].join('\n');
+
+      return { asc, bodySha256, sealSha256, byteLength, isoDate, title, witness, body: normalizedBody };
+    }
+
+    let kilnDigestSeq = 0;
+    async function updateLiveKilnDigest() {
+      const bodyEl = document.getElementById('kilnNoteBody');
+      const byteEl = document.getElementById('kilnByteCounter');
+      const shaEl = document.getElementById('kilnLiveSha256');
+      if (!bodyEl) return;
+
+      const text = bodyEl.value;
+      const byteLen = new TextEncoder().encode(text).length;
+      if (byteEl) byteEl.textContent = `${byteLen} bytes`;
+
+      const seq = ++kilnDigestSeq;
+      const hex = await computeSha256Hex(text);
+      if (seq === kilnDigestSeq && shaEl) {
+        shaEl.textContent = hex;
+      }
+    }
+
+    function readKilnEntries() {
+      try {
+        const raw = localStorage.getItem(KILN_STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function writeKilnEntries(entries) {
+      localStorage.setItem(KILN_STORAGE_KEY, JSON.stringify(entries));
+    }
+
+    function showKilnFeedback(message, isError) {
+      const banner = document.getElementById('kilnStatusBanner');
+      if (!banner) return;
+      banner.className = isError
+        ? 'p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-200 text-xs'
+        : 'p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-200 text-xs';
+      banner.textContent = message;
+      banner.classList.remove('hidden');
+    }
+
+    async function saveNoteToAlchemicalKiln() {
+      const titleInput = document.getElementById('kilnNoteTitle');
+      const witnessSelect = document.getElementById('kilnWitnessSelect');
+      const bodyInput = document.getElementById('kilnNoteBody');
+
+      const body = (bodyInput ? bodyInput.value : '').trim();
+      if (!body) {
+        showKilnFeedback('Escribe primero una reflexión o nota táctica en el Horno Alquímico.', true);
+        return;
+      }
+
+      const title = (titleInput && titleInput.value.trim()) || `TRANSMUTACIÓN-${Date.now().toString(36).toUpperCase()}`;
+      const witness = witnessSelect ? witnessSelect.value : 'Rosa Gris 🌸 (619.00 Hz)';
+      const timestamp = new Date().toISOString();
+
+      const sealed = await buildSignedAscBlock({ title, witness, body, timestamp });
+      const entries = readKilnEntries();
+      entries.unshift({
+        id: 'kiln_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+        title: sealed.title,
+        witness: sealed.witness,
+        body: sealed.body,
+        timestamp: sealed.isoDate,
+        sha256: sealed.sealSha256,
+        bytes: sealed.byteLength
+      });
+
+      writeKilnEntries(entries.slice(0, 50));
+      renderKilnEntriesList();
+      showKilnFeedback(`✓ Nota forjada en localStorage [SHA-256: ${sealed.sealSha256.slice(0, 16)}…]`, false);
+    }
+
+    function triggerAscFileDownload(filename, content) {
+      const blob = new Blob([content], { type: 'application/pgp-signature;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    async function sealAndDownloadAscBlock() {
+      const titleInput = document.getElementById('kilnNoteTitle');
+      const witnessSelect = document.getElementById('kilnWitnessSelect');
+      const bodyInput = document.getElementById('kilnNoteBody');
+
+      const body = (bodyInput ? bodyInput.value : '').trim();
+      if (!body) {
+        showKilnFeedback('El manuscrito está vacío. Escribe una reflexión antes de sellar el bloque .k4li.asc.', true);
+        return;
+      }
+
+      const title = (titleInput && titleInput.value.trim()) || 'SELLO-HORNO-619HZ';
+      const witness = witnessSelect ? witnessSelect.value : 'Rosa Gris 🌸 (619.00 Hz)';
+      const sealed = await buildSignedAscBlock({
+        title,
+        witness,
+        body,
+        timestamp: new Date().toISOString()
+      });
+
+      const slug = title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 28) || 'horno_619hz';
+      const stamp = sealed.isoDate.replace(/[:.]/g, '-').slice(0, 19);
+      const filename = `${slug}_${stamp}.k4li.asc`;
+
+      triggerAscFileDownload(filename, sealed.asc);
+
+      const previewBox = document.getElementById('kilnSealedPreviewBox');
+      const previewPre = document.getElementById('kilnSealedPreviewText');
+      if (previewPre) previewPre.textContent = sealed.asc;
+      if (previewBox) previewBox.classList.remove('hidden');
+
+      showKilnFeedback(`💎 Bloque firmado descargado: ${filename} (0 bytes de red).`, false);
+    }
+
+    async function copyCurrentAscBlock() {
+      const titleInput = document.getElementById('kilnNoteTitle');
+      const witnessSelect = document.getElementById('kilnWitnessSelect');
+      const bodyInput = document.getElementById('kilnNoteBody');
+
+      const body = (bodyInput ? bodyInput.value : '').trim();
+      if (!body) {
+        showKilnFeedback('Escribe primero una nota en el editor para copiar su sello .k4li.asc.', true);
+        return;
+      }
+
+      const title = (titleInput && titleInput.value.trim()) || 'SELLO-HORNO-619HZ';
+      const witness = witnessSelect ? witnessSelect.value : 'Rosa Gris 🌸 (619.00 Hz)';
+      const sealed = await buildSignedAscBlock({
+        title,
+        witness,
+        body,
+        timestamp: new Date().toISOString()
+      });
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(sealed.asc);
+      }
+      const previewBox = document.getElementById('kilnSealedPreviewBox');
+      const previewPre = document.getElementById('kilnSealedPreviewText');
+      if (previewPre) previewPre.textContent = sealed.asc;
+      if (previewBox) previewBox.classList.remove('hidden');
+
+      showKilnFeedback('📋 Bloque .k4li.asc firmado copiado al portapapeles.', false);
+    }
+
+    function renderKilnEntriesList() {
+      const container = document.getElementById('kilnEntriesList');
+      const badge = document.getElementById('kilnSavedCountBadge');
+      if (!container) return;
+
+      const entries = readKilnEntries();
+      if (badge) {
+        badge.textContent = `${entries.length} ${entries.length === 1 ? 'sello' : 'sellos'}`;
+      }
+
+      if (entries.length === 0) {
+        container.innerHTML = `
+          <div class="p-4 rounded-xl bg-black/40 border border-purple-950/60 text-center text-[11px] text-zinc-500">
+            El Horno Alquímico aún no guarda reliquias locales en este navegador.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = entries.map((item) => {
+        const shortHash = escapeHtmlSafe((item.sha256 || '').slice(0, 18));
+        const dateLabel = escapeHtmlSafe((item.timestamp || '').replace('T', ' ').slice(0, 19));
+        const safeTitle = escapeHtmlSafe(item.title);
+        const safeWitness = escapeHtmlSafe(item.witness);
+        const safeSnippet = escapeHtmlSafe((item.body || '').slice(0, 110)) + ((item.body || '').length > 110 ? '…' : '');
+        const safeId = escapeHtmlSafe(item.id);
+
+        return `
+          <div class="p-3 rounded-xl bg-black/70 border border-purple-900/40 hover:border-purple-600/50 transition-all space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xs font-bold text-purple-100 truncate">${safeTitle}</div>
+                <div class="text-[10px] text-zinc-500">${safeWitness} • ${dateLabel}</div>
+              </div>
+              <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-[9px] text-emerald-300 font-mono shrink-0">
+                #${shortHash}
+              </span>
+            </div>
+            <p class="text-[11px] text-zinc-300/90 leading-snug break-words">${safeSnippet}</p>
+            <div class="flex items-center justify-end gap-2 pt-1 text-[10px]">
+              <button type="button" onclick="loadKilnEntryIntoEditor('${safeId}')"
+                class="px-2 py-1 rounded-lg bg-purple-500/15 hover:bg-purple-500/25 text-purple-200 border border-purple-500/30">
+                Cargar
+              </button>
+              <button type="button" onclick="downloadSavedKilnEntry('${safeId}')"
+                class="px-2 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-200 border border-emerald-500/30">
+                .k4li.asc
+              </button>
+              <button type="button" onclick="deleteKilnEntry('${safeId}')"
+                class="px-2 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30">
+                ✕
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function loadKilnEntryIntoEditor(entryId) {
+      const entries = readKilnEntries();
+      const found = entries.find((e) => e.id === entryId);
+      if (!found) return;
+      const titleInput = document.getElementById('kilnNoteTitle');
+      const witnessSelect = document.getElementById('kilnWitnessSelect');
+      const bodyInput = document.getElementById('kilnNoteBody');
+
+      if (titleInput) titleInput.value = found.title || '';
+      if (witnessSelect && found.witness) witnessSelect.value = found.witness;
+      if (bodyInput) bodyInput.value = found.body || '';
+      updateLiveKilnDigest();
+      showKilnFeedback(`Manuscrito "${found.title}" cargado en el Horno Alquímico.`, false);
+    }
+
+    async function downloadSavedKilnEntry(entryId) {
+      const entries = readKilnEntries();
+      const found = entries.find((e) => e.id === entryId);
+      if (!found) return;
+      const sealed = await buildSignedAscBlock(found);
+      const slug = (found.title || 'horno_619hz')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 28) || 'horno_619hz';
+      const stamp = (found.timestamp || sealed.isoDate).replace(/[:.]/g, '-').slice(0, 19);
+      triggerAscFileDownload(`${slug}_${stamp}.k4li.asc`, sealed.asc);
+    }
+
+    function deleteKilnEntry(entryId) {
+      const entries = readKilnEntries().filter((e) => e.id !== entryId);
+      writeKilnEntries(entries);
+      renderKilnEntriesList();
+    }
+
+    function clearAllKilnEntries() {
+      const entries = readKilnEntries();
+      if (entries.length === 0) return;
+      if (!confirm('¿Incinerar todas las notas locales del Horno Alquímico en este navegador?')) return;
+      localStorage.removeItem(KILN_STORAGE_KEY);
+      renderKilnEntriesList();
+      showKilnFeedback('🔥 Bitácora local del Horno Alquímico incinerada.', false);
+    }
+
+    /* =========================================================================
+       5. NAVEGACIÓN DE CÁMARAS & MÓDULOS DE BÓVEDA TAR PIT / PQC EXISTENTES
+       ========================================================================= */
+    function switchChamberFilter(mode) {
+      const map = {
+        harmonic: 'chamberHarmonicSection',
+        kiln: 'chamberKilnSection',
+        vault: 'chamberVaultSection'
+      };
+      const buttons = ['all', 'harmonic', 'kiln', 'vault'];
+      buttons.forEach((b) => {
+        const btn = document.getElementById(`cfilter-${b}`);
+        if (!btn) return;
+        if (b === mode) {
+          btn.className = 'px-3 py-1.5 rounded-xl bg-purple-500/20 text-purple-200 border border-purple-500/40 font-bold transition-all flex items-center gap-1.5';
+        } else {
+          btn.className = 'px-3 py-1.5 rounded-xl text-zinc-400 hover:text-white border border-transparent transition-all flex items-center gap-1.5';
+        }
+      });
+
+      Object.keys(map).forEach((key) => {
+        const sec = document.getElementById(map[key]);
+        if (!sec) return;
+        if (mode === 'all' || mode === key) {
+          sec.classList.remove('hidden');
+        } else {
+          sec.classList.add('hidden');
+        }
+      });
+    }
+
     function getTarpitDuration() {
       const saved = parseInt(localStorage.getItem('k4li_adaptive_latency_ms') || '4200', 10);
       return isNaN(saved) || saved < 20 ? 4200 : saved;
     }
 
-    // Al cargar la página, comprobar si ya existe sesión desbloqueada
     window.addEventListener('load', async () => {
+      renderConcilioAltars();
+      initHarmonicMandalaLoop();
+      renderKilnEntriesList();
+      updateLiveKilnDigest();
+
       const fails = localStorage.getItem('k4li_auth_fails') || '0';
       const statBrute = document.getElementById('statBruteBlocked');
       if (statBrute) statBrute.innerText = fails;
 
-      if (BunkerAuth.isUnlocked() && BunkerAuth.getRole() === 'admin') {
+      if (typeof BunkerAuth !== 'undefined' && BunkerAuth.isUnlocked() && BunkerAuth.getRole() === 'admin') {
         revealSanctuaryUI();
       }
     });
@@ -476,7 +2048,6 @@
       btn.classList.add('opacity-50', 'pointer-events-none');
       container.classList.remove('hidden');
 
-      // Animación de retardo temporal progresivo
       const startTime = Date.now();
       const tarpitMs = getTarpitDuration();
       const steps = [
@@ -502,7 +2073,6 @@
         }
       }, 50);
 
-      // Esperar el retardo intencional y validar clave
       setTimeout(async () => {
         try {
           await BunkerAuth.login(pass);
@@ -529,7 +2099,10 @@
     }
 
     function lockSanctuary() {
-      BunkerAuth.logout();
+      ConcilioHarmonicEngine.stopAudio();
+      if (typeof BunkerAuth !== 'undefined') {
+        BunkerAuth.logout();
+      }
       window.location.reload();
     }
 
@@ -589,10 +2162,8 @@
       }
 
       try {
-        // 1. Re-cifrar todos los registros de IndexedDB
         const recordsUpdated = await BunkerDB.reEncryptAll(currentPass, newPass);
 
-        // 2. Generar nuevo payload soberano en cliente
         const manifestRes = await fetch('../assets/relics_manifest.json');
         const relicsData = manifestRes.ok ? await manifestRes.json() : [];
 
@@ -613,10 +2184,8 @@
 
         const newEncryptedPayload = await BunkerCrypto.quantumEncrypt(newPass, sovereignContent);
 
-        // 3. Actualizar sesión activa
         BunkerAuth.setActiveKey(newPass, 'admin');
 
-        // 4. Ofrecer descarga del nuevo vault_payload.json
         const blob = new Blob([JSON.stringify(newEncryptedPayload, null, 2)], { type: "application/json" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -631,7 +2200,6 @@
         msg.innerHTML = `✅ <strong>Rotación Completada con Éxito</strong>: ${recordsUpdated} expedientes re-cifrados. Se ha descargado el nuevo <code class="text-white">vault_payload.json</code> para que lo sustituyas en tu repositorio.`;
         msg.classList.remove('hidden');
 
-        // Actualizar huella y mnemónico
         const fp = await BunkerCrypto.computeFingerprint(newPass);
         document.getElementById('activeKeyFingerprint').innerText = `SHA256: [${fp}]`;
         await loadPaperKeyUI(newPass);
@@ -721,6 +2289,7 @@
         alert("Código de confirmación incorrecto.");
         return;
       }
+      ConcilioHarmonicEngine.stopAudio();
       await BunkerAuth.deadManPurge();
     }
   </script>

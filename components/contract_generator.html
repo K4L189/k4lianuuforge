@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generador de Propuestas & SOW Blindado | K4L1 STUDIO</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="../vendor/tailwind.min.js"></script>
   <link rel="stylesheet" href="../assets/css/fullwallpaper.css">
   <style>
     /* 6 ESTILOS CANÓNICOS DEL SISTEMA ANUU / K4L1 FORGE (189.89.619 Hz) */
@@ -335,6 +335,8 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
+  <script src="../assets/js/anuu_gate.js"></script>
 </head>
 <body class="p-3 sm:p-6 min-h-screen">
 
@@ -734,6 +736,11 @@
             <!-- Botón Copiar para Signal -->
             <button onclick="copySowForSignal()" id="btn-copy-signal" class="px-3 py-1.5 rounded-xl bg-indigo-600/20 border border-indigo-500/50 hover:bg-indigo-600/30 text-indigo-300 text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-md">
               <span>💬</span> Copiar para Signal (@k4li.89)
+            </button>
+
+            <!-- Botón Exportar Sobre Blindado .k4li.asc -->
+            <button onclick="exportSowSovereignEnvelope()" id="btn-export-envelope" class="px-3 py-1.5 rounded-xl bg-purple-900/30 border border-purple-500/50 hover:bg-purple-900/50 text-purple-200 text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-md" title="Descargar e intercambiar como Sobre Blindado .k4li.asc (Zero-Cloud SHA-256)">
+              <span>📜</span> Sobre .k4li.asc
             </button>
 
             <!-- Botón Imprimir a PDF -->
@@ -1642,6 +1649,77 @@ CANAL DE INICIO DE SPRINT:
       }).catch(() => {
         alert("Propuesta generada. Cópiala directamente desde la vista previa.");
       });
+    }
+
+    // EXPORTAR SOBRE BLINDADO .k4li.asc (Zero-Cloud SHA-256)
+    async function exportSowSovereignEnvelope() {
+      try {
+        const currentService = serviceCatalog[sowState.serviceKey] || {};
+        const currentSla = slaCatalog[sowState.slaKey] || {};
+        const totalInvestment = document.getElementById("preview-total-price")?.innerText || "0 €";
+        const h1 = document.getElementById("preview-h1-price")?.innerText || "0 €";
+        const h2 = document.getElementById("preview-h2-price")?.innerText || "0 €";
+
+        const sowPayload = {
+          version: "1.0-SOVEREIGN-SOW",
+          proposal_id: fixedProposalCode,
+          timestamp_utc: new Date().toISOString(),
+          client: sowState.client,
+          service: {
+            id: sowState.serviceKey,
+            name: currentService.name,
+            sla: currentSla.name,
+            addons: sowState.addons,
+            nda_e2ee: sowState.ndaEnabled
+          },
+          economics: {
+            total_net: totalInvestment,
+            milestone_1_kickoff_50pct: h1,
+            milestone_2_delivery_50pct: h2
+          },
+          signature: sowState.signature
+        };
+
+        const canonicalJson = JSON.stringify(sowPayload, null, 2);
+        const enc = new TextEncoder();
+        const dataBytes = enc.encode(canonicalJson);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", dataBytes);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const sha256Hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+        let binStr = "";
+        for (let i = 0; i < dataBytes.length; i++) binStr += String.fromCharCode(dataBytes[i]);
+        const b64 = btoa(binStr);
+        const wrappedB64 = b64.match(/.{1,64}/g).join("\n");
+
+        const envelope = [
+          "-----BEGIN K4L1 SOVEREIGN ENVELOPE-----",
+          "Version: K4L1-ZeroCloud-161914",
+          "Mode: SOW-PROPOSAL-SHA256",
+          "Proposal-ID: " + fixedProposalCode,
+          "Hash: SHA-256/" + sha256Hex.slice(0, 16),
+          "SHA256: " + sha256Hex,
+          "Channel: Signal-E2EE (@k4li.89)",
+          "",
+          wrappedB64,
+          "-----END K4L1 SOVEREIGN ENVELOPE-----"
+        ].join("\n");
+
+        const blob = new Blob([envelope], { type: "text/plain;charset=utf-8" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        const safeOrg = (sowState.client.org || 'CLIENT').replace(/[^a-zA-Z0-9]/g, '_');
+        a.download = `SOW_${fixedProposalCode}_${safeOrg}.k4li.asc`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+
+        showToast("Sobre blindado .k4li.asc generado y descargado (SHA-256)");
+      } catch (err) {
+        console.error("Error generating sovereign envelope:", err);
+        showToast("Error al generar sobre blindado");
+      }
     }
 
     // FEEDBACK TOAST VISUAL

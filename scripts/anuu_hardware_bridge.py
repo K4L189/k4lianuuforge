@@ -15,9 +15,12 @@ import json
 import time
 import math
 import wave
+import shlex
 import struct
+import tempfile
 import argparse
 import subprocess
+import http.client
 from pathlib import Path
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import socket
@@ -41,7 +44,8 @@ C_GRAY = "\033[38;2;100;116;139m"
 def run_cmd(cmd, timeout=3):
     """Executes a shell command cleanly and returns stdout string."""
     try:
-        p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, timeout=timeout, text=True)
+        argv = shlex.split(cmd) if isinstance(cmd, str) else list(cmd)
+        p = subprocess.run(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False, timeout=timeout, text=True)
         return p.stdout.strip()
     except Exception:
         return ""
@@ -136,7 +140,8 @@ def scan_alsa_midi():
                     akai_info = dev_obj
 
     # Also inspect sequencer clients
-    seq_out = run_cmd("cat /proc/asound/seq/clients 2>/dev/null")
+    seq_path = Path("/proc/asound/seq/clients")
+    seq_out = seq_path.read_text(encoding="utf-8", errors="ignore") if seq_path.exists() else ""
     if "akai" in seq_out.lower() or "mpc" in seq_out.lower():
         akai_found = True
 
@@ -344,6 +349,65 @@ def scan_network_sentinels():
         }
     }
 
+def read_host_thermal_celsius():
+    """Reads Linux host CPU thermal zone 0 temperature in Celsius."""
+    thermal_path = Path("/sys/class/thermal/thermal_zone0/temp")
+    try:
+        if thermal_path.exists():
+            raw_val = float(thermal_path.read_text(encoding="utf-8").strip())
+            return round(raw_val / 1000.0, 1) if raw_val > 200.0 else round(raw_val, 1)
+    except Exception:
+        pass
+    return None
+
+def probe_arm64_hybrid_node(timeout=0.8):
+    """Non-blocking HTTP probe (0.8s timeout) to local ARM64 USB hybrid compute node."""
+    endpoint_url = "http://127.0.0.1:18989/telemetry"
+    host_temp = read_host_thermal_celsius()
+    t0 = time.monotonic()
+    conn = None
+
+    try:
+        conn = http.client.HTTPConnection("127.0.0.1", 18989, timeout=timeout)
+        conn.request("GET", "/telemetry", headers={"Accept": "application/json"})
+        resp = conn.getresponse()
+        body = resp.read(65536).decode("utf-8", errors="replace")
+        if resp.status == 200:
+            data = json.loads(body) if body.strip() else {}
+            raw_models = data.get("gguf_models", data.get("models", []))
+            if not isinstance(raw_models, list):
+                raw_models = [str(raw_models)]
+            raw_temp = data.get("temp_celsius", data.get("temperature_c", data.get("thermal_c")))
+            node_temp = round(float(raw_temp), 1) if isinstance(raw_temp, (int, float)) else None
+            return {
+                "status": "ONLINE",
+                "endpoint": endpoint_url,
+                "architecture": str(data.get("architecture", "ARM64 Hybrid USB Compute Node")),
+                "cores": int(data.get("cores", data.get("cpu_cores", 8))),
+                "temp_celsius": node_temp,
+                "gguf_models": [str(m) for m in raw_models],
+                "host_temp_celsius": host_temp,
+                "latency_ms": round((time.monotonic() - t0) * 1000.0, 1)
+            }
+    except Exception:
+        pass
+    finally:
+        if conn is not None:
+            try:
+                conn.close()
+            except Exception:
+                pass
+
+    return {
+        "status": "STANDBY",
+        "endpoint": endpoint_url,
+        "architecture": "ARM64 Hybrid USB Compute Node",
+        "cores": 8,
+        "temp_celsius": None,
+        "gguf_models": [],
+        "host_temp_celsius": host_temp
+    }
+
 def gather_full_telemetry():
     """Compiles total hardware state into a unified telemetry document."""
     audio = scan_alsa_cards()
@@ -352,6 +416,8 @@ def gather_full_telemetry():
     adb = scan_adb()
     hid = scan_hid()
     net = scan_network_sentinels()
+    arm64_hybrid = probe_arm64_hybrid_node(timeout=0.8)
+    host_temp = arm64_hybrid.get("host_temp_celsius")
 
     telemetry = {
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -359,11 +425,16 @@ def gather_full_telemetry():
         "council_sub_hz": SUB_FREQ,
         "alliance": "Set ⚡ & Rosa Gris 🌸",
         "system_id": SYSTEM_ID,
+        "host_thermal": {
+            "sensor_path": "/sys/class/thermal/thermal_zone0/temp",
+            "temp_celsius": host_temp
+        },
         "hardware": {
             "focusrite_scarlett": audio["focusrite"],
             "akai_mpc": midi["akai_mpc"],
             "arduino_uno": serial["arduino_uno"],
             "poco_f6": adb["poco_f6"],
+            "arm64_hybrid_node": arm64_hybrid,
             "razer_deathadder": hid["razer_deathadder"],
             "nano_pineapple": net["nano_pineapple"],
             "raspberry_pi_3b": net["raspberry_pi_3b"]
@@ -394,6 +465,12 @@ def print_hardware_table(telem):
         else:
             return f"{C_AMBER}{C_BOLD}[ {st} ]{C_RESET}"
 
+    arm64 = hw["arm64_hybrid_node"]
+    arm64_temp_str = f"{arm64['temp_celsius']}°C" if arm64.get("temp_celsius") is not None else "N/A"
+    arm64_models_cnt = len(arm64.get("gguf_models", []))
+    host_temp_val = telem.get("host_thermal", {}).get("temp_celsius")
+    host_temp_str = f"{host_temp_val}°C" if host_temp_val is not None else "N/A"
+
     rows = [
         ("🎛️  Akai MPC (16-Pad)", hw["akai_mpc"]["name"] if "name" in hw["akai_mpc"] else "Akai MPC WebMIDI", hw["akai_mpc"]["status"], "WebMIDI / Q-Link CC 70-73"),
         ("🎙️  Focusrite Scarlett", hw["focusrite_scarlett"]["model"], hw["focusrite_scarlett"]["status"], f"hw:3,0 (24b/192kHz) @ {CANONICAL_FREQ}Hz"),
@@ -401,6 +478,7 @@ def print_hardware_table(telem):
         ("🤖  Arduino Uno", hw["arduino_uno"].get("microcontroller", "ATmega328P / CH340"), hw["arduino_uno"]["status"], "TRNG A0-A3 + Panic Switch INT0"),
         ("🍓  Raspberry Pi 3B", "ARMv8 Quad-core Sentinel (2.5W)", hw["raspberry_pi_3b"]["status"], "Honeypot Tar Pit 4200ms + DNS Sinkhole"),
         ("📱  POCO F6", hw["poco_f6"]["model"], hw["poco_f6"]["status"], "ADB Bridge / USB Tethering Node"),
+        ("⚡  ARM64 Hybrid USB", f"{arm64['cores']} Cores // GGUF ({arm64_models_cnt})", arm64["status"], f"Node: {arm64_temp_str} | Host: {host_temp_str} (:18989)"),
         ("🖱️  Razer DeathAdder", hw["razer_deathadder"]["model"], hw["razer_deathadder"]["status"], "True 16K Optical / 1000Hz HID")
     ]
 
@@ -411,7 +489,8 @@ def print_hardware_table(telem):
         badge = status_badge(status)
         print(f"{C_VIOLET}{dev_name:<25}{C_RESET} {model:<35} {badge:<23} {C_GRAY}{details}{C_RESET}")
 
-    print(f"\n{C_DIM}» Concilio ACE 161914: Todos los subsistemas anclados a la frecuencia del Horno Alquímico.{C_RESET}\n")
+    print(f"\n{C_CYAN}» Host Linux Thermal (/sys/class/thermal/thermal_zone0/temp): {C_BOLD}{host_temp_str}{C_RESET}")
+    print(f"{C_DIM}» Concilio ACE 161914: Todos los subsistemas anclados a la frecuencia del Horno Alquímico.{C_RESET}\n")
 
 def generate_focusrite_tone_wav(filepath, duration_sec=2.0, freq=CANONICAL_FREQ):
     """Generates a high-fidelity 24-bit/48kHz WAV audio file with canonical 189.89 Hz sine & 61.9 Hz sub."""
@@ -449,16 +528,18 @@ def generate_focusrite_tone_wav(filepath, duration_sec=2.0, freq=CANONICAL_FREQ)
 def test_focusrite_audio():
     """Generates and plays a test tone directly to Focusrite Scarlett Solo (hw:3,0 or default)."""
     print(f"{C_VIOLET}[Set ⚡]: Sintetizando pulso canónico 189.89 Hz + Sub-Drop 61.9 Hz...{C_RESET}")
-    tmp_wav = "/tmp/anuu_focusrite_test_189hz.wav"
+    tmp_wav = None
     try:
+        with tempfile.NamedTemporaryFile(prefix="anuu_focusrite_189hz_", suffix=".wav", delete=False) as tf:
+            tmp_wav = tf.name
         generate_focusrite_tone_wav(tmp_wav, duration_sec=2.5, freq=CANONICAL_FREQ)
         print(f"{C_CYAN}[Focusrite hw:3,0]: WAV generado en {tmp_wav}{C_RESET}")
-        
-        # Test playback via aplay
-        # Try direct hw:3,0 first, fallback to default Pulse/PipeWire
-        cmd_hw = f"aplay -D plughw:3,0 {tmp_wav} 2>/dev/null || aplay {tmp_wav}"
+
+        # Test playback via aplay: try direct hw:3,0 first, fallback to default Pulse/PipeWire
         print(f"{C_EMERALD}[Set ⚡]: Disparando stream de audio a 189.89 Hz...{C_RESET}")
-        res = subprocess.run(cmd_hw, shell=True, timeout=5)
+        res = subprocess.run(["aplay", "-D", "plughw:3,0", tmp_wav], stderr=subprocess.DEVNULL, shell=False, timeout=5)
+        if res.returncode != 0:
+            res = subprocess.run(["aplay", tmp_wav], stderr=subprocess.DEVNULL, shell=False, timeout=5)
         if res.returncode == 0:
             print(f"{C_EMERALD}✓ Prueba de resonancia completada con éxito en la Focusrite Scarlett.{C_RESET}")
         else:
@@ -466,7 +547,7 @@ def test_focusrite_audio():
     except Exception as e:
         print(f"{C_ROSE}Error durante la prueba de audio: {e}{C_RESET}")
     finally:
-        if os.path.exists(tmp_wav):
+        if tmp_wav and os.path.exists(tmp_wav):
             try:
                 os.remove(tmp_wav)
             except Exception:

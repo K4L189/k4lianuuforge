@@ -58,7 +58,10 @@ def run_integrity_check(repo_root: Path):
         repo_root / "omega" / "index.html",
         repo_root / "omega" / "omega_stage.css",
         repo_root / "omega" / "omega_bridge.js",
+        repo_root / "omega" / "codex_144.json",
+        repo_root / "vendor" / "tailwind.min.js",
         repo_root / "api" / "sovereign_envelope_cli.py",
+        repo_root / "scripts" / "full_qa_suite.py",
         repo_root / "assets" / "carver_status.json",
         repo_root / "docs" / "ROI_CALCULATOR_GUIDE.md",
         repo_root / "docs" / "QLLM_NEURAL_SURGERY_ARCHITECTURE.md"
