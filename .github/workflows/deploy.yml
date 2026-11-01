@@ -30,6 +30,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: "Install Sovereign Verification Dependencies"
+        run: |
+          python -m pip install --upgrade pip
+          pip install cryptography
+
       - name: "Execute 4NVSET Integrity, E2E QA & Zero-Cloud OPSEC Suite"
         run: |
           echo "### [4NVSET 🟢] Invocando Protocolo de Verificación E2E v2.8..." >> $GITHUB_STEP_SUMMARY
