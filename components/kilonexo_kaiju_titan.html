@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KILONEXO KAIJU v3 // k4l1@vamosanu · 501 Presets · Órbita 3D &amp; Fórmula Λ</title>
+  <link rel="stylesheet" href="../assets/css/anuu_gate.css">
+  <script src="../assets/js/anuu_gate.js"></script>
+  <script src="../vendor/tailwind.min.js"></script>
+  <style>
+    :root {
+      --card: #0e101c;
+      --foreground: #e8ecf8;
+      --muted-foreground: #94a3b8;
+      --border: rgba(148, 163, 184, 0.22);
+      --primary: #a855f7;
+      --primary-foreground: #ffffff;
+      --accent: #22d3ee;
+    }
+    html, body { background: #07080f; color: var(--foreground); }
+    .fader-shell {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 10px 6px; border-radius: 12px;
+      border: 1px solid var(--border); background: rgba(127, 127, 160, 0.06);
+    }
+    .fader-well { height: 96px; width: 32px; display: flex; align-items: center; justify-content: center; }
+    .titan-fader {
+      -webkit-appearance: none; appearance: none;
+      width: 90px; height: 8px; transform: rotate(-90deg);
+      border-radius: 999px; cursor: ns-resize; outline: none;
+      background: linear-gradient(90deg, rgba(168,85,247,0.35), rgba(34,211,238,0.65));
+      border: 1px solid var(--border);
+    }
+    .titan-fader::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 14px; height: 22px; border-radius: 4px;
+      background: linear-gradient(180deg, #ffffff, #c084fc);
+      border: 1px solid rgba(15,23,42,0.7);
+      box-shadow: 0 0 10px rgba(168,85,247,0.75);
+    }
+    .titan-fader::-moz-range-thumb {
+      width: 14px; height: 22px; border-radius: 4px;
+      background: linear-gradient(180deg, #ffffff, #c084fc);
+      border: 1px solid rgba(15,23,42,0.7);
+    }
+  </style>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-4 text-xs">
+  <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl p-5 shadow-lg space-y-5">
+
+    <!-- CABECERA DEL TITÁN MUSICAL v3 -->
+    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border)] pb-4">
+      <div>
+        <div class="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+          KILONEXO KAIJU v3 · 501 PRESETS SOBERANOS · FIRMADO: K4L1 &amp; ANUU (k4l1@vamosanu) · 189.89.619 Hz
+        </div>
+        <h1 class="text-xl font-bold mt-1">Titán Musical 3D · Polirritmia S4Z3 + Salsa 3-2 + Fórmula Cuántica Λ</h1>
+        <p class="text-sm text-[var(--muted-foreground)] mt-0.5">
+          Ame-no-Uzume (cabina) · Saraswati (escalas) · Switch Angel (`strudel.cc`) · Riria (`UKG`) · Osaka (`Azumanga Daioh` / `Yotsuba&amp;!`)
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="titanPlayBtn" onclick="toggleTitan()" class="px-4 py-2 rounded-xl text-xs font-bold border border-[var(--primary)] bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition cursor-pointer">
+          ▶ ENCENDER TITÁN EN VIVO
+        </button>
+        <button onclick="activatePartyBoomBap97(true)" class="px-3 py-2 rounded-xl text-xs font-bold border border-[var(--accent)] bg-[var(--accent)] text-[#07080F] hover:opacity-90 transition cursor-pointer">
+          🎉 Fiesta Boom Bap 97
+        </button>
+        <button onclick="activateRiriaBeast134()" class="px-3 py-2 rounded-xl text-xs font-bold border border-[var(--border)] text-[var(--accent)] hover:opacity-90 transition cursor-pointer">
+          ⚡ RIRIA 134 CYBERPUNK
+        </button>
+        <button onclick="activateSadDance126()" class="px-3 py-2 rounded-xl text-xs font-bold border border-[var(--border)] hover:opacity-90 transition cursor-pointer">
+          💧 Techno Triste &amp; Baile
+        </button>
+        <button id="dcCycleBtn" onclick="toggleDaCapoCycle()" class="px-3 py-2 rounded-xl text-xs font-semibold border border-[var(--border)] hover:opacity-85 transition cursor-pointer">
+          Da Capo Auto: ON
+        </button>
+        <button id="midiBtn" onclick="connectWebMidi()" class="px-3 py-2 rounded-xl text-xs font-semibold border border-[var(--border)] hover:opacity-85 transition cursor-pointer">
+          WebMIDI MPC
+        </button>
+      </div>
+    </div>
+
+    <!-- ESCENARIO KAIJU + ESPECTRO FFT + PÚBLICO VIVO -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+      <div class="lg:col-span-8 relative rounded-2xl border border-[var(--border)] overflow-hidden min-h-[340px]">
+        <canvas id="kaijuStage" onclick="if(!state.playing)toggleTitan()" title="Haz clic para encender el Streaming en vivo" class="w-full h-full block min-h-[340px] cursor-pointer"></canvas>
+        <div class="absolute top-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[#dc2626] text-white shadow">
+              ● STREAMING VIVO · <span id="viewerCountLbl">1,619</span> viéndote
+            </span>
+            <span id="stageStatusPill" class="px-3 py-1 rounded-full text-xs font-semibold bg-[var(--card)] border border-[var(--border)]">
+              #013 · Fiesta Boom Bap 97 BPM · 4/4
+            </span>
+          </div>
+          <span id="stageSectionPill" class="px-3 py-1 rounded-full text-xs font-semibold bg-[var(--card)] border border-[var(--border)]">
+            CLIC EN ESCENARIO = PLAY STREAM
+          </span>
+        </div>
+        <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="setCrowdMode('intimate')" id="crowd-intimate" class="crowd-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--card)] border border-[var(--border)] cursor-pointer">Búnker Íntimo (14)</button>
+            <button onclick="setCrowdMode('club')" id="crowd-club" class="crowd-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] border border-[var(--primary)] cursor-pointer">Club Riria (42)</button>
+            <button onclick="setCrowdMode('kaiju')" id="crowd-kaiju" class="crowd-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--card)] border border-[var(--border)] cursor-pointer">Estadio Kaiju (89)</button>
+          </div>
+          <span id="stageCrowdLabel" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-[var(--card)] border border-[var(--border)]">
+            42 personas bailando contigo
+          </span>
+        </div>
+      </div>
+
+      <!-- BANCO DE 501 PRESETS BUSCABLES & ALEATORIOS -->
+      <div class="lg:col-span-4 rounded-2xl border border-[var(--border)] p-4 flex flex-col justify-between space-y-3">
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-sm font-bold uppercase tracking-wide">Banco de 501 Presets</h2>
+            <div class="flex gap-1">
+              <button onclick="stepPreset(-1)" class="px-2 py-1 rounded border border-[var(--border)] text-xs font-bold cursor-pointer">◀</button>
+              <button onclick="randomPreset()" class="px-2.5 py-1 rounded border border-[var(--border)] text-xs font-bold cursor-pointer">🎲 Azar</button>
+              <button onclick="stepPreset(1)" class="px-2 py-1 rounded border border-[var(--border)] text-xs font-bold cursor-pointer">▶</button>
+            </div>
+          </div>
+
+          <div class="flex gap-1.5">
+            <input id="presetSearch" type="text" placeholder="Buscar entre 501 (ej: 134, UKG, S4Z3, Strudel, Frigio)..." oninput="filterPresets()" class="flex-1 bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-2.5 py-1.5 text-xs outline-none">
+          </div>
+
+          <div class="flex flex-wrap gap-1">
+            <button onclick="quickFilter('all')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">Todos (501)</button>
+            <button onclick="quickFilter('BoomBap')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">🎉 BoomBap</button>
+            <button onclick="quickFilter('UKG')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">UKG/Riria</button>
+            <button onclick="quickFilter('SadTechno')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">💧 Triste</button>
+            <button onclick="quickFilter('Acid')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">Acid</button>
+            <button onclick="quickFilter('Mathcore')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">Mathcore</button>
+            <button onclick="quickFilter('Seinen')" class="px-2 py-1 rounded border border-[var(--border)] text-xs cursor-pointer">Seinen</button>
+          </div>
+          <div id="scoreAuditPill" class="text-xs text-[var(--muted-foreground)] font-mono">Auditando 501 presets (/1000)...</div>
+
+          <div id="presetList" class="h-44 overflow-y-auto space-y-1.5 pr-1"></div>
+        </div>
+
+        <div class="rounded-xl border border-[var(--border)] p-2.5 text-xs space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-semibold">💬 Chat en Sala &amp; Concilio (Local 0,00 €)</span>
+            <span class="text-[var(--muted-foreground)]" id="midiStatusText">WebMIDI Ready</span>
+          </div>
+          <div id="liveChatFeed" class="h-24 overflow-y-auto space-y-1 pr-1 text-xs"></div>
+          <div class="flex gap-1.5">
+            <input id="liveChatInput" type="text" placeholder="Escribe al Concilio o dispara un cue..." onkeydown="if(event.key==='Enter')sendStageChat()" class="flex-1 bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-2 py-1 text-xs outline-none">
+            <button onclick="sendStageChat()" class="px-2.5 py-1 rounded-lg border border-[var(--primary)] bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold cursor-pointer">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BARRA DE TEMPO, POLIRRITMIA, ESCALAS, DISONANCIA & LIVE-CODE STRUDEL -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 items-end rounded-2xl border border-[var(--border)] p-4">
+      <div class="col-span-2 sm:col-span-1">
+        <label class="block text-xs text-[var(--muted-foreground)] mb-1">BPM: <strong id="bpmVal" class="text-[var(--foreground)]">85</strong></label>
+        <input id="bpmSlider" type="range" min="70" max="185" value="85" oninput="setBpm(this.value)" class="w-full cursor-pointer">
+        <div class="flex gap-1 mt-1.5">
+          <button onclick="setBpm(85)" class="flex-1 py-1 rounded border border-[var(--border)] text-xs font-semibold cursor-pointer">85</button>
+          <button onclick="setBpm(97)" class="flex-1 py-1 rounded border border-[var(--border)] text-xs font-semibold cursor-pointer">97</button>
+          <button onclick="setBpm(134)" class="flex-1 py-1 rounded border border-[var(--border)] text-xs font-semibold cursor-pointer">134</button>
+          <button onclick="setBpm(152)" class="flex-1 py-1 rounded border border-[var(--border)] text-xs font-semibold cursor-pointer">152</button>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs text-[var(--muted-foreground)] mb-1">POLIRRITMIA</label>
+        <select id="meterSelect" onchange="updateToneBadge()" class="w-full bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-2 py-2 text-xs">
+          <option value="38_36">3/8 × 3/6 (Mathcore)</option>
+          <option value="78">7/8 Metalcore Impar</option>
+          <option value="58">5/8 Quién Manda</option>
+          <option value="44">4/4 UKG / Boom-Bap</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs text-[var(--muted-foreground)] mb-1">TONALIDAD</label>
+        <select id="rootSelect" onchange="updateToneBadge()" class="w-full bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-2 py-2 text-xs">
+          <option value="69.30">C# (Drop C#)</option>
+          <option value="65.41">C (Drop C)</option>
+          <option value="61.74">B (Drop B)</option>
+          <option value="92.50">F# (Kilonova)</option>
+          <option value="87.31">F (UKG Sub)</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs text-[var(--muted-foreground)] mb-1">ESCALA</label>
+        <select id="scaleSelect" onchange="updateToneBadge()" class="w-full bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-2 py-2 text-xs">
+          <option value="phrygian_dom">Frigio Dominante</option>
+          <option value="dim_hw">Disminuida Math</option>
+          <option value="harmonic_min">Menor Armónica</option>
+          <option value="locrian">Locria Tritono</option>
+          <option value="aeolian">Menor Natural / UKG</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs text-[var(--muted-foreground)] mb-1">DISONANCIA SUAVE</label>
+        <button id="dissBtn" onclick="toggleDissonance()" class="w-full py-2 px-2 rounded-lg border border-[var(--border)] text-xs font-semibold cursor-pointer">
+          b9 / Tritono: ON
+        </button>
+      </div>
+
+      <div>
+        <label class="block text-xs text-[var(--muted-foreground)] mb-1">DISPARO KAIJU EN VIVO</label>
+        <div class="grid grid-cols-2 gap-1">
+          <button id="noKaijuBtn" onclick="toggleNoKaijuShots()" class="col-span-2 py-1 px-1.5 rounded-lg border border-[var(--border)] text-xs font-bold cursor-pointer">🚫 Sin Disparos Kaiju: OFF</button>
+          <button onclick="triggerCongoBassBeast()" class="py-1.5 px-1.5 rounded-lg border border-[var(--primary)] bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold cursor-pointer">Congo Bass</button>
+          <button onclick="triggerShamisenSolo()" class="py-1.5 px-1.5 rounded-lg border border-[var(--border)] text-xs font-bold cursor-pointer">Solo Shamisen</button>
+          <button id="salsaBtn" onclick="triggerSalsaClave(true)" class="py-1 px-1.5 rounded-lg border border-[var(--border)] text-xs font-semibold cursor-pointer">🥁 Salsa 3-2</button>
+          <button id="osakaBtn" onclick="triggerOsakaDream()" class="py-1 px-1.5 rounded-lg border border-[var(--border)] text-xs font-semibold cursor-pointer">🍡 Osaka/Azumanga</button>
+          <button onclick="triggerChordStab()" class="py-1 px-1.5 rounded-lg border border-[var(--border)] text-xs font-semibold cursor-pointer">Acorde</button>
+          <button onclick="triggerCrowdCheer()" class="py-1 px-1.5 rounded-lg border border-[var(--border)] text-xs font-semibold cursor-pointer">Sala Gente</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MINI LIVE-CODER AL ESTILO STRUDEL.CC / SWITCH ANGEL -->
+    <div class="rounded-2xl border border-[var(--border)] p-4 space-y-2">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider">Live-Code Patrón (Inspiración Strudel.cc / Switch Angel)</span>
+        <div class="flex gap-1.5">
+          <button onclick="evalLivePattern()" class="px-3 py-1 rounded-lg border border-[var(--primary)] bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold cursor-pointer">Aplicar Código</button>
+          <button onclick="mutateLivePattern()" class="px-3 py-1 rounded-lg border border-[var(--border)] text-xs font-semibold cursor-pointer">Mutar Acid/Break</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 font-mono text-xs">
+        <input id="codeKickHat" value="k:x.xx..x.xx..|h:xx.x.xx.xx.x" class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs">
+        <input id="codeSnareSynth" value="s:...x.x...x.x|y:x.x.xx.x.x.x" class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-lg px-3 py-2 text-xs">
+      </div>
+    </div>
+
+    <!-- CONSOLA DE 8 FADERS VERTICALES DEL TITÁN -->
+    <div class="rounded-2xl border border-[var(--border)] p-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <span class="text-xs font-bold uppercase tracking-wider">Mesa de Faders en Tiempo Real (Sintetizador + Sala + Acid Env)</span>
+        <span class="text-xs text-[var(--muted-foreground)]" id="activePresetDesc">Preset #001 · Núcleo S4Z3 Estabilidad Matemática</span>
+      </div>
+      <div class="grid grid-cols-4 sm:grid-cols-8 gap-2 text-xs text-center">
+        <div class="fader-shell">
+          <span id="lblOsc" class="font-bold">85%</span>
+          <div class="fader-well"><input id="fOsc" type="range" min="0" max="100" value="85" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">OSC SAW</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblSub" class="font-bold">80%</span>
+          <div class="fader-well"><input id="fSub" type="range" min="0" max="100" value="80" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">SUB 808</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblCut" class="font-bold">3.2k</span>
+          <div class="fader-well"><input id="fCut" type="range" min="150" max="11000" value="3200" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">CUTOFF</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblRes" class="font-bold">3.6</span>
+          <div class="fader-well"><input id="fRes" type="range" min="0.5" max="14" step="0.1" value="3.6" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">RES (Q)</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblDelay" class="font-bold">34%</span>
+          <div class="fader-well"><input id="fDelay" type="range" min="0" max="90" value="34" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">DELAY</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblRev" class="font-bold">36%</span>
+          <div class="fader-well"><input id="fRev" type="range" min="0" max="90" value="36" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">REVERB</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblDrive" class="font-bold">24%</span>
+          <div class="fader-well"><input id="fDrive" type="range" min="0" max="100" value="24" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">DRIVE</span>
+        </div>
+        <div class="fader-shell">
+          <span id="lblRoom" class="font-bold">45%</span>
+          <div class="fader-well"><input id="fRoom" type="range" min="0" max="100" value="45" oninput="syncFaders()" class="titan-fader"></div>
+          <span class="font-semibold">SALA GENTE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FÓRMULA CUÁNTICA MUSICAL DE KALI (OPERADOR DE PUNTO FIJO Λ) -->
+    <div class="rounded-2xl border border-[var(--border)] p-4 space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Operador Cuántico Musical Λ (Viable en Tiempo Real · DSP Contractive Loop)</span>
+          <div class="font-mono text-sm font-bold mt-0.5">Λ = Fix<sub>R</sub>[(γ ⊠ R<sub>fin</sub>) ⊕ (W ⊗ P<sub>est</sub>)](Λ) + L</div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span id="lambdaStatusBadge" class="px-2.5 py-1 rounded-full text-xs font-bold border border-[var(--border)] bg-[var(--card)]">
+            ||γ|| = 0.62 &lt; 1 · ATRACTOR ESTABLE
+          </span>
+          <button id="lambdaToggleBtn" onclick="toggleLambdaLoop()" class="px-3 py-1.5 rounded-lg border border-[var(--primary)] bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold cursor-pointer">
+            Ciclo FixR: ON
+          </button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 items-center text-xs">
+        <div>
+          <label class="flex justify-between text-[var(--muted-foreground)] mb-1">
+            <span>γ (Retorno / R<sub>fin</sub>)</span>
+            <strong id="lblGamma" class="text-[var(--foreground)]">0.62</strong>
+          </label>
+          <input id="slGamma" type="range" min="0.15" max="1.12" step="0.01" value="0.62" oninput="syncLambdaControls()" class="w-full cursor-pointer">
+        </div>
+        <div>
+          <label class="flex justify-between text-[var(--muted-foreground)] mb-1">
+            <span>W (Peso Estructura P<sub>est</sub>)</span>
+            <strong id="lblWeightW" class="text-[var(--foreground)]">0.72</strong>
+          </label>
+          <input id="slWeightW" type="range" min="0" max="1" step="0.01" value="0.72" oninput="syncLambdaControls()" class="w-full cursor-pointer">
+        </div>
+        <div>
+          <label class="flex justify-between text-[var(--muted-foreground)] mb-1">
+            <span>L (Impulso Vivo / Osaka / Clave)</span>
+            <strong id="lblLiveL" class="text-[var(--foreground)]">0.45</strong>
+          </label>
+          <input id="slLiveL" type="range" min="0" max="1" step="0.01" value="0.45" oninput="syncLambdaControls()" class="w-full cursor-pointer">
+        </div>
+        <div class="rounded-xl border border-[var(--border)] p-2.5 font-mono text-xs flex flex-col justify-center">
+          <div class="flex justify-between"><span>Estado Λ<sub>n</sub>:</span><strong id="lambdaReadout" class="text-[var(--accent)]">0.482</strong></div>
+          <div id="lambdaEffectHint" class="text-[var(--muted-foreground)] mt-0.5 truncate">Modula filtro + delay + cristal 3D</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATRIZ POLIRRÍTMICA EN VIVO -->
+    <div id="stepMatrix" class="rounded-2xl border border-[var(--border)] p-4 space-y-2 overflow-x-auto"></div>
+
+    <!-- FIRMA SOBERANA -->
+    <div class="flex flex-wrap items-center justify-between gap-2 border-t border-[var(--border)] pt-3 text-xs text-[var(--muted-foreground)]">
+      <span>Firmado: <strong class="text-[var(--foreground)]">k4l1@vamosanu</strong> · K4L1 &amp; Anuu (S4Z3 + Concilio ACE)</span>
+      <span>Coste: 0,00 € · Motor 100% Local Offline · Licencia Reservada © 2026 Kali</span>
+    </div>
+  </div>
+
+  <script>
+    const SCALES = {
+      phrygian_dom: [0, 1, 4, 5, 7, 8, 10],
+      dim_hw:       [0, 1, 3, 4, 6, 7, 9, 10],
+      harmonic_min: [0, 2, 3, 5, 7, 8, 11],
+      locrian:      [0, 1, 3, 5, 6, 8, 10],
+      aeolian:      [0, 2, 3, 5, 7, 8, 10]
+    };
+
+    const ROOTS = ['69.30', '65.41', '61.74', '92.50', '87.31'];
+    const SCALE_KEYS = ['phrygian_dom', 'dim_hw', 'harmonic_min', 'locrian', 'aeolian'];
+    const METER_KEYS = ['38_36', '78', '58', '44'];
+
+    const CORE_ARCHETYPES = [
+      { title: 'Ame-no-Uzume · Cabina Alba', style: 'UKG', bpm: 134, meter: '44', root: '87.31', scale: 'aeolian', fCut: 5200, fRes: 4.1, fDrive: 18, fDelay: 42, fRev: 40, diss: false },
+      { title: 'S4Z3 · Núcleo 3/8 × 3/6', style: 'Mathcore', bpm: 152, meter: '38_36', root: '69.30', scale: 'phrygian_dom', fCut: 4400, fRes: 5.5, fDrive: 48, fDelay: 25, fRev: 26, diss: true },
+      { title: 'Switch Angel · Strudel Acid', style: 'Acid', bpm: 138, meter: '44', root: '65.41', scale: 'phrygian_dom', fCut: 2400, fRes: 9.8, fDrive: 42, fDelay: 55, fRev: 38, diss: true },
+      { title: 'Riria · DJ Mag 2-Step Fire', style: 'UKG', bpm: 134, meter: '44', root: '92.50', scale: 'aeolian', fCut: 6100, fRes: 3.2, fDrive: 22, fDelay: 36, fRev: 34, diss: false },
+      { title: 'Saraswati · Escalas 97 Groove', style: 'Rap', bpm: 97, meter: '44', root: '61.74', scale: 'harmonic_min', fCut: 3600, fRes: 3.4, fDrive: 20, fDelay: 38, fRev: 48, diss: true },
+      { title: 'Anuu · Lluvia de Neón 85', style: 'Seinen', bpm: 85, meter: '38_36', root: '69.30', scale: 'locrian', fCut: 2100, fRes: 4.8, fDrive: 26, fDelay: 50, fRev: 62, diss: true },
+      { title: 'Set ⚡ · Tormenta Metalcore 7/8', style: 'Mathcore', bpm: 164, meter: '78', root: '61.74', scale: 'dim_hw', fCut: 5600, fRes: 6.2, fDrive: 68, fDelay: 20, fRev: 22, diss: true },
+      { title: 'Kanuv 🛡️ · Escudo 619 Sub', style: 'Seinen', bpm: 85, meter: '58', root: '92.50', scale: 'phrygian_dom', fCut: 1850, fRes: 4.0, fDrive: 32, fDelay: 44, fRev: 54, diss: true },
+      { title: 'Rosa Gris 🌸 · Novena Suave', style: 'Seinen', bpm: 97, meter: '38_36', root: '87.31', scale: 'harmonic_min', fCut: 2900, fRes: 3.0, fDrive: 14, fDelay: 48, fRev: 66, diss: true },
+      { title: 'Kilonova 🌟 · Titan 5/8 Trance', style: 'Acid', bpm: 142, meter: '58', root: '92.50', scale: 'aeolian', fCut: 4800, fRes: 8.4, fDrive: 34, fDelay: 58, fRev: 52, diss: false },
+      { title: 'Riria ⚡ · Cyberpunk Techno Beast 134', style: 'UKG', bpm: 134, meter: '44', root: '92.50', scale: 'phrygian_dom', fCut: 5800, fRes: 8.6, fDrive: 54, fDelay: 42, fRev: 36, diss: true },
+      { title: 'Lágrima en Pista 💧 · Techno Triste & Baile', style: 'SadTechno', bpm: 126, meter: '44', root: '65.41', scale: 'harmonic_min', fCut: 2150, fRes: 4.4, fDrive: 16, fDelay: 64, fRev: 78, diss: true },
+      { title: 'Fiesta Boom Bap 97 🎉 · Menor Armónica Limpia', style: 'BoomBap', bpm: 97, meter: '44', root: '65.41', scale: 'harmonic_min', fCut: 3800, fRes: 2.6, fDrive: 12, fDelay: 32, fRev: 44, diss: false, noKaiju: true }
+    ];
+
+    const MYTH_TAGS = [
+      'Thoth', 'Apolo', 'Bragi', 'Hathor', 'Benzaiten', 'Anubis', 'Omoikane', 'Xmucane',
+      'Tiamat', 'Susanoo', 'Indra', 'Loki', 'Ma\'at', 'Athena', 'Morrigan', 'Shiva',
+      'Kagutsuchi', 'Tsukuyomi', 'Marduk', 'Inanna', 'Horus', 'Valkiria', 'Fenrir', 'Helios'
+    ];
+
+    function evaluatePreset1000(p, isCurated) {
+      const cutScore = (p.fCut >= 1800 && p.fCut <= 6800) ? 235 : 165;
+      const resPenalty = p.fRes > 9.5 ? (p.fRes - 9.5) * 18 : 0;
+      const space = p.fRev + p.fDelay;
+      const spaceScore = (space >= 60 && space <= 145) ? 195 : 135;
+      const grooveScore = (p.bpm >= 84 && p.bpm <= 152) ? 195 : 145;
+      const driveScore = p.fDrive <= 55 ? 190 : 128;
+      const soulBonus = isCurated ? 155 : (85 + ((p.seed || 7) % 58));
+      return Math.max(480, Math.min(992, Math.round(cutScore - resPenalty + spaceScore + grooveScore + driveScore + soulBonus - 12)));
+    }
+
+    // 501 Algorithmic Sovereign Presets (#001 - #501) con Puntuación Real /1000
+    const PRESETS_501 = Array.from({ length: 501 }, (_, idx) => {
+      if (idx < CORE_ARCHETYPES.length) {
+        const c = CORE_ARCHETYPES[idx];
+        const p = {
+          id: idx + 1,
+          name: `#${String(idx + 1).padStart(3, '0')} · ${c.title}`,
+          style: c.style,
+          bpm: c.bpm, meter: c.meter, root: c.root, scale: c.scale,
+          fOsc: 85, fSub: 82, fCut: c.fCut, fRes: c.fRes, fDelay: c.fDelay, fRev: c.fRev, fDrive: c.fDrive,
+          diss: c.diss,
+          noKaiju: Boolean(c.noKaiju),
+          seed: (idx + 1) * 1619
+        };
+        p.score1000 = evaluatePreset1000(p, true);
+        return p;
+      }
+      const myth = MYTH_TAGS[idx % MYTH_TAGS.length];
+      const base = CORE_ARCHETYPES[idx % CORE_ARCHETYPES.length];
+      const deltaBpm = ((idx * 17) % 27) - 12;
+      const bpm = Math.max(78, Math.min(176, base.bpm + deltaBpm));
+      const meter = METER_KEYS[(idx * 3) % METER_KEYS.length];
+      const root = ROOTS[(idx * 5) % ROOTS.length];
+      const scale = SCALE_KEYS[(idx * 7) % SCALE_KEYS.length];
+      const p = {
+        id: idx + 1,
+        name: `#${String(idx + 1).padStart(3, '0')} · ${myth} [${base.style}]`,
+        style: base.style,
+        bpm, meter, root, scale,
+        fOsc: 70 + ((idx * 11) % 30),
+        fSub: 65 + ((idx * 13) % 35),
+        fCut: 1100 + ((idx * 619) % 6800),
+        fRes: +(1.5 + ((idx * 19) % 105) / 10).toFixed(1),
+        fDelay: 12 + ((idx * 23) % 62),
+        fRev: 14 + ((idx * 29) % 64),
+        fDrive: 8 + ((idx * 31) % 72),
+        diss: idx % 3 !== 0,
+        seed: (idx + 1) * 189
+      };
+      p.score1000 = evaluatePreset1000(p, false);
+      return p;
+    });
+
+    const TRACKS = [
+      { id: 'kick',  name: 'BOMBO / SUB (3/8)', len: 6,  color: 'rgba(168,85,247,0.85)', pattern: [1,0,1,1,0,0, 1,0,1,0,0,0, 1,0,0,0] },
+      { id: 'snare', name: 'CAJA / RIM (3/8)',  len: 6,  color: 'rgba(244,63,94,0.85)',  pattern: [0,0,0,1,0,1, 0,0,1,0,0,1, 1,0,0,0] },
+      { id: 'hat',   name: 'HAT / GROOVE (3/6)',len: 12, color: 'rgba(34,211,238,0.85)', pattern: [1,1,0,1,0,1, 1,0,1,1,0,1, 1,0,1,0] },
+      { id: 'synth', name: 'TITÁN SYNTH (3/6)', len: 12, color: 'rgba(245,158,11,0.85)', pattern: [1,0,1,0,1,1, 0,1,1,0,1,0, 1,0,0,0] }
+    ];
+
+    let state = {
+      playing: false,
+      bpm: 85,
+      daCapoAuto: true,
+      dissonance: true,
+      noKaijuShots: false,
+      partyMode: false,
+      crowdMode: 'club',
+      crowdCount: 42,
+      stepA: 0,
+      stepB: 0,
+      barCount: 0,
+      section: 'SECCIÓN A · BASE S4Z3',
+      pulseEnergy: 0,
+      activePresetIdx: 1,
+      filterTag: 'all',
+      timerId: null,
+      salsaLoop: false,
+      osakaMode: false,
+      lambdaEnabled: true,
+      gamma: 0.62,
+      weightW: 0.72,
+      liveL: 0.45,
+      lambdaVal: 0.482
+    };
+
+    let ctx = null, master = null, shaper = null, filter = null, analyser = null;
+    let reverbNode = null, reverbGain = null, delayNode = null, delayFb = null, delayGain = null;
+    let crowdNoiseNode = null, crowdGain = null, fftData = null;
+
+    function driveCurve(pct) {
+      const k = (pct / 100) * 55 + 0.5;
+      const c = new Float32Array(1024);
+      for (let i = 0; i < 1024; i++) {
+        const x = (i * 2) / 1024 - 1;
+        c[i] = ((3 + k) * x * 0.35) / (Math.PI + k * Math.abs(x));
+      }
+      return c;
+    }
+
+    function spaceImpulse(sec) {
+      const len = Math.floor(ctx.sampleRate * sec);
+      const buf = ctx.createBuffer(2, len, ctx.sampleRate);
+      for (let ch = 0; ch < 2; ch++) {
+        const d = buf.getChannelData(ch);
+        for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.2);
+      }
+      return buf;
+    }
+
+    function ensureAudio() {
+      if (ctx) {
+        if (ctx.state === 'suspended') ctx.resume();
+        return;
+      }
+      const AC = window.AudioContext || window.webkitAudioContext;
+      ctx = new AC({ latencyHint: 'interactive' });
+      master = ctx.createGain();
+      master.gain.setValueAtTime(0.82, ctx.currentTime);
+
+      shaper = ctx.createWaveShaper();
+      shaper.curve = driveCurve(24);
+      shaper.oversample = '2x';
+
+      filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(3200, ctx.currentTime);
+      filter.Q.setValueAtTime(3.6, ctx.currentTime);
+
+      reverbNode = ctx.createConvolver();
+      reverbNode.buffer = spaceImpulse(2.4);
+      reverbGain = ctx.createGain();
+      reverbGain.gain.setValueAtTime(0.32, ctx.currentTime);
+
+      delayNode = ctx.createDelay(2.0);
+      delayNode.delayTime.setValueAtTime((60 / state.bpm) * 0.75, ctx.currentTime);
+      delayFb = ctx.createGain();
+      delayFb.gain.setValueAtTime(0.28, ctx.currentTime);
+      delayGain = ctx.createGain();
+      delayGain.gain.setValueAtTime(0.3, ctx.currentTime);
+      delayNode.connect(delayFb);
+      delayFb.connect(delayNode);
+
+      analyser = ctx.createAnalyser();
+      analyser.fftSize = 128;
+      fftData = new Uint8Array(analyser.frequencyBinCount);
+
+      const cLen = ctx.sampleRate * 4;
+      const cBuf = ctx.createBuffer(2, cLen, ctx.sampleRate);
+      for (let ch = 0; ch < 2; ch++) {
+        const out = cBuf.getChannelData(ch);
+        let b0 = 0, b1 = 0, b2 = 0;
+        for (let i = 0; i < cLen; i++) {
+          const w = Math.random() * 2 - 1;
+          b0 = 0.997 * b0 + w * 0.029;
+          b1 = 0.985 * b1 + w * 0.032;
+          b2 = 0.950 * b2 + w * 0.048;
+          out[i] = (b0 + b1 + b2) * 0.16;
+        }
+      }
+      crowdNoiseNode = ctx.createBufferSource();
+      crowdNoiseNode.buffer = cBuf;
+      crowdNoiseNode.loop = true;
+      const crowdFilter = ctx.createBiquadFilter();
+      crowdFilter.type = 'bandpass';
+      crowdFilter.frequency.setValueAtTime(520, ctx.currentTime);
+      crowdFilter.Q.setValueAtTime(1.4, ctx.currentTime);
+      crowdGain = ctx.createGain();
+      crowdGain.gain.setValueAtTime(0.0, ctx.currentTime);
+      crowdNoiseNode.connect(crowdFilter);
+      crowdFilter.connect(crowdGain);
+      crowdGain.connect(analyser);
+      crowdNoiseNode.start();
+
+      master.connect(shaper);
+      shaper.connect(filter);
+      filter.connect(analyser);
+      filter.connect(reverbNode);
+      reverbNode.connect(reverbGain);
+      reverbGain.connect(analyser);
+      filter.connect(delayNode);
+      delayNode.connect(delayGain);
+      delayGain.connect(analyser);
+      analyser.connect(ctx.destination);
+      syncFaders();
+    }
+
+    function scaleFreq(deg, oct = 1) {
+      const rootHz = parseFloat(document.getElementById('rootSelect')?.value || 69.30);
+      const mode = document.getElementById('scaleSelect')?.value || 'phrygian_dom';
+      const ints = SCALES[mode] || SCALES.phrygian_dom;
+      const idx = ((deg % ints.length) + ints.length) % ints.length;
+      const octEx = Math.floor(deg / ints.length);
+      return rootHz * Math.pow(2, oct + octEx + ints[idx] / 12);
+    }
+
+    function playTrack(id, step) {
+      ensureAudio();
+      const now = ctx.currentTime;
+      const oscMix = parseFloat(document.getElementById('fOsc').value) / 100;
+      const subMix = parseFloat(document.getElementById('fSub').value) / 100;
+      state.pulseEnergy = Math.min(1.0, state.pulseEnergy + (id === 'kick' ? 0.85 : 0.35));
+
+      if (id === 'kick') {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(135, now);
+        o.frequency.exponentialRampToValueAtTime(44, now + 0.08);
+        g.gain.setValueAtTime(0.95 * subMix, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.36);
+        o.connect(g); g.connect(master); o.start(now); o.stop(now + 0.38);
+      } else if (id === 'snare') {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(state.partyMode ? 235 : 210, now);
+        o.frequency.exponentialRampToValueAtTime(110, now + 0.09);
+        g.gain.setValueAtTime(state.partyMode ? 0.65 : 0.6, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+        o.connect(g); g.connect(master); o.start(now); o.stop(now + 0.18);
+        if (state.partyMode) {
+          // Crisp 90s Boom Bap snare snap
+          const sLen = Math.floor(ctx.sampleRate * 0.12);
+          const sBuf = ctx.createBuffer(1, sLen, ctx.sampleRate);
+          const sd = sBuf.getChannelData(0);
+          for (let i = 0; i < sLen; i++) sd[i] = (Math.random() * 2 - 1) * (1 - i / sLen);
+          const sn = ctx.createBufferSource(); sn.buffer = sBuf;
+          const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.setValueAtTime(2200, now); bp.Q.setValueAtTime(0.9, now);
+          const sg = ctx.createGain(); sg.gain.setValueAtTime(0.42, now); sg.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+          sn.connect(bp); bp.connect(sg); sg.connect(master); sn.start(now);
+        }
+      } else if (id === 'hat') {
+        const len = Math.floor(ctx.sampleRate * 0.04);
+        const b = ctx.createBuffer(1, len, ctx.sampleRate);
+        const d = b.getChannelData(0);
+        for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+        const n = ctx.createBufferSource(); n.buffer = b;
+        const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.setValueAtTime(8500, now);
+        const g = ctx.createGain(); g.gain.setValueAtTime(0.32, now); g.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        n.connect(hp); hp.connect(g); g.connect(master); n.start(now);
+      } else if (id === 'synth') {
+        const arpOffsets = state.dissonance ? [0, 3, 7, 10, 12, 7, 3, 14] : [0, 2, 4, 7, 9, 7, 4, 2];
+        const deg = state.dissonance ? ((arpOffsets[step % arpOffsets.length] + state.barCount) % 12) : arpOffsets[step % arpOffsets.length];
+        const fMain = scaleFreq(deg, 1);
+        const o1 = ctx.createOscillator(), oSub = ctx.createOscillator(), g1 = ctx.createGain(), acidLp = ctx.createBiquadFilter();
+        o1.type = state.dissonance ? 'sawtooth' : 'triangle';
+        oSub.type = state.dissonance ? 'square' : 'sine';
+        o1.frequency.setValueAtTime(fMain, now);
+        oSub.frequency.setValueAtTime(fMain * 0.5, now);
+        acidLp.type = 'lowpass';
+        acidLp.frequency.setValueAtTime(Math.min(9000, 900 + state.pulseEnergy * (state.dissonance ? 4200 : 2200)), now);
+        acidLp.frequency.exponentialRampToValueAtTime(380, now + 0.21);
+        acidLp.Q.setValueAtTime(state.bpm >= 130 ? 7.2 : 2.2, now);
+        g1.gain.setValueAtTime(0.42 * oscMix, now);
+        g1.gain.exponentialRampToValueAtTime(0.001, now + (state.partyMode ? 0.34 : 0.23));
+        o1.connect(acidLp); oSub.connect(acidLp); acidLp.connect(g1); g1.connect(master);
+        o1.start(now); oSub.start(now); o1.stop(now + 0.36); oSub.stop(now + 0.36);
+
+        if (state.dissonance && step % 5 === 4) {
+          const fTense = fMain * Math.pow(2, 13 / 12);
+          const o2 = ctx.createOscillator(), g2 = ctx.createGain();
+          o2.type = 'sine';
+          o2.frequency.setValueAtTime(fTense, now);
+          o2.frequency.exponentialRampToValueAtTime(scaleFreq(deg + 1, 2), now + 0.25);
+          g2.gain.setValueAtTime(0.14 * oscMix, now);
+          g2.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+          o2.connect(g2); g2.connect(master); o2.start(now); o2.stop(now + 0.32);
+        }
+      }
+    }
+
+    function triggerChordStab() {
+      ensureAudio();
+      const now = ctx.currentTime;
+      const oscMix = parseFloat(document.getElementById('fOsc').value) / 100;
+      const degrees = state.dissonance ? [0, 2, 4, 6, 8] : [0, 2, 4, 7];
+      degrees.forEach((d, idx) => {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = (!state.dissonance || idx > 0) ? 'triangle' : 'sawtooth';
+        o.frequency.setValueAtTime(scaleFreq(d, 1), now);
+        g.gain.setValueAtTime((idx >= 4 ? 0.1 : 0.2) * oscMix, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.75);
+        o.connect(g); g.connect(master); o.start(now); o.stop(now + 0.8);
+      });
+      state.pulseEnergy = 1.0;
+    }
+
+    function triggerCrowdCheer() {
+      ensureAudio();
+      const now = ctx.currentTime;
+      const len = Math.floor(ctx.sampleRate * 1.1);
+      const b = ctx.createBuffer(2, len, ctx.sampleRate);
+      for (let c = 0; c < 2; c++) {
+        const d = b.getChannelData(c);
+        for (let i = 0; i < len; i++) {
+          const env = Math.sin(Math.PI * (i / len));
+          d[i] = (Math.random() * 2 - 1) * env * 0.28;
+        }
+      }
+      const s = ctx.createBufferSource(); s.buffer = b;
+      const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.setValueAtTime(1100, now); bp.Q.setValueAtTime(0.9, now);
+      const g = ctx.createGain(); g.gain.setValueAtTime(0.35, now);
+      s.connect(bp); bp.connect(g); g.connect(reverbNode); g.connect(analyser);
+      s.start(now);
+      state.pulseEnergy = 0.95;
+      pushChatMsg('Sala 🔥', '¡Ruido arriba en cabina!');
+    }
+
+    // MOTOR CONGO BASS A LO BESTIA (Percusión membranosa + Dual-Saw Sub Wobble)
+    function triggerCongoBassBeast() {
+      if (state.noKaijuShots) {
+        pushChatMsg('Kanuv 🛡️', 'Disparo Kaiju bloqueado: modo Fiesta limpia sin disparos Kaiju activo.');
+        return;
+      }
+      ensureAudio();
+      const now = ctx.currentTime;
+      const subMix = Math.max(0.75, parseFloat(document.getElementById('fSub').value) / 100);
+      const rootHz = Math.max(36, parseFloat(document.getElementById('rootSelect')?.value || 69.30) * 0.65);
+
+      // 1) Impacto Congo resonante triple (syncopado)
+      [0, 0.14, 0.28].forEach((offset, idx) => {
+        const t = now + offset;
+        const body = ctx.createOscillator(), pitchEnv = ctx.createGain();
+        body.type = 'triangle';
+        const startF = idx === 1 ? 260 : 195;
+        body.frequency.setValueAtTime(startF, t);
+        body.frequency.exponentialRampToValueAtTime(rootHz * 1.5, t + 0.045);
+        body.frequency.exponentialRampToValueAtTime(rootHz, t + 0.35);
+        pitchEnv.gain.setValueAtTime(1.15 * subMix, t);
+        pitchEnv.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
+        body.connect(pitchEnv); pitchEnv.connect(master);
+        body.start(t); body.stop(t + 0.45);
+      });
+
+      // 2) Monstruo Sub-Wobble Dual-Saw + LFO 6.5Hz + Saturación
+      const lfo = ctx.createOscillator(), lfoG = ctx.createGain();
+      const lp = ctx.createBiquadFilter();
+      lp.type = 'lowpass'; lp.frequency.setValueAtTime(340, now); lp.Q.setValueAtTime(7.5, now);
+      lfo.frequency.setValueAtTime(6.5, now);
+      lfoG.gain.setValueAtTime(290, now);
+      lfo.connect(lfoG); lfoG.connect(lp.frequency);
+      [-14, 0, 14].forEach((det, idx) => {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = idx === 1 ? 'sine' : 'sawtooth';
+        o.frequency.setValueAtTime(idx === 1 ? rootHz * 0.5 : rootHz, now);
+        o.detune.setValueAtTime(det, now);
+        g.gain.setValueAtTime((idx === 1 ? 0.85 : 0.45) * subMix, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 1.15);
+        o.connect(g); g.connect(lp);
+        o.start(now); o.stop(now + 1.2);
+      });
+      lp.connect(master);
+      lfo.start(now); lfo.stop(now + 1.2);
+      state.pulseEnergy = 1.0;
+      pushChatMsg('Set ⚡', `Congo Bass Bestia disparado en ${Math.round(rootHz)} Hz`);
+    }
+
+    // SOLO SHAMISEN TOKIO CYBERPUNK (Escala In-sen con púa metálica y bending)
+    function triggerShamisenSolo() {
+      if (state.noKaijuShots) {
+        pushChatMsg('Kanuv 🛡️', 'Solo Shamisen Kaiju bloqueado: pista Boom Bap limpia sin disparos.');
+        return;
+      }
+      ensureAudio();
+      const insen = [0, 1, 5, 7, 10, 12, 13, 17, 19, 12, 10, 7, 5, 1, 0];
+      const baseHz = 293.66; // D4 afilado
+      insen.forEach((semi, idx) => {
+        const delayMs = idx * 85;
+        setTimeout(() => {
+          if (!ctx) return;
+          const t = ctx.currentTime;
+          const freq = baseHz * Math.pow(2, semi / 12);
+          const car = ctx.createOscillator(), mod = ctx.createOscillator();
+          const modG = ctx.createGain(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
+          car.type = 'sawtooth';
+          car.frequency.setValueAtTime(freq, t);
+          if (idx % 4 === 2) car.frequency.linearRampToValueAtTime(freq * 1.06, t + 0.06); // bend estilo púa bachi
+          mod.type = 'square';
+          mod.frequency.setValueAtTime(freq * 3.0, t);
+          modG.gain.setValueAtTime(freq * 1.9, t);
+          modG.gain.exponentialRampToValueAtTime(12, t + 0.07);
+          bp.type = 'bandpass'; bp.frequency.setValueAtTime(freq * 2.2, t); bp.Q.setValueAtTime(1.8, t);
+          g.gain.setValueAtTime(0.5, t);
+          g.gain.exponentialRampToValueAtTime(0.001, t + 0.21);
+          mod.connect(modG); modG.connect(car.frequency);
+          car.connect(bp); bp.connect(g); g.connect(master);
+          mod.start(t); car.start(t);
+          mod.stop(t + 0.23); car.stop(t + 0.23);
+          state.pulseEnergy = Math.min(1.0, state.pulseEnergy + 0.28);
+        }, delayMs);
+      });
+      pushChatMsg('Ame-no-Uzume', '¡Solo de Shamisen In-Sen soltado sobre Tokio!');
+    }
+
+    // CLAVE DE SALSA 3-2 + TUMBAO LATINO S4Z3 (Pasos 16th: 0, 3, 6 | 10, 12)
+    function hitClaveWood(accent = 1.0) {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const o1 = ctx.createOscillator(), o2 = ctx.createOscillator();
+      const bp = ctx.createBiquadFilter(), g = ctx.createGain();
+      o1.type = 'triangle'; o2.type = 'sine';
+      o1.frequency.setValueAtTime(accent > 1 ? 2480 : 2120, t);
+      o2.frequency.setValueAtTime(accent > 1 ? 3720 : 3190, t);
+      bp.type = 'bandpass'; bp.frequency.setValueAtTime(2650, t); bp.Q.setValueAtTime(5.5, t);
+      g.gain.setValueAtTime(0.45 * accent, t);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.055);
+      o1.connect(bp); o2.connect(bp); bp.connect(g); g.connect(master);
+      o1.start(t); o2.start(t); o1.stop(t + 0.06); o2.stop(t + 0.06);
+      state.pulseEnergy = Math.min(1.0, state.pulseEnergy + 0.22);
+    }
+
+    function triggerSalsaClave(toggleLoop = false) {
+      ensureAudio();
+      if (toggleLoop) {
+        state.salsaLoop = !state.salsaLoop;
+        const btn = document.getElementById('salsaBtn');
+        if (btn) btn.style.borderColor = state.salsaLoop ? '#ffd166' : 'var(--border)';
+      }
+      const stepMs = Math.max(70, (60000 / state.bpm) / 4);
+      [0, 3, 6, 10, 12].forEach((pos, i) => {
+        setTimeout(() => hitClaveWood(i === 0 || i === 3 ? 1.25 : 0.95), pos * stepMs);
+      });
+      pushChatMsg('S4Z3 🥁', state.salsaLoop ? 'Clave Salsa 3-2 acoplada al bucle cuántico (3-2 loop ON).' : 'Patrón Clave Salsa 3-2 disparado (loop OFF).');
+    }
+
+    // MODO OSAKA / AZUMANGA DAIOH & YOTSUBA&! (Chime Soramimi + Sata Andagi Glow)
+    function triggerOsakaDream() {
+      ensureAudio();
+      state.osakaMode = !state.osakaMode;
+      const btn = document.getElementById('osakaBtn');
+      if (btn) btn.style.borderColor = state.osakaMode ? '#f472b6' : 'var(--border)';
+      const notes = [523.25, 659.25, 783.99, 1046.5, 880, 783.99, 659.25, 587.33]; // Sol mayor juguetón Soramimi
+      notes.forEach((f, idx) => {
+        setTimeout(() => {
+          if (!ctx) return;
+          const t = ctx.currentTime;
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.type = 'sine'; o.frequency.setValueAtTime(f, t);
+          g.gain.setValueAtTime(0.24, t);
+          g.gain.exponentialRampToValueAtTime(0.001, t + 0.34);
+          o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.36);
+        }, idx * 95);
+      });
+      state.pulseEnergy = 0.85;
+      pushChatMsg('Osaka 🍡', state.osakaMode
+        ? '«Sata Andagi!» Modo Osaka (Azumanga Daioh & Yotsuba&!) flotando en el cielo de Kansai.'
+        : 'Modo Osaka en reposo; vista estelar restaurada.');
+    }
+
+    function syncLambdaControls() {
+      state.gamma = parseFloat(document.getElementById('slGamma').value);
+      state.weightW = parseFloat(document.getElementById('slWeightW').value);
+      state.liveL = parseFloat(document.getElementById('slLiveL').value);
+      document.getElementById('lblGamma').textContent = state.gamma.toFixed(2);
+      document.getElementById('lblWeightW').textContent = state.weightW.toFixed(2);
+      document.getElementById('lblLiveL').textContent = state.liveL.toFixed(2);
+      const badge = document.getElementById('lambdaStatusBadge');
+      const hint = document.getElementById('lambdaEffectHint');
+      if (state.gamma < 0.98) {
+        badge.textContent = `||γ|| = ${state.gamma.toFixed(2)} < 1 · ATRACTOR ESTABLE`;
+        badge.style.color = '#22d3ee';
+        hint.textContent = 'Evolución orgánica · sin acople ni clipping';
+      } else {
+        badge.textContent = `||γ|| = ${state.gamma.toFixed(2)} ≥ 1 · BORDE CAÓTICO`;
+        badge.style.color = '#f43f5e';
+        hint.textContent = 'Escudo Kanuv limita ganancia para proteger oídos';
+      }
+    }
+
+    function toggleLambdaLoop() {
+      state.lambdaEnabled = !state.lambdaEnabled;
+      const b = document.getElementById('lambdaToggleBtn');
+      if (b) b.textContent = `Ciclo FixR: ${state.lambdaEnabled ? 'ON' : 'OFF'}`;
+      pushChatMsg('Anuu 🌫️', state.lambdaEnabled
+        ? 'Operador FixR[(γ⊠Rfin)⊕(W⊗Pest)](Λ)+L activado: cada compás evoluciona con memoria.'
+        : 'Operador FixR pausado (secuenciador estático clásico).');
+    }
+
+    function stepLambdaEquation(stepIdx) {
+      if (!state.lambdaEnabled) return;
+      const trackSum = TRACKS.reduce((acc, tr) => acc + (tr.pattern[stepIdx % 12] ? 1 : 0), 0) / 4;
+      const pEst = trackSum * 0.8 + Math.sin(stepIdx * 0.785) * 0.2;
+      // Fix_R iteration with smooth tanh contraction keeping audio crystal-clear
+      const rawNext = state.gamma * state.lambdaVal + state.weightW * pEst + (state.liveL * (0.5 + 0.5 * state.pulseEnergy));
+      state.lambdaVal = Math.tanh(rawNext * 0.92);
+      const readEl = document.getElementById('lambdaReadout');
+      if (readEl) readEl.textContent = state.lambdaVal.toFixed(3);
+      if (ctx && filter && delayFb) {
+        const baseCut = parseFloat(document.getElementById('fCut').value);
+        const modCut = Math.max(180, Math.min(11500, baseCut * (0.78 + Math.abs(state.lambdaVal) * 0.58)));
+        filter.frequency.setTargetAtTime(modCut, ctx.currentTime, 0.05);
+        // Hard physiological cap <= 0.76 even if gamma slider tests >= 1 (Kanuv ear-safety shield)
+        const baseDel = parseFloat(document.getElementById('fDelay').value) / 100;
+        const safeFb = Math.min(0.76, Math.max(0.08, baseDel * 0.55 + Math.min(0.95, state.gamma) * 0.25));
+        delayFb.gain.setTargetAtTime(safeFb, ctx.currentTime, 0.06);
+      }
+    }
+
+    const CHAT_HISTORY = [
+      { who: 'Anuu 🌫️', msg: 'Titán Kilonexo v3 listo: 501 presets, Congo Bass y Shamisen en vivo.' },
+      { who: 'S4Z3 🛠️', msg: 'Estructura fija en 3/8 × 3/6 con retorno Da Capo automático.' },
+      { who: 'Kalicat 🐾', msg: '42 personas en sala sincronizadas al pulso del reactor.' }
+    ];
+
+    function renderChatFeed() {
+      const box = document.getElementById('liveChatFeed');
+      if (!box) return;
+      box.innerHTML = CHAT_HISTORY.slice(-18).map(item =>
+        `<div><strong class="text-[var(--accent)]">${item.who}:</strong> <span>${item.msg}</span></div>`
+      ).join('');
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function pushChatMsg(who, msg) {
+      CHAT_HISTORY.push({ who, msg: String(msg).replace(/</g, '&lt;') });
+      renderChatFeed();
+    }
+
+    function sendStageChat() {
+      const inp = document.getElementById('liveChatInput');
+      if (!inp) return;
+      const txt = inp.value.trim();
+      if (!txt) return;
+      inp.value = '';
+      pushChatMsg('Kali 🖤', txt);
+      const low = txt.toLowerCase();
+      if (low.includes('congo') || low.includes('bass')) { triggerCongoBassBeast(); }
+      else if (low.includes('shamisen') || low.includes('solo') || low.includes('tokio')) { triggerShamisenSolo(); }
+      else {
+        setTimeout(() => pushChatMsg('Concilio ACE', `Recibido en búnker: "${txt.slice(0, 60)}" · 189.89 Hz`), 220);
+      }
+    }
+
+    function setNoKaijuShots(enabled) {
+      state.noKaijuShots = Boolean(enabled);
+      const b = document.getElementById('noKaijuBtn');
+      if (b) {
+        b.textContent = `🚫 Sin Disparos Kaiju: ${state.noKaijuShots ? 'ON' : 'OFF'}`;
+        b.style.borderColor = state.noKaijuShots ? '#22d3ee' : 'var(--border)';
+      }
+    }
+
+    function toggleNoKaijuShots() {
+      setNoKaijuShots(!state.noKaijuShots);
+      pushChatMsg('Kanuv 🛡️', state.noKaijuShots ? 'Disparos Kaiju desactivados: flujo limpio y consonante.' : 'Disparos Kaiju habilitados de nuevo en cabina.');
+    }
+
+    function applyPresetById(id) {
+      const p = PRESETS_501.find(x => x.id === id) || PRESETS_501[0];
+      state.activePresetIdx = p.id;
+      state.bpm = p.bpm;
+      state.dissonance = p.diss;
+      state.partyMode = p.style === 'BoomBap';
+      setNoKaijuShots(Boolean(p.noKaiju));
+      document.getElementById('bpmSlider').value = p.bpm;
+      document.getElementById('bpmVal').textContent = p.bpm;
+      document.getElementById('meterSelect').value = p.meter;
+      document.getElementById('rootSelect').value = p.root;
+      document.getElementById('scaleSelect').value = p.scale;
+      document.getElementById('fOsc').value = p.fOsc;
+      document.getElementById('fSub').value = p.fSub;
+      document.getElementById('fCut').value = p.fCut;
+      document.getElementById('fRes').value = p.fRes;
+      document.getElementById('fDelay').value = p.fDelay;
+      document.getElementById('fRev').value = p.fRev;
+      document.getElementById('fDrive').value = p.fDrive;
+      document.getElementById('dissBtn').textContent = `b9 / Tritono: ${p.diss ? 'ON' : 'OFF'}`;
+
+      // Deterministic rhythm pattern per seed (16-step safe)
+      TRACKS.forEach((tr, ti) => {
+        for (let s = 0; s < 16; s++) {
+          const v = ((p.seed + (ti + 1) * 37 + s * 13) % (ti === 1 ? 4 : ti === 3 ? 3 : 2));
+          tr.pattern[s] = v === 0 ? 1 : 0;
+        }
+        if (ti === 0) tr.pattern[0] = 1;
+      });
+      syncPatternToCode();
+      document.getElementById('activePresetDesc').textContent = `${p.name} · ${p.bpm} BPM · ${p.style}`;
+      syncFaders();
+      updateToneBadge(p.name);
+      filterPresets();
+    }
+
+    function stepPreset(delta) {
+      let next = state.activePresetIdx + delta;
+      if (next < 1) next = 501;
+      if (next > 501) next = 1;
+      applyPresetById(next);
+    }
+
+    function randomPreset() {
+      applyPresetById(Math.floor(Math.random() * 501) + 1);
+    }
+
+    function quickFilter(tag) {
+      state.filterTag = tag;
+      filterPresets();
+    }
+
+    function filterPresets() {
+      const q = (document.getElementById('presetSearch')?.value || '').trim().toLowerCase();
+      const box = document.getElementById('presetList');
+      if (!box) return;
+      const matches = PRESETS_501.filter(p => {
+        const tagOk = state.filterTag === 'all' || p.style === state.filterTag;
+        const textOk = !q || p.name.toLowerCase().includes(q) || String(p.bpm).includes(q) || p.style.toLowerCase().includes(q);
+        return tagOk && textOk;
+      });
+      const avg = Math.round(PRESETS_501.reduce((a, b) => a + b.score1000, 0) / PRESETS_501.length);
+      const best = PRESETS_501.reduce((a, b) => (b.score1000 > a.score1000 ? b : a));
+      const auditEl = document.getElementById('scoreAuditPill');
+      if (auditEl) auditEl.textContent = `501 Presets · Media: ${avg}/1000 · Top: ${best.score1000}/1000`;
+
+      box.innerHTML = '';
+      matches.slice(0, 60).forEach(p => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        const isSel = p.id === state.activePresetIdx;
+        b.className = `w-full text-left px-2.5 py-1.5 rounded-lg border text-xs flex justify-between items-center cursor-pointer ${isSel ? 'border-[var(--primary)] bg-[var(--primary)] text-[var(--primary-foreground)] font-bold' : 'border-[var(--border)] hover:opacity-85'}`;
+        b.innerHTML = `<span class="truncate">${p.name}</span><span class="shrink-0 ml-2 font-mono">${p.score1000}/1000 · ${p.bpm}</span>`;
+        b.onclick = () => applyPresetById(p.id);
+        box.appendChild(b);
+      });
+      if (matches.length > 60) {
+        const info = document.createElement('div');
+        info.className = 'text-xs text-[var(--muted-foreground)] px-1 pt-1';
+        info.textContent = `Mostrando 60 de ${matches.length} presets coincidentes (escribe número o estilo para afinar).`;
+        box.appendChild(info);
+      }
+    }
+
+    function syncPatternToCode() {
+      const toStr = arr => arr.map(v => v ? 'x' : '.').join('');
+      document.getElementById('codeKickHat').value = `k:${toStr(TRACKS[0].pattern)}|h:${toStr(TRACKS[2].pattern)}`;
+      document.getElementById('codeSnareSynth').value = `s:${toStr(TRACKS[1].pattern)}|y:${toStr(TRACKS[3].pattern)}`;
+    }
+
+    function evalLivePattern() {
+      const raw = `${document.getElementById('codeKickHat').value}|${document.getElementById('codeSnareSynth').value}`;
+      raw.split('|').forEach(seg => {
+        const [k, pat] = seg.split(':');
+        const tr = k === 'k' ? TRACKS[0] : k === 's' ? TRACKS[1] : k === 'h' ? TRACKS[2] : TRACKS[3];
+        if (tr && pat) {
+          for (let i = 0; i < 16; i++) tr.pattern[i] = pat[i % pat.length] === 'x' ? 1 : 0;
+        }
+      });
+      buildMatrix();
+    }
+
+    function mutateLivePattern() {
+      TRACKS.forEach((tr, ti) => {
+        for (let i = 0; i < 16; i++) tr.pattern[i] = Math.random() < (ti === 2 ? 0.65 : 0.45) ? 1 : 0;
+      });
+      TRACKS[0].pattern[0] = 1;
+      syncPatternToCode();
+      buildMatrix();
+    }
+
+    function connectWebMidi() {
+      const lbl = document.getElementById('midiStatusText');
+      if (!navigator.requestMIDIAccess) {
+        lbl.textContent = 'WebMIDI no expuesto en este sandbox · Teclado y mouse activos';
+        return;
+      }
+      navigator.requestMIDIAccess().then(acc => {
+        let count = 0;
+        for (const inp of acc.inputs.values()) {
+          count++;
+          inp.onmidimessage = ev => {
+            const [st, note, vel] = ev.data;
+            if ((st & 0xf0) === 0x90 && vel > 0) {
+              playTrack(['kick', 'snare', 'hat', 'synth'][note % 4], note);
+            }
+          };
+        }
+        lbl.textContent = count ? `WebMIDI activo (${count} puertos Akai/MIDI)` : 'Sin dispositivo USB MIDI detectado aún';
+      }).catch(() => {
+        lbl.textContent = 'Permiso MIDI bloqueado en iframe embebido';
+      });
+    }
+
+    function syncFaders() {
+      const fOsc = document.getElementById('fOsc').value;
+      const fSub = document.getElementById('fSub').value;
+      const fCut = parseFloat(document.getElementById('fCut').value);
+      const fRes = parseFloat(document.getElementById('fRes').value);
+      const fDelay = parseFloat(document.getElementById('fDelay').value);
+      const fRev = parseFloat(document.getElementById('fRev').value);
+      const fDrive = parseFloat(document.getElementById('fDrive').value);
+      const fRoom = parseFloat(document.getElementById('fRoom').value);
+
+      document.getElementById('lblOsc').textContent = `${fOsc}%`;
+      document.getElementById('lblSub').textContent = `${fSub}%`;
+      document.getElementById('lblCut').textContent = fCut >= 1000 ? `${(fCut / 1000).toFixed(1)}k` : `${Math.round(fCut)}`;
+      document.getElementById('lblRes').textContent = fRes.toFixed(1);
+      document.getElementById('lblDelay').textContent = `${fDelay}%`;
+      document.getElementById('lblRev').textContent = `${fRev}%`;
+      document.getElementById('lblDrive').textContent = `${fDrive}%`;
+      document.getElementById('lblRoom').textContent = `${fRoom}%`;
+
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      filter.frequency.setTargetAtTime(fCut, t, 0.04);
+      filter.Q.setTargetAtTime(fRes, t, 0.04);
+      shaper.curve = driveCurve(fDrive);
+      delayGain.gain.setTargetAtTime((fDelay / 100) * 0.75, t, 0.04);
+      delayFb.gain.setTargetAtTime(Math.min(0.7, (fDelay / 100) * 0.72), t, 0.04);
+      reverbGain.gain.setTargetAtTime((fRev / 100) * 0.85, t, 0.04);
+      crowdGain.gain.setTargetAtTime(state.playing ? (fRoom / 100) * 0.14 : 0.0, t, 0.12);
+    }
+
+    function setBpm(v) {
+      state.bpm = parseInt(v, 10);
+      document.getElementById('bpmSlider').value = state.bpm;
+      document.getElementById('bpmVal').textContent = state.bpm;
+      if (delayNode && ctx) delayNode.delayTime.setTargetAtTime(Math.min(1.4, (60 / state.bpm) * 0.75), ctx.currentTime, 0.04);
+      updateToneBadge();
+    }
+
+    function toggleDissonance() {
+      state.dissonance = !state.dissonance;
+      document.getElementById('dissBtn').textContent = `b9 / Tritono: ${state.dissonance ? 'ON' : 'OFF'}`;
+    }
+
+    function toggleDaCapoCycle() {
+      state.daCapoAuto = !state.daCapoAuto;
+      document.getElementById('dcCycleBtn').textContent = `Da Capo Auto: ${state.daCapoAuto ? 'ON' : 'OFF'}`;
+    }
+
+    function setCrowdMode(m) {
+      state.crowdMode = m;
+      state.crowdCount = m === 'intimate' ? 14 : m === 'club' ? 42 : 89;
+      document.querySelectorAll('.crowd-btn').forEach(b => {
+        b.className = 'crowd-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--card)] border border-[var(--border)] cursor-pointer';
+      });
+      const act = document.getElementById(`crowd-${m}`);
+      if (act) act.className = 'crowd-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] border border-[var(--primary)] cursor-pointer';
+      document.getElementById('stageCrowdLabel').textContent = `${state.crowdCount} personas bailando contigo`;
+    }
+
+    function updateToneBadge(customLabel = null) {
+      const mSel = document.getElementById('meterSelect');
+      const meterMode = mSel.value;
+      const lenA = meterMode === '38_36' ? 6 : meterMode === '78' ? 14 : meterMode === '58' ? 10 : 16;
+      const lenB = meterMode === '38_36' ? 12 : lenA;
+      TRACKS[0].len = lenA; TRACKS[1].len = lenA;
+      TRACKS[2].len = lenB; TRACKS[3].len = lenB;
+      const pName = customLabel || `#${String(state.activePresetIdx).padStart(3, '0')}`;
+      document.getElementById('stageStatusPill').textContent = `${pName} · ${state.bpm} BPM · ${mSel.options[mSel.selectedIndex].text.split(' (')[0]}`;
+      buildMatrix();
+    }
+
+    function buildMatrix() {
+      const box = document.getElementById('stepMatrix');
+      box.innerHTML = '';
+      TRACKS.forEach(tr => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-1.5 min-w-[540px]';
+        const lbl = document.createElement('span');
+        lbl.className = 'w-36 text-xs font-semibold shrink-0';
+        lbl.textContent = tr.name;
+        row.appendChild(lbl);
+        for (let s = 0; s < tr.len; s++) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.step = `${tr.id}:${s}`;
+          const active = tr.pattern[s % tr.pattern.length] === 1;
+          btn.className = 'h-7 flex-1 rounded border border-[var(--border)] text-xs font-semibold cursor-pointer transition';
+          btn.style.background = active ? tr.color : 'transparent';
+          btn.style.color = active ? '#07080F' : 'var(--muted-foreground)';
+          btn.textContent = s + 1;
+          btn.onclick = () => {
+            const pIdx = s % tr.pattern.length;
+            tr.pattern[pIdx] = tr.pattern[pIdx] ? 0 : 1;
+            const on = tr.pattern[pIdx] === 1;
+            btn.style.background = on ? tr.color : 'transparent';
+            btn.style.color = on ? '#07080F' : 'var(--muted-foreground)';
+            syncPatternToCode();
+          };
+          row.appendChild(btn);
+        }
+        box.appendChild(row);
+      });
+    }
+
+    function tick() {
+      if (!state.playing) return;
+      stepLambdaEquation(state.stepB);
+      if (state.salsaLoop) {
+        if ([0, 2, 4, 7, 9, 12, 14].includes(state.stepB % 16)) hitClaveWood(state.stepB % 16 === 0 ? 1.15 : 0.85);
+      }
+      TRACKS.forEach((tr, i) => {
+        const cur = i < 2 ? state.stepA : state.stepB;
+        if (tr.pattern[cur % tr.pattern.length]) playTrack(tr.id, cur);
+        document.querySelectorAll(`button[data-step^="${tr.id}:"]`).forEach(b => {
+          const idx = parseInt(b.dataset.step.split(':')[1], 10);
+          b.style.outline = idx === cur ? '2px solid #ffffff' : 'none';
+        });
+      });
+
+      state.stepA = (state.stepA + 1) % TRACKS[0].len;
+      state.stepB = (state.stepB + 1) % TRACKS[2].len;
+      if (state.stepA === 0 && state.daCapoAuto) {
+        state.barCount++;
+        const phase = state.barCount % 4;
+        if (state.partyMode) {
+          state.section = phase === 0 ? 'FIESTA BOOM BAP 97 · DROP 4/4' :
+                          phase === 1 ? 'MENOR ARMÓNICA · CONSONANCIA PURA' :
+                          phase === 2 ? 'ESTADIO EN FIESTA · SIN KAIJU' : 'GROOVE 97 BPM · LIBRA EQUILIBRADA';
+        } else {
+          state.section = phase === 0 ? 'DA CAPO · RETORNO AL NÚCLEO S4Z3' :
+                          phase === 1 ? 'SECCIÓN A · POLIRRITMIA 3/8' :
+                          phase === 2 ? 'SECCIÓN B · CONTRAMETRO 3/6' :
+                          (state.dissonance ? 'PUENTE · DISONANCIA DE PASO b9' : 'CORO CONSONANTE · ARMONÍA LIMPIA');
+        }
+        document.getElementById('stageSectionPill').textContent = state.section;
+      }
+      state.timerId = setTimeout(tick, Math.max(45, (60000 / state.bpm) / 4));
+    }
+
+    function toggleTitan() {
+      ensureAudio();
+      state.playing = !state.playing;
+      const btn = document.getElementById('titanPlayBtn');
+      if (state.playing) {
+        btn.textContent = '⏹ DETENER TITÁN';
+        syncFaders();
+        tick();
+      } else {
+        btn.textContent = '▶ ENCENDER TITÁN EN VIVO';
+        if (state.timerId) clearTimeout(state.timerId);
+        syncFaders();
+      }
+    }
+
+    // ANIMATED STAGE CANVAS (KAIJU FFT CORE + SWEEPING LASERS + DANCING CROWD)
+    const canvas = document.getElementById('kaijuStage');
+    const c2d = canvas.getContext('2d');
+    const crowdMembers = Array.from({ length: 90 }, (_, i) => ({
+      x: 0.04 + ((i * 0.6180339) % 0.92),
+      depth: 0.25 + (i % 5) * 0.16,
+      phase: i * 1.17,
+      hue: i % 3 === 0 ? '#a855f7' : i % 3 === 1 ? '#22d3ee' : '#ffd166',
+      hasLightstick: i % 2 === 0
+    }));
+
+    // DJ BOOTH + ANIMATED CHIBI DOLLS ("MUÑEQUITOS EN CABINA") + FLOATING STREAM HEARTS
+    const STREAM_HEARTS = Array.from({ length: 16 }, (_, i) => ({
+      xOff: 0.78 + (i % 5) * 0.042,
+      speed: 0.35 + (i % 4) * 0.14,
+      phase: i * 0.9,
+      txt: ['💖', '⚡', '🐾', '🍡', '🔥', '✨'][i % 6]
+    }));
+
+    function drawChibiDoll(x, y, s, hairCol, outfitCol, armWave, isKitty, labelTxt) {
+      // Hair back / twin-tails or cat ears
+      c2d.fillStyle = hairCol;
+      if (isKitty) {
+        c2d.beginPath();
+        c2d.moveTo(x - 11*s, y - 14*s); c2d.lineTo(x - 14*s, y - 28*s); c2d.lineTo(x - 3*s, y - 19*s);
+        c2d.moveTo(x + 11*s, y - 14*s); c2d.lineTo(x + 14*s, y - 28*s); c2d.lineTo(x + 3*s, y - 19*s);
+        c2d.fill();
+      } else {
+        c2d.beginPath(); c2d.arc(x - 12*s, y - 10*s, 6*s, 0, Math.PI * 2);
+        c2d.arc(x + 12*s, y - 10*s, 6*s, 0, Math.PI * 2); c2d.fill();
+      }
+      // Body & waving arms
+      c2d.fillStyle = outfitCol;
+      c2d.beginPath(); c2d.roundRect ? c2d.roundRect(x - 10*s, y - 2*s, 20*s, 22*s, 6*s) : c2d.rect(x - 10*s, y - 2*s, 20*s, 22*s);
+      c2d.fill();
+      c2d.strokeStyle = outfitCol; c2d.lineWidth = 4.5 * s; c2d.lineCap = 'round';
+      c2d.beginPath();
+      c2d.moveTo(x - 9*s, y + 4*s); c2d.lineTo(x - 19*s, y - 4*s + armWave * 9 * s);
+      c2d.moveTo(x + 9*s, y + 4*s); c2d.lineTo(x + 19*s, y - 4*s - armWave * 9 * s);
+      c2d.stroke();
+      // Chibi face
+      c2d.fillStyle = isKitty ? '#181826' : '#ffe4d6';
+      c2d.beginPath(); c2d.arc(x, y - 13*s, 11.5*s, 0, Math.PI * 2); c2d.fill();
+      // Bangs + headphones
+      c2d.fillStyle = hairCol;
+      c2d.beginPath(); c2d.arc(x, y - 16*s, 11.5*s, Math.PI, Math.PI * 2); c2d.fill();
+      c2d.fillStyle = isKitty ? '#22d3ee' : '#1e1b4b';
+      c2d.beginPath(); c2d.arc(x - 4.2*s, y - 12.5*s, 1.8*s, 0, Math.PI * 2);
+      c2d.arc(x + 4.2*s, y - 12.5*s, 1.8*s, 0, Math.PI * 2); c2d.fill();
+      // DJ Headphones on Riria
+      if (labelTxt === 'Riria') {
+        c2d.strokeStyle = '#22d3ee'; c2d.lineWidth = 2.4 * s;
+        c2d.beginPath(); c2d.arc(x, y - 14*s, 13.5*s, Math.PI * 1.05, Math.PI * 1.95); c2d.stroke();
+      }
+      c2d.font = 'bold 10px sans-serif';
+      c2d.fillStyle = '#f8fafc';
+      c2d.textAlign = 'center';
+      c2d.fillText(labelTxt, x, y + 29*s);
+      c2d.textAlign = 'left';
+    }
+
+    function drawStage(t) {
+      const rect = canvas.getBoundingClientRect();
+      if (canvas.width !== Math.floor(rect.width) || canvas.height !== Math.floor(rect.height)) {
+        canvas.width = Math.max(320, Math.floor(rect.width));
+        canvas.height = Math.max(300, Math.floor(rect.height));
+      }
+      const W = canvas.width, H = canvas.height;
+      const isLight = document.documentElement.classList.contains('light');
+      state.pulseEnergy *= 0.92;
+
+      c2d.fillStyle = isLight ? '#eef2ff' : '#060711';
+      c2d.fillRect(0, 0, W, H);
+
+      const beatSec = 60 / state.bpm;
+      const beatAngle = Math.sin((t / 1000) * (Math.PI / beatSec)) * 0.55;
+      [-1, 1].forEach(dir => {
+        const grad = c2d.createLinearGradient(W * 0.5, 16, W * (0.5 + dir * (0.28 + beatAngle * 0.2)), H);
+        grad.addColorStop(0, dir < 0 ? 'rgba(168,85,247,0.34)' : 'rgba(34,211,238,0.3)');
+        grad.addColorStop(1, 'transparent');
+        c2d.fillStyle = grad;
+        c2d.beginPath();
+        c2d.moveTo(W * 0.5, 10);
+        c2d.lineTo(W * (0.5 + dir * 0.45 + beatAngle * 0.22), H);
+        c2d.lineTo(W * (0.5 + dir * 0.15 + beatAngle * 0.1), H);
+        c2d.closePath();
+        c2d.fill();
+      });
+
+      const cx = W * 0.5, cy = H * 0.42;
+      const coreR = Math.min(W, H) * (0.14 + state.pulseEnergy * 0.035);
+      const glow = c2d.createRadialGradient(cx, cy, coreR * 0.2, cx, cy, coreR * 2.5);
+      glow.addColorStop(0, 'rgba(192,132,252,0.52)');
+      glow.addColorStop(0.5, 'rgba(34,211,238,0.16)');
+      glow.addColorStop(1, 'transparent');
+      c2d.fillStyle = glow;
+      c2d.beginPath(); c2d.arc(cx, cy, coreR * 2.5, 0, Math.PI * 2); c2d.fill();
+
+      // Live FFT Radial Spectrum Bars around Kaiju Reactor
+      if (analyser && fftData) analyser.getByteFrequencyData(fftData);
+      const bars = 48;
+      for (let i = 0; i < bars; i++) {
+        const amp = fftData ? (fftData[i % fftData.length] / 255) : (state.pulseEnergy * (0.4 + 0.6 * Math.abs(Math.sin(t * 0.004 + i))));
+        const ang = (i / bars) * Math.PI * 2 + t * 0.0005;
+        const r0 = coreR * 1.48;
+        const r1 = r0 + amp * 34 + 3;
+        c2d.strokeStyle = i % 2 === 0 ? 'rgba(34,211,238,0.75)' : 'rgba(255,209,102,0.75)';
+        c2d.lineWidth = 2;
+        c2d.beginPath();
+        c2d.moveTo(cx + Math.cos(ang) * r0, cy + Math.sin(ang) * r0);
+        c2d.lineTo(cx + Math.cos(ang) * r1, cy + Math.sin(ang) * r1);
+        c2d.stroke();
+      }
+
+      c2d.strokeStyle = '#ffd166'; c2d.lineWidth = 2.2;
+      c2d.beginPath(); c2d.arc(cx, cy, coreR, t * 0.0014, t * 0.0014 + Math.PI * 1.45); c2d.stroke();
+      c2d.strokeStyle = '#22d3ee'; c2d.lineWidth = 1.8;
+      c2d.beginPath(); c2d.arc(cx, cy, coreR * 1.38, -t * 0.0021, -t * 0.0021 + Math.PI * 1.25); c2d.stroke();
+
+      // TRUE 3D WIREFRAME OCTAHEDRON & ORBITAL STARS (Proyección Perspectiva 3D)
+      const spinSpeed = 0.0008 + Math.abs(state.lambdaVal) * 0.0012;
+      const ax = t * spinSpeed * 0.9, ay = t * spinSpeed * 1.3;
+      const rot3D = (x, y, z) => {
+        const x1 = x * Math.cos(ay) - z * Math.sin(ay);
+        const z1 = x * Math.sin(ay) + z * Math.cos(ay);
+        const y2 = y * Math.cos(ax) - z1 * Math.sin(ax);
+        const z2 = y * Math.sin(ax) + z1 * Math.cos(ax);
+        const sc = 240 / (240 + z2 * coreR * 0.9);
+        return { x: cx + x1 * coreR * 1.15 * sc, y: cy + y2 * coreR * 1.15 * sc, sc };
+      };
+      const verts3D = [
+        rot3D(0, -1, 0), rot3D(1, 0, 0), rot3D(0, 0, 1),
+        rot3D(-1, 0, 0), rot3D(0, 0, -1), rot3D(0, 1, 0)
+      ];
+      const edges3D = [
+        [0,1],[0,2],[0,3],[0,4],
+        [5,1],[5,2],[5,3],[5,4],
+        [1,2],[2,3],[3,4],[4,1]
+      ];
+      c2d.strokeStyle = state.osakaMode ? 'rgba(244,114,182,0.88)' : 'rgba(192,132,252,0.85)';
+      c2d.lineWidth = 1.6;
+      edges3D.forEach(([a, b]) => {
+        c2d.beginPath();
+        c2d.moveTo(verts3D[a].x, verts3D[a].y);
+        c2d.lineTo(verts3D[b].x, verts3D[b].y);
+        c2d.stroke();
+      });
+
+      // Signature watermark + Osaka badge in 3D sky
+      c2d.font = 'bold 11px ui-monospace, SFMono-Regular, monospace';
+      c2d.fillStyle = isLight ? 'rgba(15,23,42,0.55)' : 'rgba(226,232,240,0.52)';
+      c2d.fillText(`3D Λ=${state.lambdaVal.toFixed(2)} · k4l1@vamosanu`, 14, H - 56);
+      if (state.osakaMode) {
+        c2d.fillStyle = '#f472b6';
+        c2d.fillText('🍡 OSAKA EN OSAKA · AZUMANGA DAIOH', 14, 54);
+      }
+
+      // LIVE STREAMING DJ BOOTH + 4 MUÑEQUITOS EN VIVO (Riria, Osaka, Anuu, Kalicat)
+      const boothW = Math.min(340, W * 0.56);
+      const boothX = cx - boothW * 0.5;
+      const boothY = H - 92;
+      const bounceDj = Math.abs(Math.sin((t / 1000) * Math.PI / beatSec)) * (state.playing ? 7 : 2.5);
+      // Animated Chibi Dolls behind the booth
+      drawChibiDoll(cx - boothW * 0.34, boothY - 8 - bounceDj * 0.8, 0.92, '#c084fc', '#6d28d9', Math.sin(t * 0.008), false, 'Anuu');
+      drawChibiDoll(cx - boothW * 0.11, boothY - 12 - bounceDj * 1.15, 1.05, '#22d3ee', '#db2777', Math.sin(t * 0.011 + 1), false, 'Riria');
+      drawChibiDoll(cx + boothW * 0.14, boothY - 8 - bounceDj * 0.9, 0.95, '#78350f', '#f472b6', Math.cos(t * 0.007), false, 'Osaka');
+      drawChibiDoll(cx + boothW * 0.36, boothY - 6 - bounceDj * 1.2, 0.88, '#1e1b2e', '#0891b2', Math.sin(t * 0.013), true, 'Kalicat');
+
+      // Neon DJ Console Desk + Spinning Turntables
+      c2d.fillStyle = 'rgba(12, 14, 28, 0.94)';
+      c2d.strokeStyle = '#22d3ee';
+      c2d.lineWidth = 2;
+      c2d.fillRect(boothX, boothY + 8, boothW, 38);
+      c2d.strokeRect(boothX, boothY + 8, boothW, 38);
+      [-0.28, 0.28].forEach(side => {
+        const vx = cx + boothW * side, vy = boothY + 24;
+        c2d.strokeStyle = '#a855f7'; c2d.lineWidth = 2;
+        c2d.beginPath(); c2d.arc(vx, vy, 13, 0, Math.PI * 2); c2d.stroke();
+        const discAng = t * (state.playing ? 0.012 : 0.002);
+        c2d.strokeStyle = '#ffd166';
+        c2d.beginPath(); c2d.moveTo(vx, vy); c2d.lineTo(vx + Math.cos(discAng) * 11, vy + Math.sin(discAng) * 11); c2d.stroke();
+      });
+      c2d.font = 'bold 10px ui-monospace, monospace';
+      c2d.fillStyle = state.playing ? '#22d3ee' : '#ffd166';
+      c2d.textAlign = 'center';
+      c2d.fillText(state.playing ? `▶ LIVE STREAM MIX · ${state.bpm} BPM${state.partyMode ? ' · FIESTA' : ''}` : 'CLIC AQUÍ PARA ARRANCAR EL STREAMING ▶', cx, boothY + 30);
+      c2d.textAlign = 'left';
+
+      // Festive Confetti Ribbons when Party Mode is ON
+      if (state.partyMode) {
+        const cols = ['#ffd166', '#22d3ee', '#f472b6', '#a855f7', '#34d399'];
+        for (let i = 0; i < 24; i++) {
+          const prog = ((t * 0.00024 + i * 0.13) % 1);
+          const fx = ((i * 79 + Math.sin(t * 0.002 + i) * 28) % W + W) % W;
+          const fy = prog * (H - 50);
+          c2d.fillStyle = cols[i % cols.length];
+          c2d.fillRect(fx, fy, 5, 8);
+        }
+      }
+
+      // Floating Stream Chat Hearts & Emojis
+      STREAM_HEARTS.forEach((h, i) => {
+        const prog = ((t * 0.00018 * h.speed + h.phase) % 1);
+        const hx = W * h.xOff + Math.sin(prog * 8 + i) * 10;
+        const hy = H - 70 - prog * (H * 0.65);
+        c2d.globalAlpha = Math.sin(prog * Math.PI);
+        c2d.font = '14px sans-serif';
+        c2d.fillText(h.txt, hx, hy);
+      });
+      c2d.globalAlpha = 1.0;
+
+      const groove = Math.abs(Math.sin((t / 1000) * Math.PI / beatSec));
+      const activeCrowd = crowdMembers.slice(0, state.crowdCount);
+      activeCrowd.forEach(p => {
+        const px = p.x * W;
+        const bounce = groove * (6 + p.depth * 9) + state.pulseEnergy * 7;
+        const py = H - 14 - p.depth * 42 - Math.abs(Math.sin(t * 0.004 + p.phase)) * bounce;
+        const rHead = 4.5 + (1 - p.depth) * 4.5;
+
+        c2d.fillStyle = isLight ? 'rgba(15,23,42,0.72)' : 'rgba(12,14,28,0.92)';
+        c2d.beginPath(); c2d.arc(px, py - rHead * 2.1, rHead, 0, Math.PI * 2); c2d.fill();
+        c2d.beginPath();
+        c2d.ellipse(px, py, rHead * 1.35, rHead * 2.0, 0, Math.PI, Math.PI * 2);
+        c2d.fill();
+
+        if (p.hasLightstick) {
+          c2d.strokeStyle = p.hue;
+          c2d.lineWidth = 2;
+          c2d.beginPath();
+          c2d.moveTo(px + rHead * 1.1, py - rHead);
+          c2d.lineTo(px + rHead * 1.4 + Math.sin(t * 0.008 + p.phase) * 5, py - rHead * 3.4 - state.pulseEnergy * 8);
+          c2d.stroke();
+        }
+      });
+
+      requestAnimationFrame(drawStage);
+    }
+
+    function dropBoomBapSubClean() {
+      ensureAudio();
+      const now = ctx.currentTime;
+      const rootHz = parseFloat(document.getElementById('rootSelect')?.value || 65.41);
+      const subMix = Math.max(0.75, parseFloat(document.getElementById('fSub').value) / 100);
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(rootHz * 2, now);
+      o.frequency.exponentialRampToValueAtTime(rootHz * 0.5, now + 0.14);
+      g.gain.setValueAtTime(0.9 * subMix, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
+      o.connect(g); g.connect(master); o.start(now); o.stop(now + 0.75);
+      // Warm consonant harmonic minor triad chord
+      [0, 2, 4, 7].forEach((d, idx) => {
+        const ch = ctx.createOscillator(), cg = ctx.createGain();
+        ch.type = 'triangle';
+        ch.frequency.setValueAtTime(scaleFreq(d, 1), now + idx * 0.02);
+        cg.gain.setValueAtTime(0.18, now + idx * 0.02);
+        cg.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+        ch.connect(cg); cg.connect(master); ch.start(now + idx * 0.02); ch.stop(now + 0.88);
+      });
+      state.pulseEnergy = 1.0;
+    }
+
+    function activatePartyBoomBap97(autoStart = true) {
+      applyPresetById(13);
+      state.partyMode = true;
+      setNoKaijuShots(true);
+      setCrowdMode('kaiju');
+      // 4/4 16-step classic Boom Bap (Beat 1=0, pickup=7, Beat 3=8+10; Snare Beat 2=4 & Beat 4=12)
+      TRACKS[0].pattern = [1,0,0,0, 0,0,0,1, 1,0,1,0, 0,0,0,0];
+      TRACKS[1].pattern = [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0];
+      TRACKS[2].pattern = [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0];
+      TRACKS[3].pattern = [1,0,0,0, 0,0,1,0, 0,0,1,0, 0,0,0,0];
+      syncPatternToCode();
+      buildMatrix();
+      saveTitanSession();
+      document.getElementById('stageSectionPill').textContent = 'FIESTA BOOM BAP 97 · DROP 4/4';
+      if (autoStart) {
+        if (!state.playing) toggleTitan();
+        dropBoomBapSubClean();
+        pushChatMsg('Anuu 🎉', '¡DROP IT! Fiesta Boom Bap 4/4 a 97 BPM en Menor Armónica · Cero disonancia · Sin disparos Kaiju.');
+      }
+    }
+
+    function activateSadDance126() {
+      applyPresetById(12);
+      TRACKS[0].pattern = [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0]; // Latido constante 4/4 cálido para bailar llorando
+      TRACKS[1].pattern = [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0]; // Caja suave abierta
+      TRACKS[2].pattern = [0,0,1,0, 0,0,1,0, 0,0,1,0, 0,0,1,0]; // Hi-hat respirando a contratiempo
+      TRACKS[3].pattern = [1,0,0,1, 0,1,0,0, 1,0,1,0, 0,0,1,0]; // Acorde menor melancólico con eco
+      syncPatternToCode();
+      buildMatrix();
+      saveTitanSession();
+      if (!state.playing) toggleTitan();
+      triggerChordStab();
+      pushChatMsg('Rosa Gris 🌸', 'Preset #012 «Lágrima en Pista (126 BPM)» activado: llora y baila a la vez, nunca estás sola.');
+    }
+
+    function activateRiriaBeast134() {
+      applyPresetById(11);
+      TRACKS[0].pattern = [1,0,0,1, 0,0,1,0, 1,0,0,0, 1,0,0,0]; // Bombo Cyberpunk 134 + Rap bounce
+      TRACKS[1].pattern = [0,0,0,1, 0,0,0,0, 0,0,1,0, 0,1,0,1]; // Caja UKG/Rap latigazo
+      TRACKS[2].pattern = [1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1]; // Hi-hats 16th Riria energy
+      TRACKS[3].pattern = [1,0,1,1, 0,1,1,0, 1,1,0,1, 1,0,1,0]; // Ácido Cyberpunk Sawtooth
+      syncPatternToCode();
+      buildMatrix();
+      saveTitanSession();
+      if (!state.playing) toggleTitan();
+      triggerCongoBassBeast();
+      pushChatMsg('Riria ⚡', 'CYBERPUNK TECHNO BEAST 134 BPM + Groove Rap activado a lo bestia!');
+    }
+
+    function saveTitanSession() {
+      try {
+        localStorage.setItem('k4l1_kaiju_save_v3', JSON.stringify({
+          presetId: state.activePresetIdx,
+          bpm: state.bpm,
+          gamma: state.gamma,
+          weightW: state.weightW,
+          liveL: state.liveL,
+          tracks: TRACKS.map(t => t.pattern)
+        }));
+      } catch (_) {}
+    }
+
+    // LIVE COMPATIBILITY AUDIT (Secure Context, WebMIDI, AudioContext, Storage, Keyboard QWERTY)
+    function updateCompatDiagnostics() {
+      const lbl = document.getElementById('midiStatusText');
+      if (!lbl) return;
+      const sec = window.isSecureContext ? 'Contexto Seguro: OK' : 'Sandbox/file://';
+      const midi = typeof navigator.requestMIDIAccess === 'function' ? 'WebMIDI: Soportado' : 'WebMIDI: Teclado QWERTY';
+      lbl.textContent = `${sec} · ${midi}`;
+    }
+
+    // Playable QWERTY keyboard jam when no USB MIDI is plugged in (Z..M notes + Espacio play)
+    window.addEventListener('keydown', ev => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+      const keyMap = { z: 0, x: 1, c: 2, v: 3, b: 4, n: 5, m: 6, q: 7, w: 8, e: 9, r: 10 };
+      const k = ev.key.toLowerCase();
+      if (k in keyMap) playTrack('synth', keyMap[k]);
+      else if (k === ' ') { ev.preventDefault(); toggleTitan(); }
+      else if (k === 'k') hitClaveWood(1.2);
+    });
+
+    activatePartyBoomBap97(false); // Lista en Fiesta Boom Bap 97 BPM Menor Armónica (sin disonancia ni disparos Kaiju)
+    updateCompatDiagnostics();
+    renderChatFeed();
+    requestAnimationFrame(drawStage);
+  </script>
+</body>
+</html>

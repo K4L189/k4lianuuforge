@@ -50,6 +50,10 @@ body.omega-body {
   position: relative;
 }
 
+body.omega-body.has-fullwallpaper {
+  background-color: transparent !important;
+}
+
 /* Rejilla Ciber-Goética sutil de fondo */
 body.omega-body::before {
   content: "";

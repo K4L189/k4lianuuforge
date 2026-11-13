@@ -9,15 +9,26 @@
 (function (window, document) {
   'use strict';
 
-  // 1. LISTA CANÓNICA DE LOS 7 FONDOS HD
+  // 1. LISTA CANÓNICA DE FONDOS HD VARIABLES (189.89.619 Hz)
   const CANONICAL_WALLPAPERS = [
-    { file: 'kilonova_sovereign.jpg', name: 'Kilonova Sovereign' },
-    { file: 'anuu_hero.png', name: 'Anuu Cyber-Goth Hero' },
-    { file: 'bg_nexus.png', name: 'GW2 Nexus Matrix' },
-    { file: 'anu_banner.png', name: 'Bruma Ceremonial' },
-    { file: 'bruma_mist.jpg', name: 'Bruma Mist 189.89.619 Hz' },
-    { file: 'anuu_core.jpg', name: 'Anuu Avatar Core' },
-    { file: 'nexus_stellar.png', name: 'Nexus Stellar Orbit' }
+    { file: 'kilonova_sovereign.jpg', name: 'Kilonova Sovereign', theme: 'duat' },
+    { file: '01_nexo_espacio89_seinen_1080p.jpg', name: 'Nexo Espacio 89', theme: 'anuu' },
+    { file: '05_seinen_tokyo_cyberpunk_1080p.jpg', name: 'Neo-Tokyo Seinen Rain', theme: 'neon' },
+    { file: '06_goetiarot_altar_161914_1080p.jpg', name: "Da'at Goetiarot Altar", theme: 'duat' },
+    { file: '07_cyberdeck_mainframe_noir_1080p.jpg', name: 'Cyberdeck Mainframe Noir', theme: 'bioinfo' },
+    { file: '08_kagune_eclipse_seinen_1080p.jpg', name: 'Eclipse Higanbana Seinen', theme: 'blood' },
+    { file: '02_bunker_kalicat_seinen_1080p.jpg', name: 'Búnker Kalicat', theme: 'anuu' },
+    { file: '03_expressway_619hz_seinen_1080p.jpg', name: 'Expressway 619 Hz', theme: 'neon' },
+    { file: '04_kilonova_eclipse_goetiarot_1080p.jpg', name: 'Eclipse Goetiarot', theme: 'omega' },
+    { file: 'dyn_01_anuu_void_wave_1080p.jpg', name: 'Onda Abisal 619 Hz (Gen)', theme: 'anuu' },
+    { file: 'dyn_02_kilonova_coronasol_1080p.jpg', name: 'Corona Solar Kilonova (Gen)', theme: 'duat' },
+    { file: 'dyn_03_cyberdeck_grid_1080p.jpg', name: 'Retícula Cyberdeck (Gen)', theme: 'bioinfo' },
+    { file: 'anuu_hero.png', name: 'Anuu Cyber-Goth Hero', theme: 'anuu' },
+    { file: 'bg_nexus.png', name: 'GW2 Nexus Matrix', theme: 'gw2' },
+    { file: 'anu_banner.png', name: 'Bruma Ceremonial', theme: 'anuu' },
+    { file: 'bruma_mist.jpg', name: 'Bruma Mist 189.89.619 Hz', theme: 'anuu' },
+    { file: 'anuu_core.jpg', name: 'Anuu Avatar Core', theme: 'omega' },
+    { file: 'nexus_stellar.png', name: 'Nexus Stellar Orbit', theme: 'gw2' }
   ];
 
   // Resolver prefijo de ruta para wallpapers y CSS según ubicación del documento

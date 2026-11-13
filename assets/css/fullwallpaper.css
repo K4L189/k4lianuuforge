@@ -6,9 +6,47 @@
 
 :root {
   --fullwallpaper-url: url('../wallpapers/kilonova_sovereign.jpg');
-  --fullwallpaper-opacity: 0.22;
+  --fullwallpaper-opacity: 0.24;
   --fullwallpaper-blur: 0px;
-  --fullwallpaper-overlay: rgba(6, 6, 12, 0.88);
+  --fullwallpaper-filter: saturate(1.08) contrast(1.04);
+  --fullwallpaper-overlay: rgba(6, 6, 12, 0.86);
+  --fullwallpaper-tint: rgba(106, 80, 166, 0.14);
+}
+
+:root[data-theme="anuu"], [data-theme="anuu"] {
+  --fullwallpaper-tint: rgba(106, 80, 166, 0.16);
+  --fullwallpaper-filter: saturate(1.12) contrast(1.05);
+}
+
+:root[data-theme="blood"], [data-theme="blood"] {
+  --fullwallpaper-tint: rgba(225, 29, 72, 0.16);
+  --fullwallpaper-filter: saturate(1.18) contrast(1.08) hue-rotate(-14deg);
+}
+
+:root[data-theme="gw2"], [data-theme="gw2"] {
+  --fullwallpaper-tint: rgba(16, 185, 129, 0.14);
+  --fullwallpaper-filter: saturate(1.1) contrast(1.05);
+}
+
+:root[data-theme="bioinfo"], [data-theme="bioinfo"] {
+  --fullwallpaper-tint: rgba(0, 245, 212, 0.15);
+  --fullwallpaper-filter: saturate(1.15) contrast(1.06);
+}
+
+:root[data-theme="duat"], [data-theme="duat"] {
+  --fullwallpaper-tint: rgba(251, 191, 36, 0.14);
+  --fullwallpaper-filter: saturate(1.12) contrast(1.08) sepia(0.12);
+}
+
+:root[data-theme="neon"], [data-theme="neon"] {
+  --fullwallpaper-tint: rgba(255, 0, 127, 0.18);
+  --fullwallpaper-filter: saturate(1.25) contrast(1.1);
+}
+
+:root[data-theme="omega"], [data-theme="omega"] {
+  --fullwallpaper-opacity: 0.22;
+  --fullwallpaper-tint: rgba(138, 43, 226, 0.18);
+  --fullwallpaper-filter: saturate(1.14) contrast(1.08);
 }
 
 /* Base de lienzo profundo */
@@ -86,8 +124,9 @@ body:has(#k4li-bg-layer-a) {
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: -20;
-  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity;
+  filter: var(--fullwallpaper-filter, none);
+  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1), filter 800ms ease;
+  will-change: opacity, filter;
 }
 
 #k4li-bg-overlay {
@@ -102,10 +141,11 @@ body:has(#k4li-bg-layer-a) {
   z-index: -10;
   background-color: var(--fullwallpaper-overlay, rgba(6, 6, 12, 0.88));
   background-image: 
-    radial-gradient(circle at 50% 35%, rgba(6, 6, 12, 0.70) 0%, rgba(6, 6, 12, 0.88) 70%, rgba(4, 4, 8, 0.98) 100%),
-    linear-gradient(180deg, rgba(6, 6, 12, 0.80) 0%, rgba(6, 6, 12, 0.88) 50%, rgba(4, 4, 8, 0.96) 100%);
+    radial-gradient(circle at 50% 35%, var(--fullwallpaper-tint, rgba(106, 80, 166, 0.14)) 0%, rgba(6, 6, 12, 0.86) 68%, rgba(4, 4, 8, 0.98) 100%),
+    linear-gradient(180deg, rgba(6, 6, 12, 0.78) 0%, rgba(6, 6, 12, 0.88) 50%, rgba(4, 4, 8, 0.96) 100%);
   backdrop-filter: blur(var(--fullwallpaper-blur, 0px));
   -webkit-backdrop-filter: blur(var(--fullwallpaper-blur, 0px));
+  transition: background-image 800ms ease, background-color 800ms ease;
 }
 
 .wallpaper-layer-active {

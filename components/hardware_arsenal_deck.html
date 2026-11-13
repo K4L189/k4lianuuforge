@@ -679,7 +679,7 @@
             </div>
             <div class="my-auto">
               <div class="pad-label text-sm md:text-base font-bold text-white transition-colors">Alchemical Kick</div>
-              <div class="pad-sub text-[10px] font-mono text-zinc-400 mt-0.5">Horno Alquímico 55Hz</div>
+              <div class="pad-sub text-[10px] font-mono text-zinc-400 mt-0.5">Atanor Cuántico 55Hz</div>
             </div>
             <div class="w-full bg-black/40 h-1 rounded-full overflow-hidden">
               <div class="pad-meter bg-purple-500 h-full w-0 transition-all duration-75"></div>
@@ -771,6 +771,173 @@
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- BANCO DE SINTETIZADORES, FADERS & SECUENCIADOR POLIRRÍTMICO (MATHCORE 3/8 × 3/6 · UKG · RAP) -->
+      <div id="synthSequencerPanel" class="mt-6 rounded-2xl border p-4 md:p-5 relative z-10" style="background: rgba(8, 6, 18, 0.88); border-color: var(--border-card);">
+        <style>
+          .fader-col { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 4px; border-radius: 12px; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.06); }
+          .fader-track { height: 92px; width: 28px; display: flex; align-items: center; justify-content: center; }
+          .v-fader { -webkit-appearance: none; appearance: none; width: 88px; height: 8px; transform: rotate(-90deg); background: linear-gradient(90deg, rgba(168,85,247,0.25), rgba(6,182,212,0.55)); border-radius: 999px; outline: none; cursor: pointer; border: 1px solid rgba(255,255,255,0.14); }
+          .v-fader::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 22px; border-radius: 4px; background: linear-gradient(180deg, #f3e8ff, #a855f7); border: 1px solid #fff; box-shadow: 0 0 8px rgba(168,85,247,0.8); cursor: ns-resize; }
+          .v-fader::-moz-range-thumb { width: 14px; height: 22px; border-radius: 4px; background: linear-gradient(180deg, #f3e8ff, #a855f7); border: 1px solid #fff; cursor: ns-resize; }
+        </style>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3 mb-4">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-mono font-bold tracking-wider text-purple-300 uppercase flex items-center gap-1.5">
+              <span>🎹</span> RACK SINTETIZADOR CON FADERS &amp; POLIRRITMIA MATHCORE
+            </span>
+            <span id="activeScaleBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+              C# Frigio Dominante · 3/8 × 3/6
+            </span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5" id="bankSelectorGroup">
+            <button type="button" onclick="switchSynthBank('alquimia')" id="bankBtn-alquimia" class="bank-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border border-purple-500/60 bg-purple-500/20 text-purple-200">A · Alquimia 189</button>
+            <button type="button" onclick="switchSynthBank('ukg')" id="bankBtn-ukg" class="bank-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border border-zinc-700 bg-black/50 text-zinc-400 hover:text-white">B · UKG 2-Step</button>
+            <button type="button" onclick="switchSynthBank('mathcore')" id="bankBtn-mathcore" class="bank-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border border-zinc-700 bg-black/50 text-zinc-400 hover:text-white">C · Mathcore Odd</button>
+            <button type="button" onclick="switchSynthBank('rap')" id="bankBtn-rap" class="bank-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border border-zinc-700 bg-black/50 text-zinc-400 hover:text-white">D · Rap MPC 808</button>
+          </div>
+        </div>
+
+        <!-- BARRA DE ESCALAS, TONALIDAD, COMPÁS POLIRRÍTMICO (3/8, 3/6, 5/8, 7/8) Y TRANSPORTE -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 mb-4 text-xs font-mono items-end">
+          <div>
+            <button type="button" id="seqPlayBtn" onclick="toggleSequencer()" class="w-full py-2 px-3 rounded-xl font-bold border border-emerald-500/60 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30 transition-all">
+              ▶ PLAY SEQ
+            </button>
+          </div>
+
+          <div>
+            <label class="block text-[10px] text-zinc-400 mb-1">COMPÁS / POLIRRITMIA</label>
+            <select id="seqMeterSelect" onchange="setSeqMeter(this.value)" class="w-full bg-black/80 border border-zinc-700 rounded-lg px-2 py-1.5 text-xs text-purple-300">
+              <option value="poly_3_8_3_6">3/8 × 3/6 · Polirritmia Mathcore</option>
+              <option value="6">3/8 · 6 Steps (Riff Cortante)</option>
+              <option value="12">3/6 · 12 Triplet Steps</option>
+              <option value="10">5/8 · 10 Steps (Impar)</option>
+              <option value="14">7/8 · 14 Steps (Metalcore)</option>
+              <option value="16">4/4 · 16 Steps (UKG / Rap)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[10px] text-zinc-400 mb-1">TONALIDAD (ROOT)</label>
+            <select id="synthRootSelect" onchange="setSynthScale()" class="w-full bg-black/80 border border-zinc-700 rounded-lg px-2 py-1.5 text-xs text-amber-300">
+              <option value="C#2">C# (Drop C#)</option>
+              <option value="C2">C (Drop C)</option>
+              <option value="B1">B (Drop B)</option>
+              <option value="A#1">A# (Drop A#)</option>
+              <option value="D2">D (Drop D)</option>
+              <option value="F#2">F# (Kilonova)</option>
+              <option value="F2">F (UKG Sub)</option>
+              <option value="E2">E (Standard)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[10px] text-zinc-400 mb-1">ESCALA / MODO</label>
+            <select id="synthScaleSelect" onchange="setSynthScale()" class="w-full bg-black/80 border border-zinc-700 rounded-lg px-2 py-1.5 text-xs text-cyan-300">
+              <option value="phrygian_dom">Frigio Dominante (Metalcore)</option>
+              <option value="dim_hw">Disminuida 1/2-1 (Mathcore)</option>
+              <option value="phrygian">Frigia Oscura</option>
+              <option value="harmonic_min">Menor Armónica</option>
+              <option value="locrian">Locria (Tritono)</option>
+              <option value="aeolian">Menor Natural / UKG</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[10px] text-zinc-400 mb-1">BPM: <span id="seqBpmLabel" class="text-cyan-300">152</span></label>
+            <input id="seqBpmInput" type="range" min="70" max="210" step="1" value="152" oninput="setSeqBpm(this.value)" class="w-full accent-purple-500">
+          </div>
+
+          <div>
+            <label class="block text-[10px] text-zinc-400 mb-1">MPC SWING: <span id="seqSwingLabel" class="text-pink-300">50%</span></label>
+            <input id="seqSwingInput" type="range" min="50" max="74" step="1" value="50" oninput="setSeqSwing(this.value)" class="w-full accent-pink-500">
+          </div>
+
+          <div>
+            <label class="block text-[10px] text-zinc-400 mb-1">PRESETS INSTANTÁNEOS</label>
+            <div class="grid grid-cols-2 gap-1">
+              <button type="button" onclick="loadSeqPreset('math3836')" class="py-1 px-1.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-200 hover:bg-amber-500/20 text-[10px] font-bold">Math 3/8×3/6</button>
+              <button type="button" onclick="loadSeqPreset('ukg')" class="py-1 px-1.5 rounded border border-cyan-500/40 bg-cyan-500/10 text-cyan-200 hover:bg-cyan-500/20 text-[10px] font-bold">UKG 2-Step</button>
+              <button type="button" onclick="loadSeqPreset('rap')" class="py-1 px-1.5 rounded border border-purple-500/40 bg-purple-500/10 text-purple-200 hover:bg-purple-500/20 text-[10px] font-bold">Rap 92</button>
+              <button type="button" onclick="clearSeqGrid()" class="py-1 px-1.5 rounded border border-zinc-700 bg-black/50 text-zinc-400 hover:text-white text-[10px]">CLR</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONSOLA DE 8 FADERS SINTETIZADOR + DSP (ESTILO MESA DE MEZCLAS) -->
+        <div class="mb-4 rounded-xl border border-white/10 bg-black/40 p-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5 text-[10px] font-mono">
+            <span class="text-zinc-300 font-bold uppercase tracking-wider">🎚️ Consola de Faders Sintetizador &amp; Envío DSP (Tiempo Real)</span>
+            <div class="flex items-center gap-2">
+              <span class="text-zinc-400">OSC FORMA:</span>
+              <select id="synthWaveSelect" onchange="updateSynthFaders()" class="bg-black border border-zinc-700 rounded px-2 py-0.5 text-[10px] text-purple-300">
+                <option value="sawtooth">Sawtooth (Metalcore)</option>
+                <option value="square">Square (Mathcore 8-bit)</option>
+                <option value="triangle">Triangle (UKG Warm)</option>
+                <option value="sine">Sine (Sub/Sine)</option>
+              </select>
+              <button type="button" onclick="triggerScalePreview()" class="px-2 py-0.5 rounded border border-purple-500/40 bg-purple-500/15 text-purple-200 hover:bg-purple-500/30">
+                🎶 Probar Escala
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-4 sm:grid-cols-8 gap-2 text-[10px] font-mono text-center">
+            <div class="fader-col">
+              <span id="fValOsc" class="text-purple-300 font-bold">85%</span>
+              <div class="fader-track"><input id="faderOsc" type="range" min="0" max="100" value="85" oninput="updateSynthFaders()" class="v-fader"></div>
+              <span class="text-zinc-400">OSC MIX</span>
+            </div>
+            <div class="fader-col">
+              <span id="fValSub" class="text-cyan-300 font-bold">75%</span>
+              <div class="fader-track"><input id="faderSub" type="range" min="0" max="100" value="75" oninput="updateSynthFaders()" class="v-fader"></div>
+              <span class="text-zinc-400">SUB 808</span>
+            </div>
+            <div class="fader-col">
+              <span id="fValCutoff" class="text-emerald-300 font-bold">3.5k</span>
+              <div class="fader-track"><input id="faderCutoff" type="range" min="120" max="12000" value="3500" oninput="updateSynthFaders(true)" class="v-fader"></div>
+              <span class="text-zinc-400">CUTOFF</span>
+            </div>
+            <div class="fader-col">
+              <span id="fValRes" class="text-emerald-300 font-bold">3.2</span>
+              <div class="fader-track"><input id="synthResInput" type="range" min="0.5" max="15.0" step="0.1" value="3.2" oninput="setSynthResonance(this.value)" class="v-fader"></div>
+              <span class="text-zinc-400">RES (Q)</span>
+            </div>
+            <div class="fader-col">
+              <span id="fValLfo" class="text-pink-300 font-bold">4.0Hz</span>
+              <div class="fader-track"><input id="faderLfo" type="range" min="0" max="18" step="0.2" value="4.0" oninput="updateSynthFaders()" class="v-fader"></div>
+              <span class="text-zinc-400">LFO MOD</span>
+            </div>
+            <div class="fader-col">
+              <span id="fValDelay" class="text-cyan-300 font-bold">32%</span>
+              <div class="fader-track"><input id="faderDelay" type="range" min="0" max="90" value="32" oninput="updateSynthFaders()" class="v-fader"></div>
+              <span class="text-zinc-400">DELAY</span>
+            </div>
+            <div class="fader-col">
+              <span id="fValReverb" class="text-purple-300 font-bold">28%</span>
+              <div class="fader-track"><input id="faderReverb" type="range" min="0" max="90" value="28" oninput="updateSynthFaders(false, true)" class="v-fader"></div>
+              <span class="text-zinc-400">REVERB</span>
+            </div>
+            <div class="fader-col">
+              <span id="synthDriveLabel" class="text-amber-300 font-bold">28%</span>
+              <div class="fader-track"><input id="synthDriveInput" type="range" min="0" max="100" step="1" value="28" oninput="setSynthDrive(this.value)" class="v-fader"></div>
+              <span class="text-zinc-400">DRIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MATRIZ DE PASOS DEL SECUENCIADOR (CADA PISTA SOPORTA LONGITUD INDEPENDIENTE 3/8 vs 3/6) -->
+        <div id="seqGridContainer" class="space-y-1.5 overflow-x-auto pb-1"></div>
+
+        <!-- AVISO LEGAL SOBERANO (NO USO SIN PERMISO) -->
+        <div class="mt-3 pt-2.5 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-zinc-400">
+          <span>🔒 © 2026 K4L189 (Kali) · <strong class="text-purple-300">Todos los derechos reservados</strong> — Uso o redistribución prohibidos sin permiso expreso.</span>
+          <span class="text-zinc-500">Motor DSP WebAudio + WebMIDI + Faders · 0,00 € Local</span>
         </div>
       </div>
 
@@ -1005,11 +1172,17 @@
     const CANONICAL_FREQ = 189.89;
     const SUB_FREQ = 61.9;
     let currentMode = 'sampler'; // 'sampler' o 'tactical'
+    let currentSynthBank = 'alquimia';
     let midiAccess = null;
     let audioCtx = null;
     let masterGain = null;
     let masterFilter = null;
+    let masterShaper = null;
     let masterReverb = null;
+    let reverbWetGain = null;
+    let delayWetGain = null;
+    let tapeDelay = null;
+    let tapeFeedback = null;
     let activeOscillators = {};
 
     // Parámetros dinámicos modulados por los 4 Q-Link knobs
@@ -1021,26 +1194,83 @@
     };
 
     /* ==========================================================================
-       2. DEFINICIÓN DE PADS EN AMBOS MODOS
+       2. DEFINICIÓN DE PADS EN AMBOS MODOS + 4 BANCOS SINTETIZADORES
        ========================================================================== */
-    const SAMPLER_PADS = {
-      1:  { name: "Sub-Drop 61.9Hz", sub: "Tormenta de Set ⚡", type: "sub_drop" },
-      2:  { name: "Glitch Hat 161914", sub: "Ruido Metálico Afilado", type: "glitch_hat" },
-      3:  { name: "Kilonova Bell", sub: "Resonancia Inarmónica", type: "kilonova_bell" },
-      4:  { name: "Binaural Pulse 189.89", sub: "Theta Beat 4Hz / Niebla", type: "binaural" },
-      5:  { name: "Air Drone Sombrío", sub: "Sombra de Rosa Gris 🌸", type: "air_drone" },
-      6:  { name: "Alchemical Kick", sub: "Horno Alquímico 55Hz", type: "kick" },
-      7:  { name: "Snare Clack Glitch", sub: "Percusión Industrial", type: "snare" },
-      8:  { name: "Shimmer Pad", sub: "Luz en la Niebla F#m", type: "pad" },
-      9:  { name: "Sub-Harmonic 31Hz", sub: "Corte de Ilusiones", type: "sub_31" },
-      10: { name: "Metallic Chime", sub: "Agujas de Kali (FM Bell)", type: "chime" },
-      11: { name: "Dark Neuro Bass", sub: "Modulación Seinen", type: "neuro_bass" },
-      12: { name: "Reverse Tape Drone", sub: "Eco Espectral Anuu", type: "tape_drone" },
-      13: { name: "High-Voltage Spark ⚡", sub: "Descarga Eléctrica Set", type: "spark" },
-      14: { name: "Velvet Purr 🐾", sub: "Kalicat Sub-Rumble", type: "purr" },
-      15: { name: "Kanuv Shield Gong", sub: "Impacto Alquímico 619Hz", type: "gong" },
-      16: { name: "Final Pulse 189.89", sub: "Armonía del Concilio ACE", type: "final_pulse" }
+    const SYNTH_BANKS = {
+      alquimia: {
+        1:  { name: "Sub-Drop 61.9Hz", sub: "Tormenta de Set ⚡", type: "sub_drop" },
+        2:  { name: "Glitch Hat 161914", sub: "Ruido Metálico Afilado", type: "glitch_hat" },
+        3:  { name: "Kilonova Bell", sub: "Resonancia Inarmónica", type: "kilonova_bell" },
+        4:  { name: "Binaural Pulse 189.89", sub: "Theta Beat 4Hz / Niebla", type: "binaural" },
+        5:  { name: "Air Drone Sombrío", sub: "Sombra de Rosa Gris 🌸", type: "air_drone" },
+        6:  { name: "Alchemical Kick", sub: "Atanor Cuántico 55Hz", type: "kick" },
+        7:  { name: "Snare Clack Glitch", sub: "Percusión Industrial", type: "snare" },
+        8:  { name: "Shimmer Pad", sub: "Luz en la Niebla F#m", type: "pad" },
+        9:  { name: "Sub-Harmonic 31Hz", sub: "Corte de Ilusiones", type: "sub_31" },
+        10: { name: "Metallic Chime", sub: "Agujas de Kali (FM Bell)", type: "chime" },
+        11: { name: "Dark Neuro Bass", sub: "Modulación Seinen", type: "neuro_bass" },
+        12: { name: "Reverse Tape Drone", sub: "Eco Espectral Anuu", type: "tape_drone" },
+        13: { name: "High-Voltage Spark ⚡", sub: "Descarga Eléctrica Set", type: "spark" },
+        14: { name: "Velvet Purr 🐾", sub: "Kalicat Sub-Rumble", type: "purr" },
+        15: { name: "Kanuv Shield Gong", sub: "Impacto Alquímico 619Hz", type: "gong" },
+        16: { name: "Final Pulse 189.89", sub: "Armonía del Concilio ACE", type: "final_pulse" }
+      },
+      ukg: {
+        1:  { name: "2-Step Kick Punch", sub: "UKG Skip Low-End 52Hz", type: "kick" },
+        2:  { name: "UKG Shuffle Hat", sub: "Swing Crisp 10kHz", type: "ukg_hat" },
+        3:  { name: "Crispy Rimshot", sub: "2-Step Ghost Rim", type: "ukg_rim" },
+        4:  { name: "M1 Organ Bass C2", sub: "Clásico UK Garage Organ", type: "ukg_organ" },
+        5:  { name: "M1 Organ Bass Eb2", sub: "Corte Melódico Tercera", type: "ukg_organ_eb" },
+        6:  { name: "M1 Organ Bass F2", sub: "Subida Garage 4ª", type: "ukg_organ_f" },
+        7:  { name: "Snare Snap 2-Step", sub: "Caja Seca DJ Mag", type: "snare" },
+        8:  { name: "Rhodes Chop Min9", sub: "Acorde Warm Rhodes", type: "chop_rhodes" },
+        9:  { name: "Reese Wobble Bass", sub: "Dual-Saw Modulado", type: "reese_warp" },
+        10: { name: "FM Garage Stab", sub: "Modulación Riria 619", type: "fm_lead" },
+        11: { name: "Skippy Shaker", sub: "Micro-Grano High", type: "glitch_hat" },
+        12: { name: "Tape Dub Chord", sub: "Delay Feedback 89", type: "chop_rhodes" },
+        13: { name: "Sirena Rave Sweep", sub: "Subida de Transición", type: "spark" },
+        14: { name: "Vocal Breath Pad", sub: "Atmósfera UKG", type: "air_drone" },
+        15: { name: "Sub Dive 808", sub: "Drop Profundo 45Hz", type: "sub_drop" },
+        16: { name: "Riria Dawn Bell", sub: "Campana Armónica 189.89", type: "kilonova_bell" }
+      },
+      mathcore: {
+        1:  { name: "Djent Sub Kick", sub: "Transient Ultra-Rápido", type: "kick" },
+        2:  { name: "Djent Saw Crunch", sub: "Polirritmia Disonante", type: "math_djent_saw" },
+        3:  { name: "Razor Snare", sub: "Impacto Seco 220Hz", type: "snare" },
+        4:  { name: "China Glitch Crash", sub: "Ruido Metálico FM", type: "glitch_hat" },
+        5:  { name: "5/8 Syncopate Bass", sub: "Reese Distorsionado", type: "reese_warp" },
+        6:  { name: "7/8 Odd FM Lead", sub: "Sinte Cortante Atanor", type: "fm_lead" },
+        7:  { name: "Arc Electric Pick", sub: "Descarga Alta Frec.", type: "spark" },
+        8:  { name: "Sub-Harmonic Drop", sub: "Caída Disonante", type: "sub_drop" },
+        9:  { name: "Industrial Rim", sub: "Metrónomo Odd Meter", type: "ukg_rim" },
+        10: { name: "Kilonova Dissonance", sub: "Campana Tritono", type: "kilonova_bell" },
+        11: { name: "Tactile Hat Stutter", sub: "Micro-Corte Binario", type: "ukg_hat" },
+        12: { name: "Tension Drone", sub: "Barrido Oscuro", type: "air_drone" },
+        13: { name: "Kanuv Heavy Gong", sub: "Corte de Compás", type: "gong" },
+        14: { name: "Neuro Growl Bass", sub: "Saturación Seinen", type: "math_djent_saw" },
+        15: { name: "Theta Overload", sub: "Pulso Polirrítmico", type: "binaural" },
+        16: { name: "Omega Reset 189.89", sub: "Cierre de Ciclo", type: "final_pulse" }
+      },
+      rap: {
+        1:  { name: "MPC Boom Kick", sub: "Bombo Crudo Analógico", type: "kick" },
+        2:  { name: "MPC Crisp Snare", sub: "Caja Boom-Bap", type: "snare" },
+        3:  { name: "808 Sub Slide", sub: "Subgrave Largo 48Hz", type: "rap_808" },
+        4:  { name: "MPC Closed Hat", sub: "Swing 58% Pocket", type: "ukg_hat" },
+        5:  { name: "Vinyl Rim Click", sub: "Ghost Note MPC", type: "ukg_rim" },
+        6:  { name: "Lo-Fi Rhodes Chop", sub: "Sample Cortado Jazz", type: "chop_rhodes" },
+        7:  { name: "Soul Rhodes Stab 2", sub: "Acorde Variación", type: "chop_rhodes" },
+        8:  { name: "G-Funk Lead Synth", sub: "Portamento Saw/Sine", type: "fm_lead" },
+        9:  { name: "Deep Reese Pad", sub: "Cama Grave Anuu", type: "reese_warp" },
+        10: { name: "MPC Perc Shake", sub: "Textura Hi-Pass", type: "glitch_hat" },
+        11: { name: "Organ Chop Stinger", sub: "Golpe Armónico", type: "ukg_organ" },
+        12: { name: "Sub Drop Impact", sub: "Intro / Outro Beat", type: "sub_drop" },
+        13: { name: "Bell Chime Sample", sub: "Brillo Superior", type: "kilonova_bell" },
+        14: { name: "Breath Atmos 🌸", sub: "Fondo Analógico", type: "air_drone" },
+        15: { name: "Zap FX Retro", sub: "Corte Láser MPC", type: "spark" },
+        16: { name: "Kali 189.89 Seal", sub: "Firma Sónica", type: "final_pulse" }
+      }
     };
+    let SAMPLER_PADS = SYNTH_BANKS.alquimia;
 
     const TACTICAL_PADS = {
       1:  { name: "Tar Pit 4200ms", sub: "Activar Retardo Adaptativo", action: "tarpit" },
@@ -1082,20 +1312,47 @@
         masterGain = audioCtx.createGain();
         masterGain.gain.setValueAtTime(0.85, audioCtx.currentTime);
 
-        // Master Biquad Lowpass Filter (Q-Link 3)
+        // Soft-Clipper Saturation Stage (Synth Drive)
+        masterShaper = audioCtx.createWaveShaper();
+        masterShaper.curve = buildDriveCurve(18);
+        masterShaper.oversample = '2x';
+
+        // Master Biquad Lowpass Filter (Q-Link 3 + Resonance)
         masterFilter = audioCtx.createBiquadFilter();
         masterFilter.type = "lowpass";
         masterFilter.frequency.setValueAtTime(qlinkValues.cutoff, audioCtx.currentTime);
-        masterFilter.Q.setValueAtTime(2.5, audioCtx.currentTime);
+        masterFilter.Q.setValueAtTime(3.2, audioCtx.currentTime);
+
+        // Procedural Convolution Reverb (Espacio 89 - Q-Link 4) + Tape Delay (independiente)
+        masterReverb = audioCtx.createConvolver();
+        masterReverb.buffer = buildSpaceImpulse(Math.max(0.4, qlinkValues.reverb), 2.4);
+        reverbWetGain = audioCtx.createGain();
+        reverbWetGain.gain.setValueAtTime(synthState.reverbWet * 0.85, audioCtx.currentTime);
+
+        tapeDelay = audioCtx.createDelay(2.0);
+        tapeDelay.delayTime.setValueAtTime(0.28, audioCtx.currentTime);
+        tapeFeedback = audioCtx.createGain();
+        tapeFeedback.gain.setValueAtTime(0.28, audioCtx.currentTime);
+        delayWetGain = audioCtx.createGain();
+        delayWetGain.gain.setValueAtTime(synthState.delayWet * 0.75, audioCtx.currentTime);
+        tapeDelay.connect(tapeFeedback);
+        tapeFeedback.connect(tapeDelay);
 
         // Master Analyser Node para el Osciloscopio
         analyser = audioCtx.createAnalyser();
         analyser.fftSize = 512;
         analyser.smoothingTimeConstant = 0.85;
 
-        // Routing
-        masterGain.connect(masterFilter);
+        // Routing: masterGain -> masterShaper -> masterFilter -> Dry + Reverb + Delay -> analyser -> destination
+        masterGain.connect(masterShaper);
+        masterShaper.connect(masterFilter);
         masterFilter.connect(analyser);
+        masterFilter.connect(masterReverb);
+        masterReverb.connect(reverbWetGain);
+        reverbWetGain.connect(analyser);
+        masterFilter.connect(tapeDelay);
+        tapeDelay.connect(delayWetGain);
+        delayWetGain.connect(analyser);
         analyser.connect(audioCtx.destination);
 
         startOscilloscope();
@@ -1302,6 +1559,151 @@
           g.connect(masterGain);
           osc.start(now);
           osc.stop(now + 3.5);
+          break;
+        }
+
+        case 'ukg_rim': {
+          const osc = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(840, now);
+          osc.frequency.exponentialRampToValueAtTime(420, now + 0.035);
+          g.gain.setValueAtTime(0.65 * gainScale, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + 0.055);
+          osc.connect(g); g.connect(masterGain);
+          osc.start(now); osc.stop(now + 0.06);
+          break;
+        }
+
+        case 'ukg_hat': {
+          const bufferSize = Math.floor(audioCtx.sampleRate * 0.045);
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+          const hp = audioCtx.createBiquadFilter();
+          hp.type = 'highpass';
+          hp.frequency.setValueAtTime(9500, now);
+          const g = audioCtx.createGain();
+          g.gain.setValueAtTime(0.45 * gainScale, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+          noise.connect(hp); hp.connect(g); g.connect(masterGain);
+          noise.start(now);
+          break;
+        }
+
+        case 'ukg_organ':
+        case 'ukg_organ_eb':
+        case 'ukg_organ_f': {
+          const deg = padConfig.type === 'ukg_organ' ? 0 : padConfig.type === 'ukg_organ_eb' ? 2 : 3;
+          const f0 = getScaleFreq(deg, 1);
+          [f0, f0 * 2, f0 * 3].forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            osc.type = idx === 0 ? 'triangle' : 'sine';
+            osc.frequency.setValueAtTime(freq, now);
+            const lvl = (idx === 0 ? 0.55 : idx === 1 ? 0.35 : 0.18) * synthState.oscMix * gainScale;
+            g.gain.setValueAtTime(Math.max(0.001, lvl), now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+            osc.connect(g); g.connect(masterGain);
+            osc.start(now); osc.stop(now + 0.25);
+          });
+          break;
+        }
+
+        case 'chop_rhodes': {
+          [0, 2, 4, 6].forEach((deg, idx) => {
+            const freq = getScaleFreq(deg, 2);
+            const osc = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            osc.type = idx % 2 === 0 ? 'triangle' : 'sine';
+            osc.frequency.setValueAtTime(freq, now);
+            g.gain.setValueAtTime(0.22 * synthState.oscMix * gainScale, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+            osc.connect(g); g.connect(masterGain);
+            osc.start(now); osc.stop(now + 0.58);
+          });
+          break;
+        }
+
+        case 'reese_warp': {
+          const baseFreq = getScaleFreq(0, 0);
+          const lfo = audioCtx.createOscillator();
+          const lfoGain = audioCtx.createGain();
+          const filt = audioCtx.createBiquadFilter();
+          filt.type = 'lowpass';
+          filt.frequency.setValueAtTime(420, now);
+          filt.Q.setValueAtTime(4.5, now);
+          lfo.frequency.setValueAtTime(Math.max(0.4, synthState.lfoRate), now);
+          lfoGain.gain.setValueAtTime(280, now);
+          lfo.connect(lfoGain); lfoGain.connect(filt.frequency);
+          [-9, 9].forEach(cents => {
+            const osc = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            osc.type = synthState.waveform || 'sawtooth';
+            osc.frequency.setValueAtTime(baseFreq, now);
+            osc.detune.setValueAtTime(cents, now);
+            g.gain.setValueAtTime(0.32 * synthState.oscMix * gainScale, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.65);
+            osc.connect(g); g.connect(filt);
+            osc.start(now); osc.stop(now + 0.68);
+          });
+          filt.connect(masterGain);
+          lfo.start(now); lfo.stop(now + 0.68);
+          break;
+        }
+
+        case 'math_djent_saw': {
+          const deg = (padNum + synthState.stepCounter) % 7;
+          const rootF = getScaleFreq(deg, 0);
+          const tritoneF = getScaleFreq(deg + 3, 1);
+          [rootF, tritoneF].forEach((f, idx) => {
+            const osc = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            osc.type = synthState.waveform || 'sawtooth';
+            osc.frequency.setValueAtTime(f, now);
+            g.gain.setValueAtTime((idx === 0 ? 0.45 : 0.25) * synthState.oscMix * gainScale, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+            osc.connect(g); g.connect(masterGain);
+            osc.start(now); osc.stop(now + 0.17);
+          });
+          break;
+        }
+
+        case 'fm_lead': {
+          const deg = (padNum * 2 + synthState.stepCounter) % 7;
+          const freq = getScaleFreq(deg, 2);
+          const car = audioCtx.createOscillator();
+          const mod = audioCtx.createOscillator();
+          const modG = audioCtx.createGain();
+          const g = audioCtx.createGain();
+          car.type = synthState.waveform || 'sawtooth';
+          car.frequency.setValueAtTime(freq, now);
+          mod.type = 'sine';
+          mod.frequency.setValueAtTime(freq * 2.5, now);
+          modG.gain.setValueAtTime(freq * (1.2 + synthState.lfoRate * 0.15), now);
+          modG.gain.exponentialRampToValueAtTime(10, now + 0.22);
+          g.gain.setValueAtTime(0.42 * synthState.oscMix * gainScale, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+          mod.connect(modG); modG.connect(car.frequency);
+          car.connect(g); g.connect(masterGain);
+          mod.start(now); car.start(now);
+          mod.stop(now + 0.3); car.stop(now + 0.3);
+          break;
+        }
+
+        case 'rap_808': {
+          const baseF = getScaleFreq(0, 0);
+          const osc = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(baseF * 2.2, now);
+          osc.frequency.exponentialRampToValueAtTime(Math.max(32, baseF), now + 0.06);
+          g.gain.setValueAtTime(0.95 * synthState.subMix * gainScale, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+          osc.connect(g); g.connect(masterGain);
+          osc.start(now); osc.stop(now + 0.88);
           break;
         }
 
@@ -1791,9 +2193,17 @@
         if (masterFilter && audioCtx) {
           masterFilter.frequency.setTargetAtTime(val, audioCtx.currentTime, 0.05);
         }
+        const fCut = document.getElementById("faderCutoff");
+        const fCutLbl = document.getElementById("fValCutoff");
+        if (fCut) fCut.value = val;
+        if (fCutLbl) fCutLbl.textContent = val >= 1000 ? `${(val / 1000).toFixed(1)}k` : `${Math.round(val)}`;
       } else if (knobIndex === 4) {
         qlinkValues.reverb = val;
         valLabel.textContent = `${val.toFixed(1)} s`;
+        if (reverbWetGain && audioCtx) {
+          const wet = Math.min(0.65, Math.max(0.02, val / 10.0));
+          reverbWetGain.gain.setTargetAtTime(wet, audioCtx.currentTime, 0.05);
+        }
       }
     }
 
@@ -2245,10 +2655,366 @@ echo "[✓] Centinela Raspberry Pi 3B configurado y operando a 2.5W."
       }
     }
 
+    /* ==========================================================================
+       10. MOTOR SINTETIZADOR CON ESCALAS, FADERS DSP & POLIRRITMIA 3/8 x 3/6
+       ========================================================================== */
+    const ROOT_HZ_MAP = {
+      'C#2': 69.30, 'C2': 65.41, 'B1': 61.74, 'A#1': 58.27,
+      'D2': 73.42, 'F#2': 92.50, 'F2': 87.31, 'E2': 82.41
+    };
+    const SCALES_INTERVALS = {
+      phrygian_dom: [0, 1, 4, 5, 7, 8, 10],
+      dim_hw:       [0, 1, 3, 4, 6, 7, 9, 10],
+      phrygian:     [0, 1, 3, 5, 7, 8, 10],
+      harmonic_min: [0, 2, 3, 5, 7, 8, 11],
+      locrian:      [0, 1, 3, 5, 6, 8, 10],
+      aeolian:      [0, 2, 3, 5, 7, 8, 10]
+    };
+    let synthState = {
+      root: 'C#2',
+      scale: 'phrygian_dom',
+      waveform: 'sawtooth',
+      oscMix: 0.85,
+      subMix: 0.75,
+      lfoRate: 4.0,
+      delayWet: 0.32,
+      reverbWet: 0.28,
+      drive: 28,
+      resonance: 3.2,
+      stepCounter: 0
+    };
+
+    function getScaleFreq(degree, octShift = 1) {
+      const baseHz = ROOT_HZ_MAP[synthState.root] || 69.30;
+      const intervals = SCALES_INTERVALS[synthState.scale] || SCALES_INTERVALS.phrygian_dom;
+      const len = intervals.length;
+      const octExtra = Math.floor(degree / len);
+      const semi = intervals[((degree % len) + len) % len];
+      return baseHz * Math.pow(2, octShift + octExtra + semi / 12.0);
+    }
+
+    function buildDriveCurve(amountPct) {
+      const k = (amountPct / 100) * 65 + 0.5;
+      const n = 2048;
+      const curve = new Float32Array(n);
+      for (let i = 0; i < n; i++) {
+        const x = (i * 2) / n - 1;
+        curve[i] = ((3 + k) * x * 20 * (Math.PI / 180)) / (Math.PI + k * Math.abs(x));
+      }
+      return curve;
+    }
+
+    function buildSpaceImpulse(seconds = 2.6, decay = 2.4) {
+      const rate = audioCtx.sampleRate;
+      const len = Math.floor(rate * seconds);
+      const buf = audioCtx.createBuffer(2, len, rate);
+      for (let c = 0; c < 2; c++) {
+        const ch = buf.getChannelData(c);
+        for (let i = 0; i < len; i++) {
+          ch[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+        }
+      }
+      return buf;
+    }
+
+    function setSynthScale() {
+      const rEl = document.getElementById('synthRootSelect');
+      const sEl = document.getElementById('synthScaleSelect');
+      if (rEl) synthState.root = rEl.value;
+      if (sEl) synthState.scale = sEl.value;
+      const mEl = document.getElementById('seqMeterSelect');
+      const mText = mEl ? mEl.options[mEl.selectedIndex].text.split(' · ')[0] : '3/8 × 3/6';
+      const badge = document.getElementById('activeScaleBadge');
+      if (badge && sEl) badge.textContent = `${synthState.root.replace(/[0-9]/g, '')} ${sEl.options[sEl.selectedIndex].text.split(' (')[0]} · ${mText}`;
+    }
+
+    function updateSynthFaders(syncCutoff = false, syncReverb = false) {
+      synthState.oscMix = (parseFloat(document.getElementById('faderOsc')?.value || 85)) / 100;
+      synthState.subMix = (parseFloat(document.getElementById('faderSub')?.value || 75)) / 100;
+      synthState.lfoRate = parseFloat(document.getElementById('faderLfo')?.value || 4.0);
+      synthState.delayWet = (parseFloat(document.getElementById('faderDelay')?.value || 32)) / 100;
+      synthState.reverbWet = (parseFloat(document.getElementById('faderReverb')?.value || 28)) / 100;
+      synthState.waveform = document.getElementById('synthWaveSelect')?.value || 'sawtooth';
+
+      const cutoff = parseFloat(document.getElementById('faderCutoff')?.value || 3500);
+      document.getElementById('fValOsc').textContent = `${Math.round(synthState.oscMix * 100)}%`;
+      document.getElementById('fValSub').textContent = `${Math.round(synthState.subMix * 100)}%`;
+      document.getElementById('fValCutoff').textContent = cutoff >= 1000 ? `${(cutoff / 1000).toFixed(1)}k` : `${Math.round(cutoff)}`;
+      document.getElementById('fValLfo').textContent = `${synthState.lfoRate.toFixed(1)}Hz`;
+      document.getElementById('fValDelay').textContent = `${Math.round(synthState.delayWet * 100)}%`;
+      document.getElementById('fValReverb').textContent = `${Math.round(synthState.reverbWet * 100)}%`;
+
+      if (syncCutoff) updateKnobValue(3, Math.round(cutoff));
+      if (syncReverb && reverbWetGain && audioCtx) {
+        reverbWetGain.gain.setTargetAtTime(synthState.reverbWet * 0.85, audioCtx.currentTime, 0.04);
+      }
+      if (tapeDelay && tapeFeedback && audioCtx) {
+        const sixteenthSec = (60 / seqState.bpm) / 4;
+        tapeDelay.delayTime.setTargetAtTime(Math.min(1.5, sixteenthSec * 3), audioCtx.currentTime, 0.04);
+        tapeFeedback.gain.setTargetAtTime(Math.min(0.75, synthState.delayWet * 0.78), audioCtx.currentTime, 0.04);
+        if (delayWetGain) delayWetGain.gain.setTargetAtTime(synthState.delayWet * 0.75, audioCtx.currentTime, 0.04);
+      }
+    }
+
+    function setSynthResonance(val) {
+      synthState.resonance = parseFloat(val);
+      const lbl = document.getElementById('fValRes');
+      if (lbl) lbl.textContent = synthState.resonance.toFixed(1);
+      if (masterFilter && audioCtx) masterFilter.Q.setTargetAtTime(synthState.resonance, audioCtx.currentTime, 0.04);
+    }
+
+    function setSynthDrive(val) {
+      synthState.drive = parseFloat(val);
+      const lbl = document.getElementById('synthDriveLabel');
+      if (lbl) lbl.textContent = `${Math.round(synthState.drive)}%`;
+      if (masterShaper) masterShaper.curve = buildDriveCurve(synthState.drive);
+    }
+
+    function triggerScalePreview() {
+      initAudio();
+      const notes = [0, 1, 2, 3, 4, 5, 6, 7];
+      notes.forEach((deg, idx) => {
+        setTimeout(() => {
+          if (!audioCtx) return;
+          const now = audioCtx.currentTime;
+          const f = getScaleFreq(deg, 1);
+          const osc = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          osc.type = synthState.waveform || 'sawtooth';
+          osc.frequency.setValueAtTime(f, now);
+          g.gain.setValueAtTime(0.32 * synthState.oscMix, now);
+          g.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+          osc.connect(g); g.connect(masterGain);
+          osc.start(now); osc.stop(now + 0.2);
+        }, idx * 105);
+      });
+    }
+
+    const SEQ_TRACKS = [
+      { id: 'kick',  label: 'KICK / SUB (3/8)',  pad: 1, color: 'bg-purple-500' },
+      { id: 'snare', label: 'SNARE / RIM (3/8)', pad: 7, color: 'bg-rose-500' },
+      { id: 'hat',   label: 'HAT / GLITCH (3/6)', pad: 2, color: 'bg-cyan-500' },
+      { id: 'synth', label: 'DJENT / SYNTH (3/6)', pad: 11, color: 'bg-amber-500' }
+    ];
+
+    let seqState = {
+      running: false,
+      meterMode: 'poly_3_8_3_6', // 'poly_3_8_3_6' o número entero de pasos
+      stepsMain: 6,
+      stepsPoly: 12,
+      bpm: 152,
+      swing: 50,
+      stepMain: 0,
+      stepPoly: 0,
+      timerId: null,
+      grid: {
+        kick:  Array(16).fill(0),
+        snare: Array(16).fill(0),
+        hat:   Array(16).fill(0),
+        synth: Array(16).fill(0)
+      }
+    };
+
+    function switchSynthBank(bankName) {
+      if (!SYNTH_BANKS[bankName]) return;
+      currentSynthBank = bankName;
+      SAMPLER_PADS = SYNTH_BANKS[bankName];
+      document.querySelectorAll('.bank-btn').forEach(b => {
+        b.className = "bank-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border border-zinc-700 bg-black/50 text-zinc-400 hover:text-white";
+      });
+      const active = document.getElementById(`bankBtn-${bankName}`);
+      if (active) active.className = "bank-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold border border-purple-500/60 bg-purple-500/20 text-purple-200";
+      if (currentMode === 'sampler') {
+        for (let i = 1; i <= 16; i++) {
+          const pad = document.querySelector(`.mpc-pad[data-pad="${i}"]`);
+          if (pad && SAMPLER_PADS[i]) {
+            pad.querySelector('.pad-label').textContent = SAMPLER_PADS[i].name;
+            pad.querySelector('.pad-sub').textContent = SAMPLER_PADS[i].sub;
+          }
+        }
+      }
+      logToTerminal(`[BANCO] Sintetizador cambiado a Banco '${bankName.toUpperCase()}' (${synthState.root} ${synthState.scale}).`);
+    }
+
+    function setSeqMeter(modeVal) {
+      seqState.meterMode = modeVal;
+      if (modeVal === 'poly_3_8_3_6') {
+        seqState.stepsMain = 6;   // 3/8 (6 semicorcheas)
+        seqState.stepsPoly = 12;  // 3/6 (12 subdivisiones tresillo/sextillo)
+      } else {
+        const n = parseInt(modeVal, 10) || 16;
+        seqState.stepsMain = n;
+        seqState.stepsPoly = n;
+      }
+      seqState.stepMain = 0;
+      seqState.stepPoly = 0;
+      setSynthScale();
+      renderSeqGrid();
+    }
+
+    function setSeqBpm(val) {
+      seqState.bpm = parseInt(val, 10);
+      const lbl = document.getElementById('seqBpmLabel');
+      if (lbl) lbl.textContent = seqState.bpm;
+      updateSynthFaders();
+      if (seqState.running) { stopSequencerLoop(); startSequencerLoop(); }
+    }
+
+    function setSeqSwing(val) {
+      seqState.swing = parseInt(val, 10);
+      const lbl = document.getElementById('seqSwingLabel');
+      if (lbl) lbl.textContent = `${seqState.swing}%`;
+    }
+
+    function clearSeqGrid() {
+      SEQ_TRACKS.forEach(t => seqState.grid[t.id].fill(0));
+      renderSeqGrid();
+    }
+
+    function loadSeqPreset(name) {
+      clearSeqGrid();
+      if (name === 'math3836') {
+        switchSynthBank('mathcore');
+        document.getElementById('seqMeterSelect').value = 'poly_3_8_3_6';
+        setSeqMeter('poly_3_8_3_6');
+        document.getElementById('seqBpmInput').value = 152;
+        setSeqBpm(152);
+        document.getElementById('seqSwingInput').value = 50;
+        setSeqSwing(50);
+        // 3/8 (6 pasos) en Bombos/Cajas + 3/6 (12 pasos) en Hats/Djent Synth
+        seqState.grid.kick  = [1,0,1,1,0,0, 0,0,0,0,0,0,0,0,0,0];
+        seqState.grid.snare = [0,0,0,1,0,1, 0,0,0,0,0,0,0,0,0,0];
+        seqState.grid.hat   = [1,1,0,1,0,1, 1,0,1,1,0,1, 0,0,0,0];
+        seqState.grid.synth = [1,0,1,1,0,0, 1,0,1,0,1,1, 0,0,0,0];
+        SEQ_TRACKS[3].pad = 2; // Djent Saw Crunch
+      } else if (name === 'ukg') {
+        switchSynthBank('ukg');
+        document.getElementById('seqMeterSelect').value = '16';
+        setSeqMeter('16');
+        document.getElementById('seqBpmInput').value = 134;
+        setSeqBpm(134);
+        document.getElementById('seqSwingInput').value = 59;
+        setSeqSwing(59);
+        seqState.grid.kick  = [1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0];
+        seqState.grid.snare = [0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0];
+        seqState.grid.hat   = [0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0];
+        seqState.grid.synth = [1,0,0,1,0,0,1,0,0,1,0,0,1,0,1,0];
+        SEQ_TRACKS[3].pad = 4; // M1 Organ Bass
+      } else if (name === 'rap') {
+        switchSynthBank('rap');
+        document.getElementById('seqMeterSelect').value = '16';
+        setSeqMeter('16');
+        document.getElementById('seqBpmInput').value = 92;
+        setSeqBpm(92);
+        document.getElementById('seqSwingInput').value = 62;
+        setSeqSwing(62);
+        seqState.grid.kick  = [1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0];
+        seqState.grid.snare = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0];
+        seqState.grid.hat   = [1,0,1,0,1,0,1,0,1,0,1,1,1,0,1,0];
+        seqState.grid.synth = [1,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0];
+        SEQ_TRACKS[3].pad = 6; // Lo-Fi Rhodes Chop
+      }
+      renderSeqGrid();
+    }
+
+    function renderSeqGrid() {
+      const box = document.getElementById('seqGridContainer');
+      if (!box) return;
+      box.innerHTML = '';
+      SEQ_TRACKS.forEach((tr, rowIdx) => {
+        const len = rowIdx >= 2 ? seqState.stepsPoly : seqState.stepsMain;
+        const cur = rowIdx >= 2 ? seqState.stepPoly : seqState.stepMain;
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-1.5 min-w-[600px]';
+        const lbl = document.createElement('span');
+        lbl.className = 'w-32 text-[10px] font-mono text-zinc-400 truncate shrink-0';
+        lbl.textContent = rowIdx === 0 ? `KICK (${seqState.stepsMain}s)` : rowIdx === 1 ? `SNARE (${seqState.stepsMain}s)` : rowIdx === 2 ? `HAT (${seqState.stepsPoly}s)` : `SYNTH (${seqState.stepsPoly}s)`;
+        row.appendChild(lbl);
+        for (let s = 0; s < len; s++) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          const active = seqState.grid[tr.id][s] === 1;
+          const isHead = seqState.running && cur === s;
+          btn.className = `h-7 flex-1 rounded border text-[9px] font-mono transition-all ${active ? tr.color + ' text-black font-bold border-white/60' : 'bg-black/50 text-zinc-600 border-zinc-800 hover:border-zinc-500'} ${isHead ? 'ring-2 ring-white scale-105' : ''}`;
+          btn.textContent = s + 1;
+          btn.dataset.step = `${tr.id}:${s}`;
+          btn.onclick = () => {
+            seqState.grid[tr.id][s] = seqState.grid[tr.id][s] ? 0 : 1;
+            const on = seqState.grid[tr.id][s] === 1;
+            btn.className = `h-7 flex-1 rounded border text-[9px] font-mono transition-all ${on ? tr.color + ' text-black font-bold border-white/60' : 'bg-black/50 text-zinc-600 border-zinc-800 hover:border-zinc-500'}`;
+          };
+          row.appendChild(btn);
+        }
+        box.appendChild(row);
+      });
+    }
+
+    function updateSeqPlayhead() {
+      SEQ_TRACKS.forEach((tr, rowIdx) => {
+        const cur = rowIdx >= 2 ? seqState.stepPoly : seqState.stepMain;
+        document.querySelectorAll(`button[data-step^="${tr.id}:"]`).forEach(btn => {
+          const s = parseInt(btn.dataset.step.split(':')[1], 10);
+          if (seqState.running && cur === s) {
+            btn.classList.add('ring-2', 'ring-white', 'scale-105');
+          } else {
+            btn.classList.remove('ring-2', 'ring-white', 'scale-105');
+          }
+        });
+      });
+    }
+
+    function stepSequencer() {
+      if (!seqState.running) return;
+      synthState.stepCounter++;
+      const sMain = seqState.stepMain;
+      const sPoly = seqState.stepPoly;
+
+      SEQ_TRACKS.forEach((tr, rowIdx) => {
+        const idx = rowIdx >= 2 ? sPoly : sMain;
+        if (seqState.grid[tr.id][idx]) {
+          triggerPad(tr.pad, rowIdx === 3 ? 115 : 124, rowIdx >= 2 ? 'Seq 3/6' : 'Seq 3/8');
+        }
+      });
+
+      updateSeqPlayhead();
+      seqState.stepMain = (seqState.stepMain + 1) % seqState.stepsMain;
+      seqState.stepPoly = (seqState.stepPoly + 1) % seqState.stepsPoly;
+
+      const baseMs = (60000 / seqState.bpm) / 4;
+      const swingFactor = (sPoly % 2 === 0) ? (seqState.swing / 50) : ((100 - seqState.swing) / 50);
+      seqState.timerId = setTimeout(stepSequencer, Math.max(40, baseMs * swingFactor));
+    }
+
+    function startSequencerLoop() {
+      initAudio();
+      if (seqState.timerId) clearTimeout(seqState.timerId);
+      stepSequencer();
+    }
+
+    function stopSequencerLoop() {
+      if (seqState.timerId) { clearTimeout(seqState.timerId); seqState.timerId = null; }
+      renderSeqGrid();
+    }
+
+    function toggleSequencer() {
+      seqState.running = !seqState.running;
+      const btn = document.getElementById('seqPlayBtn');
+      if (seqState.running) {
+        if (btn) btn.textContent = '⏹ STOP SEQ';
+        startSequencerLoop();
+      } else {
+        if (btn) btn.textContent = '▶ PLAY SEQ';
+        stopSequencerLoop();
+      }
+    }
+
     // INICIALIZACIÓN GENERAL AL CARGAR EL DOM
     window.addEventListener("DOMContentLoaded", () => {
       initPadListeners();
       initQLinkKnobs();
+      loadSeqPreset('math3836');
+      setSynthScale();
+      updateSynthFaders();
       regeneratePineappleScript();
       
       const ardPre = document.getElementById("arduinoCodePre");

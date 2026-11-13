@@ -81,7 +81,7 @@ def run_integrity_check(repo_root: Path):
         print(f"\n[FAIL] Archivos esenciales faltantes: {missing_critical}")
         return False, len(missing_critical), 0
 
-    # 2. Verificar catálogo canónico de los 7 fondos de pantalla y assets de marca
+    # 2. Verificar catálogo canónico de fondos de pantalla y assets de marca
     wallpapers = [
         "anu_banner.png",
         "anuu_core.jpg",
@@ -89,7 +89,18 @@ def run_integrity_check(repo_root: Path):
         "bg_nexus.png",
         "bruma_mist.jpg",
         "kilonova_sovereign.jpg",
-        "nexus_stellar.png"
+        "nexus_stellar.png",
+        "01_nexo_espacio89_seinen_1080p.jpg",
+        "02_bunker_kalicat_seinen_1080p.jpg",
+        "03_expressway_619hz_seinen_1080p.jpg",
+        "04_kilonova_eclipse_goetiarot_1080p.jpg",
+        "05_seinen_tokyo_cyberpunk_1080p.jpg",
+        "06_goetiarot_altar_161914_1080p.jpg",
+        "07_cyberdeck_mainframe_noir_1080p.jpg",
+        "08_kagune_eclipse_seinen_1080p.jpg",
+        "dyn_01_anuu_void_wave_1080p.jpg",
+        "dyn_02_kilonova_coronasol_1080p.jpg",
+        "dyn_03_cyberdeck_grid_1080p.jpg"
     ]
     brand_assets = [
         repo_root / "assets" / "icon-192.png",
